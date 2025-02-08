@@ -7,9 +7,9 @@ import { createStyleContext } from "@/lib/style-context";
 
 const { withProvider, withContext } = createStyleContext(tabs);
 
-const Tabs = withProvider(styled(TabsPrimitive.Root), "root");
-const TabsList = withContext(styled(TabsPrimitive.List), "list");
-const TabsTrigger = withContext(styled(TabsPrimitive.Trigger), "trigger");
-const TabsContent = withContext(styled(TabsPrimitive.Content), "content");
+const Tabs = withProvider(TabsPrimitive.Root, "root");
+const TabsList = withContext(TabsPrimitive.List, "list");
+const TabsTrigger = withContext(TabsPrimitive.Trigger, "trigger");
+const TabsContent = withContext(TabsPrimitive.Content, "content");
 
 export { Tabs, TabsContent, TabsList, TabsTrigger };

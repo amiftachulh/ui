@@ -23,18 +23,10 @@ const Button = styled(function Button({
     <Component disabled={loading || disabled} {...props}>
       {loading ? (
         <>
-          {/**
-           * We need a wrapper to set `visibility: hidden` to hide the button content whilst we show the `Spinner`.
-           * The button is a flex container with a `gap`, so we use `display: contents` to ensure the correct flex layout.
-           *
-           * However, `display: contents` removes the content from the accessibility tree in some browsers,
-           * so we force remove it with `aria-hidden` and re-add it in the tree with `VisuallyHidden`
-           */}
           <span className={css({ display: "contents", visibility: "hidden" })} aria-hidden>
             {children}
           </span>
           <div className={visuallyHidden()}>{children}</div>
-
           <span className={flex({ align: "center", justify: "center", pos: "absolute", inset: 0 })}>
             <LuLoaderCircle className={css({ animation: "spin" })} />
           </span>

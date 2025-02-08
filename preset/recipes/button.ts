@@ -42,7 +42,7 @@ export const buttonRecipe = defineRecipe({
           bg: "solid.hover",
         },
         _active: {
-          bg: "solid.hover/90",
+          bg: "solid.active",
         },
       },
       subtle: {

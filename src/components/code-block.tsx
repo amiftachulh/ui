@@ -3,6 +3,7 @@ import { jsx, jsxs } from "react/jsx-runtime";
 import { toJsxRuntime } from "hast-util-to-jsx-runtime";
 import { codeToHast, type BundledLanguage } from "shiki";
 import { css, cx } from "styled-system/css";
+import { scroll } from "styled-system/recipes";
 import CodeBlockCopy from "./code-block-copy";
 
 type CodeBlockProps = {
@@ -34,24 +35,11 @@ export default async function CodeBlock({ lang, children, className }: CodeBlock
                 css({
                   maxH: "80",
                   overflow: "auto",
-                  bg: "bg.subtle",
+                  bg: "bg.muted",
                   p: "4",
                   textStyle: "sm",
-                  _scrollbar: {
-                    w: "1.5",
-                    h: "1.5",
-                  },
-                  _scrollbarThumb: {
-                    bg: "neutral.5",
-                    rounded: "full",
-                  },
-                  _scrollbarTrack: {
-                    bg: "transparent",
-                  },
-                  "&::-webkit-scrollbar-corner": {
-                    bg: "transparent",
-                  },
-                })
+                }),
+                scroll()
               )}
               {...props}
             />

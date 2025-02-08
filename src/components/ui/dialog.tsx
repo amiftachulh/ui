@@ -10,30 +10,34 @@ import { createStyleContext } from "@/lib/style-context";
 
 const { withProvider, withContext } = createStyleContext(dialog);
 
-const Dialog = withProvider(styled(DialogPrimitive.Root), "root");
-const DialogTrigger = withContext(styled(DialogPrimitive.Trigger), "trigger");
-const DialogPortal = withContext(styled(DialogPrimitive.Portal), "portal");
-const DialogOverlay = withContext(styled(DialogPrimitive.Overlay), "overlay");
-const DialogHeader = withContext(styled.div, "header");
-const DialogTitle = withContext(styled(DialogPrimitive.Title), "title");
-const DialogDescription = withContext(styled(DialogPrimitive.Description), "description");
-const DialogFooter = withContext(styled.div, "footer");
-const DialogClose = withContext(styled(DialogPrimitive.Close), "close");
-const DialogContentBase = withContext(styled(DialogPrimitive.Content), "content");
+const Dialog = withProvider(DialogPrimitive.Root, "root");
+const DialogTrigger = withContext(DialogPrimitive.Trigger, "trigger");
+const DialogPortal = withContext(DialogPrimitive.Portal, "portal");
+const DialogOverlay = withContext(DialogPrimitive.Overlay, "overlay");
+const DialogClose = withContext(DialogPrimitive.Close, "close");
 
-const DialogContent = ({ children, ...props }: React.ComponentProps<typeof DialogContentBase>) => (
+const Content = ({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Content>) => (
   <DialogPortal>
     <DialogOverlay />
-    <DialogContentBase {...props}>
+    <DialogPrimitive.Content className={className} {...props}>
       {children}
-      <DialogClose pos="fixed" top="4" right="4">
+      <DialogClose pos="absolute" top="4" right="4" cursor="pointer">
         <LuX className={css({ w: "4", h: "4" })} />
         <span className={visuallyHidden()}>Close</span>
       </DialogClose>
-    </DialogContentBase>
+    </DialogPrimitive.Content>
   </DialogPortal>
 );
-DialogContent.displayName = "DialogContent";
+
+const DialogContent = withContext(Content, "content");
+const DialogHeader = withContext("div", "header");
+const DialogTitle = withContext(DialogPrimitive.Title, "title");
+const DialogDescription = withContext(DialogPrimitive.Description, "description");
+const DialogFooter = withContext("div", "footer");
 
 export {
   Dialog,

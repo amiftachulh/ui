@@ -126,7 +126,10 @@ const components: MDXComponents = {
     } = props;
     const lang = code.className?.replace("language-", "");
     return (
-      <CodeBlock className={css({ my: "4", rounded: "md", overflow: "hidden" })} lang={lang}>
+      <CodeBlock
+        className={css({ my: "4", borderWidth: "1", rounded: "md", overflow: "hidden" })}
+        lang={lang}
+      >
         {props.children.props.children}
       </CodeBlock>
     );

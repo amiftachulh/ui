@@ -15,7 +15,7 @@ export default function CodeBlockCopy({ code }: CodeCopyButtonProps) {
   return (
     <Button
       variant="ghost"
-      bg="bg.subtle"
+      bg="bg.muted"
       size="icon"
       pos="absolute"
       top="3"

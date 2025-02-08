@@ -1,54 +1,61 @@
 "use client";
 
-import { ComponentType, createContext, useContext } from "react";
+import * as React from "react";
 import { cx } from "styled-system/css";
+import { styled, type StyledComponent } from "styled-system/jsx";
 
-type AnyProps = Record<string, unknown>;
-type AnyRecipe = {
-  (props?: AnyProps): Record<string, string>;
-  splitVariantProps: (props: AnyProps) => any;
+type Props = Record<string, unknown>;
+type Recipe = {
+  (props?: Props): Props;
+  splitVariantProps: (props: Props) => [Props, Props];
 };
+type ExtractVariantProps<R extends Recipe> = Parameters<R>[0];
+type Slot<R extends Recipe> = keyof ReturnType<R>;
 
-type Slots<R extends () => Record<string, string>> = keyof ReturnType<R>;
+export const createStyleContext = <R extends Recipe>(recipe: R) => {
+  const StyleContext = React.createContext<Record<Slot<R>, string> | null>(null);
 
-interface StyleContextType {
-  [key: string]: string;
-}
+  const withProvider = <
+    T extends React.ElementType,
+    P extends { className?: string } & ExtractVariantProps<R>,
+  >(
+    Component: T,
+    slot: Slot<R>
+  ): StyledComponent<T, P> => {
+    const StyledComponent = styled(Component) as StyledComponent<React.ElementType>;
 
-type WithClassName = { className?: string };
+    const StyledSlotProvider = ({ className, ...props }: P) => {
+      const [variantProps, otherProps] = recipe.splitVariantProps(props);
+      const slotStyles = recipe(variantProps) as Record<Slot<R>, string>;
 
-export const createStyleContext = (recipe: AnyRecipe) => {
-  const StyleContext = createContext<StyleContextType | null>(null);
-
-  const withProvider = <P extends AnyProps & WithClassName>(
-    Component: ComponentType<P>,
-    part?: Slots<AnyRecipe>
-  ): ComponentType<P> => {
-    const Comp: ComponentType<P> = (props: P) => {
-      const [variantProps, rest] = recipe.splitVariantProps(props);
-      const styles = recipe(variantProps);
       return (
-        <StyleContext value={styles}>
-          <Component {...rest} className={cx(styles?.[part ?? ""], props.className)} />
+        <StyleContext value={slotStyles}>
+          <StyledComponent className={cx(slotStyles?.[slot ?? ""], className)} {...otherProps} />
         </StyleContext>
       );
     };
-    Comp.displayName = Component.displayName || Component.name;
-    return Comp;
+
+    // @ts-expect-error StyledSlotProvider is a valid React component
+    StyledSlotProvider.displayName = Component.displayName || Component.name;
+
+    return StyledSlotProvider;
   };
 
-  const withContext = <P extends AnyProps & WithClassName>(
-    Component: ComponentType<P>,
-    part?: Slots<AnyRecipe>
-  ): ComponentType<P> => {
-    if (!part) return Component;
+  const withContext = <T extends React.ElementType, P extends { className?: string }>(
+    Component: T,
+    slot: Slot<R>
+  ): StyledComponent<T, P> => {
+    const StyledComponent = styled(Component) as StyledComponent<React.ElementType>;
 
-    const Comp: ComponentType<P> = (props: P) => {
-      const styles = useContext(StyleContext);
-      return <Component {...props} className={cx(styles?.[part ?? ""], props.className)} />;
+    const StyledSlotComponent = ({ className, ...props }: P) => {
+      const styles = React.useContext(StyleContext);
+      return <StyledComponent className={cx(styles?.[slot ?? ""], className)} {...props} />;
     };
-    Comp.displayName = Component.displayName || Component.name;
-    return Comp;
+
+    // @ts-expect-error StyledSlotComponent is a valid React component
+    StyledSlotComponent.displayName = Component.displayName || Component.name;
+
+    return StyledSlotComponent;
   };
 
   return { withProvider, withContext };

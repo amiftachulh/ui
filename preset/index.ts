@@ -1,7 +1,6 @@
 import { definePreset } from "@pandacss/dev";
 import { animate } from "./animate";
 import { keyframes } from "./keyframes";
-import { scrollable } from "./patterns/scrollable";
 import { recipes } from "./recipes";
 import { semanticTokens } from "./semantic-tokens";
 import { slotRecipes } from "./slot-recipes";
@@ -13,7 +12,7 @@ const preset = definePreset({
   globalCss: {
     html: {
       "--global-color-border": "colors.border",
-      "--global-color-placeholder": "colors.gray.500",
+      "--global-color-placeholder": "colors.zinc.500",
     },
     body: {
       bg: "bg",
@@ -29,11 +28,11 @@ const preset = definePreset({
     recipes,
     slotRecipes,
   },
-  patterns: {
-    scrollable,
-  },
   utilities: {
     extend: { ...animate },
+  },
+  staticCss: {
+    recipes: "*",
   },
 });
 

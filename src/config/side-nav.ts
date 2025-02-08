@@ -24,6 +24,10 @@ export const sideNav = [
         href: "/docs/components/dialog",
       },
       {
+        title: "Drawer",
+        href: "/docs/components/drawer",
+      },
+      {
         title: "Input",
         href: "/docs/components/input",
       },

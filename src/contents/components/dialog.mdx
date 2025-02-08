@@ -38,7 +38,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 ```
 
 ```tsx
@@ -48,10 +48,18 @@ import {
     <DialogHeader>
       <DialogTitle>Are you absolutely sure?</DialogTitle>
       <DialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
+        This action cannot be undone. This will permanently delete your account and remove your data
+        from our servers.
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
 </Dialog>
 ```
+
+## Examples
+
+### Responsive Dialog
+
+You can make the dialog become a drawer on smaller screens by using this recipe.
+
+<ComponentSource name="dialog-responsive.ts" type="slot-recipe" />

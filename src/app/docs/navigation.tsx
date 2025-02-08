@@ -42,7 +42,7 @@ export default function Navigation() {
                     textStyle: "sm",
                     rounded: "md",
                     _hover: {
-                      bg: "neutral.500/20",
+                      bg: "zinc.500/20",
                     },
                   })}
                 >

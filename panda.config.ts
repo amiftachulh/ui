@@ -22,11 +22,16 @@ export default defineConfig({
           h: "1.5",
         },
         _scrollbarThumb: {
-          bg: "neutral.5",
+          bg: "zinc.300",
           rounded: "full",
         },
         _scrollbarTrack: {
           bg: "transparent",
+        },
+        "&.dark": {
+          _scrollbarThumb: {
+            bg: "zinc.700",
+          },
         },
       },
     },
