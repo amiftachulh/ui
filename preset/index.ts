@@ -4,7 +4,6 @@ import { keyframes } from "./keyframes";
 import { recipes } from "./recipes";
 import { semanticTokens } from "./semantic-tokens";
 import { slotRecipes } from "./slot-recipes";
-import { tokens } from "./tokens";
 
 const preset = definePreset({
   name: "web",
@@ -21,7 +20,6 @@ const preset = definePreset({
   },
   theme: {
     extend: {
-      tokens,
       semanticTokens,
       keyframes,
     },

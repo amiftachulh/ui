@@ -5,18 +5,16 @@ import { styled } from "styled-system/jsx";
 import { flex, visuallyHidden } from "styled-system/patterns";
 import { button } from "styled-system/recipes";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  loading?: boolean;
-  asChild?: boolean;
-}
-
-const Button = styled(function Button({
+const Root = ({
   loading,
   children,
   asChild,
   disabled,
   ...props
-}: ButtonProps) {
+}: React.ComponentProps<"button"> & {
+  loading?: boolean;
+  asChild?: boolean;
+}) => {
   const Component = asChild ? Slot : "button";
 
   return (
@@ -36,6 +34,7 @@ const Button = styled(function Button({
       )}
     </Component>
   );
-}, button);
+};
+const Button = styled(Root, button);
 
 export { Button };

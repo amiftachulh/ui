@@ -36,12 +36,15 @@ export const drawerSlotRecipe = defineSlotRecipe({
       bg: "bg",
       p: "6",
       shadow: "lg",
-      animationTimingFunction: "ease-in-out",
       _open: {
         animateIn: true,
+        animationDuration: "slower",
+        animationTimingFunction: "ease-out",
       },
       _closed: {
         animateOut: true,
+        animationDuration: "slow",
+        animationTimingFunction: "ease-in",
       },
     },
     header: {

@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "./header";
 import "./globals.css";
 import { css } from "styled-system/css";
+import { scroll } from "styled-system/recipes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <body>
+      <body className={scroll()}>
         <ThemeProvider>
           <Header />
           <div className={css({ maxW: "breakpoint-2xl", mx: "auto", mt: "14" })}>{children}</div>

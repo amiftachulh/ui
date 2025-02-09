@@ -17,22 +17,6 @@ export default defineConfig({
         "&.dark .shiki, &.dark .shiki span": {
           color: "var(--shiki-dark) !important",
         },
-        _scrollbar: {
-          w: "1.5",
-          h: "1.5",
-        },
-        _scrollbarThumb: {
-          bg: "zinc.300",
-          rounded: "full",
-        },
-        _scrollbarTrack: {
-          bg: "transparent",
-        },
-        "&.dark": {
-          _scrollbarThumb: {
-            bg: "zinc.700",
-          },
-        },
       },
     },
   },

@@ -1,3 +1,5 @@
+import { css } from "styled-system/css";
+import { grid } from "styled-system/patterns";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -8,6 +10,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function DialogDemo() {
   return (
@@ -22,18 +26,38 @@ export default function DialogDemo() {
             Make changes to your profile here. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <label htmlFor="name" className="text-right">
+        <div className={grid({ gap: "4", py: "4" })}>
+          <div
+            className={grid({
+              gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+              alignItems: "center",
+              gap: "4",
+            })}
+          >
+            <Label htmlFor="name" textAlign="right">
               Name
-            </label>
-            <input id="name" defaultValue="Ahmad Miftachul Hidayat" className="col-span-3" />
+            </Label>
+            <Input
+              id="name"
+              defaultValue="Ahmad Miftachul Hidayat"
+              className={css({ gridColumn: "span 3 / span 3" })}
+            />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <label htmlFor="username" className="text-right">
+          <div
+            className={grid({
+              gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+              alignItems: "center",
+              gap: "4",
+            })}
+          >
+            <Label htmlFor="username" textAlign="right">
               Username
-            </label>
-            <input id="username" defaultValue="amiftachulh" className="col-span-3" />
+            </Label>
+            <Input
+              id="username"
+              defaultValue="amiftachulh"
+              className={css({ gridColumn: "span 3 / span 3" })}
+            />
           </div>
         </div>
         <DialogFooter>

@@ -1,43 +1,67 @@
-"use client";
-
 import { LuX } from "react-icons/lu";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { css } from "styled-system/css";
+import { css, cx } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { visuallyHidden } from "styled-system/patterns";
 import { dialog } from "styled-system/recipes";
-import { createStyleContext } from "@/lib/style-context";
 
-const { withProvider, withContext } = createStyleContext(dialog);
+const classes = dialog();
 
-const Dialog = withProvider(DialogPrimitive.Root, "root");
-const DialogTrigger = withContext(DialogPrimitive.Trigger, "trigger");
-const DialogPortal = withContext(DialogPrimitive.Portal, "portal");
-const DialogOverlay = withContext(DialogPrimitive.Overlay, "overlay");
-const DialogClose = withContext(DialogPrimitive.Close, "close");
+const Dialog = DialogPrimitive.Root;
+
+const DialogTrigger = styled(DialogPrimitive.Trigger);
+
+const DialogPortal = DialogPrimitive.Portal;
+
+const Overlay = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Overlay>) => (
+  <DialogPrimitive.Overlay className={cx(classes.overlay, className)} {...props} />
+);
+const DialogOverlay = styled(Overlay);
+
+const DialogClose = styled(DialogPrimitive.Close);
 
 const Content = ({
   children,
   className,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Content>) => (
-  <DialogPortal>
-    <DialogOverlay />
-    <DialogPrimitive.Content className={className} {...props}>
-      {children}
-      <DialogClose pos="absolute" top="4" right="4" cursor="pointer">
-        <LuX className={css({ w: "4", h: "4" })} />
-        <span className={visuallyHidden()}>Close</span>
-      </DialogClose>
-    </DialogPrimitive.Content>
-  </DialogPortal>
-);
+}: React.ComponentProps<typeof DialogPrimitive.Content>) => {
+  return (
+    <DialogPortal>
+      <DialogOverlay />
+      <DialogPrimitive.Content className={cx(classes.content, className)} {...props}>
+        {children}
+        <DialogClose pos="absolute" top="4" right="4" cursor="pointer">
+          <LuX className={css({ w: "4", h: "4" })} />
+          <span className={visuallyHidden()}>Close</span>
+        </DialogClose>
+      </DialogPrimitive.Content>
+    </DialogPortal>
+  );
+};
+const DialogContent = styled(Content);
 
-const DialogContent = withContext(Content, "content");
-const DialogHeader = withContext("div", "header");
-const DialogTitle = withContext(DialogPrimitive.Title, "title");
-const DialogDescription = withContext(DialogPrimitive.Description, "description");
-const DialogFooter = withContext("div", "footer");
+const Header = ({ className, ...props }: React.ComponentProps<"div">) => (
+  <div className={cx(classes.header, className)} {...props} />
+);
+const DialogHeader = styled(Header);
+
+const Title = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) => (
+  <DialogPrimitive.Title className={cx(classes.title, className)} {...props} />
+);
+const DialogTitle = styled(Title);
+
+const Description = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Description>) => (
+  <DialogPrimitive.Description className={cx(classes.description, className)} {...props} />
+);
+const DialogDescription = styled(Description);
+
+const Footer = ({ className, ...props }: React.ComponentProps<"div">) => (
+  <div className={cx(classes.footer, className)} {...props} />
+);
+const DialogFooter = styled(Footer);
 
 export {
   Dialog,

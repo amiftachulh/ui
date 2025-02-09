@@ -12,8 +12,16 @@ export const sideNav = [
     title: "Components",
     items: [
       {
+        title: "Breadcrumb",
+        href: "/docs/components/breadcrumb",
+      },
+      {
         title: "Button",
         href: "/docs/components/button",
+      },
+      {
+        title: "Checkbox",
+        href: "/docs/components/checkbox",
       },
       {
         title: "Chip",
@@ -28,8 +36,16 @@ export const sideNav = [
         href: "/docs/components/drawer",
       },
       {
+        title: "Dropdown Menu",
+        href: "/docs/components/dropdown-menu",
+      },
+      {
         title: "Input",
         href: "/docs/components/input",
+      },
+      {
+        title: "Label",
+        href: "/docs/components/label",
       },
       {
         title: "Tabs",
