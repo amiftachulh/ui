@@ -15,14 +15,16 @@ export default function CodeBlockCopy({ code }: CodeCopyButtonProps) {
   return (
     <Button
       variant="ghost"
-      bg="bg.muted"
       size="icon"
-      pos="absolute"
-      top="3"
-      right="4"
-      w="6"
-      h="6"
-      rounded="sm"
+      className={css({
+        bg: "bg.muted",
+        pos: "absolute",
+        top: "3",
+        right: "4",
+        w: "6",
+        h: "6",
+        rounded: "sm",
+      })}
       onClick={async () => {
         await navigator.clipboard.writeText(code);
         setCopied(true);

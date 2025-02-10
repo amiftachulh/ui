@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useState } from "react";
+import { css } from "styled-system/css";
 import { packageManagers } from "@/config/package-managers";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
@@ -17,36 +18,40 @@ export default function PackageTabs({ items }: PackageTabsProps) {
 
   return (
     <Tabs
+      className={css({
+        my: "4",
+        borderWidth: "1",
+        rounded: "md",
+        overflow: "hidden",
+      })}
       value={selected}
       onValueChange={(value) => {
         localStorage.setItem("package-manager", value);
         setSelected(value);
       }}
-      my="4"
-      borderWidth="1"
-      rounded="md"
-      overflow="hidden"
     >
       <TabsList>
         {packageManagers.map((p) => (
           <TabsTrigger
             key={p.name}
+            className={css({
+              gap: "2",
+              borderRightWidth: "1",
+              _hover: {
+                bg: "solid/10",
+              },
+              _active: {
+                bg: "solid/10",
+              },
+            })}
             value={p.name}
-            gap="2"
-            borderRightWidth="1"
-            _hover={{
-              bg: "solid/10",
-            }}
-            _active={{
-              bg: "solid/10",
-            }}
           >
             {p.icon} {p.name}
           </TabsTrigger>
         ))}
       </TabsList>
       {packageManagers.map((p, i) => (
-        <TabsContent key={p.name} value={p.name} p="0">
+        <TabsContent key={p.name} className={css({ p: 0 })} value={p.name}>
           {items[i]}
         </TabsContent>
       ))}

@@ -6,7 +6,6 @@ export default defineConfig({
   presets: [preset],
   include: ["./src/**/*.{js,jsx,ts,tsx}", "./pages/**/*.{js,jsx,ts,tsx}"],
   exclude: [],
-  jsxFramework: "react",
   globalCss: {
     extend: {
       html: {
@@ -14,9 +13,6 @@ export default defineConfig({
         "--global-font-mono": "var(--font-geist-mono)",
         scrollBehavior: "smooth",
         scrollPaddingTop: "20",
-        "&.dark .shiki, &.dark .shiki span": {
-          color: "var(--shiki-dark) !important",
-        },
       },
     },
   },

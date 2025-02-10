@@ -12,6 +12,14 @@ export const sideNav = [
     title: "Components",
     items: [
       {
+        title: "Accordion",
+        href: "/docs/components/accordion",
+      },
+      {
+        title: "Alert",
+        href: "/docs/components/alert",
+      },
+      {
         title: "Breadcrumb",
         href: "/docs/components/breadcrumb",
       },

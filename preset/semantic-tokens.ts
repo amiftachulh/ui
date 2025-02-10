@@ -25,20 +25,26 @@ export const semanticTokens = defineSemanticTokens({
       fg: { value: { base: "{colors.blue.700}", _dark: "{colors.blue.200}" } },
     },
     info: {
-      DEFAULT: { value: { base: "{colors.blue.500}", _dark: "{colors.blue.400}" } },
-      fg: { value: "{colors.white}" },
+      DEFAULT: { value: { base: "{colors.blue.50}", _dark: "{colors.blue.950}" } },
+      fg: { value: { base: "{colors.blue.500}", _dark: "{colors.blue.300}" } },
     },
     success: {
-      DEFAULT: { value: { base: "{colors.green.500}", _dark: "{colors.green.400}" } },
-      fg: { value: "{colors.white}" },
+      DEFAULT: { value: { base: "{colors.green.50}", _dark: "{colors.green.950}" } },
+      fg: { value: { base: "{colors.green.500}", _dark: "{colors.green.300}" } },
     },
     warning: {
-      DEFAULT: { value: { base: "{colors.orange.500}", _dark: "{colors.orange.400}" } },
-      fg: { value: "{colors.white}" },
+      DEFAULT: { value: { base: "{colors.yellow.50}", _dark: "{colors.yellow.950}" } },
+      fg: { value: { base: "{colors.yellow.500}", _dark: "{colors.yellow.300}" } },
     },
     danger: {
-      DEFAULT: { value: { base: "{colors.red.500}", _dark: "{colors.red.400}" } },
-      fg: { value: "{colors.white}" },
+      DEFAULT: { value: { base: "{colors.red.50}", _dark: "{colors.red.950}" } },
+      fg: { value: { base: "{colors.red.500}", _dark: "{colors.red.300}" } },
     },
+  },
+  animations: {
+    "accordion-up": { value: "accordion-up {durations.normal} {easings.out}" },
+    "accordion-down": { value: "accordion-down {durations.normal} {easings.out}" },
+    "accordion-left": { value: "accordion-left {durations.normal} {easings.out}" },
+    "accordion-right": { value: "accordion-right {durations.normal} {easings.out}" },
   },
 });

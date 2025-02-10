@@ -1,24 +1,33 @@
 import { LuLoaderCircle } from "react-icons/lu";
 import { Slot } from "@radix-ui/react-slot";
-import { css } from "styled-system/css";
-import { styled } from "styled-system/jsx";
+import { css, cx } from "styled-system/css";
 import { flex, visuallyHidden } from "styled-system/patterns";
-import { button } from "styled-system/recipes";
+import { button, type ButtonVariantProps } from "styled-system/recipes";
 
-const Root = ({
+type ButtonProps = React.ComponentProps<"button"> &
+  ButtonVariantProps & {
+    loading?: boolean;
+    asChild?: boolean;
+  };
+
+const Button = ({
+  className,
+  variant,
+  size,
   loading,
   children,
   asChild,
   disabled,
   ...props
-}: React.ComponentProps<"button"> & {
-  loading?: boolean;
-  asChild?: boolean;
-}) => {
+}: ButtonProps) => {
   const Component = asChild ? Slot : "button";
 
   return (
-    <Component disabled={loading || disabled} {...props}>
+    <Component
+      className={cx(button({ variant, size }), className)}
+      disabled={loading || disabled}
+      {...props}
+    >
       {loading ? (
         <>
           <span className={css({ display: "contents", visibility: "hidden" })} aria-hidden>
@@ -35,6 +44,5 @@ const Root = ({
     </Component>
   );
 };
-const Button = styled(Root, button);
 
 export { Button };

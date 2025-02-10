@@ -34,7 +34,7 @@ export default function DialogDemo() {
               gap: "4",
             })}
           >
-            <Label htmlFor="name" textAlign="right">
+            <Label htmlFor="name" className={css({ textAlign: "right" })}>
               Name
             </Label>
             <Input
@@ -50,7 +50,7 @@ export default function DialogDemo() {
               gap: "4",
             })}
           >
-            <Label htmlFor="username" textAlign="right">
+            <Label htmlFor="username" className={css({ textAlign: "right" })}>
               Username
             </Label>
             <Input

@@ -15,12 +15,20 @@ export const keyframes = defineKeyframes({
         "translate3d(var(--panda-exit-translate-x, 0), var(--panda-exit-translate-y, 0), 0) scale3d(var(--panda-exit-scale, 1), var(--panda-exit-scale, 1), var(--panda-exit-scale, 1)) rotate(var(--panda-exit-rotate, 0))",
     },
   },
-  "accordion-down": {
-    from: { height: 0 },
-    to: { height: "var(--radix-accordion-content-height)" },
-  },
   "accordion-up": {
     from: { height: "var(--radix-accordion-content-height)" },
-    to: { height: 0 },
+    to: { height: "0" },
+  },
+  "accordion-down": {
+    from: { height: "0" },
+    to: { height: "var(--radix-accordion-content-height)" },
+  },
+  "accordion-left": {
+    from: { width: "var(--radix-accordion-content-width)" },
+    to: { width: "0" },
+  },
+  "accordion-right": {
+    from: { width: "0" },
+    to: { width: "var(--radix-accordion-content-width)" },
   },
 });

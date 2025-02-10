@@ -55,7 +55,7 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
         })}
       >
         <div className={css({ mb: "8" })}>
-          <Breadcrumb mb="4">
+          <Breadcrumb className={css({ mb: "4" })}>
             <BreadcrumbList>
               <BreadcrumbItem>Docs</BreadcrumbItem>
               <BreadcrumbSeparator />
@@ -75,7 +75,7 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
             {doc.meta.title}
           </h1>
           <p className={css({ color: "fg.muted", mb: "4" })}>{doc.meta.description}</p>
-          {doc.meta.links?.length > 0 && (
+          {doc.meta.links?.length && (
             <div className={flex({ wrap: "wrap", gap: "4" })}>
               {doc.meta.links.map((link: { title: string; url: string }) => (
                 <a

@@ -2,60 +2,52 @@ import * as React from "react";
 import { LuChevronRight, LuEllipsis } from "react-icons/lu";
 import { Slot } from "@radix-ui/react-slot";
 import { css, cx } from "styled-system/css";
-import { styled } from "styled-system/jsx";
 import { visuallyHidden } from "styled-system/patterns";
 import { breadcrumb } from "styled-system/recipes";
 
-const styles = breadcrumb();
+const classes = breadcrumb();
 
-const Root = (props: React.ComponentProps<"nav">) => <nav aria-label="breadcrumb" {...props} />;
-const Breadcrumb = styled(Root);
-
-const List = ({ className, ...props }: React.ComponentProps<"ol">) => (
-  <ol className={cx(styles.list, className)} {...props} />
+const Breadcrumb = (props: React.ComponentProps<"nav">) => (
+  <nav aria-label="breadcrumb" {...props} />
 );
-const BreadcrumbList = styled(List);
 
-const Item = ({ className, ...props }: React.ComponentProps<"li">) => (
-  <li className={cx(styles.item, className)} {...props} />
+const BreadcrumbList = ({ className, ...props }: React.ComponentProps<"ol">) => (
+  <ol className={cx(classes.list, className)} {...props} />
 );
-const BreadcrumbItem = styled(Item);
-
-const Link = ({
+const BreadcrumbItem = ({ className, ...props }: React.ComponentProps<"li">) => (
+  <li className={cx(classes.item, className)} {...props} />
+);
+const BreadcrumbLink = ({
   className,
   asChild,
   ...props
 }: React.ComponentProps<"a"> & { asChild?: boolean }) => {
   const Comp = asChild ? Slot : "a";
-  return <Comp className={cx(styles.link, className)} {...props} />;
+  return <Comp className={cx(classes.link, className)} {...props} />;
 };
-const BreadcrumbLink = styled(Link);
 
-const Page = ({ className, ...props }: React.ComponentProps<"span">) => (
+const BreadcrumbPage = ({ className, ...props }: React.ComponentProps<"span">) => (
   <span
     role="link"
     aria-disabled
     aria-current="page"
-    className={cx(styles.page, className)}
+    className={cx(classes.page, className)}
     {...props}
   />
 );
-const BreadcrumbPage = styled(Page);
 
-const Separator = ({ children, className, ...props }: React.ComponentProps<"li">) => (
-  <li role="presentation" aria-hidden className={cx(styles.separator, className)} {...props}>
+const BreadcrumbSeparator = ({ children, className, ...props }: React.ComponentProps<"li">) => (
+  <li role="presentation" aria-hidden className={cx(classes.separator, className)} {...props}>
     {children ?? <LuChevronRight />}
   </li>
 );
-const BreadcrumbSeparator = styled(Separator);
 
-const Ellipsis = ({ className, ...props }: React.ComponentProps<"span">) => (
-  <span role="presentation" aria-hidden className={cx(styles.ellipsis, className)} {...props}>
+const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps<"span">) => (
+  <span role="presentation" aria-hidden className={cx(classes.ellipsis, className)} {...props}>
     <LuEllipsis className={css({ w: "4", h: "4" })} />
     <span className={visuallyHidden()}>More</span>
   </span>
 );
-const BreadcrumbEllipsis = styled(Ellipsis);
 
 export {
   Breadcrumb,
