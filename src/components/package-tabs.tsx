@@ -38,10 +38,10 @@ export default function PackageTabs({ items }: PackageTabsProps) {
               gap: "2",
               borderRightWidth: "1",
               _hover: {
-                bg: "solid/10",
+                bg: "primary/10",
               },
               _active: {
-                bg: "solid/10",
+                bg: "primary/10",
               },
             })}
             value={p.name}

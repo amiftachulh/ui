@@ -14,12 +14,35 @@ export default function Navigation() {
         position: "sticky",
         top: "14",
         left: "0",
+        overflowY: "auto",
         display: "none",
         h: "calc(100vh - 3.5rem)",
         px: "4",
         py: "10",
         minWidth: "240px",
         spaceY: "2",
+        _hover: {
+          _scrollbarThumb: {
+            bg: "zinc.300",
+            _dark: {
+              bg: "zinc.700",
+            },
+          },
+        },
+        _scrollbar: {
+          w: "1.5",
+          h: "1.5",
+        },
+        _scrollbarThumb: {
+          bg: "transparent",
+          rounded: "full",
+        },
+        _scrollbarTrack: {
+          bg: "transparent",
+        },
+        "&::-webkit-scrollbar-corner": {
+          bg: "transparent",
+        },
         md: {
           display: "block",
         },
@@ -35,7 +58,7 @@ export default function Navigation() {
                   href={item.href}
                   className={css({
                     display: "block",
-                    bg: pathname === item.href ? "subtle.active!" : "transparent",
+                    bg: pathname === item.href ? "primary/10!" : "transparent",
                     color: "fg",
                     px: "2",
                     py: "1",

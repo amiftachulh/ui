@@ -1,6 +1,5 @@
 import { LuChevronDown, LuSlash } from "react-icons/lu";
 import { css } from "styled-system/css";
-import { flex } from "styled-system/patterns";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -28,7 +27,14 @@ export default function BreadcrumbWithDropdown() {
         </BreadcrumbSeparator>
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger className={flex({ align: "center", gap: "1", cursor: "pointer" })}>
+            <DropdownMenuTrigger
+              className={css({
+                display: "flex",
+                alignItems: "center",
+                gap: "1",
+                cursor: "pointer",
+              })}
+            >
               Components
               <LuChevronDown className={css({ w: "4", h: "4" })} />
             </DropdownMenuTrigger>

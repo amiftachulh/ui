@@ -8,10 +8,10 @@ export default function InputLeftAndRight() {
     <div className={stack({ gap: "4" })}>
       <div className={css({ pos: "relative" })}>
         <LuSearch className={css({ pos: "absolute", left: "3", top: "3" })} />
-        <Input placeholder="Search" className={css({ pl: 10 })} />
+        <Input placeholder="Search" className={css({ pl: "10" })} />
       </div>
       <div className={css({ pos: "relative" })}>
-        <Input type="password" placeholder="Password" className={css({ pr: 10 })} />
+        <Input type="password" placeholder="Password" className={css({ pr: "10" })} />
         <LuEye className={css({ pos: "absolute", right: "3", top: "3" })} />
       </div>
       <div className={css({ pos: "relative" })}>

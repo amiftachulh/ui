@@ -1,7 +1,21 @@
-export const sideNav = [
+type SideNavItem = {
+  title: string;
+  href: string;
+};
+
+type SideNavGroup = {
+  title: string;
+  items: SideNavItem[];
+};
+
+export const sideNav: SideNavGroup[] = [
   {
     title: "Overview",
     items: [
+      {
+        title: "Introduction",
+        href: "/docs/overview/introduction",
+      },
       {
         title: "Getting Started",
         href: "/docs/overview/getting-started",
@@ -20,6 +34,10 @@ export const sideNav = [
         href: "/docs/components/alert",
       },
       {
+        title: "Avatar",
+        href: "/docs/components/avatar",
+      },
+      {
         title: "Breadcrumb",
         href: "/docs/components/breadcrumb",
       },
@@ -28,12 +46,28 @@ export const sideNav = [
         href: "/docs/components/button",
       },
       {
+        title: "Calendar",
+        href: "/docs/components/calendar",
+      },
+      {
         title: "Checkbox",
         href: "/docs/components/checkbox",
       },
       {
         title: "Chip",
         href: "/docs/components/chip",
+      },
+      {
+        title: "Collapsible",
+        href: "/docs/components/collapsible",
+      },
+      {
+        title: "Command",
+        href: "/docs/components/command",
+      },
+      {
+        title: "Date Picker",
+        href: "/docs/components/date-picker",
       },
       {
         title: "Dialog",
@@ -54,6 +88,18 @@ export const sideNav = [
       {
         title: "Label",
         href: "/docs/components/label",
+      },
+      {
+        title: "Popover",
+        href: "/docs/components/popover",
+      },
+      {
+        title: "Select",
+        href: "/docs/components/select",
+      },
+      {
+        title: "Table",
+        href: "/docs/components/table",
       },
       {
         title: "Tabs",

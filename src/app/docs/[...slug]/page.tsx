@@ -64,6 +64,7 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
+
           <h1
             className={css({
               color: "fg",
@@ -74,15 +75,17 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
           >
             {doc.meta.title}
           </h1>
-          <p className={css({ color: "fg.muted", mb: "4" })}>{doc.meta.description}</p>
+
+          <p className={css({ color: "muted.fg", mb: "4" })}>{doc.meta.description}</p>
+
           {doc.meta.links?.length && (
             <div className={flex({ wrap: "wrap", gap: "4" })}>
-              {doc.meta.links.map((link: { title: string; url: string }) => (
+              {doc.meta.links.map((link: { title: string; href: string }) => (
                 <a
-                  key={link.url}
-                  href={link.url}
+                  key={link.href}
+                  href={link.href}
                   className={cx(
-                    chip({ variant: "subtle" }),
+                    chip({ variant: "secondary" }),
                     css({
                       _hover: {
                         textDecoration: "underline",
@@ -99,6 +102,7 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
             </div>
           )}
         </div>
+
         {doc.content}
       </article>
       <TableOfContents headings={doc.headings} />

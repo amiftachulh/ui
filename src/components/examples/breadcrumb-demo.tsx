@@ -1,5 +1,4 @@
 import { css } from "styled-system/css";
-import { flex, visuallyHidden } from "styled-system/patterns";
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -26,9 +25,16 @@ export default function BreadcrumbDemo() {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger className={flex({ align: "center", gap: "1", cursor: "pointer" })}>
+            <DropdownMenuTrigger
+              className={css({
+                display: "flex",
+                alignItems: "center",
+                gap: "1",
+                cursor: "pointer",
+              })}
+            >
               <BreadcrumbEllipsis className={css({ w: "4", h: "4" })} />
-              <span className={visuallyHidden()}>Toggle menu</span>
+              <span className={css({ srOnly: true })}>Toggle menu</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Documentation</DropdownMenuItem>

@@ -50,7 +50,8 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
         h: "calc(100vh - 3.5rem)",
         px: "4",
         py: "10",
-        minWidth: "220px",
+        w: "full",
+        maxWidth: "220px",
         overflowY: "auto",
         lg: {
           display: "block",

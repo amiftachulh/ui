@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 
 export default function CheckboxDisabled() {
   return (
-    <div className={flex({ align: "center", spaceX: "2" })}>
+    <div className={flex({ align: "center", gap: "2" })}>
       <Checkbox id="terms2" disabled />
       <Label htmlFor="terms2">Accept terms and conditions</Label>
     </div>

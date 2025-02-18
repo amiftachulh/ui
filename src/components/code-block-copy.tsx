@@ -17,13 +17,14 @@ export default function CodeBlockCopy({ code }: CodeCopyButtonProps) {
       variant="ghost"
       size="icon"
       className={css({
-        bg: "bg.muted",
+        bg: "zinc.100",
         pos: "absolute",
         top: "3",
         right: "4",
         w: "6",
         h: "6",
         rounded: "sm",
+        _dark: { bg: "zinc.900" },
       })}
       onClick={async () => {
         await navigator.clipboard.writeText(code);

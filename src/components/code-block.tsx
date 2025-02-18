@@ -51,11 +51,11 @@ export default async function CodeBlock({ lang, children, className }: CodeBlock
               className={cx(
                 className,
                 css({
-                  maxH: "80",
-                  overflow: "auto",
-                  bg: "bg.muted",
-                  p: "4",
                   textStyle: "sm",
+                  maxH: "80",
+                  p: "4",
+                  bg: { base: "zinc.100", _dark: "zinc.900" },
+                  overflow: "auto",
                 }),
                 scroll()
               )}
@@ -64,6 +64,7 @@ export default async function CodeBlock({ lang, children, className }: CodeBlock
           ),
         },
       })}
+
       <CodeBlockCopy code={children} />
     </div>
   );

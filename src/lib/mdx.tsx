@@ -1,7 +1,7 @@
 import { compileMDX } from "next-mdx-remote/rsc";
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
+import remarkGfm from "remark-gfm";
 import remarkMdx from "remark-mdx";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
@@ -16,6 +16,8 @@ export type Heading = {
 };
 
 export function extractHeadings(content: string) {
+  content = content.replace(/^---[\s\S]*?---\s*/, "");
+
   const tree = unified().use(remarkParse).use(remarkMdx).parse(content);
 
   const headings: Heading[] = [];
@@ -62,17 +64,23 @@ export async function getDocBySlug(slug: string): Promise<{
   }
 
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const { data, content } = matter(fileContent);
-  const headings = extractHeadings(content);
 
   const result = await compileMDX({
-    source: content,
+    source: fileContent,
     components,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+      },
+    },
   });
+
+  const headings = extractHeadings(fileContent);
 
   return {
     meta: {
-      ...data,
+      ...result.frontmatter,
       slug: realSlug,
     },
     content: result.content,

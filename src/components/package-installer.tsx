@@ -4,16 +4,16 @@ import CodeBlock from "./code-block";
 import PackageTabs from "./package-tabs";
 
 type PackageInstallerProps = {
-  pkgName: string;
+  name: string;
 };
 
-export default function PackageInstaller({ pkgName }: PackageInstallerProps) {
+export default function PackageInstaller({ name }: PackageInstallerProps) {
   const items = useMemo(
     () =>
       packageManagers.map((p) => (
-        <CodeBlock key={p.name} lang="bash">{`${p.command} ${pkgName}`}</CodeBlock>
+        <CodeBlock key={p.name} lang="bash">{`${p.command} ${name}`}</CodeBlock>
       )),
-    [pkgName]
+    [name]
   );
 
   return <PackageTabs items={items} />;

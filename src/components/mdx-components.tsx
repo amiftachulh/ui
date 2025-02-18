@@ -1,3 +1,4 @@
+import { LuInfo } from "react-icons/lu";
 import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
 import { css, cx } from "styled-system/css";
@@ -6,6 +7,17 @@ import CodeBlock from "./code-block";
 import ComponentPreview from "./component-preview";
 import ComponentSource from "./component-source";
 import PackageInstaller from "./package-installer";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
+
+const linkClass = css({
+  color: "primary/90",
+  textDecoration: "underline",
+  fontWeight: "medium",
+  _hover: {
+    color: "primary",
+  },
+});
 
 const components: MDXComponents = {
   h1: ({ children }) => (
@@ -30,6 +42,9 @@ const components: MDXComponents = {
         fontWeight: "semibold",
         fontSize: "2xl",
         mt: "12",
+        mb: "6",
+        pb: "2",
+        borderBottomWidth: "1px",
       })}
     >
       {children}
@@ -73,21 +88,12 @@ const components: MDXComponents = {
       {children}
     </p>
   ),
-  a: ({ children, ...props }) => (
-    <Link
-      className={css({
-        color: "primary/90",
-        textDecoration: "underline",
-        fontWeight: "medium",
-        _hover: {
-          color: "primary",
-        },
-      })}
-      {...props}
-    >
-      {children}
-    </Link>
-  ),
+  a: ({ href, ...props }) => {
+    if (href.startsWith("/")) {
+      return <Link href={href} className={linkClass} {...props} />;
+    }
+    return <a href={href} className={linkClass} {...props} target="_blank" />;
+  },
   strong: ({ children }) => (
     <strong
       className={css({
@@ -137,8 +143,8 @@ const components: MDXComponents = {
   code: ({ children }) => (
     <code
       className={cx(
-        chip({ variant: "subtle", size: "md" }),
-        css({ px: "0.5", color: "subtle.fg", userSelect: "auto" })
+        chip({ variant: "secondary", size: "md" }),
+        css({ px: "0.5", color: "secondary.fg", userSelect: "auto" })
       )}
     >
       {children}
@@ -162,6 +168,16 @@ const components: MDXComponents = {
       {children}
     </blockquote>
   ),
+  table: (props) => (
+    <div className={css({ rounded: "md", borderWidth: "1px" })}>
+      <Table {...props} />
+    </div>
+  ),
+  thead: (props) => <TableHeader className={css({ bg: "muted" })} {...props} />,
+  tbody: TableBody,
+  tr: TableRow,
+  th: (props) => <TableHead className={css({ color: "fg" })} {...props} />,
+  td: TableCell,
   ComponentPreview,
   ComponentSource,
   PackageInstaller,
@@ -200,8 +216,8 @@ const components: MDXComponents = {
             width: "7",
             height: "7",
             rounded: "full",
-            bg: "solid",
-            color: "solid.fg",
+            bg: "primary",
+            color: "primary.fg",
             textAlign: "center",
             textIndent: "-1px",
             ml: "-47px",
@@ -212,6 +228,30 @@ const components: MDXComponents = {
       )}
       {...props}
     />
+  ),
+  InfoPopover: ({ children, content }) => (
+    <div className={css({ display: "flex", alignItems: "center", gap: "2" })}>
+      <span className={css({ textStyle: "sm" })}>{children}</span>
+      <Popover>
+        <PopoverTrigger className={cx("group", css({ cursor: "pointer" }))}>
+          <LuInfo
+            className={css({
+              w: "4",
+              h: "4",
+              color: "zinc.800",
+              transition: "colors",
+              _dark: {
+                color: "zinc.400",
+              },
+              _groupHover: {
+                color: "fg",
+              },
+            })}
+          />
+        </PopoverTrigger>
+        <PopoverContent className={css({ textStyle: "sm" })}>{content}</PopoverContent>
+      </Popover>
+    </div>
   ),
 };
 

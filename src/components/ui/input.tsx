@@ -1,13 +1,11 @@
-import * as React from "react";
 import { cx } from "styled-system/css";
 import { input, type InputVariantProps } from "styled-system/recipes";
 
-const Input = ({
-  className,
-  size,
-  ...props
-}: Omit<React.ComponentProps<"input">, "size"> & InputVariantProps) => (
+type InputProps = Omit<React.ComponentProps<"input">, "size"> & InputVariantProps;
+
+const Input = ({ size, className, ...props }: InputProps) => (
   <input className={cx(input({ size }), className)} {...props} />
 );
+Input.displayName = "Input";
 
 export { Input };

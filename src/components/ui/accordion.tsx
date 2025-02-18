@@ -6,7 +6,13 @@ import { accordion } from "styled-system/recipes";
 
 const classes = accordion();
 
-const Accordion = AccordionPrimitive.Root;
+const Accordion = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof AccordionPrimitive.Root>) => (
+  <AccordionPrimitive.Root className={cx(classes.root, className)} {...props} />
+);
+Accordion.displayName = AccordionPrimitive.Root.displayName;
 
 const AccordionItem = ({
   className,
@@ -14,6 +20,7 @@ const AccordionItem = ({
 }: React.ComponentProps<typeof AccordionPrimitive.Item>) => (
   <AccordionPrimitive.Item className={cx(classes.item, className)} {...props} />
 );
+AccordionItem.displayName = AccordionPrimitive.Item.displayName;
 
 const AccordionTrigger = ({
   className,
@@ -35,15 +42,17 @@ const AccordionTrigger = ({
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 );
+AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
 const AccordionContent = ({
   className,
   children,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) => (
-  <AccordionPrimitive.Content className={classes.content} {...props}>
-    <div className={cx(css({ pb: "4", pt: "0" }), className)}>{children}</div>
+  <AccordionPrimitive.Content className={cx(classes.content, className)} {...props}>
+    <div className={css({ pb: "4", pt: "0" })}>{children}</div>
   </AccordionPrimitive.Content>
 );
+AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };

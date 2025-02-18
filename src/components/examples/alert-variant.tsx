@@ -1,35 +1,58 @@
+import { LuCircleCheckBig, LuCircleX, LuInfo, LuTriangleAlert } from "react-icons/lu";
+import { css } from "styled-system/css";
 import {
-  LuCircleAlert,
-  LuCircleCheck,
-  LuCircleCheckBig,
-  LuInfo,
-  LuTriangleAlert,
-} from "react-icons/lu";
-import { stack } from "styled-system/patterns";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+} from "@/components/ui/alert";
 
 export default function AlertVariant() {
   return (
-    <div className={stack({ gap: "4" })}>
+    <div className={css({ spaceY: "4" })}>
+      {/* Info variant */}
       <Alert variant="info">
-        <LuInfo />
-        <AlertTitle>Info</AlertTitle>
-        <AlertDescription>This is an info alert.</AlertDescription>
+        <AlertIcon>
+          <LuInfo />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Info</AlertTitle>
+          <AlertDescription>This is an info message.</AlertDescription>
+        </AlertContent>
       </Alert>
+
+      {/* Success variant */}
       <Alert variant="success">
-        <LuCircleCheckBig />
-        <AlertTitle>Success</AlertTitle>
-        <AlertDescription>This is a success alert.</AlertDescription>
+        <AlertIcon>
+          <LuCircleCheckBig />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Success!</AlertTitle>
+          <AlertDescription>Your changes have been saved successfully.</AlertDescription>
+        </AlertContent>
       </Alert>
+
+      {/* Warning variant */}
       <Alert variant="warning">
-        <LuTriangleAlert />
-        <AlertTitle>Warning</AlertTitle>
-        <AlertDescription>This is a warning alert.</AlertDescription>
+        <AlertIcon>
+          <LuTriangleAlert />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Warning</AlertTitle>
+          <AlertDescription>Your subscription will expire in 7 days.</AlertDescription>
+        </AlertContent>
       </Alert>
+
+      {/* Danger variant */}
       <Alert variant="danger">
-        <LuCircleAlert />
-        <AlertTitle>Danger</AlertTitle>
-        <AlertDescription>This is a danger alert.</AlertDescription>
+        <AlertIcon>
+          <LuCircleX />
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>Failed to save changes. Please try again.</AlertDescription>
+        </AlertContent>
       </Alert>
     </div>
   );
