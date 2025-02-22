@@ -94,8 +94,16 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/popover",
       },
       {
+        title: "Scroll Area",
+        href: "/docs/components/scroll-area",
+      },
+      {
         title: "Select",
         href: "/docs/components/select",
+      },
+      {
+        title: "Separator",
+        href: "/docs/components/separator",
       },
       {
         title: "Table",

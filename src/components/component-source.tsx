@@ -10,8 +10,8 @@ type ComponentSourceProps = {
 };
 
 const typeMap = {
-  recipe: { dir: "panda/recipes", title: "Recipe" },
-  "slot-recipe": { dir: "panda/slot-recipes", title: "Slot Recipe" },
+  recipe: { dir: "preset/recipes", title: "Recipe" },
+  "slot-recipe": { dir: "preset/slot-recipes", title: "Slot Recipe" },
   component: { dir: "src/components/ui", title: "Component" },
 };
 

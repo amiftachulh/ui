@@ -1,4 +1,4 @@
-import { LuInfo } from "react-icons/lu";
+import { LuCircleCheckBig, LuCircleX, LuInfo, LuTriangleAlert } from "react-icons/lu";
 import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
 import { css, cx } from "styled-system/css";
@@ -6,18 +6,19 @@ import { chip } from "styled-system/recipes";
 import CodeBlock from "./code-block";
 import ComponentPreview from "./component-preview";
 import ComponentSource from "./component-source";
+import { FileTree, FileTreeItem } from "./file-tree";
 import PackageInstaller from "./package-installer";
+import PropsTable from "./props-table";
+import { Alert, AlertContent, AlertDescription, AlertIcon } from "./ui/alert";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 
-const linkClass = css({
-  color: "primary/90",
-  textDecoration: "underline",
-  fontWeight: "medium",
-  _hover: {
-    color: "primary",
-  },
-});
+const alertIconMap = {
+  info: LuInfo,
+  success: LuCircleCheckBig,
+  warning: LuTriangleAlert,
+  danger: LuCircleX,
+} as const;
 
 const components: MDXComponents = {
   h1: ({ children }) => (
@@ -89,9 +90,19 @@ const components: MDXComponents = {
     </p>
   ),
   a: ({ href, ...props }) => {
+    const linkClass = css({
+      color: "primary/90",
+      textDecoration: "underline",
+      fontWeight: "medium",
+      _hover: {
+        color: "primary",
+      },
+    });
+
     if (href.startsWith("/")) {
       return <Link href={href} className={linkClass} {...props} />;
     }
+
     return <a href={href} className={linkClass} {...props} target="_blank" />;
   },
   strong: ({ children }) => (
@@ -126,6 +137,7 @@ const components: MDXComponents = {
       {children}
     </ol>
   ),
+  li: ({ children }) => <li className={css({ my: "1" })}>{children}</li>,
   pre: (props) => {
     const {
       children: { props: code },
@@ -187,6 +199,8 @@ const components: MDXComponents = {
       className={cx(
         className,
         css({
+          mt: "8",
+          mb: "4",
           scrollMargin: "20",
           fontWeight: "medium",
           letterSpacing: "tight",
@@ -229,6 +243,23 @@ const components: MDXComponents = {
       {...props}
     />
   ),
+  FileTree,
+  FileTreeItem,
+  Alert: ({ variant, children }) => {
+    const Icon = alertIconMap[variant as keyof typeof alertIconMap];
+
+    return (
+      <Alert variant={variant} className={css({ my: "4" })}>
+        <AlertIcon>
+          <Icon />
+        </AlertIcon>
+        <AlertContent>
+          <AlertDescription>{children}</AlertDescription>
+        </AlertContent>
+      </Alert>
+    );
+  },
+  PropsTable,
   InfoPopover: ({ children, content }) => (
     <div className={css({ display: "flex", alignItems: "center", gap: "2" })}>
       <span className={css({ textStyle: "sm" })}>{children}</span>

@@ -27,6 +27,7 @@ const Scrollbar = ({
 }: React.ComponentProps<typeof ScrollAreaPrimitive.Scrollbar>) => (
   <ScrollAreaPrimitive.Scrollbar
     className={cx(classes.scrollAreaScrollbar, className)}
+    orientation={orientation}
     data-orientation={orientation}
     {...props}
   >

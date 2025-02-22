@@ -11,7 +11,6 @@ const preset = definePreset({
   globalCss: {
     html: {
       "--global-color-border": "colors.border",
-      "--global-color-placeholder": "colors.zinc.500",
     },
     body: {
       bg: "bg",

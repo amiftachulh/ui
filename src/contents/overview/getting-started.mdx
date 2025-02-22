@@ -1,21 +1,408 @@
 ---
 title: Getting Started
-description: How to install dependencies and structure your project.
+description: Learn how to install dependencies and structure your project.
 ---
 
-In this section, you will learn how to install the necessary dependencies and structure your project to use the Panda CSS components.
+In this section, you will learn how to install the necessary dependencies and structure your project to use the components.
 
 ## Prerequisites
 
-These are the dependencies you need to have installed before you can start using the components.
+Before you begin, ensure you have the following dependencies installed:
 
-* React 19 or higher
-* Panda CSS
+- React 19 or higher
+- Panda CSS - Read the [installation guide](https://panda-css.com/docs/overview/getting-started)
 
 ## Installation
 
 <Steps>
 
+<Step>Organize your project structure as follows:</Step>
 
+<FileTree defaultValue={["preset", "recipes", "slot-recipes", "src", "components", "ui"]}>
+  <FileTreeItem name="preset" type="folder">
+    <FileTreeItem name="recipes" type="folder">
+      <FileTreeItem name="button.ts" />
+      <FileTreeItem name="index.ts" />
+      <FileTreeItem name="..." noIcon disabled />
+    </FileTreeItem>
+    <FileTreeItem name="slot-recipes" type="folder">
+      <FileTreeItem name="accordion.ts" />
+      <FileTreeItem name="index.ts" />
+      <FileTreeItem name="..." noIcon disabled />
+    </FileTreeItem>
+    <FileTreeItem name="index.ts" />
+    <FileTreeItem name="keyframes.ts" />
+    <FileTreeItem name="semantic-tokens.ts" />
+    <FileTreeItem name="utilities.ts" />
+  </FileTreeItem>
+  <FileTreeItem name="src" type="folder">
+    <FileTreeItem name="components" type="folder">
+      <FileTreeItem name="ui" type="folder">
+        <FileTreeItem name="accordion.tsx" />
+        <FileTreeItem name="button.tsx" />
+        <FileTreeItem name="..." noIcon disabled />
+      </FileTreeItem>
+    </FileTreeItem>
+    <FileTreeItem name="hooks" type="folder" />
+    <FileTreeItem name="lib" type="folder" />
+    <FileTreeItem name="..." noIcon disabled />
+  </FileTreeItem>
+  <FileTreeItem name="package.json" />
+  <FileTreeItem name="panda.config.ts" />
+  <FileTreeItem name="tsconfig.json" />
+  <FileTreeItem name="..." noIcon disabled />
+</FileTree>
+
+- `preset` - Panda CSS preset configuration.
+- `src/components/ui` - Store your UI components here.
+- `src/hooks` - Store your custom hooks here.
+- `src/lib` - Store utility functions here.
+- `panda.config.ts` - Panda CSS configuration file.
+
+<Alert variant="info">You can modify the project structure to suit your needs.</Alert>
+
+<Step>Copy the animation helper into respective files.</Step>
+
+`preset/keyframes.ts`
+
+```ts
+import { defineKeyframes } from "@pandacss/dev";
+
+export const keyframes = defineKeyframes({
+  enter: {
+    from: {
+      opacity: "var(--panda-enter-opacity, 1)",
+      transform:
+        "translate3d(var(--panda-enter-translate-x, 0), var(--panda-enter-translate-y, 0), 0) scale3d(var(--panda-enter-scale, 1), var(--panda-enter-scale, 1), var(--panda-enter-scale, 1)) rotate(var(--panda-enter-rotate, 0))",
+    },
+  },
+  exit: {
+    to: {
+      opacity: "var(--panda-exit-opacity, 1)",
+      transform:
+        "translate3d(var(--panda-exit-translate-x, 0), var(--panda-exit-translate-y, 0), 0) scale3d(var(--panda-exit-scale, 1), var(--panda-exit-scale, 1), var(--panda-exit-scale, 1)) rotate(var(--panda-exit-rotate, 0))",
+    },
+  },
+});
+```
+
+`preset/utilities.ts`
+
+```ts
+import { type PropertyConfig } from "@pandacss/dev";
+
+export const utilities: Record<string, PropertyConfig> = {
+  animateIn: {
+    className: "animate_in",
+    values: { type: "boolean" },
+    transform: (value: boolean, { token }) => {
+      if (!value) return {};
+
+      return {
+        animationName: "enter",
+        animationDuration: token("durations.fast"),
+        "--panda-enter-opacity": 1,
+        "--panda-enter-scale": 1,
+        "--panda-enter-rotate": 0,
+        "--panda-enter-translate-x": 0,
+        "--panda-enter-translate-y": 0,
+      };
+    },
+  },
+  animateOut: {
+    className: "animate_out",
+    values: { type: "boolean" },
+    transform: (value: boolean, { token }) => {
+      if (!value) return {};
+
+      return {
+        animationName: "exit",
+        animationDuration: token("durations.fast"),
+        "--panda-exit-opacity": 1,
+        "--panda-exit-scale": 1,
+        "--panda-exit-rotate": 0,
+        "--panda-exit-translate-x": 0,
+        "--panda-exit-translate-y": 0,
+      };
+    },
+  },
+  fadeIn: {
+    className: "animate_fade_in",
+    values: "opacity",
+    transform: (value: number | string) => {
+      return {
+        "--panda-enter-opacity": value,
+      };
+    },
+  },
+  fadeOut: {
+    className: "animate_fade_out",
+    values: "opacity",
+    transform: (value: number | string) => {
+      return {
+        "--panda-exit-opacity": value,
+      };
+    },
+  },
+  zoomIn: {
+    className: "animate_zoom_in",
+    transform: (value: number | string) => {
+      return {
+        "--panda-enter-scale": Number(value) / 100,
+      };
+    },
+  },
+  zoomOut: {
+    className: "animate_zoom_out",
+    transform: (value: number | string) => {
+      return {
+        "--panda-exit-scale": Number(value) / 100,
+      };
+    },
+  },
+  spinIn: {
+    className: "animate_spin_in",
+    transform: (value: number | string) => {
+      return {
+        "--panda-enter-rotate": value,
+      };
+    },
+  },
+  spinOut: {
+    className: "animate_spin_out",
+    transform: (value: number | string) => {
+      return {
+        "--panda-exit-rotate": value,
+      };
+    },
+  },
+  slideInFromTop: {
+    className: "animate_slide_in_from_top",
+    values: "spacing",
+    transform: (value: number | string) => {
+      return {
+        "--panda-enter-translate-y": `calc(${value} * -1)`,
+      };
+    },
+  },
+  slideInFromBottom: {
+    className: "animate_slide_in_from_bottom",
+    values: "spacing",
+    transform: (value: number | string) => {
+      return {
+        "--panda-enter-translate-y": value,
+      };
+    },
+  },
+  slideInFromLeft: {
+    className: "animate_slide_in_from_left",
+    values: "spacing",
+    transform: (value: number | string) => {
+      return {
+        "--panda-enter-translate-x": `calc(${value} * -1)`,
+      };
+    },
+  },
+  slideInFromRight: {
+    className: "animate_slide_in_from_right",
+    values: "spacing",
+    transform: (value: number | string) => {
+      return {
+        "--panda-enter-translate-x": value,
+      };
+    },
+  },
+  slideOutToTop: {
+    className: "animate_slide_out_to_top",
+    values: "spacing",
+    transform: (value: number | string) => {
+      return {
+        "--panda-exit-translate-y": `calc(${value} * -1)`,
+      };
+    },
+  },
+  slideOutToBottom: {
+    className: "animate_slide_out_to_bottom",
+    values: "spacing",
+    transform: (value: number | string) => {
+      return {
+        "--panda-exit-translate-y": value,
+      };
+    },
+  },
+  slideOutToLeft: {
+    className: "animate_slide_out_to_left",
+    values: "spacing",
+    transform: (value: number | string) => {
+      return {
+        "--panda-exit-translate-x": `calc(${value} * -1)`,
+      };
+    },
+  },
+  slideOutToRight: {
+    className: "animate_slide_out_to_right",
+    values: "spacing",
+    transform: (value: number | string) => {
+      return {
+        "--panda-exit-translate-x": value,
+      };
+    },
+  },
+};
+```
+
+<Step>Copy the semantic tokens.</Step>
+
+`preset/semantic-tokens.ts`
+
+```ts
+import { defineSemanticTokens } from "@pandacss/dev";
+
+export const semanticTokens = defineSemanticTokens({
+  colors: {
+    bg: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.950}" } },
+    fg: { value: { base: "{colors.zinc.950}", _dark: "{colors.zinc.50}" } },
+    primary: {
+      DEFAULT: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+      hover: { value: { base: "{colors.zinc.800}", _dark: "{colors.zinc.100}" } },
+      fg: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.900}" } },
+    },
+    secondary: {
+      DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.800}" } },
+      hover: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.700}" } },
+      fg: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+    },
+    accent: {
+      DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.800}" } },
+      fg: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+    },
+    muted: {
+      DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.800}" } },
+      fg: { value: { base: "{colors.zinc.500}", _dark: "{colors.zinc.400}" } },
+    },
+    card: {
+      DEFAULT: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.950}" } },
+      fg: { value: { base: "{colors.zinc.950}", _dark: "{colors.zinc.50}" } },
+    },
+    popover: {
+      DEFAULT: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.950}" } },
+      fg: { value: { base: "{colors.zinc.950}", _dark: "{colors.zinc.50}" } },
+    },
+    border: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
+    input: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
+    ring: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.300}" } },
+  },
+});
+```
+
+<Step>Import all configurations into a preset file.</Step>
+
+`preset/index.ts`
+
+```ts
+import { definePreset } from "@pandacss/dev";
+import { keyframes } from "./keyframes";
+import { recipes } from "./recipes";
+import { semanticTokens } from "./semantic-tokens";
+import { slotRecipes } from "./slot-recipes";
+import { utilities } from "./utilities";
+
+const preset = definePreset({
+  name: "web",
+  presets: ["@pandacss/preset-panda"],
+  globalCss: {
+    html: {
+      "--global-color-border": "colors.border",
+    },
+    body: {
+      bg: "bg",
+      color: "fg",
+    },
+  },
+  theme: {
+    extend: {
+      semanticTokens,
+      keyframes,
+    },
+    recipes,
+    slotRecipes,
+  },
+  utilities: {
+    extend: utilities,
+  },
+});
+
+export default preset;
+```
+
+<Step>Create empty recipe and slot recipe files.</Step>
+
+`preset/recipes/index.ts`
+
+```ts
+export const recipes = {
+  // You can add your recipes here.
+  // button: buttonRecipe,
+};
+```
+
+`preset/slot-recipes/index.ts`
+
+```ts
+export const slotRecipes = {
+  // You can add your slot recipes here.
+  // accordion: accordionSlotRecipe,
+};
+```
+
+<Step>Import the preset into your `panda.config.ts` file.</Step>
+
+```ts
+import { defineConfig } from "@pandacss/dev";
+import preset from "./preset";
+
+export default defineConfig({
+  preflight: true,
+  presets: [preset],
+  include: ["./src/**/*.{js,jsx,ts,tsx}"],
+  exclude: [],
+  jsxFramework: "react",
+  // This globalCss is just an example, you can remove it if you don't need it.
+  globalCss: {
+    extend: {
+      html: {
+        "--global-font-body": "var(--font-geist-sans)",
+        "--global-font-mono": "var(--font-geist-mono)",
+      },
+    },
+  },
+  outdir: "styled-system",
+});
+```
+
+<Step>Edit `tsconfig.json`</Step>
+
+Add `baseUrl` to the `compilerOptions` to simplify file imports. If `styled-system` does not appear in autocomplete, try adding it to the `include` array.
+
+```json
+{
+  "compilerOptions": {
+    // other options
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    // other includes
+    "styled-system"
+  ],
+  "exclude": ["node_modules"]
+}
+```
+
+<Step>That's it!</Step>
+
+You can now start adding components to your project.
 
 </Steps>

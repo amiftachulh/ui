@@ -1,10 +1,10 @@
 import { defineConfig } from "@pandacss/dev";
-import preset from "./panda";
+import preset from "./preset";
 
 export default defineConfig({
   preflight: true,
   presets: [preset],
-  include: ["./src/**/*.{js,jsx,ts,tsx}", "./pages/**/*.{js,jsx,ts,tsx}"],
+  include: ["./src/**/*.{js,jsx,ts,tsx}"],
   exclude: [],
   jsxFramework: "react",
   globalCss: {

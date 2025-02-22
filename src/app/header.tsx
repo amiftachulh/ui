@@ -38,7 +38,7 @@ export default function Header() {
                   color: "fg",
                 },
               })}
-              href="/docs/overview/getting-started"
+              href="/docs/overview/introduction"
             >
               Documentation
             </Link>
