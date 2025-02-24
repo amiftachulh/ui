@@ -4,91 +4,88 @@ import * as React from "react";
 import { LuX } from "react-icons/lu";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { css, cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { dialog } from "styled-system/recipes";
 
 const classes = dialog();
 
-const Dialog = DialogPrimitive.Root;
-
-const DialogTrigger = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Trigger>) => (
+const Trigger = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Trigger>) => (
   <DialogPrimitive.Trigger className={cx(classes.trigger, className)} {...props} />
 );
-DialogTrigger.displayName = DialogPrimitive.Trigger.displayName;
+const StyledTrigger = styled(Trigger);
+StyledTrigger.displayName = DialogPrimitive.Trigger.displayName;
 
 const DialogPortal = DialogPrimitive.Portal;
 
-const DialogOverlay = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Overlay>) => (
+const Overlay = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Overlay>) => (
   <DialogPrimitive.Overlay className={cx(classes.overlay, className)} {...props} />
 );
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
+const StyledOverlay = styled(Overlay);
+StyledOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-const DialogClose = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Close>) => (
+const Close = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Close>) => (
   <DialogPrimitive.Close className={cx(classes.close, className)} {...props} />
 );
-DialogClose.displayName = DialogPrimitive.Close.displayName;
+const StyledClose = styled(Close);
+StyledClose.displayName = DialogPrimitive.Close.displayName;
 
-const DialogContent = ({
+const Content = ({
   className,
   children,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content>) => (
   <DialogPortal>
-    <DialogOverlay />
+    <StyledOverlay />
     <DialogPrimitive.Content className={cx(classes.content, className)} {...props}>
       {children}
-      <DialogClose className={css({ pos: "absolute", top: "4", right: "4", cursor: "pointer" })}>
+      <StyledClose css={{ pos: "absolute", top: "4", right: "4", cursor: "pointer" }}>
         <LuX className={css({ w: "4", h: "4" })} />
         <span className={css({ srOnly: true })}>Close</span>
-      </DialogClose>
+      </StyledClose>
     </DialogPrimitive.Content>
   </DialogPortal>
 );
-DialogContent.displayName = DialogPrimitive.Content.displayName;
+const StyledContent = styled(Content);
+StyledContent.displayName = DialogPrimitive.Content.displayName;
 
-const DialogHeader = ({ className, ...props }: React.ComponentProps<"div">) => (
+const Header = ({ className, ...props }: React.ComponentProps<"div">) => (
   <div className={cx(classes.header, className)} {...props} />
 );
-DialogHeader.displayName = "DialogHeader";
+const StyledHeader = styled(Header);
+StyledHeader.displayName = "DialogHeader";
 
-const DialogTitle = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Title>) => (
+const Title = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) => (
   <DialogPrimitive.Title className={cx(classes.title, className)} {...props} />
 );
-DialogTitle.displayName = DialogPrimitive.Title.displayName;
+const StyledTitle = styled(Title);
+StyledTitle.displayName = DialogPrimitive.Title.displayName;
 
-const DialogDescription = ({
+const Description = ({
   className,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Description>) => (
   <DialogPrimitive.Description className={cx(classes.description, className)} {...props} />
 );
-DialogDescription.displayName = DialogPrimitive.Description.displayName;
+const StyledDescription = styled(Description);
+StyledDescription.displayName = DialogPrimitive.Description.displayName;
 
-const DialogFooter = ({ className, ...props }: React.ComponentProps<"div">) => (
+const Footer = ({ className, ...props }: React.ComponentProps<"div">) => (
   <div className={cx(classes.footer, className)} {...props} />
 );
-DialogFooter.displayName = "DialogFooter";
+const StyledFooter = styled(Footer);
+StyledFooter.displayName = "DialogFooter";
 
-export {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
-  DialogClose,
-  DialogOverlay,
-  DialogPortal,
+const Dialog = {
+  Root: DialogPrimitive.Root,
+  Trigger: StyledTrigger,
+  Content: StyledContent,
+  Header: StyledHeader,
+  Title: StyledTitle,
+  Description: StyledDescription,
+  Footer: StyledFooter,
+  Close: StyledClose,
+  Overlay: StyledOverlay,
+  Portal: DialogPortal,
 };
+
+export { Dialog };

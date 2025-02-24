@@ -4,47 +4,41 @@ import * as React from "react";
 import { LuSearch } from "react-icons/lu";
 import { Command as CommandPrimitive } from "cmdk";
 import { css, cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { command } from "styled-system/recipes";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog } from "@/components/ui/dialog";
 
 const classes = command();
 
-const Command = ({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>) => (
+const Root = ({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>) => (
   <CommandPrimitive className={cx(classes.root, className)} {...props} />
 );
-Command.displayName = CommandPrimitive.displayName;
+const StyledRoot = styled(Root);
+StyledRoot.displayName = "Command";
 
-const CommandDialog = ({
+const DialogWrapper = ({
   title = "Command Palette",
-  description = "Search for a command to run...",
+  description = "Search for a command...",
   children,
   ...props
-}: React.ComponentProps<typeof Dialog> & {
+}: React.ComponentProps<typeof Dialog.Root> & {
   title?: string;
   description?: string;
 }) => (
-  <Dialog {...props}>
-    <DialogHeader className={css({ srOnly: true })}>
-      <DialogTitle>{title}</DialogTitle>
-      <DialogDescription>{description}</DialogDescription>
-    </DialogHeader>
-    <DialogContent className={css({ overflow: "hidden", p: "0", shadow: "lg" })}>
-      <Command className={classes.dialog}>{children}</Command>
-    </DialogContent>
-  </Dialog>
+  <Dialog.Root {...props}>
+    <Dialog.Header className={css({ srOnly: true })}>
+      <Dialog.Title>{title}</Dialog.Title>
+      <Dialog.Description>{description}</Dialog.Description>
+    </Dialog.Header>
+    <Dialog.Content className={css({ overflow: "hidden", p: "0", shadow: "lg" })}>
+      <StyledRoot className={classes.dialog}>{children}</StyledRoot>
+    </Dialog.Content>
+  </Dialog.Root>
 );
-CommandDialog.displayName = "CommandDialog";
+const StyledDialog = styled(DialogWrapper);
+StyledDialog.displayName = "CommandDialog";
 
-const CommandInput = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.Input>) => (
+const Input = ({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Input>) => (
   <div
     className={css({ display: "flex", alignItems: "center", borderBottomWidth: "1px", px: "3" })}
     cmdk-input-wrapper=""
@@ -53,61 +47,58 @@ const CommandInput = ({
     <CommandPrimitive.Input className={cx(classes.input, className)} {...props} />
   </div>
 );
-CommandInput.displayName = CommandPrimitive.Input.displayName;
+const StyledInput = styled(Input);
+StyledInput.displayName = "CommandInput";
 
-const CommandList = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.List>) => (
+const List = ({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.List>) => (
   <CommandPrimitive.List className={cx(classes.list, className)} {...props} />
 );
-CommandList.displayName = CommandPrimitive.List.displayName;
+const StyledList = styled(List);
+StyledList.displayName = "CommandList";
 
-const CommandEmpty = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.Empty>) => (
+const Empty = ({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Empty>) => (
   <CommandPrimitive.Empty className={cx(classes.empty, className)} {...props} />
 );
-CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
+const StyledEmpty = styled(Empty);
+StyledEmpty.displayName = "CommandEmpty";
 
-const CommandGroup = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.Group>) => (
+const Group = ({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Group>) => (
   <CommandPrimitive.Group className={cx(classes.group, className)} {...props} />
 );
-CommandGroup.displayName = CommandPrimitive.Group.displayName;
+const StyledGroup = styled(Group);
+StyledGroup.displayName = "CommandGroup";
 
-const CommandSeparator = ({
+const Separator = ({
   className,
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Separator>) => (
   <CommandPrimitive.Separator className={cx(classes.separator, className)} {...props} />
 );
-CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
+const StyledSeparator = styled(Separator);
+StyledSeparator.displayName = "CommandSeparator";
 
-const CommandItem = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.Item>) => (
+const Item = ({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Item>) => (
   <CommandPrimitive.Item className={cx(classes.item, className)} {...props} />
 );
-CommandItem.displayName = CommandPrimitive.Item.displayName;
+const StyledItem = styled(Item);
+StyledItem.displayName = "CommandItem";
 
-const CommandShortcut = ({ className, ...props }: React.ComponentProps<"span">) => (
+const Shortcut = ({ className, ...props }: React.ComponentProps<"span">) => (
   <span className={cx(classes.shortcut, className)} {...props} />
 );
-CommandShortcut.displayName = "CommandShortcut";
+const StyledShortcut = styled(Shortcut);
+StyledShortcut.displayName = "CommandShortcut";
 
-export {
-  Command,
-  CommandDialog,
-  CommandInput,
-  CommandList,
-  CommandEmpty,
-  CommandGroup,
-  CommandSeparator,
-  CommandItem,
-  CommandShortcut,
+const Command = {
+  Root: StyledRoot,
+  Dialog: StyledDialog,
+  Input: StyledInput,
+  List: StyledList,
+  Empty: StyledEmpty,
+  Group: StyledGroup,
+  Separator: StyledSeparator,
+  Item: StyledItem,
+  Shortcut: StyledShortcut,
 };
+
+export { Command };

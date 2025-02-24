@@ -1,15 +1,17 @@
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { popover } from "styled-system/recipes";
 
 const classes = popover();
 
-const Popover = PopoverPrimitive.Root;
+const Root = PopoverPrimitive.Root;
 
-const PopoverTrigger = PopoverPrimitive.Trigger;
+const StyledTrigger = styled(PopoverPrimitive.Trigger);
+StyledTrigger.displayName = PopoverPrimitive.Trigger.displayName;
 
-const PopoverContent = ({
+const Content = ({
   className,
   align = "center",
   sideOffset = 4,
@@ -24,6 +26,13 @@ const PopoverContent = ({
     />
   </PopoverPrimitive.Portal>
 );
-PopoverContent.displayName = "PopoverContent";
+const StyledContent = styled(Content);
+StyledContent.displayName = "PopoverContent";
 
-export { Popover, PopoverTrigger, PopoverContent };
+const Popover = {
+  Root,
+  Trigger: StyledTrigger,
+  Content: StyledContent,
+};
+
+export { Popover };

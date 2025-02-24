@@ -1,9 +1,7 @@
-import { cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { label } from "styled-system/recipes";
 
-const Label = ({ className, ...props }: React.ComponentProps<"label">) => (
-  <label className={cx(label(), className)} {...props} />
-);
+const Label = styled("label", label);
 Label.displayName = "Label";
 
 export { Label };

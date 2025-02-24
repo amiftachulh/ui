@@ -4,10 +4,10 @@ import { useState } from "react";
 import { DateRange } from "react-day-picker";
 import { LuCalendar } from "react-icons/lu";
 import dayjs from "dayjs";
-import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Popover } from "@/components/ui/popover";
 
 export default function DatePickerWithRange() {
   const [date, setDate] = useState<DateRange | undefined>({
@@ -16,19 +16,19 @@ export default function DatePickerWithRange() {
   });
 
   return (
-    <div className={css({ display: "grid", gap: "2" })}>
-      <Popover>
-        <PopoverTrigger asChild>
+    <styled.div css={{ display: "grid", gap: "2" }}>
+      <Popover.Root>
+        <Popover.Trigger asChild>
           <Button
             id="date"
             variant="outline"
-            className={css({
+            css={{
               w: "280px",
               justifyContent: "flex-start",
               textAlign: "left",
               fontWeight: "normal",
               color: !date ? "muted.fg" : "fg",
-            })}
+            }}
           >
             <LuCalendar />
             {date?.from ? (
@@ -43,8 +43,8 @@ export default function DatePickerWithRange() {
               <span>Pick a date</span>
             )}
           </Button>
-        </PopoverTrigger>
-        <PopoverContent className={css({ w: "auto", p: "0" })} align="start">
+        </Popover.Trigger>
+        <Popover.Content css={{ w: "auto", p: "0" }} align="start">
           <Calendar
             autoFocus
             mode="range"
@@ -53,8 +53,8 @@ export default function DatePickerWithRange() {
             onSelect={setDate}
             numberOfMonths={2}
           />
-        </PopoverContent>
-      </Popover>
-    </div>
+        </Popover.Content>
+      </Popover.Root>
+    </styled.div>
   );
 }

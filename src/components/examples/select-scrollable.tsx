@@ -1,65 +1,56 @@
 import * as React from "react";
-import { css } from "styled-system/css";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select } from "@/components/ui/select";
 
 export default function SelectScrollable() {
   return (
-    <Select>
-      <SelectTrigger className={css({ w: "280px" })}>
-        <SelectValue placeholder="Select a timezone" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>North America</SelectLabel>
-          <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-          <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-          <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
-          <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-          <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
-          <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Europe & Africa</SelectLabel>
-          <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
-          <SelectItem value="cet">Central European Time (CET)</SelectItem>
-          <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
-          <SelectItem value="west">Western European Summer Time (WEST)</SelectItem>
-          <SelectItem value="cat">Central Africa Time (CAT)</SelectItem>
-          <SelectItem value="eat">East Africa Time (EAT)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Asia</SelectLabel>
-          <SelectItem value="msk">Moscow Time (MSK)</SelectItem>
-          <SelectItem value="ist">India Standard Time (IST)</SelectItem>
-          <SelectItem value="cst_china">China Standard Time (CST)</SelectItem>
-          <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
-          <SelectItem value="kst">Korea Standard Time (KST)</SelectItem>
-          <SelectItem value="ist_indonesia">Indonesia Central Standard Time (WITA)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Australia & Pacific</SelectLabel>
-          <SelectItem value="awst">Australian Western Standard Time (AWST)</SelectItem>
-          <SelectItem value="acst">Australian Central Standard Time (ACST)</SelectItem>
-          <SelectItem value="aest">Australian Eastern Standard Time (AEST)</SelectItem>
-          <SelectItem value="nzst">New Zealand Standard Time (NZST)</SelectItem>
-          <SelectItem value="fjt">Fiji Time (FJT)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>South America</SelectLabel>
-          <SelectItem value="art">Argentina Time (ART)</SelectItem>
-          <SelectItem value="bot">Bolivia Time (BOT)</SelectItem>
-          <SelectItem value="brt">Brasilia Time (BRT)</SelectItem>
-          <SelectItem value="clt">Chile Standard Time (CLT)</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <Select.Root>
+      <Select.Trigger css={{ w: "280px" }}>
+        <Select.Value placeholder="Select a timezone" />
+      </Select.Trigger>
+      <Select.Content>
+        <Select.Group>
+          <Select.Label>North America</Select.Label>
+          <Select.Item value="est">Eastern Standard Time (EST)</Select.Item>
+          <Select.Item value="cst">Central Standard Time (CST)</Select.Item>
+          <Select.Item value="mst">Mountain Standard Time (MST)</Select.Item>
+          <Select.Item value="pst">Pacific Standard Time (PST)</Select.Item>
+          <Select.Item value="akst">Alaska Standard Time (AKST)</Select.Item>
+          <Select.Item value="hst">Hawaii Standard Time (HST)</Select.Item>
+        </Select.Group>
+        <Select.Group>
+          <Select.Label>Europe & Africa</Select.Label>
+          <Select.Item value="gmt">Greenwich Mean Time (GMT)</Select.Item>
+          <Select.Item value="cet">Central European Time (CET)</Select.Item>
+          <Select.Item value="eet">Eastern European Time (EET)</Select.Item>
+          <Select.Item value="west">Western European Summer Time (WEST)</Select.Item>
+          <Select.Item value="cat">Central Africa Time (CAT)</Select.Item>
+          <Select.Item value="eat">East Africa Time (EAT)</Select.Item>
+        </Select.Group>
+        <Select.Group>
+          <Select.Label>Asia</Select.Label>
+          <Select.Item value="msk">Moscow Time (MSK)</Select.Item>
+          <Select.Item value="ist">India Standard Time (IST)</Select.Item>
+          <Select.Item value="cst_china">China Standard Time (CST)</Select.Item>
+          <Select.Item value="jst">Japan Standard Time (JST)</Select.Item>
+          <Select.Item value="kst">Korea Standard Time (KST)</Select.Item>
+          <Select.Item value="ist_indonesia">Indonesia Central Standard Time (WITA)</Select.Item>
+        </Select.Group>
+        <Select.Group>
+          <Select.Label>Australia & Pacific</Select.Label>
+          <Select.Item value="awst">Australian Western Standard Time (AWST)</Select.Item>
+          <Select.Item value="acst">Australian Central Standard Time (ACST)</Select.Item>
+          <Select.Item value="aest">Australian Eastern Standard Time (AEST)</Select.Item>
+          <Select.Item value="nzst">New Zealand Standard Time (NZST)</Select.Item>
+          <Select.Item value="fjt">Fiji Time (FJT)</Select.Item>
+        </Select.Group>
+        <Select.Group>
+          <Select.Label>South America</Select.Label>
+          <Select.Item value="art">Argentina Time (ART)</Select.Item>
+          <Select.Item value="bot">Bolivia Time (BOT)</Select.Item>
+          <Select.Item value="brt">Brasilia Time (BRT)</Select.Item>
+          <Select.Item value="clt">Chile Standard Time (CLT)</Select.Item>
+        </Select.Group>
+      </Select.Content>
+    </Select.Root>
   );
 }

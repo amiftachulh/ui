@@ -2,23 +2,23 @@ import * as React from "react";
 import { LuCheck, LuChevronRight, LuCircle } from "react-icons/lu";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { css, cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { dropdownMenu } from "styled-system/recipes";
 
 const classes = dropdownMenu();
 
-const DropdownMenu = DropdownMenuPrimitive.Root;
-
-const DropdownMenuTrigger = ({
+const Trigger = ({
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) => (
   <DropdownMenuPrimitive.Trigger className={cx(classes.trigger, className)} {...props} />
 );
-DropdownMenuTrigger.displayName = DropdownMenuPrimitive.Trigger.displayName;
+const StyledTrigger = styled(Trigger);
+StyledTrigger.displayName = DropdownMenuPrimitive.Trigger.displayName;
 
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 
-const DropdownMenuContent = ({
+const Content = ({
   className,
   sideOffset = 4,
   ...props
@@ -29,9 +29,10 @@ const DropdownMenuContent = ({
     {...props}
   />
 );
-DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
+const StyledContent = styled(Content);
+StyledContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
-const DropdownMenuItem = ({
+const Item = ({
   className,
   inset,
   ...props
@@ -42,9 +43,10 @@ const DropdownMenuItem = ({
     {...props}
   />
 );
-DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
+const StyledItem = styled(Item);
+StyledItem.displayName = DropdownMenuPrimitive.Item.displayName;
 
-const DropdownMenuLabel = ({
+const Label = ({
   className,
   inset,
   ...props
@@ -55,9 +57,10 @@ const DropdownMenuLabel = ({
     {...props}
   />
 );
-DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
+const StyledLabel = styled(Label);
+StyledLabel.displayName = DropdownMenuPrimitive.Label.displayName;
 
-const DropdownMenuCheckboxItem = ({
+const CheckboxItem = ({
   className,
   children,
   ...props
@@ -81,9 +84,10 @@ const DropdownMenuCheckboxItem = ({
     {children}
   </DropdownMenuPrimitive.CheckboxItem>
 );
-DropdownMenuCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName;
+const StyledCheckboxItem = styled(CheckboxItem);
+StyledCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName;
 
-const DropdownMenuRadioItem = ({
+const RadioItem = ({
   className,
   children,
   ...props
@@ -107,22 +111,25 @@ const DropdownMenuRadioItem = ({
     {children}
   </DropdownMenuPrimitive.RadioItem>
 );
-DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
+const StyledRadioItem = styled(RadioItem);
+StyledRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
 
-const DropdownMenuSeparator = ({
+const Separator = ({
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) => (
   <DropdownMenuPrimitive.Separator className={cx(classes.separator, className)} {...props} />
 );
-DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
+const StyledSeparator = styled(Separator);
+StyledSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
-const DropdownMenuShortcut = ({ className, ...props }: React.ComponentProps<"span">) => (
+const Shortcut = ({ className, ...props }: React.ComponentProps<"span">) => (
   <span className={cx(classes.shortcut, className)} {...props} />
 );
-DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
+const StyledShortcut = styled(Shortcut);
+StyledShortcut.displayName = "DropdownMenuShortcut";
 
-const DropdownMenuSubTrigger = ({
+const SubTrigger = ({
   className,
   inset,
   children,
@@ -137,48 +144,52 @@ const DropdownMenuSubTrigger = ({
     <LuChevronRight className={css({ ml: "auto" })} />
   </DropdownMenuPrimitive.SubTrigger>
 );
-DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
+const StyledSubTrigger = styled(SubTrigger);
+StyledSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
 
-const DropdownMenuSubContent = ({
+const SubContent = ({
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) => (
   <DropdownMenuPrimitive.SubContent className={cx(classes.subContent, className)} {...props} />
 );
-DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
+const StyledSubContent = styled(SubContent);
+StyledSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
 
-const DropdownMenuGroup = ({
+const Group = ({
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) => (
   <DropdownMenuPrimitive.Group className={cx(classes.group, className)} {...props} />
 );
-DropdownMenuGroup.displayName = DropdownMenuPrimitive.Group.displayName;
+const StyledGroup = styled(Group);
+StyledGroup.displayName = DropdownMenuPrimitive.Group.displayName;
 
-const DropdownMenuRadioGroup = ({
+const RadioGroup = ({
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) => (
   <DropdownMenuPrimitive.RadioGroup className={cx(classes.radioGroup, className)} {...props} />
 );
-DropdownMenuRadioGroup.displayName = DropdownMenuPrimitive.RadioGroup.displayName;
+const StyledRadioGroup = styled(RadioGroup);
+StyledRadioGroup.displayName = DropdownMenuPrimitive.RadioGroup.displayName;
 
-const DropdownMenuSub = DropdownMenuPrimitive.Sub;
-
-export {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuCheckboxItem,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuGroup,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuPortal,
-  DropdownMenuSub,
+const DropdownMenu = {
+  Root: DropdownMenuPrimitive.Root,
+  Trigger: StyledTrigger,
+  Content: StyledContent,
+  Item: StyledItem,
+  Label: StyledLabel,
+  CheckboxItem: StyledCheckboxItem,
+  RadioItem: StyledRadioItem,
+  RadioGroup: StyledRadioGroup,
+  Separator: StyledSeparator,
+  Shortcut: StyledShortcut,
+  Group: StyledGroup,
+  SubTrigger: StyledSubTrigger,
+  SubContent: StyledSubContent,
+  Portal: DropdownMenuPortal,
+  Sub: DropdownMenuPrimitive.Sub,
 };
+
+export { DropdownMenu };

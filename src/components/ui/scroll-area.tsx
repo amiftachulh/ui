@@ -1,11 +1,12 @@
 import * as React from "react";
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
 import { cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { scrollArea } from "styled-system/recipes";
 
 const classes = scrollArea();
 
-const ScrollArea = ({
+const Root = ({
   className,
   children,
   ...props
@@ -18,9 +19,10 @@ const ScrollArea = ({
     <ScrollAreaPrimitive.Corner />
   </ScrollAreaPrimitive.Root>
 );
+const ScrollArea = styled(Root);
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName;
 
-const Scrollbar = ({
+const ScrollbarBase = ({
   className,
   orientation = "vertical",
   ...props
@@ -34,6 +36,7 @@ const Scrollbar = ({
     <ScrollAreaPrimitive.Thumb className={classes.scrollAreaThumb} />
   </ScrollAreaPrimitive.Scrollbar>
 );
+const Scrollbar = styled(ScrollbarBase);
 Scrollbar.displayName = ScrollAreaPrimitive.Scrollbar.displayName;
 
 export { ScrollArea, Scrollbar };

@@ -1,18 +1,19 @@
 import fs from "fs";
 import path from "path";
 import { type BundledLanguage } from "shiki/bundle/web";
-import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import CodeBlock from "./code-block";
 
 type ComponentSourceProps = {
   name: string;
-  type: "recipe" | "slot-recipe" | "component";
+  type: "recipe" | "slot-recipe" | "component" | "hook";
 };
 
 const typeMap = {
   recipe: { dir: "preset/recipes", title: "Recipe" },
   "slot-recipe": { dir: "preset/slot-recipes", title: "Slot Recipe" },
   component: { dir: "src/components/ui", title: "Component" },
+  hook: { dir: "src/hooks", title: "Hook" },
 };
 
 export default async function ComponentSource({ name, type }: ComponentSourceProps) {
@@ -22,9 +23,9 @@ export default async function ComponentSource({ name, type }: ComponentSourcePro
   const content = fs.readFileSync(file, "utf8");
 
   return (
-    <div className={css({ my: "4", borderWidth: "1", rounded: "md", overflow: "hidden" })}>
-      <div className={css({ px: 4, py: 1 })}>{title}</div>
+    <styled.div css={{ my: "4", borderWidth: "1", rounded: "md", overflow: "hidden" }}>
+      <styled.div css={{ px: 4, py: 1 }}>{title}</styled.div>
       <CodeBlock lang={extension}>{content}</CodeBlock>
-    </div>
+    </styled.div>
   );
 }

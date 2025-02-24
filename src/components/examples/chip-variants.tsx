@@ -1,12 +1,12 @@
-import { flex } from "styled-system/patterns";
+import { styled } from "styled-system/jsx";
 import { Chip } from "@/components/ui/chip";
 
 export default function ChipVariants() {
   return (
-    <div className={flex({ align: "center", gap: "4" })}>
+    <styled.div css={{ display: "flex", alignItems: "center", gap: "4" }}>
       <Chip variant="primary">Badge</Chip>
       <Chip variant="secondary">Badge</Chip>
       <Chip variant="outline">Badge</Chip>
-    </div>
+    </styled.div>
   );
 }

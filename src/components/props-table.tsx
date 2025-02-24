@@ -1,8 +1,9 @@
 import { LuInfo } from "react-icons/lu";
-import { css, cx } from "styled-system/css";
+import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { Chip } from "./ui/chip";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
+import { Popover } from "./ui/popover";
+import { Table } from "./ui/table";
 
 type PropsTableData = {
   prop: string;
@@ -17,24 +18,24 @@ type PropsTableProps = {
 
 export default function PropsTable({ data }: PropsTableProps) {
   return (
-    <div className={css({ rounded: "md", borderWidth: "1px" })}>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className={css({ w: "100px" })}>Invoice</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Method</TableHead>
-            <TableHead className={css({ textAlign: "right" })}>Amount</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
+    <styled.div css={{ rounded: "md", borderWidth: "1px" }}>
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
+            <Table.Head css={{ w: "100px" }}>Invoice</Table.Head>
+            <Table.Head>Status</Table.Head>
+            <Table.Head>Method</Table.Head>
+            <Table.Head css={{ textAlign: "right" }}>Amount</Table.Head>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
           {data.map((d) => (
-            <TableRow key={d.prop}>
-              <TableCell>
-                <div className={css({ display: "flex", alignItems: "center", gap: "2" })}>
+            <Table.Row key={d.prop}>
+              <Table.Cell>
+                <styled.div css={{ display: "flex", alignItems: "center", gap: "2" }}>
                   <Chip>{d.prop}</Chip>
-                  <Popover>
-                    <PopoverTrigger className={cx("group", css({ cursor: "pointer" }))}>
+                  <Popover.Root>
+                    <Popover.Trigger className="group" css={{ cursor: "pointer" }}>
                       <LuInfo
                         className={css({
                           w: "4",
@@ -49,23 +50,21 @@ export default function PropsTable({ data }: PropsTableProps) {
                           },
                         })}
                       />
-                    </PopoverTrigger>
-                    <PopoverContent className={css({ textStyle: "sm" })}>
-                      {d.description}
-                    </PopoverContent>
-                  </Popover>
-                </div>
-              </TableCell>
-              <TableCell>
+                    </Popover.Trigger>
+                    <Popover.Content css={{ textStyle: "sm" }}>{d.description}</Popover.Content>
+                  </Popover.Root>
+                </styled.div>
+              </Table.Cell>
+              <Table.Cell>
                 <Chip>{d.type}</Chip>
-              </TableCell>
-              <TableCell>
+              </Table.Cell>
+              <Table.Cell>
                 <Chip>{d.default}</Chip>
-              </TableCell>
-            </TableRow>
+              </Table.Cell>
+            </Table.Row>
           ))}
-        </TableBody>
-      </Table>
-    </div>
+        </Table.Body>
+      </Table.Root>
+    </styled.div>
   );
 }

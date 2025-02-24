@@ -1,12 +1,12 @@
-import { stack } from "styled-system/patterns";
+import { styled } from "styled-system/jsx";
 import { Input } from "@/components/ui/input";
 
 export default function InputSize() {
   return (
-    <div className={stack({ gap: "4" })}>
+    <styled.div css={{ spaceY: "4" }}>
       <Input size="sm" placeholder="Small" />
       <Input size="md" placeholder="Medium" />
       <Input size="lg" placeholder="Large" />
-    </div>
+    </styled.div>
   );
 }

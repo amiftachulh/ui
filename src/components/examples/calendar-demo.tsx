@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { css } from "styled-system/css";
 import { Calendar } from "@/components/ui/calendar";
 
 export default function CalendarDemo() {
@@ -12,7 +11,7 @@ export default function CalendarDemo() {
       mode="single"
       selected={date}
       onSelect={setDate}
-      className={css({ w: "fit", borderWidth: "1px", rounded: "md" })}
+      css={{ w: "fit", borderWidth: "1px", rounded: "md" }}
     />
   );
 }

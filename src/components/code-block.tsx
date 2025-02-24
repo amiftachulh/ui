@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { transformerNotationDiff } from "@shikijs/transformers";
 import { toJsxRuntime } from "hast-util-to-jsx-runtime";
 import { codeToHast, type BundledLanguage } from "shiki";
-import { css, cx } from "styled-system/css";
+import { cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { scroll } from "styled-system/recipes";
 import CodeBlockCopy from "./code-block-copy";
 
@@ -11,9 +11,20 @@ type CodeBlockProps = {
   lang: BundledLanguage;
   children: string;
   className?: string;
+  highlight?: string;
+  add?: string;
 };
 
-export default async function CodeBlock({ lang, children, className }: CodeBlockProps) {
+export default async function CodeBlock({
+  lang,
+  children,
+  className,
+  highlight: h,
+  add: a,
+}: CodeBlockProps) {
+  const highlight = h ? parseLineNumbers(h) : [];
+  const add = a ? parseLineNumbers(a) : [];
+
   const out = await codeToHast(children, {
     lang,
     themes: {
@@ -21,25 +32,33 @@ export default async function CodeBlock({ lang, children, className }: CodeBlock
       dark: "dark-plus",
     },
     transformers: [
-      transformerNotationDiff({
-        matchAlgorithm: "v3",
-      }),
+      {
+        line(node, line) {
+          if (highlight.includes(line)) {
+            this.addClassToHast(node, "highlighted");
+          }
+
+          if (add.includes(line)) {
+            this.addClassToHast(node, "highlighted add");
+          }
+
+          return node;
+        },
+      },
     ],
   });
 
   return (
-    <div
-      className={cx(
-        css({
-          pos: "relative",
-          "& .shiki span": {
-            _dark: {
-              color: "var(--shiki-dark)!",
-            },
+    <styled.div
+      css={{
+        pos: "relative",
+        "& .shiki span": {
+          _dark: {
+            color: "var(--shiki-dark)!",
           },
-        }),
-        className
-      )}
+        },
+      }}
+      className={className}
     >
       {toJsxRuntime(out, {
         Fragment,
@@ -47,18 +66,37 @@ export default async function CodeBlock({ lang, children, className }: CodeBlock
         jsxs,
         components: {
           pre: ({ className, style: _, ...props }) => (
-            <pre
-              className={cx(
-                className,
-                css({
-                  textStyle: "sm",
-                  maxH: "80",
-                  p: "4",
-                  bg: { base: "zinc.100", _dark: "zinc.900" },
-                  overflow: "auto",
-                }),
-                scroll()
-              )}
+            <styled.pre
+              css={{
+                textStyle: "sm",
+                maxH: "80",
+                py: "4",
+                bg: { base: "zinc.100", _dark: "zinc.900" },
+                overflow: "auto",
+                "& .line": {
+                  px: "4",
+                },
+                "& .line:empty:last-child": {
+                  display: "none",
+                },
+                "& .highlighted": {
+                  display: "inline-block",
+                  w: "full",
+                  bg: { base: "zinc.200", _dark: "zinc.800" },
+                  "&.add": {
+                    bg: { base: "green.200/50", _dark: "green.900/50" },
+                    "&::before": {
+                      content: "'+'",
+                      pos: "absolute",
+                      left: "1",
+                      color: "green.500",
+                      fontSize: "md",
+                      textAlign: "center",
+                    },
+                  },
+                },
+              }}
+              className={cx(scroll(), className)}
               {...props}
             />
           ),
@@ -66,6 +104,48 @@ export default async function CodeBlock({ lang, children, className }: CodeBlock
       })}
 
       <CodeBlockCopy code={children} />
-    </div>
+    </styled.div>
   );
+}
+
+/**
+ * Parses a string of numbers and ranges (e.g., "1,2" or "1-3,5-7") into a sorted array.
+ *
+ * @param input Format: "1,2" or "1-3" or "1,3-5"
+ * @returns Sorted array of numbers
+ * @throws For invalid input format
+ * @example parseLineNumbers("1,3-5") // returns [1, 3, 4, 5]
+ */
+function parseLineNumbers(input: string): number[] {
+  if (typeof input !== "string") {
+    throw new Error("Input must be a string");
+  }
+
+  const result = new Set<number>();
+
+  const parts = input.split(",");
+
+  for (const part of parts) {
+    if (part.includes("-")) {
+      const [start, end] = part.split("-").map((num) => parseInt(num, 10));
+
+      if (isNaN(start) || isNaN(end)) {
+        throw new Error("Invalid range format");
+      }
+
+      for (let i = start; i <= end; i++) {
+        result.add(i);
+      }
+    } else {
+      const num = parseInt(part, 10);
+
+      if (isNaN(num)) {
+        throw new Error("Invalid number format");
+      }
+
+      result.add(num);
+    }
+  }
+
+  return Array.from(result).sort((a, b) => a - b);
 }

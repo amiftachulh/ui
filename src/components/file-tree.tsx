@@ -2,6 +2,7 @@ import * as React from "react";
 import { LuChevronRight, LuFile, LuFolder } from "react-icons/lu";
 import * as Accordion from "@radix-ui/react-accordion";
 import { css } from "styled-system/css";
+import { Separator } from "./ui/separator";
 
 const FileTree = ({
   children,
@@ -13,7 +14,14 @@ const FileTree = ({
   return (
     <Accordion.Root
       type="multiple"
-      className={css({ overflow: "hidden", my: "2", p: "2", rounded: "md", borderWidth: "1px" })}
+      className={css({
+        pos: "relative",
+        overflow: "hidden",
+        my: "2",
+        p: "2",
+        rounded: "md",
+        borderWidth: "1px",
+      })}
       {...props}
     >
       {children}
@@ -99,10 +107,12 @@ const FileTreeItem = ({ name, children, type = "file", noIcon, disabled }: FileT
       </Accordion.Header>
       <Accordion.Content
         className={css({
+          pos: "relative",
           pl: "6",
           overflow: "hidden",
         })}
       >
+        <Separator css={{ pos: "absolute", left: "0.5625rem" }} decorative orientation="vertical" />
         {children}
       </Accordion.Content>
     </Accordion.Item>

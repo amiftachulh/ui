@@ -1,7 +1,8 @@
 import { LuCircleCheckBig, LuCircleX, LuInfo, LuTriangleAlert } from "react-icons/lu";
 import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
-import { css, cx } from "styled-system/css";
+import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { chip } from "styled-system/recipes";
 import CodeBlock from "./code-block";
 import ComponentPreview from "./component-preview";
@@ -9,9 +10,9 @@ import ComponentSource from "./component-source";
 import { FileTree, FileTreeItem } from "./file-tree";
 import PackageInstaller from "./package-installer";
 import PropsTable from "./props-table";
-import { Alert, AlertContent, AlertDescription, AlertIcon } from "./ui/alert";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
+import { Alert } from "./ui/alert";
+import { Popover } from "./ui/popover";
+import { Table } from "./ui/table";
 
 const alertIconMap = {
   info: LuInfo,
@@ -22,22 +23,22 @@ const alertIconMap = {
 
 const components: MDXComponents = {
   h1: ({ children }) => (
-    <h1
+    <styled.h1
       id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
-      className={css({
+      css={{
         color: "fg",
         lineHeight: "tight",
         fontWeight: "semibold",
         fontSize: "3xl",
-      })}
+      }}
     >
       {children}
-    </h1>
+    </styled.h1>
   ),
   h2: ({ children }) => (
-    <h2
+    <styled.h2
       id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
-      className={css({
+      css={{
         color: "fg",
         lineHeight: "tight",
         fontWeight: "semibold",
@@ -46,53 +47,54 @@ const components: MDXComponents = {
         mb: "6",
         pb: "2",
         borderBottomWidth: "1px",
-      })}
+      }}
     >
       {children}
-    </h2>
+    </styled.h2>
   ),
   h3: ({ children }) => (
-    <h3
+    <styled.h3
       id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
-      className={css({
+      css={{
         color: "fg",
         lineHeight: "tight",
         fontWeight: "semibold",
         fontSize: "xl",
         mt: "8",
-      })}
+      }}
     >
       {children}
-    </h3>
+    </styled.h3>
   ),
   h4: ({ children }) => (
-    <h4
+    <styled.h4
       id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
-      className={css({
+      css={{
         color: "fg",
         lineHeight: "tight",
         fontWeight: "semibold",
         fontSize: "lg",
         mt: "6",
-      })}
+      }}
     >
       {children}
-    </h4>
+    </styled.h4>
   ),
   p: ({ children }) => (
-    <p
-      className={css({
+    <styled.p
+      css={{
         my: "4",
         lineHeight: "relaxed",
-      })}
+      }}
     >
       {children}
-    </p>
+    </styled.p>
   ),
   a: ({ href, ...props }) => {
     const linkClass = css({
       color: "primary/90",
       textDecoration: "underline",
+      textUnderlineOffset: "1px",
       fontWeight: "medium",
       _hover: {
         color: "primary",
@@ -106,65 +108,69 @@ const components: MDXComponents = {
     return <a href={href} className={linkClass} {...props} target="_blank" />;
   },
   strong: ({ children }) => (
-    <strong
-      className={css({
+    <styled.strong
+      css={{
         color: "fg",
         fontWeight: "semibold",
-      })}
+      }}
     >
       {children}
-    </strong>
+    </styled.strong>
   ),
   ul: ({ children }) => (
-    <ul
-      className={css({
+    <styled.ul
+      css={{
         listStyleType: "disc",
         my: "4",
         pl: "6",
-      })}
+      }}
     >
       {children}
-    </ul>
+    </styled.ul>
   ),
   ol: ({ children }) => (
-    <ol
-      className={css({
+    <styled.ol
+      css={{
         listStyleType: "decimal",
         my: "4",
         pl: "6",
-      })}
+      }}
     >
       {children}
-    </ol>
+    </styled.ol>
   ),
-  li: ({ children }) => <li className={css({ my: "1" })}>{children}</li>,
+  li: ({ children }) => <styled.li css={{ my: "1" }}>{children}</styled.li>,
   pre: (props) => {
-    const {
-      children: { props: code },
-    } = props;
+    const { children, highlight, add } = props;
+    const code = children.props;
     const lang = code.className?.replace("language-", "");
+
     return (
       <CodeBlock
         className={css({ my: "4", borderWidth: "1", rounded: "md", overflow: "hidden" })}
         lang={lang}
+        highlight={highlight}
+        add={add}
       >
-        {props.children.props.children}
+        {children.props.children}
       </CodeBlock>
     );
   },
   code: ({ children }) => (
-    <code
-      className={cx(
-        chip({ variant: "secondary", size: "md" }),
-        css({ px: "0.5", color: "secondary.fg", userSelect: "auto" })
-      )}
+    <styled.code
+      className={chip({ variant: "secondary", size: "md" })}
+      css={{
+        px: "0.5",
+        color: "secondary.fg",
+        userSelect: "auto",
+      }}
     >
       {children}
-    </code>
+    </styled.code>
   ),
   blockquote: ({ children }) => (
-    <blockquote
-      className={css({
+    <styled.blockquote
+      css={{
         fontWeight: "medium",
         fontStyle: "italic",
         color: "fg",
@@ -175,96 +181,90 @@ const components: MDXComponents = {
           marginTop: "4",
           marginBottom: "4",
         },
-      })}
+      }}
     >
       {children}
-    </blockquote>
+    </styled.blockquote>
   ),
   table: (props) => (
-    <div className={css({ rounded: "md", borderWidth: "1px" })}>
-      <Table {...props} />
-    </div>
+    <styled.div css={{ rounded: "md", borderWidth: "1px" }}>
+      <Table.Root {...props} />
+    </styled.div>
   ),
-  thead: (props) => <TableHeader className={css({ bg: "muted" })} {...props} />,
-  tbody: TableBody,
-  tr: TableRow,
-  th: (props) => <TableHead className={css({ color: "fg" })} {...props} />,
-  td: TableCell,
+  thead: (props) => <Table.Header className={css({ bg: "muted" })} {...props} />,
+  tbody: Table.Body,
+  tr: Table.Row,
+  th: (props) => <Table.Head className={css({ color: "fg" })} {...props} />,
+  td: Table.Cell,
   ComponentPreview,
   ComponentSource,
   PackageInstaller,
   CodeBlock,
-  Step: ({ className, ...props }) => (
-    <h3
-      className={cx(
-        className,
-        css({
-          mt: "8",
-          mb: "4",
-          scrollMargin: "20",
-          fontWeight: "medium",
-          letterSpacing: "tight",
-        })
-      )}
+  Step: (props) => (
+    <styled.h3
+      css={{
+        mt: "8",
+        mb: "4",
+        scrollMargin: "20",
+        fontWeight: "medium",
+        letterSpacing: "tight",
+      }}
       {...props}
     />
   ),
-  Steps: ({ className, ...props }) => (
-    <div
-      className={cx(
-        className,
-        css({
-          my: "4",
-          ml: "4",
-          pl: "8",
-          borderLeftWidth: "1px",
-          counterReset: "step",
-          "& > h3": {
-            counterIncrement: "step",
-          },
-          "& > h3::before": {
-            pos: "absolute",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "7",
-            height: "7",
-            rounded: "full",
-            bg: "primary",
-            color: "primary.fg",
-            textAlign: "center",
-            textIndent: "-1px",
-            ml: "-47px",
-            mt: "-2px",
-            content: "counter(step)",
-          },
-        })
-      )}
+  Steps: (props) => (
+    <styled.div
+      css={{
+        my: "4",
+        ml: "4",
+        pl: "8",
+        borderLeftWidth: "1px",
+        counterReset: "step",
+        "& > h3": {
+          counterIncrement: "step",
+        },
+        "& > h3::before": {
+          pos: "absolute",
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "7",
+          height: "7",
+          rounded: "full",
+          bg: "primary",
+          color: "primary.fg",
+          textAlign: "center",
+          textIndent: "-1px",
+          ml: "-47px",
+          mt: "-2px",
+          content: "counter(step)",
+        },
+      }}
       {...props}
     />
   ),
   FileTree,
   FileTreeItem,
-  Alert: ({ variant, children }) => {
+  Alert: ({ variant, description }) => {
     const Icon = alertIconMap[variant as keyof typeof alertIconMap];
 
     return (
-      <Alert variant={variant} className={css({ my: "4" })}>
-        <AlertIcon>
+      <Alert.Root variant={variant} className={css({ my: "4" })}>
+        <Alert.Icon>
           <Icon />
-        </AlertIcon>
-        <AlertContent>
-          <AlertDescription>{children}</AlertDescription>
-        </AlertContent>
-      </Alert>
+        </Alert.Icon>
+        <Alert.Content>
+          <Alert.Description>{description}</Alert.Description>
+        </Alert.Content>
+      </Alert.Root>
     );
   },
   PropsTable,
   InfoPopover: ({ children, content }) => (
-    <div className={css({ display: "flex", alignItems: "center", gap: "2" })}>
-      <span className={css({ textStyle: "sm" })}>{children}</span>
-      <Popover>
-        <PopoverTrigger className={cx("group", css({ cursor: "pointer" }))}>
+    <styled.div css={{ display: "flex", alignItems: "center", gap: "2" }}>
+      <styled.span css={{ textStyle: "sm" }}>{children}</styled.span>
+      <Popover.Root>
+        <Popover.Trigger className="group" css={{ cursor: "pointer" }}>
           <LuInfo
             className={css({
               w: "4",
@@ -279,10 +279,10 @@ const components: MDXComponents = {
               },
             })}
           />
-        </PopoverTrigger>
-        <PopoverContent className={css({ textStyle: "sm" })}>{content}</PopoverContent>
-      </Popover>
-    </div>
+        </Popover.Trigger>
+        <Popover.Content css={{ textStyle: "sm" }}>{content}</Popover.Content>
+      </Popover.Root>
+    </styled.div>
   ),
 };
 

@@ -1,35 +1,50 @@
+import * as React from "react";
 import { cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { alert, type AlertVariantProps } from "styled-system/recipes";
 
 const classes = alert();
 
-const Alert = ({
+const Root = ({
   className,
   variant,
   ...props
 }: React.ComponentProps<"div"> & AlertVariantProps) => (
-  <div className={cx(alert({ variant }).root, className)} data-variant={variant} {...props} />
+  <div className={cx(classes.root, className)} data-variant={variant} {...props} />
 );
-Alert.displayName = "Alert";
+const StyledRoot = styled(Root);
+StyledRoot.displayName = "Alert";
 
-const AlertIcon = ({ className, ...props }: React.ComponentProps<"span">) => (
+const Icon = ({ className, ...props }: React.ComponentProps<"span">) => (
   <span className={cx(classes.icon, className)} data-slot="alert-icon" {...props} />
 );
-AlertIcon.displayName = "AlertIcon";
+const StyledIcon = styled(Icon);
+StyledIcon.displayName = "AlertIcon";
 
-const AlertContent = ({ className, ...props }: React.ComponentProps<"div">) => (
+const Content = ({ className, ...props }: React.ComponentProps<"div">) => (
   <div className={cx(classes.content, className)} data-slot="alert-content" {...props} />
 );
-AlertContent.displayName = "AlertContent";
+const StyledContent = styled(Content);
+StyledContent.displayName = "AlertContent";
 
-const AlertTitle = ({ className, ...props }: React.ComponentProps<"h5">) => (
+const Title = ({ className, ...props }: React.ComponentProps<"h5">) => (
   <h5 className={cx(classes.title, className)} data-slot="alert-title" {...props} />
 );
-AlertTitle.displayName = "AlertTitle";
+const StyledTitle = styled(Title);
+StyledTitle.displayName = "AlertTitle";
 
-const AlertDescription = ({ className, ...props }: React.ComponentProps<"p">) => (
+const Description = ({ className, ...props }: React.ComponentProps<"p">) => (
   <p className={cx(classes.description, className)} data-slot="alert-description" {...props} />
 );
-AlertDescription.displayName = "AlertDescription";
+const StyledDescription = styled(Description);
+StyledDescription.displayName = "AlertDescription";
 
-export { Alert, AlertIcon, AlertContent, AlertTitle, AlertDescription };
+const Alert = {
+  Root: StyledRoot,
+  Icon: StyledIcon,
+  Content: StyledContent,
+  Title: StyledTitle,
+  Description: StyledDescription,
+};
+
+export { Alert };

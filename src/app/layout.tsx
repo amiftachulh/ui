@@ -5,6 +5,7 @@ import Header from "./header";
 import "./globals.css";
 import { css } from "styled-system/css";
 import { scroll } from "styled-system/recipes";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <div className={css({ maxW: "breakpoint-2xl", mx: "auto", mt: "14" })}>{children}</div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

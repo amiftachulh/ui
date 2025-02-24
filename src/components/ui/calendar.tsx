@@ -4,6 +4,7 @@ import * as React from "react";
 import { DayPicker, useDayPicker } from "react-day-picker";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { css, cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { button } from "styled-system/recipes";
 import { Button } from "@/components/ui/button";
 
@@ -15,7 +16,7 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   maxYear?: number;
 };
 
-const Calendar = ({
+const CalendarBase = ({
   className,
   classNames,
   showSwitcher = true,
@@ -280,6 +281,9 @@ function MonthGrid({
     );
   }
 }
+
+const Calendar = styled(CalendarBase);
+
 Calendar.displayName = "Calendar";
 
 export { Calendar };

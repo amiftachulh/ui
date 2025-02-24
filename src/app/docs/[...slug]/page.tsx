@@ -1,15 +1,8 @@
 import { LuExternalLink } from "react-icons/lu";
 import { notFound } from "next/navigation";
-import { css, cx } from "styled-system/css";
-import { flex } from "styled-system/patterns";
+import { styled } from "styled-system/jsx";
 import { chip } from "styled-system/recipes";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { getAllDocs, getDocBySlug } from "@/lib/mdx";
 import TableOfContents from "./toc";
 
@@ -42,9 +35,9 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
   }
 
   return (
-    <main className={flex({ flex: "1", minW: "0" })}>
-      <article
-        className={css({
+    <styled.main css={{ display: "flex", flex: "1", minW: "0" }}>
+      <styled.article
+        css={{
           minW: "0",
           w: "full",
           maxW: "70ch",
@@ -52,60 +45,58 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
           px: "4",
           py: "10",
           md: { pl: "0" },
-        })}
+        }}
       >
-        <div className={css({ mb: "8" })}>
-          <Breadcrumb className={css({ mb: "4" })}>
-            <BreadcrumbList>
-              <BreadcrumbItem>Docs</BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{doc.meta.title}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+        <styled.div css={{ mb: "8" }}>
+          <Breadcrumb.Root css={{ mb: "4" }}>
+            <Breadcrumb.List>
+              <Breadcrumb.Item>Docs</Breadcrumb.Item>
+              <Breadcrumb.Separator />
+              <Breadcrumb.Item>
+                <Breadcrumb.Page>{doc.meta.title}</Breadcrumb.Page>
+              </Breadcrumb.Item>
+            </Breadcrumb.List>
+          </Breadcrumb.Root>
 
-          <h1
-            className={css({
+          <styled.h1
+            css={{
               color: "fg",
               textStyle: "3xl",
               fontWeight: "semibold",
               mb: "1",
-            })}
+            }}
           >
             {doc.meta.title}
-          </h1>
+          </styled.h1>
 
-          <p className={css({ color: "muted.fg", mb: "4" })}>{doc.meta.description}</p>
+          <styled.p css={{ color: "muted.fg", mb: "4" }}>{doc.meta.description}</styled.p>
 
           {doc.meta.links?.length && (
-            <div className={flex({ wrap: "wrap", gap: "4" })}>
+            <styled.div css={{ display: "flex", flexWrap: "wrap", gap: "4" }}>
               {doc.meta.links.map((link: { title: string; href: string }) => (
-                <a
+                <styled.a
                   key={link.href}
                   href={link.href}
-                  className={cx(
-                    chip({ variant: "secondary" }),
-                    css({
-                      _hover: {
-                        textDecoration: "underline",
-                      },
-                    })
-                  )}
+                  className={chip({ variant: "secondary" })}
+                  css={{
+                    _hover: {
+                      textDecoration: "underline",
+                    },
+                  }}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {link.title}
                   <LuExternalLink />
-                </a>
+                </styled.a>
               ))}
-            </div>
+            </styled.div>
           )}
-        </div>
+        </styled.div>
 
         {doc.content}
-      </article>
+      </styled.article>
       <TableOfContents headings={doc.headings} />
-    </main>
+    </styled.main>
   );
 }

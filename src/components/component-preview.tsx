@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import fs from "fs";
 import path from "path";
-import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { center } from "styled-system/patterns";
 import CodeBlock from "./code-block";
 
@@ -17,11 +17,13 @@ export default async function ComponentPreview({ name }: ComponentPreviewProps) 
   const Component = dynamic(() => import(`./examples/${name}`));
 
   return (
-    <div className={css({ rounded: "md", borderWidth: "1px", my: "4", overflow: "hidden" })}>
-      <div className={center({ borderBottomWidth: "1px", p: 4, overflow: "auto" })}>
+    <styled.div css={{ rounded: "md", borderWidth: "1px", my: "4", overflow: "hidden" }}>
+      <styled.div
+        className={center({ borderBottomWidth: "1px", px: "4", py: "6", overflow: "auto" })}
+      >
         <Component />
-      </div>
+      </styled.div>
       <CodeBlock lang="tsx">{content}</CodeBlock>
-    </div>
+    </styled.div>
   );
 }

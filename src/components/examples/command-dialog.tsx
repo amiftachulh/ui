@@ -10,16 +10,7 @@ import {
   LuUser,
 } from "react-icons/lu";
 import { css } from "styled-system/css";
-import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from "@/components/ui/command";
+import { Command } from "@/components/ui/command";
 
 export default function CommandDialogDemo() {
   const [open, setOpen] = useState(false);
@@ -62,44 +53,44 @@ export default function CommandDialogDemo() {
           <span className={css({ textStyle: "xs" })}>⌘</span>J
         </kbd>
       </p>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            <CommandItem>
+      <Command.Dialog open={open} onOpenChange={setOpen}>
+        <Command.Input placeholder="Type a command or search..." />
+        <Command.List>
+          <Command.Empty>No results found.</Command.Empty>
+          <Command.Group heading="Suggestions">
+            <Command.Item>
               <LuCalendar />
               <span>Calendar</span>
-            </CommandItem>
-            <CommandItem>
+            </Command.Item>
+            <Command.Item>
               <LuSmile />
               <span>Search Emoji</span>
-            </CommandItem>
-            <CommandItem>
+            </Command.Item>
+            <Command.Item>
               <LuCalculator />
               <span>Calculator</span>
-            </CommandItem>
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading="Settings">
-            <CommandItem>
+            </Command.Item>
+          </Command.Group>
+          <Command.Separator />
+          <Command.Group heading="Settings">
+            <Command.Item>
               <LuUser />
               <span>Profile</span>
-              <CommandShortcut>⌘P</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
+              <Command.Shortcut>⌘P</Command.Shortcut>
+            </Command.Item>
+            <Command.Item>
               <LuCreditCard />
               <span>Billing</span>
-              <CommandShortcut>⌘B</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
+              <Command.Shortcut>⌘B</Command.Shortcut>
+            </Command.Item>
+            <Command.Item>
               <LuSettings />
               <span>Settings</span>
-              <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
+              <Command.Shortcut>⌘S</Command.Shortcut>
+            </Command.Item>
+          </Command.Group>
+        </Command.List>
+      </Command.Dialog>
     </>
   );
 }

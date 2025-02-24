@@ -2,27 +2,24 @@ import * as React from "react";
 import { LuChevronDown } from "react-icons/lu";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { css, cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { accordion } from "styled-system/recipes";
 
 const classes = accordion();
 
-const Accordion = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Root>) => (
+const Root = ({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Root>) => (
   <AccordionPrimitive.Root className={cx(classes.root, className)} {...props} />
 );
-Accordion.displayName = AccordionPrimitive.Root.displayName;
+const StyledRoot = styled(Root);
+StyledRoot.displayName = AccordionPrimitive.Root.displayName;
 
-const AccordionItem = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Item>) => (
+const Item = ({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Item>) => (
   <AccordionPrimitive.Item className={cx(classes.item, className)} {...props} />
 );
-AccordionItem.displayName = AccordionPrimitive.Item.displayName;
+const StyledItem = styled(Item);
+StyledItem.displayName = AccordionPrimitive.Item.displayName;
 
-const AccordionTrigger = ({
+const Trigger = ({
   className,
   children,
   ...props
@@ -42,9 +39,10 @@ const AccordionTrigger = ({
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 );
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+const StyledTrigger = styled(Trigger);
+StyledTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
-const AccordionContent = ({
+const Content = ({
   className,
   children,
   ...props
@@ -53,6 +51,14 @@ const AccordionContent = ({
     <div className={css({ pb: "4", pt: "0" })}>{children}</div>
   </AccordionPrimitive.Content>
 );
-AccordionContent.displayName = AccordionPrimitive.Content.displayName;
+const StyledContent = styled(Content);
+StyledContent.displayName = AccordionPrimitive.Content.displayName;
 
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };
+const Accordion = {
+  Root: StyledRoot,
+  Item: StyledItem,
+  Trigger: StyledTrigger,
+  Content: StyledContent,
+};
+
+export { Accordion };

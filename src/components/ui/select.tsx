@@ -2,17 +2,22 @@ import * as React from "react";
 import { LuCheck, LuChevronDown, LuChevronUp } from "react-icons/lu";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { css, cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { select } from "styled-system/recipes";
 
 const classes = select();
 
-const Select = SelectPrimitive.Root;
+const Root = SelectPrimitive.Root;
 
-const SelectGroup = SelectPrimitive.Group;
+const Group = SelectPrimitive.Group;
+const StyledGroup = styled(Group);
+StyledGroup.displayName = SelectPrimitive.Group.displayName;
 
-const SelectValue = SelectPrimitive.Value;
+const Value = SelectPrimitive.Value;
+const StyledValue = styled(Value);
+StyledValue.displayName = SelectPrimitive.Value.displayName;
 
-const SelectTrigger = ({
+const Trigger = ({
   className,
   children,
   ...props
@@ -24,9 +29,10 @@ const SelectTrigger = ({
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 );
-SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
+const StyledTrigger = styled(Trigger);
+StyledTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
-const SelectScrollUpButton = ({
+const ScrollUpButton = ({
   className,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) => (
@@ -34,9 +40,10 @@ const SelectScrollUpButton = ({
     <LuChevronUp className={css({ w: "4", h: "4" })} />
   </SelectPrimitive.ScrollUpButton>
 );
-SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
+const StyledScrollUpButton = styled(ScrollUpButton);
+StyledScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
-const SelectScrollDownButton = ({
+const ScrollDownButton = ({
   className,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) => (
@@ -44,9 +51,10 @@ const SelectScrollDownButton = ({
     <LuChevronDown className={css({ w: "4", h: "4" })} />
   </SelectPrimitive.ScrollDownButton>
 );
-SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;
+const StyledScrollDownButton = styled(ScrollDownButton);
+StyledScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;
 
-const SelectContent = ({
+const Content = ({
   className,
   position = "popper",
   children,
@@ -59,7 +67,7 @@ const SelectContent = ({
       data-position={position}
       {...props}
     >
-      <SelectScrollUpButton />
+      <StyledScrollUpButton />
       <SelectPrimitive.Viewport
         className={css({
           p: "1",
@@ -76,17 +84,16 @@ const SelectContent = ({
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
 );
-SelectContent.displayName = SelectPrimitive.Content.displayName;
+const StyledContent = styled(Content);
+StyledContent.displayName = SelectPrimitive.Content.displayName;
 
-const SelectLabel = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof SelectPrimitive.Label>) => (
+const Label = ({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Label>) => (
   <SelectPrimitive.Label className={cx(classes.label, className)} {...props} />
 );
-SelectLabel.displayName = SelectPrimitive.Label.displayName;
+const StyledLabel = styled(Label);
+StyledLabel.displayName = SelectPrimitive.Label.displayName;
 
-const SelectItem = ({
+const Item = ({
   className,
   children,
   ...props
@@ -110,25 +117,29 @@ const SelectItem = ({
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
 );
-SelectItem.displayName = SelectPrimitive.Item.displayName;
+const StyledItem = styled(Item);
+StyledItem.displayName = SelectPrimitive.Item.displayName;
 
-const SelectSeparator = ({
+const Separator = ({
   className,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Separator>) => (
   <SelectPrimitive.Separator className={cx(classes.separator, className)} {...props} />
 );
-SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
+const StyledSeparator = styled(Separator);
+StyledSeparator.displayName = SelectPrimitive.Separator.displayName;
 
-export {
-  Select,
-  SelectGroup,
-  SelectValue,
-  SelectTrigger,
-  SelectContent,
-  SelectLabel,
-  SelectItem,
-  SelectSeparator,
-  SelectScrollUpButton,
-  SelectScrollDownButton,
+const Select = {
+  Root,
+  Group: StyledGroup,
+  Value: StyledValue,
+  Trigger: StyledTrigger,
+  Content: StyledContent,
+  Label: StyledLabel,
+  Item: StyledItem,
+  Separator: StyledSeparator,
+  ScrollUpButton: StyledScrollUpButton,
+  ScrollDownButton: StyledScrollDownButton,
 };
+
+export { Select };

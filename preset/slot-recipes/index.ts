@@ -12,6 +12,7 @@ import { scrollAreaSlotRecipe } from "./scroll-area";
 import { selectSlotRecipe } from "./select";
 import { tableSlotRecipe } from "./table";
 import { tabsSlotRecipe } from "./tabs";
+import { toastSlotRecipe } from "./toast";
 
 export const slotRecipes = {
   accordion: accordionSlotRecipe,
@@ -28,4 +29,5 @@ export const slotRecipes = {
   select: selectSlotRecipe,
   table: tableSlotRecipe,
   tabs: tabsSlotRecipe,
+  toast: toastSlotRecipe,
 };

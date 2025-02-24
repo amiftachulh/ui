@@ -3,34 +3,33 @@
 import { useState } from "react";
 import { LuCalendar } from "react-icons/lu";
 import dayjs from "dayjs";
-import { css } from "styled-system/css";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Popover } from "@/components/ui/popover";
 
 export default function DatePickerDemo() {
   const [date, setDate] = useState<Date>();
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
+    <Popover.Root>
+      <Popover.Trigger asChild>
         <Button
           variant="outline"
-          className={css({
+          css={{
             w: "280px",
             justifyContent: "start",
             textAlign: "left",
             fontWeight: "normal",
             color: !date ? "muted.fg" : "fg",
-          })}
+          }}
         >
           <LuCalendar />
           {date ? dayjs(date).format("YYYY-MM-DD") : <span>Pick a date</span>}
         </Button>
-      </PopoverTrigger>
-      <PopoverContent className={css({ w: "auto", p: "0" })}>
+      </Popover.Trigger>
+      <Popover.Content css={{ w: "auto", p: "0" }}>
         <Calendar mode="single" selected={date} onSelect={setDate} autoFocus />
-      </PopoverContent>
-    </Popover>
+      </Popover.Content>
+    </Popover.Root>
   );
 }

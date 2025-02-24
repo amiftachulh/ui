@@ -82,6 +82,10 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/dropdown-menu",
       },
       {
+        title: "Form",
+        href: "/docs/components/form",
+      },
+      {
         title: "Input",
         href: "/docs/components/input",
       },
@@ -112,6 +116,10 @@ export const sideNav: SideNavGroup[] = [
       {
         title: "Tabs",
         href: "/docs/components/tabs",
+      },
+      {
+        title: "Toast",
+        href: "/docs/components/toast",
       },
     ],
   },

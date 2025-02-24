@@ -1,9 +1,8 @@
 "use client";
 
 import { useLayoutEffect, useState } from "react";
-import { css } from "styled-system/css";
 import { packageManagers } from "@/config/package-managers";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { Tabs } from "./ui/tabs";
 
 type PackageTabsProps = {
   items: React.ReactNode[];
@@ -17,24 +16,24 @@ export default function PackageTabs({ items }: PackageTabsProps) {
   }, []);
 
   return (
-    <Tabs
-      className={css({
+    <Tabs.Root
+      css={{
         my: "4",
         borderWidth: "1",
         rounded: "md",
         overflow: "hidden",
-      })}
+      }}
       value={selected}
       onValueChange={(value) => {
         localStorage.setItem("package-manager", value);
         setSelected(value);
       }}
     >
-      <TabsList>
+      <Tabs.List>
         {packageManagers.map((p) => (
-          <TabsTrigger
+          <Tabs.Trigger
             key={p.name}
-            className={css({
+            css={{
               gap: "2",
               borderRightWidth: "1",
               _hover: {
@@ -43,18 +42,18 @@ export default function PackageTabs({ items }: PackageTabsProps) {
               _active: {
                 bg: "primary/10",
               },
-            })}
+            }}
             value={p.name}
           >
             {p.icon} {p.name}
-          </TabsTrigger>
+          </Tabs.Trigger>
         ))}
-      </TabsList>
+      </Tabs.List>
       {packageManagers.map((p, i) => (
-        <TabsContent key={p.name} className={css({ p: 0 })} value={p.name}>
+        <Tabs.Content key={p.name} css={{ p: "0" }} value={p.name}>
           {items[i]}
-        </TabsContent>
+        </Tabs.Content>
       ))}
-    </Tabs>
+    </Tabs.Root>
   );
 }

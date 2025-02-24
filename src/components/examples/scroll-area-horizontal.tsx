@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { ScrollArea, Scrollbar } from "@/components/ui/scroll-area";
 
 interface Artwork {
@@ -24,13 +25,11 @@ export const works: Artwork[] = [
 
 export default function ScrollAreaHorizontal() {
   return (
-    <ScrollArea
-      className={css({ w: "96", whiteSpace: "nowrap", rounded: "md", borderWidth: "1px" })}
-    >
-      <div className={css({ display: "flex", w: "max", spaceX: "4", p: "4" })}>
+    <ScrollArea css={{ w: "96", whiteSpace: "nowrap", rounded: "md", borderWidth: "1px" }}>
+      <styled.div css={{ display: "flex", w: "max", spaceX: "4", p: "4" }}>
         {works.map((artwork) => (
-          <figure key={artwork.artist} className={css({ flexShrink: "0" })}>
-            <div className={css({ overflow: "hidden", rounded: "md" })}>
+          <styled.figure key={artwork.artist} css={{ flexShrink: "0" }}>
+            <styled.div css={{ overflow: "hidden", rounded: "md" }}>
               <Image
                 src={artwork.art}
                 alt={`Photo by ${artwork.artist}`}
@@ -38,14 +37,16 @@ export default function ScrollAreaHorizontal() {
                 width={300}
                 height={400}
               />
-            </div>
-            <figcaption className={css({ pt: "2", textStyle: "xs", color: "muted.fg" })}>
+            </styled.div>
+            <styled.figcaption css={{ pt: "2", textStyle: "xs", color: "muted.fg" }}>
               Photo by{" "}
-              <span className={css({ fontWeight: "semibold", color: "fg" })}>{artwork.artist}</span>
-            </figcaption>
-          </figure>
+              <styled.span css={{ fontWeight: "semibold", color: "fg" }}>
+                {artwork.artist}
+              </styled.span>
+            </styled.figcaption>
+          </styled.figure>
         ))}
-      </div>
+      </styled.div>
       <Scrollbar orientation="horizontal" />
     </ScrollArea>
   );

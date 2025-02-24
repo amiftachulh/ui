@@ -11,8 +11,8 @@ export const commandSlotRecipe = defineSlotRecipe({
       flexDir: "column",
       overflow: "hidden",
       rounded: "md",
-      bg: "bg",
-      color: "fg",
+      bg: "popover",
+      color: "popover.fg",
     },
 
     dialog: {

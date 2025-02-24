@@ -1,22 +1,22 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs } from "@/components/ui/tabs";
 
 export default function TabsVertical() {
   return (
-    <Tabs defaultValue="account" orientation="vertical">
-      <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="documents">Documents</TabsTrigger>
-        <TabsTrigger value="settings">Settings</TabsTrigger>
-      </TabsList>
-      <TabsContent value="account">
+    <Tabs.Root defaultValue="account" orientation="vertical">
+      <Tabs.List>
+        <Tabs.Trigger value="account">Account</Tabs.Trigger>
+        <Tabs.Trigger value="documents">Documents</Tabs.Trigger>
+        <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="account">
         <p>Make changes to your account.</p>
-      </TabsContent>
-      <TabsContent value="documents">
+      </Tabs.Content>
+      <Tabs.Content value="documents">
         <p>Access and update your documents.</p>
-      </TabsContent>
-      <TabsContent value="settings">
+      </Tabs.Content>
+      <Tabs.Content value="settings">
         <p>Edit your profile or update contact information.</p>
-      </TabsContent>
-    </Tabs>
+      </Tabs.Content>
+    </Tabs.Root>
   );
 }

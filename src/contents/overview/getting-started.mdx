@@ -11,6 +11,7 @@ Before you begin, ensure you have the following dependencies installed:
 
 - React 19 or higher
 - Panda CSS - Read the [installation guide](https://panda-css.com/docs/overview/getting-started)
+- React Icons - Read the [installation guide](https://react-icons.github.io/react-icons). This is optional, but it is used in this documentation.
 
 ## Installation
 
@@ -59,7 +60,7 @@ Before you begin, ensure you have the following dependencies installed:
 - `src/lib` - Store utility functions here.
 - `panda.config.ts` - Panda CSS configuration file.
 
-<Alert variant="info">You can modify the project structure to suit your needs.</Alert>
+<Alert variant="info" description="You can modify the project structure to suit your needs." />
 
 <Step>Copy the animation helper into respective files.</Step>
 
@@ -357,16 +358,17 @@ export const slotRecipes = {
 
 <Step>Import the preset into your `panda.config.ts` file.</Step>
 
-```ts
+```ts highlight="6,9,10"
 import { defineConfig } from "@pandacss/dev";
 import preset from "./preset";
 
 export default defineConfig({
   preflight: true,
-  presets: [preset],
+  presets: [preset]
   include: ["./src/**/*.{js,jsx,ts,tsx}"],
   exclude: [],
   jsxFramework: "react",
+  jsxStyleProps: "minimal",
   // This globalCss is just an example, you can remove it if you don't need it.
   globalCss: {
     extend: {
@@ -380,11 +382,16 @@ export default defineConfig({
 });
 ```
 
+<Alert
+  variant="warning"
+  description="We use jsxStyleProps: 'minimal' to avoid prop name conflicts with other headless components. If you don't have a problem with this, you can remove it. But make sure to check the prop names of the components."
+/>
+
 <Step>Edit `tsconfig.json`</Step>
 
 Add `baseUrl` to the `compilerOptions` to simplify file imports. If `styled-system` does not appear in autocomplete, try adding it to the `include` array.
 
-```json
+```json add="4,11"
 {
   "compilerOptions": {
     // other options

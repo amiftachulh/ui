@@ -1,15 +1,15 @@
 import { LuCircleCheckBig } from "react-icons/lu";
-import { Alert, AlertContent, AlertDescription, AlertIcon } from "@/components/ui/alert";
+import { Alert } from "@/components/ui/alert";
 
 export default function AlertWithoutTitle() {
   return (
-    <Alert variant="success">
-      <AlertIcon>
+    <Alert.Root variant="success">
+      <Alert.Icon>
         <LuCircleCheckBig />
-      </AlertIcon>
-      <AlertContent>
-        <AlertDescription>This alert doesn&apos;t have a title.</AlertDescription>
-      </AlertContent>
-    </Alert>
+      </Alert.Icon>
+      <Alert.Content>
+        <Alert.Description>This alert doesn&apos;t have a title.</Alert.Description>
+      </Alert.Content>
+    </Alert.Root>
   );
 }
