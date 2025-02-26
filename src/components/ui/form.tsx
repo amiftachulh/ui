@@ -13,7 +13,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { styled } from "styled-system/jsx";
 import { Label as LabelBase } from "@/components/ui/label";
 
-const Root = FormProvider;
+const Form = FormProvider;
 
 type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
@@ -24,7 +24,7 @@ type FormFieldContextValue<
 
 const FormFieldContext = React.createContext<FormFieldContextValue>({} as FormFieldContextValue);
 
-const Field = <
+const FormField = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
@@ -66,7 +66,7 @@ type FormItemContextValue = {
 
 const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
 
-const Item = ({ css, ...props }: React.ComponentProps<typeof styled.div>) => {
+const FormItem = ({ css, ...props }: React.ComponentProps<typeof styled.div>) => {
   const id = React.useId();
 
   return (
@@ -75,9 +75,9 @@ const Item = ({ css, ...props }: React.ComponentProps<typeof styled.div>) => {
     </FormItemContext.Provider>
   );
 };
-Item.displayName = "FormItem";
+FormItem.displayName = "FormItem";
 
-const Label = ({ css, ...props }: React.ComponentProps<typeof LabelBase>) => {
+const FormLabel = ({ css, ...props }: React.ComponentProps<typeof LabelBase>) => {
   const { error, formItemId } = useFormField();
 
   return (
@@ -91,9 +91,9 @@ const Label = ({ css, ...props }: React.ComponentProps<typeof LabelBase>) => {
     />
   );
 };
-Label.displayName = "FormLabel";
+FormLabel.displayName = "FormLabel";
 
-const Control = (props: React.ComponentProps<typeof Slot>) => {
+const FormControl = (props: React.ComponentProps<typeof Slot>) => {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
 
   return (
@@ -105,9 +105,9 @@ const Control = (props: React.ComponentProps<typeof Slot>) => {
     />
   );
 };
-Control.displayName = "FormControl";
+FormControl.displayName = "FormControl";
 
-const Description = ({ css, ...props }: React.ComponentProps<typeof styled.p>) => {
+const FormDescription = ({ css, ...props }: React.ComponentProps<typeof styled.p>) => {
   const { formDescriptionId } = useFormField();
 
   return (
@@ -122,9 +122,9 @@ const Description = ({ css, ...props }: React.ComponentProps<typeof styled.p>) =
     />
   );
 };
-Description.displayName = "FormDescription";
+FormDescription.displayName = "FormDescription";
 
-const Message = ({ css, children, ...props }: React.ComponentProps<typeof styled.p>) => {
+const FormMessage = ({ css, children, ...props }: React.ComponentProps<typeof styled.p>) => {
   const { error, formMessageId } = useFormField();
   const body = error ? String(error?.message) : children;
 
@@ -147,16 +147,15 @@ const Message = ({ css, children, ...props }: React.ComponentProps<typeof styled
     </styled.p>
   );
 };
-Message.displayName = "FormMessage";
+FormMessage.displayName = "FormMessage";
 
-const Form = {
-  Root,
-  Field,
-  Item,
-  Label,
-  Control,
-  Description,
-  Message,
+export {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  useFormField,
 };
-
-export { Form };

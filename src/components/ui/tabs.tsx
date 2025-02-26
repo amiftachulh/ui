@@ -9,32 +9,25 @@ const classes = tabs();
 const Root = ({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Root>) => (
   <TabsPrimitive.Root className={cx(classes.root, className)} {...props} />
 );
-const StyledRoot = styled(Root);
-StyledRoot.displayName = TabsPrimitive.Root.displayName;
+const Tabs = styled(Root);
+Tabs.displayName = TabsPrimitive.Root.displayName;
 
 const List = ({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.List>) => (
   <TabsPrimitive.List className={cx(classes.list, className)} {...props} />
 );
-const StyledList = styled(List);
-StyledList.displayName = TabsPrimitive.List.displayName;
+const TabsList = styled(List);
+TabsList.displayName = TabsPrimitive.List.displayName;
 
 const Trigger = ({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Trigger>) => (
   <TabsPrimitive.Trigger className={cx(classes.trigger, className)} {...props} />
 );
-const StyledTrigger = styled(Trigger);
-StyledTrigger.displayName = TabsPrimitive.Trigger.displayName;
+const TabsTrigger = styled(Trigger);
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
 const Content = ({ className, ...props }: React.ComponentProps<typeof TabsPrimitive.Content>) => (
   <TabsPrimitive.Content className={cx(classes.content, className)} {...props} />
 );
-const StyledContent = styled(Content);
-StyledContent.displayName = TabsPrimitive.Content.displayName;
+const TabsContent = styled(Content);
+TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-const Tabs = {
-  Root: StyledRoot,
-  List: StyledList,
-  Trigger: StyledTrigger,
-  Content: StyledContent,
-};
-
-export { Tabs };
+export { Tabs, TabsList, TabsTrigger, TabsContent };

@@ -62,8 +62,20 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/collapsible",
       },
       {
+        title: "Combobox",
+        href: "/docs/components/combobox",
+      },
+      {
         title: "Command",
         href: "/docs/components/command",
+      },
+      {
+        title: "Context Menu",
+        href: "/docs/components/context-menu",
+      },
+      {
+        title: "Data Table",
+        href: "/docs/components/data-table",
       },
       {
         title: "Date Picker",
@@ -94,6 +106,10 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/label",
       },
       {
+        title: "Pagination",
+        href: "/docs/components/pagination",
+      },
+      {
         title: "Popover",
         href: "/docs/components/popover",
       },
@@ -108,6 +124,14 @@ export const sideNav: SideNavGroup[] = [
       {
         title: "Separator",
         href: "/docs/components/separator",
+      },
+      {
+        title: "Skeleton",
+        href: "/docs/components/skeleton",
+      },
+      {
+        title: "Switch",
+        href: "/docs/components/switch",
       },
       {
         title: "Table",

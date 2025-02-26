@@ -3,7 +3,14 @@
 import { useState } from "react";
 import { type DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 type Checked = DropdownMenuCheckboxItemProps["checked"];
 
@@ -13,27 +20,27 @@ export default function DropdownMenuCheckboxes() {
   const [showPanel, setShowPanel] = useState<Checked>(false);
 
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
         <Button variant="outline">Open</Button>
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Content css={{ w: "56" }}>
-        <DropdownMenu.Label>Appearance</DropdownMenu.Label>
-        <DropdownMenu.Separator />
-        <DropdownMenu.CheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent css={{ w: "56" }}>
+        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
           Status Bar
-        </DropdownMenu.CheckboxItem>
-        <DropdownMenu.CheckboxItem
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
           checked={showActivityBar}
           onCheckedChange={setShowActivityBar}
           disabled
         >
           Activity Bar
-        </DropdownMenu.CheckboxItem>
-        <DropdownMenu.CheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
           Panel
-        </DropdownMenu.CheckboxItem>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+        </DropdownMenuCheckboxItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

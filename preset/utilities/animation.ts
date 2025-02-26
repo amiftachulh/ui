@@ -1,6 +1,6 @@
 import { type PropertyConfig } from "@pandacss/dev";
 
-export const utilities: Record<string, PropertyConfig> = {
+export const animation: Record<string, PropertyConfig> = {
   animateIn: {
     className: "animate_in",
     values: { type: "boolean" },

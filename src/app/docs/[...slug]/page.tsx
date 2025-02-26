@@ -2,7 +2,13 @@ import { LuExternalLink } from "react-icons/lu";
 import { notFound } from "next/navigation";
 import { styled } from "styled-system/jsx";
 import { chip } from "styled-system/recipes";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { getAllDocs, getDocBySlug } from "@/lib/mdx";
 import TableOfContents from "./toc";
 
@@ -48,15 +54,15 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
         }}
       >
         <styled.div css={{ mb: "8" }}>
-          <Breadcrumb.Root css={{ mb: "4" }}>
-            <Breadcrumb.List>
-              <Breadcrumb.Item>Docs</Breadcrumb.Item>
-              <Breadcrumb.Separator />
-              <Breadcrumb.Item>
-                <Breadcrumb.Page>{doc.meta.title}</Breadcrumb.Page>
-              </Breadcrumb.Item>
-            </Breadcrumb.List>
-          </Breadcrumb.Root>
+          <Breadcrumb css={{ mb: "4" }}>
+            <BreadcrumbList>
+              <BreadcrumbItem>Docs</BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{doc.meta.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
           <styled.h1
             css={{

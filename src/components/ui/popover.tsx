@@ -6,10 +6,10 @@ import { popover } from "styled-system/recipes";
 
 const classes = popover();
 
-const Root = PopoverPrimitive.Root;
+const Popover = PopoverPrimitive.Root;
 
-const StyledTrigger = styled(PopoverPrimitive.Trigger);
-StyledTrigger.displayName = PopoverPrimitive.Trigger.displayName;
+const PopoverTrigger = styled(PopoverPrimitive.Trigger);
+PopoverTrigger.displayName = PopoverPrimitive.Trigger.displayName;
 
 const Content = ({
   className,
@@ -26,13 +26,7 @@ const Content = ({
     />
   </PopoverPrimitive.Portal>
 );
-const StyledContent = styled(Content);
-StyledContent.displayName = "PopoverContent";
+const PopoverContent = styled(Content);
+PopoverContent.displayName = "PopoverContent";
 
-const Popover = {
-  Root,
-  Trigger: StyledTrigger,
-  Content: StyledContent,
-};
-
-export { Popover };
+export { Popover, PopoverTrigger, PopoverContent };

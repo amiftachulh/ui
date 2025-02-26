@@ -1,16 +1,22 @@
 import { LuTerminal } from "react-icons/lu";
-import { Alert } from "@/components/ui/alert";
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+} from "@/components/ui/alert";
 
 export default function AlertDemo() {
   return (
-    <Alert.Root>
-      <Alert.Icon>
+    <Alert>
+      <AlertIcon>
         <LuTerminal />
-      </Alert.Icon>
-      <Alert.Content>
-        <Alert.Title>Heads up!</Alert.Title>
-        <Alert.Description>Hey there! This is a simple alert.</Alert.Description>
-      </Alert.Content>
-    </Alert.Root>
+      </AlertIcon>
+      <AlertContent>
+        <AlertTitle>Heads up!</AlertTitle>
+        <AlertDescription>Hey there! This is a simple alert.</AlertDescription>
+      </AlertContent>
+    </Alert>
   );
 }

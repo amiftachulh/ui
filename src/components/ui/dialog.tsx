@@ -9,25 +9,27 @@ import { dialog } from "styled-system/recipes";
 
 const classes = dialog();
 
+const Dialog = DialogPrimitive.Root;
+
 const Trigger = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Trigger>) => (
   <DialogPrimitive.Trigger className={cx(classes.trigger, className)} {...props} />
 );
-const StyledTrigger = styled(Trigger);
-StyledTrigger.displayName = DialogPrimitive.Trigger.displayName;
+const DialogTrigger = styled(Trigger);
+DialogTrigger.displayName = DialogPrimitive.Trigger.displayName;
 
 const DialogPortal = DialogPrimitive.Portal;
 
 const Overlay = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Overlay>) => (
   <DialogPrimitive.Overlay className={cx(classes.overlay, className)} {...props} />
 );
-const StyledOverlay = styled(Overlay);
-StyledOverlay.displayName = DialogPrimitive.Overlay.displayName;
+const DialogOverlay = styled(Overlay);
+DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
 const Close = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Close>) => (
   <DialogPrimitive.Close className={cx(classes.close, className)} {...props} />
 );
-const StyledClose = styled(Close);
-StyledClose.displayName = DialogPrimitive.Close.displayName;
+const DialogClose = styled(Close);
+DialogClose.displayName = DialogPrimitive.Close.displayName;
 
 const Content = ({
   className,
@@ -35,30 +37,30 @@ const Content = ({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content>) => (
   <DialogPortal>
-    <StyledOverlay />
+    <DialogOverlay />
     <DialogPrimitive.Content className={cx(classes.content, className)} {...props}>
       {children}
-      <StyledClose css={{ pos: "absolute", top: "4", right: "4", cursor: "pointer" }}>
+      <DialogClose css={{ pos: "absolute", top: "4", right: "4", cursor: "pointer" }}>
         <LuX className={css({ w: "4", h: "4" })} />
         <span className={css({ srOnly: true })}>Close</span>
-      </StyledClose>
+      </DialogClose>
     </DialogPrimitive.Content>
   </DialogPortal>
 );
-const StyledContent = styled(Content);
-StyledContent.displayName = DialogPrimitive.Content.displayName;
+const DialogContent = styled(Content);
+DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 const Header = ({ className, ...props }: React.ComponentProps<"div">) => (
   <div className={cx(classes.header, className)} {...props} />
 );
-const StyledHeader = styled(Header);
-StyledHeader.displayName = "DialogHeader";
+const DialogHeader = styled(Header);
+DialogHeader.displayName = "DialogHeader";
 
 const Title = ({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) => (
   <DialogPrimitive.Title className={cx(classes.title, className)} {...props} />
 );
-const StyledTitle = styled(Title);
-StyledTitle.displayName = DialogPrimitive.Title.displayName;
+const DialogTitle = styled(Title);
+DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
 const Description = ({
   className,
@@ -66,26 +68,23 @@ const Description = ({
 }: React.ComponentProps<typeof DialogPrimitive.Description>) => (
   <DialogPrimitive.Description className={cx(classes.description, className)} {...props} />
 );
-const StyledDescription = styled(Description);
-StyledDescription.displayName = DialogPrimitive.Description.displayName;
+const DialogDescription = styled(Description);
+DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
 const Footer = ({ className, ...props }: React.ComponentProps<"div">) => (
   <div className={cx(classes.footer, className)} {...props} />
 );
-const StyledFooter = styled(Footer);
-StyledFooter.displayName = "DialogFooter";
+const DialogFooter = styled(Footer);
+DialogFooter.displayName = "DialogFooter";
 
-const Dialog = {
-  Root: DialogPrimitive.Root,
-  Trigger: StyledTrigger,
-  Content: StyledContent,
-  Header: StyledHeader,
-  Title: StyledTitle,
-  Description: StyledDescription,
-  Footer: StyledFooter,
-  Close: StyledClose,
-  Overlay: StyledOverlay,
-  Portal: DialogPortal,
+export {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogOverlay,
+  DialogClose,
 };
-
-export { Dialog };

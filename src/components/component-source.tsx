@@ -10,10 +10,10 @@ type ComponentSourceProps = {
 };
 
 const typeMap = {
-  recipe: { dir: "preset/recipes", title: "Recipe" },
-  "slot-recipe": { dir: "preset/slot-recipes", title: "Slot Recipe" },
-  component: { dir: "src/components/ui", title: "Component" },
-  hook: { dir: "src/hooks", title: "Hook" },
+  recipe: { dir: "preset/recipes", title: "preset/recipes/" },
+  "slot-recipe": { dir: "preset/slot-recipes", title: "preset/slot-recipes/" },
+  component: { dir: "src/components/ui", title: "@/components/ui/" },
+  hook: { dir: "src/hooks", title: "@/hooks/" },
 };
 
 export default async function ComponentSource({ name, type }: ComponentSourceProps) {
@@ -24,7 +24,17 @@ export default async function ComponentSource({ name, type }: ComponentSourcePro
 
   return (
     <styled.div css={{ my: "4", borderWidth: "1", rounded: "md", overflow: "hidden" }}>
-      <styled.div css={{ px: 4, py: 1 }}>{title}</styled.div>
+      <styled.div
+        css={{
+          px: "4",
+          py: "1.5",
+          fontFamily: "var(--global-font-mono, var(--font-mono-fallback))",
+          textStyle: "sm",
+        }}
+      >
+        {title}
+        {name}
+      </styled.div>
       <CodeBlock lang={extension}>{content}</CodeBlock>
     </styled.div>
   );

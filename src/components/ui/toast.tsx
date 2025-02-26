@@ -7,7 +7,7 @@ import { toast, type ToastVariantProps } from "styled-system/recipes";
 
 const classes = toast();
 
-const Provider = ToastPrimitive.Provider;
+const ToastProvider = ToastPrimitive.Provider;
 
 const Viewport = ({
   className,
@@ -15,8 +15,8 @@ const Viewport = ({
 }: React.ComponentProps<typeof ToastPrimitive.Viewport>) => (
   <ToastPrimitive.Viewport className={cx(classes.viewport, className)} {...props} />
 );
-const StyledViewport = styled(Viewport);
-StyledViewport.displayName = ToastPrimitive.Viewport.displayName;
+const ToastViewport = styled(Viewport);
+ToastViewport.displayName = ToastPrimitive.Viewport.displayName;
 
 const Root = ({
   className,
@@ -27,8 +27,8 @@ const Root = ({
     <ToastPrimitive.Root className={cx("group", toast({ variant }).root, className)} {...props} />
   );
 };
-const StyledRoot = styled(Root);
-StyledRoot.displayName = ToastPrimitive.Root.displayName;
+const Toast = styled(Root);
+Toast.displayName = ToastPrimitive.Root.displayName;
 
 const Action = ({ className, ...props }: React.ComponentProps<typeof ToastPrimitive.Action>) => (
   <ToastPrimitive.Action
@@ -37,8 +37,8 @@ const Action = ({ className, ...props }: React.ComponentProps<typeof ToastPrimit
     {...props}
   />
 );
-const StyledAction = styled(Action);
-StyledAction.displayName = ToastPrimitive.Action.displayName;
+const ToastAction = styled(Action);
+ToastAction.displayName = ToastPrimitive.Action.displayName;
 
 const Close = ({ className, ...props }: React.ComponentProps<typeof ToastPrimitive.Close>) => (
   <ToastPrimitive.Close
@@ -50,8 +50,8 @@ const Close = ({ className, ...props }: React.ComponentProps<typeof ToastPrimiti
     <LuX className={css({ w: "4", h: "4" })} />
   </ToastPrimitive.Close>
 );
-const StyledClose = styled(Close);
-StyledClose.displayName = ToastPrimitive.Close.displayName;
+const ToastClose = styled(Close);
+ToastClose.displayName = ToastPrimitive.Close.displayName;
 
 const Title = ({ className, ...props }: React.ComponentProps<typeof ToastPrimitive.Title>) => (
   <ToastPrimitive.Title
@@ -60,8 +60,8 @@ const Title = ({ className, ...props }: React.ComponentProps<typeof ToastPrimiti
     {...props}
   />
 );
-const StyledTitle = styled(Title);
-StyledTitle.displayName = ToastPrimitive.Title.displayName;
+const ToastTitle = styled(Title);
+ToastTitle.displayName = ToastPrimitive.Title.displayName;
 
 const Description = ({
   className,
@@ -73,21 +73,21 @@ const Description = ({
     {...props}
   />
 );
-const StyledDescription = styled(Description);
-StyledDescription.displayName = ToastPrimitive.Description.displayName;
+const ToastDescription = styled(Description);
+ToastDescription.displayName = ToastPrimitive.Description.displayName;
 
-type ToastProps = React.ComponentProps<typeof StyledRoot>;
+type ToastProps = React.ComponentProps<typeof Toast>;
 
-type ToastActionElement = React.ReactElement<typeof StyledAction>;
+type ToastActionElement = React.ReactElement<typeof ToastAction>;
 
-const Toast = {
-  Provider,
-  Viewport: StyledViewport,
-  Root: StyledRoot,
-  Title: StyledTitle,
-  Description: StyledDescription,
-  Close: StyledClose,
-  Action: StyledAction,
+export {
+  type ToastProps,
+  type ToastActionElement,
+  ToastProvider,
+  ToastViewport,
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  ToastAction,
 };
-
-export { Toast, type ToastProps, type ToastActionElement };

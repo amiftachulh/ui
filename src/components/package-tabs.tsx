@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useState } from "react";
 import { packageManagers } from "@/config/package-managers";
-import { Tabs } from "./ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 type PackageTabsProps = {
   items: React.ReactNode[];
@@ -16,7 +16,7 @@ export default function PackageTabs({ items }: PackageTabsProps) {
   }, []);
 
   return (
-    <Tabs.Root
+    <Tabs
       css={{
         my: "4",
         borderWidth: "1",
@@ -29,9 +29,9 @@ export default function PackageTabs({ items }: PackageTabsProps) {
         setSelected(value);
       }}
     >
-      <Tabs.List>
+      <TabsList>
         {packageManagers.map((p) => (
-          <Tabs.Trigger
+          <TabsTrigger
             key={p.name}
             css={{
               gap: "2",
@@ -46,14 +46,14 @@ export default function PackageTabs({ items }: PackageTabsProps) {
             value={p.name}
           >
             {p.icon} {p.name}
-          </Tabs.Trigger>
+          </TabsTrigger>
         ))}
-      </Tabs.List>
+      </TabsList>
       {packageManagers.map((p, i) => (
-        <Tabs.Content key={p.name} css={{ p: "0" }} value={p.name}>
+        <TabsContent key={p.name} css={{ p: "0" }} value={p.name}>
           {items[i]}
-        </Tabs.Content>
+        </TabsContent>
       ))}
-    </Tabs.Root>
+    </Tabs>
   );
 }

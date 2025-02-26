@@ -11,7 +11,8 @@ Before you begin, ensure you have the following dependencies installed:
 
 - React 19 or higher
 - Panda CSS - Read the [installation guide](https://panda-css.com/docs/overview/getting-started)
-- React Icons - Read the [installation guide](https://react-icons.github.io/react-icons). This is optional, but it is used in this documentation.
+- React Icons - Read the [installation guide](https://react-icons.github.io/react-icons).
+  This is optional, but it is used in this documentation.
 
 ## Installation
 
@@ -19,40 +20,64 @@ Before you begin, ensure you have the following dependencies installed:
 
 <Step>Organize your project structure as follows:</Step>
 
-<FileTree defaultValue={["preset", "recipes", "slot-recipes", "src", "components", "ui"]}>
-  <FileTreeItem name="preset" type="folder">
-    <FileTreeItem name="recipes" type="folder">
-      <FileTreeItem name="button.ts" />
-      <FileTreeItem name="index.ts" />
-      <FileTreeItem name="..." noIcon disabled />
-    </FileTreeItem>
-    <FileTreeItem name="slot-recipes" type="folder">
-      <FileTreeItem name="accordion.ts" />
-      <FileTreeItem name="index.ts" />
-      <FileTreeItem name="..." noIcon disabled />
-    </FileTreeItem>
-    <FileTreeItem name="index.ts" />
-    <FileTreeItem name="keyframes.ts" />
-    <FileTreeItem name="semantic-tokens.ts" />
-    <FileTreeItem name="utilities.ts" />
-  </FileTreeItem>
-  <FileTreeItem name="src" type="folder">
-    <FileTreeItem name="components" type="folder">
-      <FileTreeItem name="ui" type="folder">
-        <FileTreeItem name="accordion.tsx" />
-        <FileTreeItem name="button.tsx" />
-        <FileTreeItem name="..." noIcon disabled />
-      </FileTreeItem>
-    </FileTreeItem>
-    <FileTreeItem name="hooks" type="folder" />
-    <FileTreeItem name="lib" type="folder" />
-    <FileTreeItem name="..." noIcon disabled />
-  </FileTreeItem>
-  <FileTreeItem name="package.json" />
-  <FileTreeItem name="panda.config.ts" />
-  <FileTreeItem name="tsconfig.json" />
-  <FileTreeItem name="..." noIcon disabled />
-</FileTree>
+<FileTree
+  data={[
+    {
+      name: "preset",
+      children: [
+        {
+          name: "recipes",
+          children: [
+            { name: "button.ts" },
+            { name: "index.ts" },
+            { name: "...", noIcon: true, disabled: true },
+          ],
+        },
+        {
+          name: "slot-recipes",
+          children: [
+            { name: "accordion.ts" },
+            { name: "index.ts" },
+            { name: "...", noIcon: true, disabled: true },
+          ],
+        },
+        {
+          name: "utilities",
+          children: [{ name: "animation.ts" }, { name: "index.ts" }, { name: "transform.ts" }],
+        },
+        { name: "index.ts" },
+        { name: "keyframes.ts" },
+        { name: "semantic-tokens.ts" },
+      ],
+    },
+    {
+      name: "src",
+      children: [
+        {
+          name: "components",
+          children: [
+            {
+              name: "ui",
+              children: [
+                { name: "accordion.tsx" },
+                { name: "button.tsx" },
+                { name: "...", noIcon: true, disabled: true },
+              ],
+            },
+          ],
+        },
+        { name: "hooks", children: [{ name: "use-toast.ts" }] },
+        { name: "lib", children: [] },
+        { name: "...", noIcon: true, disabled: true },
+      ],
+    },
+    { name: "package.json" },
+    { name: "panda.config.ts" },
+    { name: "tsconfig.json" },
+    { name: "...", noIcon: true, disabled: true },
+  ]}
+  defaultValue={["preset", "recipes", "slot-recipes", "utilities", "src", "components", "ui"]}
+/>
 
 - `preset` - Panda CSS preset configuration.
 - `src/components/ui` - Store your UI components here.
@@ -62,7 +87,9 @@ Before you begin, ensure you have the following dependencies installed:
 
 <Alert variant="info" description="You can modify the project structure to suit your needs." />
 
-<Step>Copy the animation helper into respective files.</Step>
+<Step>Copy the keyframes.</Step>
+
+Keyframes are used to create animations utilities.
 
 `preset/keyframes.ts`
 
@@ -87,7 +114,9 @@ export const keyframes = defineKeyframes({
 });
 ```
 
-`preset/utilities.ts`
+<Step>Copy the utilities.</Step>
+
+`preset/utilities/animation.ts`
 
 ```ts
 import { type PropertyConfig } from "@pandacss/dev";
@@ -252,6 +281,63 @@ export const utilities: Record<string, PropertyConfig> = {
 };
 ```
 
+`preset/utilities/transform.ts`
+
+```ts
+import { type PropertyConfig } from "@pandacss/dev";
+
+const baseTransform = {
+  transform:
+    "translate(var(--panda-translate-x, 0), var(--panda-translate-y, 0)) rotate(var(--panda-rotate, 0)) skewX(var(--panda-skew-x, 0)) skewY(var(--panda-skew-y, 0)) scaleX(var(--panda-scale-x, 1)) scaleY(var(--panda-scale-y, 1))",
+};
+
+export const transform: Record<string, PropertyConfig> = {
+  translate: {
+    className: "translate",
+    values: "spacing",
+    transform: (value: string) => {
+      return {
+        ...baseTransform,
+        "--panda-translate-x": value,
+        "--panda-translate-y": value,
+      };
+    },
+  },
+  translateY: {
+    className: "translate_y",
+    values: "spacing",
+    transform: (value: string) => {
+      return {
+        ...baseTransform,
+        "--panda-translate-y": value,
+      };
+    },
+  },
+  translateX: {
+    className: "translate_x",
+    values: "spacing",
+    transform: (value: string) => {
+      return {
+        ...baseTransform,
+        "--panda-translate-x": value,
+      };
+    },
+  },
+};
+```
+
+`preset/utilities/index.ts`
+
+```ts
+import { animation } from "./animation";
+import { transform } from "./transform";
+
+export const utilities = {
+  ...animation,
+  ...transform,
+};
+```
+
 <Step>Copy the semantic tokens.</Step>
 
 `preset/semantic-tokens.ts`
@@ -408,7 +494,7 @@ Add `baseUrl` to the `compilerOptions` to simplify file imports. If `styled-syst
 }
 ```
 
-<Step>That's it!</Step>
+<Step>Done!</Step>
 
 You can now start adding components to your project.
 

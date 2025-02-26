@@ -4,8 +4,15 @@ import * as React from "react";
 import { LuCheck, LuChevronsUpDown } from "react-icons/lu";
 import { css, cx } from "styled-system/css";
 import { Button } from "@/components/ui/button";
-import { Command } from "@/components/ui/command";
-import { Popover } from "@/components/ui/popover";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const frameworks = [
   {
@@ -30,13 +37,13 @@ const frameworks = [
   },
 ];
 
-export function ComboboxDemo() {
+export default function ComboboxDemo() {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
   return (
-    <Popover.Root open={open} onOpenChange={setOpen}>
-      <Popover.Trigger asChild>
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
         <Button
           variant="outline"
           role="combobox"
@@ -48,15 +55,15 @@ export function ComboboxDemo() {
             : "Select framework..."}
           <LuChevronsUpDown className={css({ opacity: "0.5" })} />
         </Button>
-      </Popover.Trigger>
-      <Popover.Content css={{ w: "200px", p: "0" }}>
-        <Command.Root>
-          <Command.Input placeholder="Search framework..." />
-          <Command.List>
-            <Command.Empty>No framework found.</Command.Empty>
-            <Command.Group>
+      </PopoverTrigger>
+      <PopoverContent css={{ w: "200px", p: "0" }}>
+        <Command>
+          <CommandInput placeholder="Search framework..." />
+          <CommandList>
+            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandGroup>
               {frameworks.map((framework) => (
-                <Command.Item
+                <CommandItem
                   key={framework.value}
                   value={framework.value}
                   onSelect={(currentValue) => {
@@ -71,12 +78,12 @@ export function ComboboxDemo() {
                       value === framework.value ? css({ opacity: "1" }) : css({ opacity: "0" })
                     )}
                   />
-                </Command.Item>
+                </CommandItem>
               ))}
-            </Command.Group>
-          </Command.List>
-        </Command.Root>
-      </Popover.Content>
-    </Popover.Root>
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
   );
 }

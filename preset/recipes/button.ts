@@ -16,11 +16,12 @@ export const buttonRecipe = defineRecipe({
     fontWeight: "medium",
     cursor: "pointer",
     transition: "background-color 0.2s",
+    outline: "none",
     _focusVisible: {
-      outlineStyle: "primary",
+      outlineStyle: "auto",
       ringWidth: "2",
       ringColor: "ring",
-      ringOffset: "0.5",
+      ringOffset: "1",
     },
     _disabled: {
       pointerEvents: "none",

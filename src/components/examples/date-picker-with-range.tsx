@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import { styled } from "styled-system/jsx";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover } from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 export default function DatePickerWithRange() {
   const [date, setDate] = useState<DateRange | undefined>({
@@ -17,8 +17,8 @@ export default function DatePickerWithRange() {
 
   return (
     <styled.div css={{ display: "grid", gap: "2" }}>
-      <Popover.Root>
-        <Popover.Trigger asChild>
+      <Popover>
+        <PopoverTrigger asChild>
           <Button
             id="date"
             variant="outline"
@@ -43,8 +43,8 @@ export default function DatePickerWithRange() {
               <span>Pick a date</span>
             )}
           </Button>
-        </Popover.Trigger>
-        <Popover.Content css={{ w: "auto", p: "0" }} align="start">
+        </PopoverTrigger>
+        <PopoverContent css={{ w: "auto", p: "0" }} align="start">
           <Calendar
             autoFocus
             mode="range"
@@ -53,8 +53,8 @@ export default function DatePickerWithRange() {
             onSelect={setDate}
             numberOfMonths={2}
           />
-        </Popover.Content>
-      </Popover.Root>
+        </PopoverContent>
+      </Popover>
     </styled.div>
   );
 }

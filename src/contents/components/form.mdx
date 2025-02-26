@@ -16,41 +16,41 @@ Well-designed HTML forms are:
 - Has support for client and server side validation.
 - Well-styled and consistent with the rest of the application.
 
-In this guide, we will take a look at building forms with [react-hook-form](https://react-hook-form.com) and [zod](https://zod.dev). We're going to use a `<Form.Field>` component to compose accessible forms using Radix UI components.
+In this guide, we will take a look at building forms with [react-hook-form](https://react-hook-form.com) and [zod](https://zod.dev). We're going to use a `<FormField />` component to compose accessible forms using Radix UI components.
 
 ## Features
 
-The `<Form.Root />` component is a wrapper around the `react-hook-form` library. It provides a few things:
+The `<FormRoot />` component is a wrapper around the `react-hook-form` library. It provides a few things:
 
 - Composable components for building forms.
-- A `<Form.Field />` component for building controlled form fields.
+- A `<FormField />` component for building controlled form fields.
 - Form validation using zod.
 - Handles accessibility and error messages.
 - Uses `React.useId()` for generating unique IDs.
 - Applies the correct aria attributes to form fields based on states.
 - Built to work with all Radix UI components.
-- Bring your own schema library. We use zod but you can use anything you want.
+- Bring your own schema library. We use `zod` but you can use anything you want.
 - You have full control over the markup and styling.
 
 ## Anatomy
 
 ```tsx
-<Form.Root>
-  <Form.Field
+<FormRoot>
+  <FormField
     control={...}
     name="..."
     render={() => (
-      <Form.Item>
-        <Form.Label />
-        <Form.Control>
+      <FormItem>
+        <FormLabel />
+        <FormControl>
           { /* Your form field */}
-        </Form.Control>
-        <Form.Description />
-        <Form.Message />
-      </Form.Item>
+        </FormControl>
+        <FormDescription />
+        <FormMessage />
+      </FormItem>
     )}
   />
-</Form.Root>
+</FormRoot>
 ```
 
 ## Example
@@ -58,18 +58,18 @@ The `<Form.Root />` component is a wrapper around the `react-hook-form` library.
 ```tsx
 const form = useForm()
 
-<Form.Field
+<FormField
   control={form.control}
   name="username"
   render={({ field }) => (
-    <Form.Item>
-      <Form.Label>Username</FormLabel>
+    <FormItem>
+      <FormLabel>Username</FormLabel>
       <FormControl>
         <Input placeholder="shadcn" {...field} />
-      </Form.Control>
-      <Form.Description>This is your public display name.</FormDescription>
-      <Form.Message />
-    </Form.Item>
+      </FormControl>
+      <FormDescription>This is your public display name.</FormDescription>
+      <FormMessage />
+    </FormItem>
   )}
 />
 ```
@@ -147,7 +147,7 @@ export function ProfileForm() {
 }
 ```
 
-Since `<Form.Field />` is using a controlled component, you need to provide a default value for the field. See the [React Hook Form docs](https://react-hook-form.com/docs/usecontroller) to learn more about controlled components.
+Since `<FormField />` is using a controlled component, you need to provide a default value for the field. See the [React Hook Form docs](https://react-hook-form.com/docs/usecontroller) to learn more about controlled components.
 
 <Step>Build your form.</Step>
 
@@ -173,25 +173,25 @@ export function ProfileForm() {
   // ...
 
   return (
-    <Form.Root {...form}>
+    <FormRoot {...form}>
       <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ spaceY: "8" }}>
-        <Form.Field
+        <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
-            <Form.Item>
-              <Form.Label>Username</Form.Label>
-              <Form.Control>
+            <FormItem>
+              <FormLabel>Username</Form.Label>
+              <FormControl>
                 <Input placeholder="shadcn" {...field} />
-              </Form.Control>
-              <Form.Description>This is your public display name.</Form.Description>
-              <Form.Message />
-            </Form.Item>
+              </FormControl>
+              <FormDescription>This is your public display name.</FormDescription>
+              <FormMessage />
+            </FormItem>
           )}
         />
         <Button type="submit">Submit</Button>
       </styled.form>
-    </Form.Root>
+    </FormRoot>
   );
 }
 ```

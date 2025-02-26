@@ -7,12 +7,11 @@ import { chip } from "styled-system/recipes";
 import CodeBlock from "./code-block";
 import ComponentPreview from "./component-preview";
 import ComponentSource from "./component-source";
-import { FileTree, FileTreeItem } from "./file-tree";
+import { FileTree } from "./file-tree";
 import PackageInstaller from "./package-installer";
 import PropsTable from "./props-table";
-import { Alert } from "./ui/alert";
-import { Popover } from "./ui/popover";
-import { Table } from "./ui/table";
+import { Alert, AlertContent, AlertDescription, AlertIcon } from "./ui/alert";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 
 const alertIconMap = {
   info: LuInfo,
@@ -94,7 +93,7 @@ const components: MDXComponents = {
     const linkClass = css({
       color: "primary/90",
       textDecoration: "underline",
-      textUnderlineOffset: "1px",
+      textUnderlineOffset: "4px",
       fontWeight: "medium",
       _hover: {
         color: "primary",
@@ -141,7 +140,7 @@ const components: MDXComponents = {
   ),
   li: ({ children }) => <styled.li css={{ my: "1" }}>{children}</styled.li>,
   pre: (props) => {
-    const { children, highlight, add } = props;
+    const { children, highlight, add, remove } = props;
     const code = children.props;
     const lang = code.className?.replace("language-", "");
 
@@ -151,6 +150,7 @@ const components: MDXComponents = {
         lang={lang}
         highlight={highlight}
         add={add}
+        remove={remove}
       >
         {children.props.children}
       </CodeBlock>
@@ -188,14 +188,14 @@ const components: MDXComponents = {
   ),
   table: (props) => (
     <styled.div css={{ rounded: "md", borderWidth: "1px" }}>
-      <Table.Root {...props} />
+      <Table {...props} />
     </styled.div>
   ),
-  thead: (props) => <Table.Header className={css({ bg: "muted" })} {...props} />,
-  tbody: Table.Body,
-  tr: Table.Row,
-  th: (props) => <Table.Head className={css({ color: "fg" })} {...props} />,
-  td: Table.Cell,
+  thead: (props) => <TableHeader className={css({ bg: "muted" })} {...props} />,
+  tbody: TableBody,
+  tr: TableRow,
+  th: (props) => <TableHead className={css({ color: "fg" })} {...props} />,
+  td: TableCell,
   ComponentPreview,
   ComponentSource,
   PackageInstaller,
@@ -244,46 +244,38 @@ const components: MDXComponents = {
     />
   ),
   FileTree,
-  FileTreeItem,
   Alert: ({ variant, description }) => {
     const Icon = alertIconMap[variant as keyof typeof alertIconMap];
 
     return (
-      <Alert.Root variant={variant} className={css({ my: "4" })}>
-        <Alert.Icon>
+      <Alert variant={variant} className={css({ my: "4" })}>
+        <AlertIcon>
           <Icon />
-        </Alert.Icon>
-        <Alert.Content>
-          <Alert.Description>{description}</Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+        </AlertIcon>
+        <AlertContent>
+          <AlertDescription>{description}</AlertDescription>
+        </AlertContent>
+      </Alert>
     );
   },
-  PropsTable,
-  InfoPopover: ({ children, content }) => (
-    <styled.div css={{ display: "flex", alignItems: "center", gap: "2" }}>
-      <styled.span css={{ textStyle: "sm" }}>{children}</styled.span>
-      <Popover.Root>
-        <Popover.Trigger className="group" css={{ cursor: "pointer" }}>
-          <LuInfo
-            className={css({
-              w: "4",
-              h: "4",
-              color: "zinc.800",
-              transition: "colors",
-              _dark: {
-                color: "zinc.400",
-              },
-              _groupHover: {
-                color: "fg",
-              },
-            })}
-          />
-        </Popover.Trigger>
-        <Popover.Content css={{ textStyle: "sm" }}>{content}</Popover.Content>
-      </Popover.Root>
+  Callout: ({ children }) => (
+    <styled.div
+      css={{
+        bg: { base: "zinc.100", _dark: "zinc.900" },
+        p: "4",
+        borderWidth: "1px",
+        rounded: "md",
+        "& *": {
+          textStyle: "sm",
+          "&:first-child": { mt: "0" },
+          "&:last-child": { mb: "0" },
+        },
+      }}
+    >
+      {children}
     </styled.div>
   ),
+  PropsTable,
 };
 
 export default components;

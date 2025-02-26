@@ -15,94 +15,107 @@ import {
   LuUsers,
 } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function DropdownMenuDemo() {
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
         <Button variant="outline">Open</Button>
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Content css={{ w: "56" }}>
-        <DropdownMenu.Label>My Account</DropdownMenu.Label>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Group>
-          <DropdownMenu.Item>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent css={{ w: "56" }}>
+        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
             <LuUser />
             <span>Profile</span>
-            <DropdownMenu.Shortcut>⇧⌘P</DropdownMenu.Shortcut>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
+            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
             <LuCreditCard />
             <span>Billing</span>
-            <DropdownMenu.Shortcut>⌘B</DropdownMenu.Shortcut>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
+            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
             <LuSettings />
             <span>Settings</span>
-            <DropdownMenu.Shortcut>⌘S</DropdownMenu.Shortcut>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item>
+            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
             <LuKeyboard />
             <span>Keyboard shortcuts</span>
-            <DropdownMenu.Shortcut>⌘K</DropdownMenu.Shortcut>
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Group>
-          <DropdownMenu.Item>
+            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
             <LuUsers />
             <span>Team</span>
-          </DropdownMenu.Item>
-          <DropdownMenu.Sub>
-            <DropdownMenu.SubTrigger>
+          </DropdownMenuItem>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
               <LuUserPlus />
               <span>Invite users</span>
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.Portal>
-              <DropdownMenu.SubContent>
-                <DropdownMenu.Item>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem>
                   <LuMail />
                   <span>Email</span>
-                </DropdownMenu.Item>
-                <DropdownMenu.Item>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
                   <LuMessageSquare />
                   <span>Message</span>
-                </DropdownMenu.Item>
-                <DropdownMenu.Separator />
-                <DropdownMenu.Item>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
                   <LuCirclePlus />
-                  <span>More...</span>
-                </DropdownMenu.Item>
-              </DropdownMenu.SubContent>
-            </DropdownMenu.Portal>
-          </DropdownMenu.Sub>
-          <DropdownMenu.Item>
+                  <span>More</span>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+          <DropdownMenuItem>
             <LuPlus />
             <span>New Team</span>
-            <DropdownMenu.Shortcut>⌘+T</DropdownMenu.Shortcut>
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Item>
+            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
           <LuGithub />
           <span>GitHub</span>
-        </DropdownMenu.Item>
-        <DropdownMenu.Item>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
           <LuLifeBuoy />
           <span>Support</span>
-        </DropdownMenu.Item>
-        <DropdownMenu.Item disabled>
+        </DropdownMenuItem>
+        <DropdownMenuItem disabled>
           <LuCloud />
           <span>API</span>
-        </DropdownMenu.Item>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Item>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
           <LuLogOut />
           <span>Log out</span>
-          <DropdownMenu.Shortcut>⇧⌘Q</DropdownMenu.Shortcut>
-        </DropdownMenu.Item>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

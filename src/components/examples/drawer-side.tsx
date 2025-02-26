@@ -1,6 +1,15 @@
 import { styled } from "styled-system/jsx";
 import { Button } from "@/components/ui/button";
-import { Drawer } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -10,17 +19,17 @@ export default function DrawerSide() {
   return (
     <styled.div css={{ display: "flex", alignItems: "center", gap: "4" }}>
       {SIDE.map((side) => (
-        <Drawer.Root key={side}>
-          <Drawer.Trigger asChild>
-            <Button variant="outline">Open</Button>
-          </Drawer.Trigger>
-          <Drawer.Content>
-            <Drawer.Header>
-              <Drawer.Title>Edit profile</Drawer.Title>
-              <Drawer.Description>
+        <Drawer key={side}>
+          <DrawerTrigger asChild>
+            <Button variant="outline">{side}</Button>
+          </DrawerTrigger>
+          <DrawerContent side={side}>
+            <DrawerHeader>
+              <DrawerTitle>Edit profile</DrawerTitle>
+              <DrawerDescription>
                 Make changes to your profile here. Click save when you&apos;re done.
-              </Drawer.Description>
-            </Drawer.Header>
+              </DrawerDescription>
+            </DrawerHeader>
             <styled.div css={{ display: "grid", gap: "4", py: "4" }}>
               <styled.div
                 css={{
@@ -53,13 +62,13 @@ export default function DrawerSide() {
                 <Input id="username" defaultValue="amiftachulh" css={{ gridColumn: "span 3" }} />
               </styled.div>
             </styled.div>
-            <Drawer.Footer>
-              <Drawer.Close asChild>
+            <DrawerFooter>
+              <DrawerClose asChild>
                 <Button type="submit">Save changes</Button>
-              </Drawer.Close>
-            </Drawer.Footer>
-          </Drawer.Content>
-        </Drawer.Root>
+              </DrawerClose>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
       ))}
     </styled.div>
   );

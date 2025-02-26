@@ -1,0 +1,81 @@
+---
+title: Pagination
+description: Pagination with page navigation, next and previous links.
+---
+
+<ComponentPreview name="pagination-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="pagination.ts" type="slot-recipe" />
+
+<ComponentSource name="pagination.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
+```
+
+```tsx
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+### Next.js
+
+By default the `<Pagination.Link />` component will render an `<a />` tag.
+
+To use the Next.js `<Link />` component, make the following updates to `pagination.tsx`.
+
+```tsx add="1,4,8" remove="3,7"
+import { Link } from "next/link"
+
+type PaginationLinkProps = ... & React.ComponentProps<"a">
+type PaginationLinkProps = ... & React.ComponentProps<typeof Link>
+
+const Link = ({ className, isActive, size = "icon", ...props }: PaginationLinkProps) => (
+  <styled.a
+  <Link
+    aria-current={isActive ? "page" : undefined}
+    className={cx(
+      button({
+        variant: isActive ? "outline" : "ghost",
+        size,
+      }),
+      className
+    )}
+    {...props}
+  />
+);
+```

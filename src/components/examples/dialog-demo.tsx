@@ -1,22 +1,30 @@
 import { styled } from "styled-system/jsx";
 import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function DialogDemo() {
   return (
-    <Dialog.Root>
-      <Dialog.Trigger asChild>
+    <Dialog>
+      <DialogTrigger asChild>
         <Button variant="outline">Edit Profile</Button>
-      </Dialog.Trigger>
-      <Dialog.Content>
-        <Dialog.Header>
-          <Dialog.Title>Edit profile</Dialog.Title>
-          <Dialog.Description>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
             Make changes to your profile here. Click save when you&apos;re done.
-          </Dialog.Description>
-        </Dialog.Header>
+          </DialogDescription>
+        </DialogHeader>
         <styled.div css={{ display: "grid", gap: "4", py: "4" }}>
           <styled.div
             css={{
@@ -49,10 +57,10 @@ export default function DialogDemo() {
             <Input id="username" defaultValue="amiftachulh" css={{ gridColumn: "span 3" }} />
           </styled.div>
         </styled.div>
-        <Dialog.Footer>
+        <DialogFooter>
           <Button type="submit">Save changes</Button>
-        </Dialog.Footer>
-      </Dialog.Content>
-    </Dialog.Root>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }

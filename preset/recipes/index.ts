@@ -4,6 +4,7 @@ import { inputRecipe } from "./input";
 import { labelRecipe } from "./label";
 import { scrollRecipe } from "./scroll";
 import { separatorRecipe } from "./separator";
+import { skeletonRecipe } from "./skeleton";
 
 export const recipes = {
   button: buttonRecipe,
@@ -12,4 +13,5 @@ export const recipes = {
   label: labelRecipe,
   scroll: scrollRecipe,
   separator: separatorRecipe,
+  skeleton: skeletonRecipe,
 };

@@ -1,19 +1,13 @@
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { styled } from "styled-system/jsx";
 
-const Root = styled(CollapsiblePrimitive.Root);
-Root.displayName = CollapsiblePrimitive.Root.displayName;
+const Collapsible = styled(CollapsiblePrimitive.Root);
+Collapsible.displayName = CollapsiblePrimitive.Root.displayName;
 
-const Trigger = styled(CollapsiblePrimitive.CollapsibleTrigger);
-Trigger.displayName = CollapsiblePrimitive.CollapsibleTrigger.displayName;
+const CollapsibleTrigger = styled(CollapsiblePrimitive.CollapsibleTrigger);
+CollapsibleTrigger.displayName = CollapsiblePrimitive.CollapsibleTrigger.displayName;
 
-const Content = styled(CollapsiblePrimitive.CollapsibleContent);
-Content.displayName = CollapsiblePrimitive.CollapsibleContent.displayName;
+const CollapsibleContent = styled(CollapsiblePrimitive.CollapsibleContent);
+CollapsibleContent.displayName = CollapsiblePrimitive.CollapsibleContent.displayName;
 
-const Collapsible = {
-  Root,
-  Trigger,
-  Content,
-};
-
-export { Collapsible };
+export { Collapsible, CollapsibleTrigger, CollapsibleContent };

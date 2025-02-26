@@ -9,14 +9,14 @@ const classes = avatar();
 const Root = ({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Root>) => (
   <AvatarPrimitive.Root className={cx(classes.root, className)} {...props} />
 );
-const StyledRoot = styled(Root);
-StyledRoot.displayName = AvatarPrimitive.Root.displayName;
+const Avatar = styled(Root);
+Avatar.displayName = AvatarPrimitive.Root.displayName;
 
 const Image = ({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Image>) => (
   <AvatarPrimitive.Image className={cx(classes.image, className)} {...props} />
 );
-const StyledImage = styled(Image);
-StyledImage.displayName = AvatarPrimitive.Image.displayName;
+const AvatarImage = styled(Image);
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
 
 const Fallback = ({
   className,
@@ -24,13 +24,7 @@ const Fallback = ({
 }: React.ComponentProps<typeof AvatarPrimitive.Fallback>) => (
   <AvatarPrimitive.Fallback className={cx(classes.fallback, className)} {...props} />
 );
-const StyledFallback = styled(Fallback);
-StyledFallback.displayName = AvatarPrimitive.Fallback.displayName;
+const AvatarFallback = styled(Fallback);
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
-const Avatar = {
-  Root: StyledRoot,
-  Image: StyledImage,
-  Fallback: StyledFallback,
-};
-
-export { Avatar };
+export { Avatar, AvatarImage, AvatarFallback };

@@ -2,15 +2,15 @@ import { styled } from "styled-system/jsx";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Popover } from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 export default function PopoverDemo() {
   return (
-    <Popover.Root>
-      <Popover.Trigger asChild>
+    <Popover>
+      <PopoverTrigger asChild>
         <Button variant="outline">Open popover</Button>
-      </Popover.Trigger>
-      <Popover.Content css={{ w: "80" }}>
+      </PopoverTrigger>
+      <PopoverContent css={{ w: "80" }}>
         <styled.div css={{ display: "grid", gap: "4" }}>
           <styled.div css={{ spaceY: "2" }}>
             <styled.h4 css={{ fontWeight: "medium", lineHeight: "none" }}>Dimensions</styled.h4>
@@ -65,7 +65,7 @@ export default function PopoverDemo() {
             </styled.div>
           </styled.div>
         </styled.div>
-      </Popover.Content>
-    </Popover.Root>
+      </PopoverContent>
+    </Popover>
   );
 }

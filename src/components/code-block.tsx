@@ -13,6 +13,7 @@ type CodeBlockProps = {
   className?: string;
   highlight?: string;
   add?: string;
+  remove?: string;
 };
 
 export default async function CodeBlock({
@@ -21,9 +22,11 @@ export default async function CodeBlock({
   className,
   highlight: h,
   add: a,
+  remove: r,
 }: CodeBlockProps) {
   const highlight = h ? parseLineNumbers(h) : [];
   const add = a ? parseLineNumbers(a) : [];
+  const remove = r ? parseLineNumbers(r) : [];
 
   const out = await codeToHast(children, {
     lang,
@@ -40,6 +43,10 @@ export default async function CodeBlock({
 
           if (add.includes(line)) {
             this.addClassToHast(node, "highlighted add");
+          }
+
+          if (remove.includes(line)) {
+            this.addClassToHast(node, "highlighted remove");
           }
 
           return node;
@@ -74,6 +81,7 @@ export default async function CodeBlock({
                 bg: { base: "zinc.100", _dark: "zinc.900" },
                 overflow: "auto",
                 "& .line": {
+                  pos: "relative",
                   px: "4",
                 },
                 "& .line:empty:last-child": {
@@ -84,12 +92,23 @@ export default async function CodeBlock({
                   w: "full",
                   bg: { base: "zinc.200", _dark: "zinc.800" },
                   "&.add": {
-                    bg: { base: "green.200/50", _dark: "green.900/50" },
+                    bg: { base: "green.200/30", _dark: "green.900/30" },
                     "&::before": {
                       content: "'+'",
                       pos: "absolute",
                       left: "1",
                       color: "green.500",
+                      fontSize: "md",
+                      textAlign: "center",
+                    },
+                  },
+                  "&.remove": {
+                    bg: { base: "red.200/30", _dark: "red.900/30" },
+                    "&::before": {
+                      content: "'-'",
+                      pos: "absolute",
+                      left: "1",
+                      color: "red.500",
                       fontSize: "md",
                       textAlign: "center",
                     },

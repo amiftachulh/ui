@@ -10,60 +10,49 @@ const Root = ({ className, ...props }: React.ComponentProps<"table">) => (
     <table className={cx(classes.root, className)} {...props} />
   </div>
 );
-const StyledRoot = styled(Root);
-StyledRoot.displayName = "Table";
+const Table = styled(Root);
+Table.displayName = "Table";
 
 const Header = ({ className, ...props }: React.ComponentProps<"thead">) => (
   <thead className={cx(classes.header, className)} {...props} />
 );
-const StyledHeader = styled(Header);
-StyledHeader.displayName = "TableHeader";
+const TableHeader = styled(Header);
+TableHeader.displayName = "TableHeader";
 
 const Body = ({ className, ...props }: React.ComponentProps<"tbody">) => (
   <tbody className={cx(classes.body, className)} {...props} />
 );
-const StyledBody = styled(Body);
-StyledBody.displayName = "TableBody";
+const TableBody = styled(Body);
+TableBody.displayName = "TableBody";
 
 const Footer = ({ className, ...props }: React.ComponentProps<"tfoot">) => (
   <tfoot className={cx(classes.footer, className)} {...props} />
 );
-const StyledFooter = styled(Footer);
-StyledFooter.displayName = "TableFooter";
+const TableFooter = styled(Footer);
+TableFooter.displayName = "TableFooter";
 
 const Row = ({ className, ...props }: React.ComponentProps<"tr">) => (
   <tr className={cx(classes.row, className)} {...props} />
 );
-const StyledRow = styled(Row);
-StyledRow.displayName = "TableRow";
+const TableRow = styled(Row);
+TableRow.displayName = "TableRow";
 
 const Head = ({ className, ...props }: React.ComponentProps<"th">) => (
   <th className={cx(classes.head, className)} {...props} />
 );
-const StyledHead = styled(Head);
-StyledHead.displayName = "TableHead";
+const TableHead = styled(Head);
+TableHead.displayName = "TableHead";
 
 const Cell = ({ className, ...props }: React.ComponentProps<"td">) => (
   <td className={cx(classes.cell, className)} {...props} />
 );
-const StyledCell = styled(Cell);
-StyledCell.displayName = "TableCell";
+const TableCell = styled(Cell);
+TableCell.displayName = "TableCell";
 
 const Caption = ({ className, ...props }: React.ComponentProps<"caption">) => (
   <caption className={cx(classes.caption, className)} {...props} />
 );
-const StyledCaption = styled(Caption);
-StyledCaption.displayName = "TableCaption";
+const TableCaption = styled(Caption);
+TableCaption.displayName = "TableCaption";
 
-const Table = {
-  Root: StyledRoot,
-  Header: StyledHeader,
-  Body: StyledBody,
-  Footer: StyledFooter,
-  Row: StyledRow,
-  Head: StyledHead,
-  Cell: StyledCell,
-  Caption: StyledCaption,
-};
-
-export { Table };
+export { Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableCell, TableCaption };

@@ -1,53 +1,59 @@
 import { LuCircleCheckBig, LuCircleX, LuInfo, LuTriangleAlert } from "react-icons/lu";
 import { styled } from "styled-system/jsx";
-import { Alert } from "@/components/ui/alert";
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+} from "@/components/ui/alert";
 
 export default function AlertVariant() {
   return (
     <styled.div css={{ spaceY: "4" }}>
       {/* Info variant */}
-      <Alert.Root variant="info">
-        <Alert.Icon>
+      <Alert variant="info">
+        <AlertIcon>
           <LuInfo />
-        </Alert.Icon>
-        <Alert.Content>
-          <Alert.Title>Info</Alert.Title>
-          <Alert.Description>This is an info message.</Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Info</AlertTitle>
+          <AlertDescription>This is an info message.</AlertDescription>
+        </AlertContent>
+      </Alert>
 
       {/* Success variant */}
-      <Alert.Root variant="success">
-        <Alert.Icon>
+      <Alert variant="success">
+        <AlertIcon>
           <LuCircleCheckBig />
-        </Alert.Icon>
-        <Alert.Content>
-          <Alert.Title>Success!</Alert.Title>
-          <Alert.Description>Your changes have been saved successfully.</Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Success!</AlertTitle>
+          <AlertDescription>Your changes have been saved successfully.</AlertDescription>
+        </AlertContent>
+      </Alert>
 
       {/* Warning variant */}
-      <Alert.Root variant="warning">
-        <Alert.Icon>
+      <Alert variant="warning">
+        <AlertIcon>
           <LuTriangleAlert />
-        </Alert.Icon>
-        <Alert.Content>
-          <Alert.Title>Warning</Alert.Title>
-          <Alert.Description>Your subscription will expire in 7 days.</Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Warning</AlertTitle>
+          <AlertDescription>Your subscription will expire in 7 days.</AlertDescription>
+        </AlertContent>
+      </Alert>
 
       {/* Danger variant */}
-      <Alert.Root variant="danger">
-        <Alert.Icon>
+      <Alert variant="danger">
+        <AlertIcon>
           <LuCircleX />
-        </Alert.Icon>
-        <Alert.Content>
-          <Alert.Title>Error</Alert.Title>
-          <Alert.Description>Failed to save changes. Please try again.</Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+        </AlertIcon>
+        <AlertContent>
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>Failed to save changes. Please try again.</AlertDescription>
+        </AlertContent>
+      </Alert>
     </styled.div>
   );
 }

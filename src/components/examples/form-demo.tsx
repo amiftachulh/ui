@@ -5,50 +5,64 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { styled } from "styled-system/jsx";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { toast } from "@/hooks/use-toast";
 
-const formSchema = z.object({
+const FormSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
 });
 
 export default function FormDemo() {
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
     defaultValues: {
       username: "",
     },
   });
 
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    toast({
+      title: "You submitted the following values:",
+      description: (
+        <styled.pre
+          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
+        >
+          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
+        </styled.pre>
+      ),
+    });
   }
 
   return (
-    <Form.Root {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ w: "80", spaceY: "8" }}>
-        <Form.Field
+    <Form {...form}>
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ w: "2/3", spaceY: "6" }}>
+        <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
-            <Form.Item>
-              <Form.Label>Username</Form.Label>
-              <Form.Control>
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
                 <Input placeholder="shadcn" {...field} />
-              </Form.Control>
-              <Form.Description>This is your public display name.</Form.Description>
-              <Form.Message />
-            </Form.Item>
+              </FormControl>
+              <FormDescription>This is your public display name.</FormDescription>
+              <FormMessage />
+            </FormItem>
           )}
         />
         <Button type="submit">Submit</Button>
       </styled.form>
-    </Form.Root>
+    </Form>
   );
 }

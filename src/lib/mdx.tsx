@@ -1,6 +1,7 @@
 import { compileMDX } from "next-mdx-remote/rsc";
 import fs from "fs";
 import path from "path";
+import recmaMdxEscapeMissingComponents from "recma-mdx-escape-missing-components";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import remarkGfm from "remark-gfm";
 import remarkMdx from "remark-mdx";
@@ -74,6 +75,7 @@ export async function getDocBySlug(slug: string): Promise<{
       mdxOptions: {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [rehypeMdxCodeProps],
+        recmaPlugins: [recmaMdxEscapeMissingComponents],
       },
     },
   });

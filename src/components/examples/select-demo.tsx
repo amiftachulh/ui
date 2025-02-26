@@ -1,22 +1,30 @@
 import * as React from "react";
-import { Select } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function SelectDemo() {
   return (
-    <Select.Root>
-      <Select.Trigger css={{ w: "180px" }}>
-        <Select.Value placeholder="Select a fruit" />
-      </Select.Trigger>
-      <Select.Content>
-        <Select.Group>
-          <Select.Label>Fruits</Select.Label>
-          <Select.Item value="apple">Apple</Select.Item>
-          <Select.Item value="banana">Banana</Select.Item>
-          <Select.Item value="blueberry">Blueberry</Select.Item>
-          <Select.Item value="grapes">Grapes</Select.Item>
-          <Select.Item value="pineapple">Pineapple</Select.Item>
-        </Select.Group>
-      </Select.Content>
-    </Select.Root>
+    <Select>
+      <SelectTrigger css={{ w: "180px" }}>
+        <SelectValue placeholder="Select a fruit" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel>Fruits</SelectLabel>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="banana">Banana</SelectItem>
+          <SelectItem value="blueberry">Blueberry</SelectItem>
+          <SelectItem value="grapes">Grapes</SelectItem>
+          <SelectItem value="pineapple">Pineapple</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 }

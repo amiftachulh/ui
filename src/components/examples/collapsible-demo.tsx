@@ -5,13 +5,13 @@ import { LuChevronsUpDown } from "react-icons/lu";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { Button } from "@/components/ui/button";
-import { Collapsible } from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 export default function CollapsibleDemo() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Collapsible.Root open={isOpen} onOpenChange={setIsOpen} css={{ w: "350px", spaceY: "2" }}>
+    <Collapsible open={isOpen} onOpenChange={setIsOpen} css={{ w: "350px", spaceY: "2" }}>
       <styled.div
         css={{
           display: "flex",
@@ -24,12 +24,12 @@ export default function CollapsibleDemo() {
         <styled.h4 css={{ textStyle: "sm", fontWeight: "semibold" }}>
           @peduarte starred 3 repositories
         </styled.h4>
-        <Collapsible.Trigger asChild>
+        <CollapsibleTrigger asChild>
           <Button variant="ghost" size="sm" css={{ w: "9", p: "0" }}>
             <LuChevronsUpDown className={css({ w: "4", h: "4" })} />
             <span className={css({ srOnly: true })}>Toggle</span>
           </Button>
-        </Collapsible.Trigger>
+        </CollapsibleTrigger>
       </styled.div>
       <styled.div
         css={{
@@ -43,7 +43,7 @@ export default function CollapsibleDemo() {
       >
         @radix-ui/primitives
       </styled.div>
-      <Collapsible.Content css={{ spaceY: "2" }}>
+      <CollapsibleContent css={{ spaceY: "2" }}>
         <styled.div
           css={{
             rounded: "md",
@@ -68,7 +68,7 @@ export default function CollapsibleDemo() {
         >
           @stitches/react
         </styled.div>
-      </Collapsible.Content>
-    </Collapsible.Root>
+      </CollapsibleContent>
+    </Collapsible>
   );
 }

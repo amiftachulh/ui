@@ -12,10 +12,9 @@ export const inputRecipe = defineRecipe({
       bg: "transparent",
     },
     _focusVisible: {
-      outlineStyle: "primary",
       ringWidth: "2",
       ringColor: "ring",
-      ringOffset: "0.5",
+      ringOffset: "1",
     },
     _disabled: {
       opacity: "0.5",

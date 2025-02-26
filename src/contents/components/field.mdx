@@ -1,0 +1,35 @@
+---
+title: Field
+description: Used to represent a field in a form.
+---
+
+<ComponentPreview name="field-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="field.ts" type="slot-recipe" />
+
+<ComponentSource name="field.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import { Field, FieldHelper, FieldLabel } from "@/components/ui/field";
+```
+
+```tsx
+<Field>
+  <FieldLabel>Email</FieldLabel>
+  <Input type="email" placeholder="m@example.com" />
+  <FieldHelper>Enter your email address</FieldHelper>
+  <FieldError>Invalid email address</FieldError>
+</Field>
+```
