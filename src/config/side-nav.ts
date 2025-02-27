@@ -98,8 +98,16 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/form",
       },
       {
+        title: "Hover Card",
+        href: "/docs/components/hover-card",
+      },
+      {
         title: "Input",
         href: "/docs/components/input",
+      },
+      {
+        title: "Input OTP",
+        href: "/docs/components/input-otp",
       },
       {
         title: "Label",

@@ -18,7 +18,7 @@ links:
 
 <Step>Add keyframes to your preset then add it to semantic tokens.</Step>
 
-```ts
+```ts highlight="3-10"
 export const keyframes = defineKeyframes({
   // ... other keyframes
   "accordion-down": {
@@ -32,7 +32,7 @@ export const keyframes = defineKeyframes({
 });
 ```
 
-```ts
+```ts highlight="4,5"
 export const semanticTokens = defineSemanticTokens({
   // ... other semantic tokens
   animations: {

@@ -31,4 +31,8 @@ export const keyframes = defineKeyframes({
     from: { width: "0" },
     to: { width: "var(--radix-accordion-content-width)" },
   },
+  "caret-blink": {
+    "0%, 70%, 100%": { opacity: "1" },
+    "20%, 50%": { opacity: "0" },
+  },
 });

@@ -8,6 +8,7 @@ import { contextMenuSlotRecipe } from "./context-menu";
 import { dialogSlotRecipe } from "./dialog";
 import { drawerSlotRecipe } from "./drawer";
 import { dropdownMenuSlotRecipe } from "./dropdown-menu";
+import { hoverCardSlotRecipe } from "./hover-card";
 import { paginationSlotRecipe } from "./pagination";
 import { popoverSlotRecipe } from "./popover";
 import { scrollAreaSlotRecipe } from "./scroll-area";
@@ -29,6 +30,7 @@ export const slotRecipes = {
   dropdownMenu: dropdownMenuSlotRecipe,
   dialog: dialogSlotRecipe,
   drawer: drawerSlotRecipe,
+  hoverCard: hoverCardSlotRecipe,
   pagination: paginationSlotRecipe,
   popover: popoverSlotRecipe,
   scrollArea: scrollAreaSlotRecipe,
