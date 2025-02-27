@@ -19,7 +19,13 @@ export default async function ComponentPreview({ name }: ComponentPreviewProps) 
   return (
     <styled.div css={{ rounded: "md", borderWidth: "1px", my: "4", overflow: "hidden" }}>
       <styled.div
-        className={center({ borderBottomWidth: "1px", px: "4", py: "6", overflow: "auto" })}
+        className={center({
+          color: "fg",
+          borderBottomWidth: "1px",
+          px: "4",
+          py: "6",
+          overflow: "auto",
+        })}
       >
         <Component />
       </styled.div>

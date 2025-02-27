@@ -106,12 +106,12 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/input",
       },
       {
-        title: "Input OTP",
-        href: "/docs/components/input-otp",
-      },
-      {
         title: "Label",
         href: "/docs/components/label",
+      },
+      {
+        title: "Menubar",
+        href: "/docs/components/menubar",
       },
       {
         title: "Pagination",
@@ -120,6 +120,14 @@ export const sideNav: SideNavGroup[] = [
       {
         title: "Popover",
         href: "/docs/components/popover",
+      },
+      {
+        title: "Progress",
+        href: "/docs/components/progress",
+      },
+      {
+        title: "Radio Group",
+        href: "/docs/components/radio-group",
       },
       {
         title: "Scroll Area",

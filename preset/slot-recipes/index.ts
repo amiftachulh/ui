@@ -9,8 +9,11 @@ import { dialogSlotRecipe } from "./dialog";
 import { drawerSlotRecipe } from "./drawer";
 import { dropdownMenuSlotRecipe } from "./dropdown-menu";
 import { hoverCardSlotRecipe } from "./hover-card";
+import { menubarSlotRecipe } from "./menubar";
 import { paginationSlotRecipe } from "./pagination";
 import { popoverSlotRecipe } from "./popover";
+import { progressSlotRecipe } from "./progress";
+import { radioGroupSlotRecipe } from "./radio-group";
 import { scrollAreaSlotRecipe } from "./scroll-area";
 import { selectSlotRecipe } from "./select";
 import { switchSlotRecipe } from "./switch";
@@ -31,8 +34,11 @@ export const slotRecipes = {
   dialog: dialogSlotRecipe,
   drawer: drawerSlotRecipe,
   hoverCard: hoverCardSlotRecipe,
+  menubar: menubarSlotRecipe,
   pagination: paginationSlotRecipe,
   popover: popoverSlotRecipe,
+  progress: progressSlotRecipe,
+  radioGroup: radioGroupSlotRecipe,
   scrollArea: scrollAreaSlotRecipe,
   select: selectSlotRecipe,
   switchRecipe: switchSlotRecipe,
