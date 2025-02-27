@@ -16,6 +16,7 @@ import { switchSlotRecipe } from "./switch";
 import { tableSlotRecipe } from "./table";
 import { tabsSlotRecipe } from "./tabs";
 import { toastSlotRecipe } from "./toast";
+import { tooltipSlotRecipe } from "./tooltip";
 
 export const slotRecipes = {
   accordion: accordionSlotRecipe,
@@ -36,4 +37,5 @@ export const slotRecipes = {
   table: tableSlotRecipe,
   tabs: tabsSlotRecipe,
   toast: toastSlotRecipe,
+  tooltip: tooltipSlotRecipe,
 };

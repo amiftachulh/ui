@@ -142,8 +142,16 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/tabs",
       },
       {
+        title: "Textarea",
+        href: "/docs/components/textarea",
+      },
+      {
         title: "Toast",
         href: "/docs/components/toast",
+      },
+      {
+        title: "Tooltip",
+        href: "/docs/components/tooltip",
       },
     ],
   },
