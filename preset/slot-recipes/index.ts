@@ -17,6 +17,7 @@ import { progressSlotRecipe } from "./progress";
 import { radioGroupSlotRecipe } from "./radio-group";
 import { scrollAreaSlotRecipe } from "./scroll-area";
 import { selectSlotRecipe } from "./select";
+import { sliderSlotRecipe } from "./slider";
 import { switchSlotRecipe } from "./switch";
 import { tableSlotRecipe } from "./table";
 import { tabsSlotRecipe } from "./tabs";
@@ -43,6 +44,7 @@ export const slotRecipes = {
   radioGroup: radioGroupSlotRecipe,
   scrollArea: scrollAreaSlotRecipe,
   select: selectSlotRecipe,
+  slider: sliderSlotRecipe,
   switchRecipe: switchSlotRecipe,
   table: tableSlotRecipe,
   tabs: tabsSlotRecipe,

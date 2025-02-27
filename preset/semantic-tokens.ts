@@ -32,7 +32,7 @@ export const semanticTokens = defineSemanticTokens({
     },
     border: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
     input: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
-    ring: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.300}" } },
+    ring: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
   },
   animations: {
     "accordion-up": { value: "accordion-up {durations.normal} {easings.out}" },
