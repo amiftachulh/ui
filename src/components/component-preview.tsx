@@ -24,7 +24,6 @@ export default async function ComponentPreview({ name }: ComponentPreviewProps) 
           borderBottomWidth: "1px",
           px: "4",
           py: "6",
-          overflow: "auto",
         })}
       >
         <Component />

@@ -114,6 +114,10 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/menubar",
       },
       {
+        title: "Navigation Menu",
+        href: "/docs/components/navigation-menu",
+      },
+      {
         title: "Pagination",
         href: "/docs/components/pagination",
       },

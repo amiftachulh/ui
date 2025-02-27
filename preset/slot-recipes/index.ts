@@ -10,6 +10,7 @@ import { drawerSlotRecipe } from "./drawer";
 import { dropdownMenuSlotRecipe } from "./dropdown-menu";
 import { hoverCardSlotRecipe } from "./hover-card";
 import { menubarSlotRecipe } from "./menubar";
+import { navigationMenuSlotRecipe } from "./navigation-menu";
 import { paginationSlotRecipe } from "./pagination";
 import { popoverSlotRecipe } from "./popover";
 import { progressSlotRecipe } from "./progress";
@@ -35,6 +36,7 @@ export const slotRecipes = {
   drawer: drawerSlotRecipe,
   hoverCard: hoverCardSlotRecipe,
   menubar: menubarSlotRecipe,
+  navigationMenu: navigationMenuSlotRecipe,
   pagination: paginationSlotRecipe,
   popover: popoverSlotRecipe,
   progress: progressSlotRecipe,
