@@ -34,6 +34,10 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/alert",
       },
       {
+        title: "Alert Dialog",
+        href: "/docs/components/alert-dialog",
+      },
+      {
         title: "Avatar",
         href: "/docs/components/avatar",
       },
@@ -132,6 +136,10 @@ export const sideNav: SideNavGroup[] = [
       {
         title: "Radio Group",
         href: "/docs/components/radio-group",
+      },
+      {
+        title: "Resizable",
+        href: "/docs/components/resizable",
       },
       {
         title: "Scroll Area",

@@ -77,7 +77,7 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
 
           <styled.p css={{ color: "muted.fg", mb: "4" }}>{doc.meta.description}</styled.p>
 
-          {doc.meta.links?.length && (
+          {doc.meta.links?.length > 0 && (
             <styled.div css={{ display: "flex", flexWrap: "wrap", gap: "4" }}>
               {doc.meta.links.map((link: { title: string; href: string }) => (
                 <styled.a

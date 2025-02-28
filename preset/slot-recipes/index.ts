@@ -1,5 +1,6 @@
 import { accordionSlotRecipe } from "./accordion";
 import { alertSlotRecipe } from "./alert";
+import { alertDialogSlotRecipe } from "./alert-dialog";
 import { avatarSlotRecipe } from "./avatar";
 import { breadcrumbSlotRecipe } from "./breadcrumb";
 import { checkboxSlotRecipe } from "./checkbox";
@@ -15,6 +16,7 @@ import { paginationSlotRecipe } from "./pagination";
 import { popoverSlotRecipe } from "./popover";
 import { progressSlotRecipe } from "./progress";
 import { radioGroupSlotRecipe } from "./radio-group";
+import { resizableSlotRecipe } from "./resizable";
 import { scrollAreaSlotRecipe } from "./scroll-area";
 import { selectSlotRecipe } from "./select";
 import { sliderSlotRecipe } from "./slider";
@@ -27,6 +29,7 @@ import { tooltipSlotRecipe } from "./tooltip";
 export const slotRecipes = {
   accordion: accordionSlotRecipe,
   alert: alertSlotRecipe,
+  alertDialog: alertDialogSlotRecipe,
   avatar: avatarSlotRecipe,
   breadcrumb: breadcrumbSlotRecipe,
   checkbox: checkboxSlotRecipe,
@@ -42,6 +45,7 @@ export const slotRecipes = {
   popover: popoverSlotRecipe,
   progress: progressSlotRecipe,
   radioGroup: radioGroupSlotRecipe,
+  resizable: resizableSlotRecipe,
   scrollArea: scrollAreaSlotRecipe,
   select: selectSlotRecipe,
   slider: sliderSlotRecipe,
