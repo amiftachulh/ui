@@ -6,14 +6,38 @@ import { slider } from "styled-system/recipes";
 
 const classes = slider();
 
-const Root = ({ className, ...props }: React.ComponentProps<typeof SliderPrimitive.Root>) => (
-  <SliderPrimitive.Root className={cx(classes.root, className)} {...props}>
-    <SliderPrimitive.Track className={classes.track}>
-      <SliderPrimitive.Range className={classes.range} />
-    </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className={classes.thumb} />
-  </SliderPrimitive.Root>
-);
+function Root({
+  className,
+  defaultValue,
+  value,
+  min = 0,
+  max = 100,
+  ...props
+}: React.ComponentProps<typeof SliderPrimitive.Root>) {
+  const _values = React.useMemo(
+    () => (Array.isArray(value) ? value : Array.isArray(defaultValue) ? defaultValue : [min, max]),
+    [value, defaultValue, min, max]
+  );
+
+  return (
+    <SliderPrimitive.Root
+      data-slot="slider"
+      defaultValue={defaultValue}
+      value={value}
+      min={min}
+      max={max}
+      className={cx(classes.root, className)}
+      {...props}
+    >
+      <SliderPrimitive.Track data-slot="slider-track" className={classes.track}>
+        <SliderPrimitive.Range data-slot="slider-range" className={classes.range} />
+      </SliderPrimitive.Track>
+      {Array.from({ length: _values.length }).map((_, i) => (
+        <SliderPrimitive.Thumb data-slot="slider-thumb" key={i} className={classes.thumb} />
+      ))}
+    </SliderPrimitive.Root>
+  );
+}
 const Slider = styled(Root);
 Slider.displayName = SliderPrimitive.Root.displayName;
 

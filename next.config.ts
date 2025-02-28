@@ -4,6 +4,25 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ hostname: "images.unsplash.com", pathname: "/photo-*" }],
   },
+  async redirects() {
+    return [
+      {
+        source: "/components",
+        destination: "/docs/components/accordion",
+        permanent: true,
+      },
+      {
+        source: "/docs/components",
+        destination: "/docs/components/accordion",
+        permanent: true,
+      },
+      {
+        source: "/docs/primitives/:path*",
+        destination: "/docs/components/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

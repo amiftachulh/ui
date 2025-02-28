@@ -7,42 +7,67 @@ export const sliderSlotRecipe = defineSlotRecipe({
     root: {
       pos: "relative",
       display: "flex",
+      alignItems: "center",
       w: "full",
       touchAction: "none",
       userSelect: "none",
-      alignItems: "center",
+      _disabled: {
+        opacity: "0.5",
+      },
+      _vertical: {
+        h: "full",
+        minH: "44",
+        w: "auto",
+        flexDir: "column",
+      },
     },
 
     track: {
+      bg: "muted",
       pos: "relative",
-      w: "full",
-      h: "2",
       flexGrow: "1",
       overflow: "hidden",
       rounded: "full",
-      bg: "secondary",
+      _horizontal: {
+        h: "1.5",
+        w: "full",
+      },
+      _vertical: {
+        w: "1.5",
+        h: "full",
+      },
     },
 
     range: {
-      pos: "absolute",
-      h: "full",
       bg: "primary",
+      pos: "absolute",
+      _horizontal: {
+        h: "full",
+      },
+      _vertical: {
+        w: "full",
+      },
     },
 
     thumb: {
-      display: "block",
-      w: "5",
-      h: "5",
-      rounded: "full",
       bg: "bg",
-      borderWidth: "2px",
+      display: "block",
+      w: "4",
+      h: "4",
+      flexShrink: "0",
+      rounded: "full",
+      borderWidth: "1px",
       borderColor: "primary",
+      shadow: "sm",
       transition: "colors",
+      outline: "2px solid transparent",
+      _hover: {
+        outlineStyle: "solid",
+        outlineColor: "ring",
+      },
       _focusVisible: {
-        outlineStyle: "auto",
-        ringWidth: "2px",
-        ringColor: "ring",
-        ringOffset: "2px",
+        outlineStyle: "solid",
+        outlineColor: "ring",
       },
       _disabled: {
         pointerEvents: "none",

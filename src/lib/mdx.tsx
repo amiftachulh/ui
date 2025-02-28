@@ -1,6 +1,8 @@
-import { compileMDX } from "next-mdx-remote/rsc";
+import * as runtime from "react/jsx-runtime";
 import fs from "fs";
 import path from "path";
+import { compile, run } from "@mdx-js/mdx";
+import matter from "gray-matter";
 import recmaMdxEscapeMissingComponents from "recma-mdx-escape-missing-components";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import remarkGfm from "remark-gfm";
@@ -10,6 +12,66 @@ import { unified } from "unified";
 import components from "@/components/mdx-components";
 
 const contentDir = path.join(process.cwd(), "src/contents");
+
+export async function getDocBySlug(slug: string): Promise<{
+  meta: Record<string, any>;
+  content: React.ReactNode;
+  headings: Heading[];
+}> {
+  const realSlug = slug.replace(/\.mdx$/, "");
+  const [group, fileSlug] = realSlug.split("/");
+
+  const groupDir = path.join(contentDir, group);
+  const filePath = path.join(groupDir, `${fileSlug}.mdx`);
+
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`File not found: ${filePath}`);
+  }
+
+  const fileContent = fs.readFileSync(filePath, "utf8");
+  const { content, data: frontmatter } = matter(fileContent);
+
+  const compiledMdx = await compile(content, {
+    outputFormat: "function-body",
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeMdxCodeProps],
+    recmaPlugins: [recmaMdxEscapeMissingComponents],
+  });
+
+  const { default: MDXContent } = await run(compiledMdx, { ...runtime });
+
+  const headings = extractHeadings(fileContent);
+
+  return {
+    meta: {
+      ...frontmatter,
+      slug: realSlug,
+    },
+    content: <MDXContent components={components} />,
+    headings,
+  };
+}
+
+export async function getAllDocs() {
+  const groups = fs.readdirSync(contentDir);
+  const allDocs = [];
+
+  for (const group of groups) {
+    const groupDir = path.join(contentDir, group);
+
+    if (fs.statSync(groupDir).isDirectory()) {
+      const slugs = fs.readdirSync(groupDir).filter((file) => file.endsWith(".mdx"));
+
+      for (const slug of slugs) {
+        const fullSlug = path.join(group, slug.replace(".mdx", "")); // Format as group/file
+
+        const doc = await getDocBySlug(fullSlug);
+        allDocs.push(doc);
+      }
+    }
+  }
+  return allDocs;
+}
 
 export type Heading = {
   level: number;
@@ -48,67 +110,4 @@ export function extractHeadings(content: string) {
   visit(tree);
 
   return headings;
-}
-
-export async function getDocBySlug(slug: string): Promise<{
-  meta: Record<string, any>;
-  content: React.ReactNode;
-  headings: Heading[];
-}> {
-  const realSlug = slug.replace(/\.mdx$/, "");
-  const [group, fileSlug] = realSlug.split("/");
-
-  const groupDir = path.join(contentDir, group);
-  const filePath = path.join(groupDir, `${fileSlug}.mdx`);
-
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`File not found: ${filePath}`);
-  }
-
-  const fileContent = fs.readFileSync(filePath, "utf8");
-
-  const result = await compileMDX({
-    source: fileContent,
-    components,
-    options: {
-      parseFrontmatter: true,
-      mdxOptions: {
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeMdxCodeProps],
-        recmaPlugins: [recmaMdxEscapeMissingComponents],
-      },
-    },
-  });
-
-  const headings = extractHeadings(fileContent);
-
-  return {
-    meta: {
-      ...result.frontmatter,
-      slug: realSlug,
-    },
-    content: result.content,
-    headings,
-  };
-}
-
-export async function getAllDocs() {
-  const groups = fs.readdirSync(contentDir);
-  const allDocs = [];
-
-  for (const group of groups) {
-    const groupDir = path.join(contentDir, group);
-
-    if (fs.statSync(groupDir).isDirectory()) {
-      const slugs = fs.readdirSync(groupDir).filter((file) => file.endsWith(".mdx"));
-
-      for (const slug of slugs) {
-        const fullSlug = path.join(group, slug.replace(".mdx", "")); // Format as group/file
-
-        const doc = await getDocBySlug(fullSlug);
-        allDocs.push(doc);
-      }
-    }
-  }
-  return allDocs;
 }
