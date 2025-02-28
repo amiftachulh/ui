@@ -3,6 +3,7 @@ import { alertSlotRecipe } from "./alert";
 import { alertDialogSlotRecipe } from "./alert-dialog";
 import { avatarSlotRecipe } from "./avatar";
 import { breadcrumbSlotRecipe } from "./breadcrumb";
+import { cardSlotRecipe } from "./card";
 import { checkboxSlotRecipe } from "./checkbox";
 import { commandSlotRecipe } from "./command";
 import { contextMenuSlotRecipe } from "./context-menu";
@@ -32,6 +33,7 @@ export const slotRecipes = {
   alertDialog: alertDialogSlotRecipe,
   avatar: avatarSlotRecipe,
   breadcrumb: breadcrumbSlotRecipe,
+  card: cardSlotRecipe,
   checkbox: checkboxSlotRecipe,
   command: commandSlotRecipe,
   contextMenu: contextMenuSlotRecipe,

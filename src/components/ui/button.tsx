@@ -9,7 +9,7 @@ type ButtonProps = React.ComponentProps<"button"> & {
   asChild?: boolean;
 };
 
-const ButtonBase = ({ children, asChild, loading, disabled, ...props }: ButtonProps) => {
+const Button = styled(({ children, asChild, loading, disabled, ...props }: ButtonProps) => {
   const Component = asChild ? Slot : "button";
 
   return (
@@ -37,7 +37,6 @@ const ButtonBase = ({ children, asChild, loading, disabled, ...props }: ButtonPr
       )}
     </Component>
   );
-};
-const Button = styled(ButtonBase, button);
+}, button);
 
 export { Button };

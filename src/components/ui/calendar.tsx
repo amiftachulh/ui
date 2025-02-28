@@ -232,7 +232,7 @@ function MonthGrid({
             <Button
               key={`month-${i}`}
               variant="ghost"
-              className={css({ bg: currentMonth === i ? "accent" : "transparent" })}
+              css={{ bg: currentMonth === i ? "accent" : undefined }}
               onClick={() => {
                 goToMonth(new Date(months[0].date.getFullYear(), i));
                 setView("day");
@@ -267,7 +267,10 @@ function MonthGrid({
               key={year}
               ref={year === currentYear ? currentYearRef : undefined}
               variant="ghost"
-              className={css({ bg: year === currentYear ? "accent" : "transparent", p: "0" })}
+              css={{
+                bg: year === currentYear ? "accent" : undefined,
+                p: "0",
+              }}
               onClick={() => {
                 goToMonth(new Date(year, months[0].date.getMonth()));
                 setView("month");
