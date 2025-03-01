@@ -1,0 +1,57 @@
+---
+title: Sonner
+description: An opinionated toast component for React.
+links:
+  - title: Docs
+    href: https://sonner.emilkowal.ski
+---
+
+<ComponentPreview name="sonner-demo" />
+
+## About
+
+Sonner is built and maintained by [emilkowalski\_](https://twitter.com/emilkowalski_).
+
+## Installation
+
+<Steps>
+  
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="sonner next-themes" />
+
+<Alert variant="info" description="You can remove next-themes if you want." />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="sonner.tsx" type="component" />
+
+<Step>Add the Toaster component.</Step>
+
+```tsx highlight="1,9"
+import { Toaster } from "@/components/ui/sonner";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  );
+}
+```
+
+</Steps>
+
+## Usage
+
+```tsx
+import { toast } from "sonner";
+```
+
+```tsx
+toast("Event has been created.");
+```

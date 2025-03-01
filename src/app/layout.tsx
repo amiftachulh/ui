@@ -5,6 +5,7 @@ import Header from "./header";
 import "./globals.css";
 import { css } from "styled-system/css";
 import { scroll } from "styled-system/recipes";
+import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = Geist({
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Header />
           <div className={css({ maxW: "breakpoint-2xl", mx: "auto", mt: "14" })}>{children}</div>
           <Toaster />
+          <Sonner />
         </ThemeProvider>
       </body>
     </html>

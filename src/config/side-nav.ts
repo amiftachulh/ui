@@ -170,6 +170,10 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/slider",
       },
       {
+        title: "Sonner",
+        href: "/docs/components/sonner",
+      },
+      {
         title: "Switch",
         href: "/docs/components/switch",
       },
