@@ -18,10 +18,6 @@ export const paginationSlotRecipe = defineSlotRecipe({
       gap: "1",
     },
 
-    item: {},
-
-    link: {},
-
     previous: {
       gap: "1",
       pl: "2.5",

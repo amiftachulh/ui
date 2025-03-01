@@ -16,13 +16,13 @@ export const popoverSlotRecipe = defineSlotRecipe({
       outline: "none",
       _open: {
         animateIn: true,
-        fadeIn: 0,
-        zoomIn: 95,
+        fadeIn: "0",
+        zoomIn: "95",
       },
       _closed: {
         animateOut: true,
-        fadeOut: 0,
-        zoomOut: 95,
+        fadeOut: "0",
+        zoomOut: "95",
       },
       "&[data-side=top]": {
         slideInFromBottom: "2",

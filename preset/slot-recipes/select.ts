@@ -36,9 +36,10 @@ export const selectSlotRecipe = defineSlotRecipe({
         color: "muted.fg",
       },
       _focus: {
-        ringOffset: "2px",
-        ringWidth: "2px",
-        ringColor: "ring",
+        outlineStyle: "solid",
+        outlineWidth: "2px",
+        outlineColor: "ring",
+        outlineOffset: "2px",
       },
       "& > span": {
         lineClamp: "1",
@@ -97,16 +98,16 @@ export const selectSlotRecipe = defineSlotRecipe({
       },
       "&[data-position=popper]": {
         "&[data-side=top]": {
-          y: "-1",
+          translateY: "-1",
         },
         "&[data-side=bottom]": {
-          y: "1",
+          translateY: "1",
         },
         "&[data-side=left]": {
-          x: "-1",
+          translateX: "-1",
         },
         "&[data-side=right]": {
-          x: "1",
+          translateX: "1",
         },
       },
     },

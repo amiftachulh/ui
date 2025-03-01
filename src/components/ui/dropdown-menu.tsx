@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { LuCheck, LuChevronRight, LuCircle } from "react-icons/lu";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
@@ -9,170 +11,227 @@ const classes = dropdownMenu();
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
-const Trigger = ({
+function Trigger({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) => (
-  <DropdownMenuPrimitive.Trigger className={cx(classes.trigger, className)} {...props} />
-);
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
+  return (
+    <DropdownMenuPrimitive.Trigger
+      data-slot="dropdown-menu-trigger"
+      className={cx(classes.trigger, className)}
+      {...props}
+    />
+  );
+}
 const DropdownMenuTrigger = styled(Trigger);
 DropdownMenuTrigger.displayName = DropdownMenuPrimitive.Trigger.displayName;
 
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 
-const Content = ({
+function Content({
   className,
   sideOffset = 4,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) => (
-  <DropdownMenuPrimitive.Content
-    className={cx(classes.content, className)}
-    sideOffset={sideOffset}
-    {...props}
-  />
-);
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
+  return (
+    <DropdownMenuPrimitive.Content
+      data-slot="dropdown-menu-content"
+      className={cx(classes.content, className)}
+      sideOffset={sideOffset}
+      {...props}
+    />
+  );
+}
 const DropdownMenuContent = styled(Content);
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
-const Item = ({
+function Item({
   className,
-  inset,
+  insetLeft,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & { inset?: boolean }) => (
-  <DropdownMenuPrimitive.Item
-    className={cx(classes.item, className)}
-    data-inset={inset}
-    {...props}
-  />
-);
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & { insetLeft?: boolean }) {
+  return (
+    <DropdownMenuPrimitive.Item
+      data-slot="dropdown-menu-item"
+      className={cx(classes.item, className)}
+      data-inset={insetLeft}
+      {...props}
+    />
+  );
+}
 const DropdownMenuItem = styled(Item);
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
 
-const Label = ({
+function Label({
   className,
-  inset,
+  insetLeft,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & { inset?: boolean }) => (
-  <DropdownMenuPrimitive.Label
-    className={cx(classes.label, className)}
-    data-inset={inset}
-    {...props}
-  />
-);
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & { insetLeft?: boolean }) {
+  return (
+    <DropdownMenuPrimitive.Label
+      data-slot="dropdown-menu-label"
+      className={cx(classes.label, className)}
+      data-inset={insetLeft}
+      {...props}
+    />
+  );
+}
 const DropdownMenuLabel = styled(Label);
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
 
-const CheckboxItem = ({
+function CheckboxItem({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) => (
-  <DropdownMenuPrimitive.CheckboxItem className={cx(classes.checkboxItem, className)} {...props}>
-    <span
-      className={css({
-        pos: "absolute",
-        left: "2",
-        display: "flex",
-        w: "3.5",
-        h: "3.5",
-        alignItems: "center",
-        justifyContent: "center",
-      })}
+}: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
+  return (
+    <DropdownMenuPrimitive.CheckboxItem
+      data-slot="dropdown-menu-checkbox-item"
+      className={cx(classes.checkboxItem, className)}
+      {...props}
     >
-      <DropdownMenuPrimitive.ItemIndicator>
-        <LuCheck className={css({ w: "4", h: "4" })} />
-      </DropdownMenuPrimitive.ItemIndicator>
-    </span>
-    {children}
-  </DropdownMenuPrimitive.CheckboxItem>
-);
+      <span
+        className={css({
+          pos: "absolute",
+          left: "2",
+          display: "flex",
+          w: "3.5",
+          h: "3.5",
+          alignItems: "center",
+          justifyContent: "center",
+        })}
+      >
+        <DropdownMenuPrimitive.ItemIndicator>
+          <LuCheck className={css({ w: "4", h: "4" })} />
+        </DropdownMenuPrimitive.ItemIndicator>
+      </span>
+      {children}
+    </DropdownMenuPrimitive.CheckboxItem>
+  );
+}
 const DropdownMenuCheckboxItem = styled(CheckboxItem);
 DropdownMenuCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName;
 
-const RadioItem = ({
+function RadioItem({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) => (
-  <DropdownMenuPrimitive.RadioItem className={cx(classes.radioItem, className)} {...props}>
-    <span
-      className={css({
-        pos: "absolute",
-        left: "2",
-        display: "flex",
-        w: "3.5",
-        h: "3.5",
-        alignItems: "center",
-        justifyContent: "center",
-      })}
+}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {
+  return (
+    <DropdownMenuPrimitive.RadioItem
+      data-slot="dropdown-menu-radio-item"
+      className={cx(classes.radioItem, className)}
+      {...props}
     >
-      <DropdownMenuPrimitive.ItemIndicator>
-        <LuCircle className={css({ w: "2", h: "2", fill: "current" })} />
-      </DropdownMenuPrimitive.ItemIndicator>
-    </span>
-    {children}
-  </DropdownMenuPrimitive.RadioItem>
-);
+      <span
+        className={css({
+          pos: "absolute",
+          left: "2",
+          display: "flex",
+          w: "3.5",
+          h: "3.5",
+          alignItems: "center",
+          justifyContent: "center",
+        })}
+      >
+        <DropdownMenuPrimitive.ItemIndicator>
+          <LuCircle className={css({ w: "2", h: "2", fill: "current" })} />
+        </DropdownMenuPrimitive.ItemIndicator>
+      </span>
+      {children}
+    </DropdownMenuPrimitive.RadioItem>
+  );
+}
 const DropdownMenuRadioItem = styled(RadioItem);
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
 
-const Separator = ({
+function Separator({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) => (
-  <DropdownMenuPrimitive.Separator className={cx(classes.separator, className)} {...props} />
-);
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) {
+  return (
+    <DropdownMenuPrimitive.Separator
+      data-slot="dropdown-menu-separator"
+      className={cx(classes.separator, className)}
+      {...props}
+    />
+  );
+}
 const DropdownMenuSeparator = styled(Separator);
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
-const Shortcut = ({ className, ...props }: React.ComponentProps<"span">) => (
-  <span className={cx(classes.shortcut, className)} {...props} />
-);
+function Shortcut({ className, ...props }: React.ComponentProps<"span">) {
+  return (
+    <span
+      data-slot="dropdown-menu-shortcut"
+      className={cx(classes.shortcut, className)}
+      {...props}
+    />
+  );
+}
 const DropdownMenuShortcut = styled(Shortcut);
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
 
-const SubTrigger = ({
+function SubTrigger({
   className,
-  inset,
+  insetLeft,
   children,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & { inset?: boolean }) => (
-  <DropdownMenuPrimitive.SubTrigger
-    className={cx(classes.subTrigger, className)}
-    data-inset={inset}
-    {...props}
-  >
-    {children}
-    <LuChevronRight className={css({ ml: "auto" })} />
-  </DropdownMenuPrimitive.SubTrigger>
-);
+}: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & { insetLeft?: boolean }) {
+  return (
+    <DropdownMenuPrimitive.SubTrigger
+      data-slot="dropdown-menu-sub-trigger"
+      className={cx(classes.subTrigger, className)}
+      data-inset={insetLeft}
+      {...props}
+    >
+      {children}
+      <LuChevronRight className={css({ ml: "auto" })} />
+    </DropdownMenuPrimitive.SubTrigger>
+  );
+}
 const DropdownMenuSubTrigger = styled(SubTrigger);
 DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
 
-const SubContent = ({
+function SubContent({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) => (
-  <DropdownMenuPrimitive.SubContent className={cx(classes.subContent, className)} {...props} />
-);
+}: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) {
+  return (
+    <DropdownMenuPrimitive.SubContent
+      data-slot="dropdown-menu-sub-content"
+      className={cx(classes.subContent, className)}
+      {...props}
+    />
+  );
+}
 const DropdownMenuSubContent = styled(SubContent);
 DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
 
-const Group = ({
-  className,
-  ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) => (
-  <DropdownMenuPrimitive.Group className={cx(classes.group, className)} {...props} />
-);
+function Group({ className, ...props }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {
+  return (
+    <DropdownMenuPrimitive.Group
+      data-slot="dropdown-menu-group"
+      className={cx(classes.group, className)}
+      {...props}
+    />
+  );
+}
 const DropdownMenuGroup = styled(Group);
 DropdownMenuGroup.displayName = DropdownMenuPrimitive.Group.displayName;
 
-const RadioGroup = ({
+function RadioGroup({
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) => (
-  <DropdownMenuPrimitive.RadioGroup className={cx(classes.radioGroup, className)} {...props} />
-);
+}: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {
+  return (
+    <DropdownMenuPrimitive.RadioGroup
+      data-slot="dropdown-menu-radio-group"
+      className={cx(classes.radioGroup, className)}
+      {...props}
+    />
+  );
+}
 const DropdownMenuRadioGroup = styled(RadioGroup);
 DropdownMenuRadioGroup.displayName = DropdownMenuPrimitive.RadioGroup.displayName;
 

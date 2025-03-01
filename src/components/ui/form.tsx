@@ -66,88 +66,79 @@ type FormItemContextValue = {
 
 const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
 
-const FormItem = ({ css, ...props }: React.ComponentProps<typeof styled.div>) => {
+function FormItem(props: React.ComponentProps<typeof styled.div>) {
   const id = React.useId();
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <styled.div css={{ spaceY: "2", ...css }} {...props} />
+      <styled.div data-slot="form-item" display="grid" gap="2" {...props} />
     </FormItemContext.Provider>
   );
-};
-FormItem.displayName = "FormItem";
+}
 
-const FormLabel = ({ css, ...props }: React.ComponentProps<typeof LabelBase>) => {
+function FormLabel({ css, ...props }: React.ComponentProps<typeof LabelBase>) {
   const { error, formItemId } = useFormField();
 
   return (
     <LabelBase
+      data-slot="form-label"
+      data-error={!!error}
+      htmlFor={formItemId}
       css={{
-        color: error ? "red.500" : "inherit",
+        "&[data-error=true]": {
+          color: "red.500",
+        },
         ...css,
       }}
-      htmlFor={formItemId}
       {...props}
     />
   );
-};
-FormLabel.displayName = "FormLabel";
+}
 
-const FormControl = (props: React.ComponentProps<typeof Slot>) => {
+function Control(props: React.ComponentProps<typeof Slot>) {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
 
   return (
     <Slot
       id={formItemId}
+      data-slot="form-control"
       aria-describedby={!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`}
       aria-invalid={!!error}
       {...props}
     />
   );
-};
+}
+const FormControl = styled(Control);
 FormControl.displayName = "FormControl";
 
-const FormDescription = ({ css, ...props }: React.ComponentProps<typeof styled.p>) => {
+function FormDescription(props: React.ComponentProps<typeof styled.p>) {
   const { formDescriptionId } = useFormField();
 
   return (
     <styled.p
       id={formDescriptionId}
-      css={{
-        textStyle: "sm",
-        color: "muted.fg",
-        ...css,
-      }}
+      data-slot="form-description"
+      textStyle="sm"
+      color="muted.fg"
       {...props}
     />
   );
-};
-FormDescription.displayName = "FormDescription";
+}
 
-const FormMessage = ({ css, children, ...props }: React.ComponentProps<typeof styled.p>) => {
+const FormMessage = (props: React.ComponentProps<typeof styled.p>) => {
   const { error, formMessageId } = useFormField();
-  const body = error ? String(error?.message) : children;
+  const body = error ? String(error?.message ?? "") : props.children;
 
   if (!body) {
     return null;
   }
 
   return (
-    <styled.p
-      id={formMessageId}
-      css={{
-        color: "red.500",
-        textStyle: "sm",
-        fontWeight: "medium",
-        ...css,
-      }}
-      {...props}
-    >
+    <styled.p id={formMessageId} color="red.500" textStyle="sm" fontWeight="medium" {...props}>
       {body}
     </styled.p>
   );
 };
-FormMessage.displayName = "FormMessage";
 
 export {
   Form,

@@ -4,14 +4,10 @@ export const menubarSlotRecipe = defineSlotRecipe({
   className: "menubar",
   slots: [
     "root",
-    "menu",
     "group",
     "portal",
-    "sub",
     "radioGroup",
     "trigger",
-    "subTrigger",
-    "subContent",
     "content",
     "item",
     "checkboxItem",
@@ -20,13 +16,15 @@ export const menubarSlotRecipe = defineSlotRecipe({
     "label",
     "separator",
     "shortcut",
+    "subTrigger",
+    "subContent",
   ],
   base: {
     root: {
       display: "flex",
       h: "10",
       alignItems: "center",
-      spaceX: "1",
+      gap: "1",
       rounded: "md",
       borderWidth: "1px",
       bg: "bg",
@@ -43,70 +41,14 @@ export const menubarSlotRecipe = defineSlotRecipe({
       py: "1.5",
       textStyle: "sm",
       fontWeight: "medium",
-      outline: "2px solid transparent",
-      _focus: {
-        bg: "accent",
-        color: "accent.fg",
-      },
-      "&[data-state=open]": {
-        bg: "accent",
-        color: "accent.fg",
-      },
-    },
-
-    subTrigger: {
-      display: "flex",
-      cursor: "default",
-      userSelect: "none",
-      alignItems: "center",
-      rounded: "sm",
-      px: "2",
-      py: "1.5",
-      textStyle: "sm",
       outline: "none",
       _focus: {
         bg: "accent",
-        color: "accent.foreground",
+        color: "accent.fg",
       },
-      "&[data-state=open]": {
+      _open: {
         bg: "accent",
-        color: "accent.foreground",
-      },
-      "&[data-inset=true]": {
-        pl: "8",
-      },
-    },
-
-    subContent: {
-      zIndex: "50",
-      minW: "8rem",
-      overflow: "hidden",
-      rounded: "md",
-      borderWidth: "1px",
-      bg: "popover",
-      color: "popover.fg",
-      p: "1",
-      "&[data-state=open]": {
-        animateIn: true,
-        fadeIn: "0",
-        zoomIn: "95",
-      },
-      "&[data-state=closed]": {
-        animateOut: true,
-        fadeOut: "0",
-        zoomOut: "95",
-      },
-      "&[data-side=top]": {
-        slideInFromBottom: "2",
-      },
-      "&[data-side=bottom]": {
-        slideInFromTop: "2",
-      },
-      "&[data-side=left]": {
-        slideInFromRight: "2",
-      },
-      "&[data-side=right]": {
-        slideInFromLeft: "2",
+        color: "accent.fg",
       },
     },
 
@@ -120,7 +62,7 @@ export const menubarSlotRecipe = defineSlotRecipe({
       color: "popover.fg",
       p: "1",
       shadow: "md",
-      "&[data-state=open]": {
+      _open: {
         animateIn: true,
         fadeIn: "0",
         zoomIn: "95",
@@ -154,7 +96,7 @@ export const menubarSlotRecipe = defineSlotRecipe({
         bg: "accent",
         color: "accent.fg",
       },
-      "&[data-disabled]": {
+      _disabled: {
         pointerEvents: "none",
         opacity: "0.5",
       },
@@ -179,7 +121,7 @@ export const menubarSlotRecipe = defineSlotRecipe({
         bg: "accent",
         color: "accent.fg",
       },
-      "&[data-disabled]": {
+      _disabled: {
         pointerEvents: "none",
         opacity: "0.5",
       },
@@ -201,7 +143,7 @@ export const menubarSlotRecipe = defineSlotRecipe({
         bg: "accent",
         color: "accent.fg",
       },
-      "&[data-disabled]": {
+      _disabled: {
         pointerEvents: "none",
         opacity: "0.5",
       },
@@ -239,6 +181,62 @@ export const menubarSlotRecipe = defineSlotRecipe({
       textStyle: "xs",
       letterSpacing: "widest",
       color: "muted.fg",
+    },
+
+    subTrigger: {
+      display: "flex",
+      cursor: "default",
+      userSelect: "none",
+      alignItems: "center",
+      rounded: "sm",
+      px: "2",
+      py: "1.5",
+      textStyle: "sm",
+      outline: "none",
+      _focus: {
+        bg: "accent",
+        color: "accent.fg",
+      },
+      _open: {
+        bg: "accent",
+        color: "accent.fg",
+      },
+      "&[data-inset=true]": {
+        pl: "8",
+      },
+    },
+
+    subContent: {
+      zIndex: "50",
+      minW: "8rem",
+      overflow: "hidden",
+      rounded: "md",
+      borderWidth: "1px",
+      bg: "popover",
+      color: "popover.fg",
+      p: "1",
+      _open: {
+        animateIn: true,
+        fadeIn: "0",
+        zoomIn: "95",
+      },
+      _closed: {
+        animateOut: true,
+        fadeOut: "0",
+        zoomOut: "95",
+      },
+      "&[data-side=top]": {
+        slideInFromBottom: "2",
+      },
+      "&[data-side=bottom]": {
+        slideInFromTop: "2",
+      },
+      "&[data-side=left]": {
+        slideInFromRight: "2",
+      },
+      "&[data-side=right]": {
+        slideInFromLeft: "2",
+      },
     },
   },
 });

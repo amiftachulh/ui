@@ -7,7 +7,7 @@ export default function SeparatorDemo() {
       <styled.div css={{ fontWeight: "medium" }}>Radix Primitives</styled.div>
       <div>An open-source UI component library.</div>
       <Separator css={{ my: "3.5" }} />
-      <styled.div css={{ display: "flex", height: 20, alignItems: "center" }}>
+      <styled.div display="flex" height="5" alignItems="center">
         <div>Blog</div>
         <Separator css={{ mx: "3.5" }} decorative orientation="vertical" />
         <div>Docs</div>

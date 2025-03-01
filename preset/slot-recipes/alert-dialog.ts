@@ -3,9 +3,7 @@ import { defineSlotRecipe } from "@pandacss/dev";
 export const alertDialogSlotRecipe = defineSlotRecipe({
   className: "alert-dialog",
   slots: [
-    "root",
     "trigger",
-    "portal",
     "overlay",
     "content",
     "header",

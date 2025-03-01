@@ -5,7 +5,7 @@ export const accordionSlotRecipe = defineSlotRecipe({
   slots: ["root", "header", "trigger", "item", "content"],
   base: {
     item: {
-      borderBottomWidth: "1",
+      borderBottomWidth: "1px",
     },
 
     header: {

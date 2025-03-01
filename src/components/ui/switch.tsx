@@ -6,12 +6,14 @@ import { switchRecipe } from "styled-system/recipes";
 
 const classes = switchRecipe();
 
-const SwitchBase = ({ className, ...props }: React.ComponentProps<typeof SwitchPrimitive.Root>) => (
-  <SwitchPrimitive.Root className={cx("peer", classes.root, className)} {...props}>
-    <SwitchPrimitive.Thumb className={classes.thumb} />
-  </SwitchPrimitive.Root>
-);
-const Switch = styled(SwitchBase);
+function Root({ className, ...props }: React.ComponentProps<typeof SwitchPrimitive.Root>) {
+  return (
+    <SwitchPrimitive.Root className={cx("peer", classes.root, className)} {...props}>
+      <SwitchPrimitive.Thumb className={classes.thumb} />
+    </SwitchPrimitive.Root>
+  );
+}
+const Switch = styled(Root);
 Switch.displayName = SwitchPrimitive.Root.displayName;
 
 export { Switch };

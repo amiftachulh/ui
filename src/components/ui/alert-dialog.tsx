@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { cx } from "styled-system/css";
@@ -13,7 +15,7 @@ AlertDialogTrigger.displayName = AlertDialogPrimitive.Trigger.displayName;
 
 const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
-const AlertDialogOverlay = styled(function Overlay({
+function Overlay({
   className,
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Overlay>) {
@@ -24,10 +26,11 @@ const AlertDialogOverlay = styled(function Overlay({
       {...props}
     />
   );
-});
+}
+const AlertDialogOverlay = styled(Overlay);
 AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
 
-const AlertDialogContent = styled(function Content({
+function Content({
   className,
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Content>) {
@@ -41,23 +44,19 @@ const AlertDialogContent = styled(function Content({
       />
     </AlertDialogPortal>
   );
-});
+}
+const AlertDialogContent = styled(Content);
 AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 
-const AlertDialogHeader = styled(function Header({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+function Header({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div data-slot="alert-dialog-header" className={cx(classes.header, className)} {...props} />
   );
-});
+}
+const AlertDialogHeader = styled(Header);
 AlertDialogHeader.displayName = "AlertDialogHeader";
 
-const AlertDialogTitle = styled(function Title({
-  className,
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {
+function Title({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Title>) {
   return (
     <AlertDialogPrimitive.Title
       data-slot="alert-dialog-title"
@@ -65,10 +64,11 @@ const AlertDialogTitle = styled(function Title({
       {...props}
     />
   );
-});
+}
+const AlertDialogTitle = styled(Title);
 AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
 
-const AlertDialogDescription = styled(function Description({
+function Description({
   className,
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {
@@ -79,23 +79,19 @@ const AlertDialogDescription = styled(function Description({
       {...props}
     />
   );
-});
+}
+const AlertDialogDescription = styled(Description);
 AlertDialogDescription.displayName = AlertDialogPrimitive.Description.displayName;
 
-const AlertDialogFooter = styled(function Footer({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+function Footer({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div data-slot="alert-dialog-footer" className={cx(classes.footer, className)} {...props} />
   );
-});
+}
+const AlertDialogFooter = styled(Footer);
 AlertDialogFooter.displayName = "AlertDialogFooter";
 
-const AlertDialogAction = styled(function Action({
-  className,
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Action>) {
+function Action({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Action>) {
   return (
     <AlertDialogPrimitive.Action
       data-slot="alert-dialog-action"
@@ -103,13 +99,11 @@ const AlertDialogAction = styled(function Action({
       {...props}
     />
   );
-});
+}
+const AlertDialogAction = styled(Action);
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
 
-const AlertDialogCancel = styled(function Cancel({
-  className,
-  ...props
-}: React.ComponentProps<typeof AlertDialogPrimitive.Cancel>) {
+function Cancel({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Cancel>) {
   return (
     <AlertDialogPrimitive.Cancel
       data-slot="alert-dialog-cancel"
@@ -117,7 +111,8 @@ const AlertDialogCancel = styled(function Cancel({
       {...props}
     />
   );
-});
+}
+const AlertDialogCancel = styled(Cancel);
 AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
 
 export {

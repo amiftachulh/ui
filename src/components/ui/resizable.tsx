@@ -9,17 +9,32 @@ import { resizable } from "styled-system/recipes";
 
 const classes = resizable();
 
-const ResizablePanelGroup = styled(function PanelGroup({
+function PanelGroup({
   className,
+  resizeDirection,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {
-  return <ResizablePrimitive.PanelGroup className={cx(classes.panelGroup, className)} {...props} />;
-});
+}: Omit<React.ComponentProps<typeof ResizablePrimitive.PanelGroup>, "direction"> & {
+  resizeDirection: ResizablePrimitive.PanelGroupProps["direction"];
+}) {
+  return (
+    <ResizablePrimitive.PanelGroup
+      data-slot="resizable-panel-group"
+      direction={resizeDirection}
+      className={cx(classes.panelGroup, className)}
+      {...props}
+    />
+  );
+}
+const ResizablePanelGroup = styled(PanelGroup);
 ResizablePanelGroup.displayName = ResizablePrimitive.PanelGroup.displayName;
 
-const ResizablePanel = ResizablePrimitive.Panel;
+function Panel(props: React.ComponentProps<typeof ResizablePrimitive.Panel>) {
+  return <ResizablePrimitive.Panel data-slot="resizable-panel" {...props} />;
+}
+const ResizablePanel = styled(Panel);
+ResizablePanel.displayName = ResizablePrimitive.Panel.displayName;
 
-const ResizableHandle = styled(function Handle({
+function Handle({
   withHandle,
   className,
   ...props
@@ -45,7 +60,8 @@ const ResizableHandle = styled(function Handle({
       )}
     </ResizablePrimitive.PanelResizeHandle>
   );
-});
+}
+const ResizableHandle = styled(Handle);
 ResizableHandle.displayName = ResizablePrimitive.PanelResizeHandle.displayName;
 
 export { ResizablePanelGroup, ResizablePanel, ResizableHandle };

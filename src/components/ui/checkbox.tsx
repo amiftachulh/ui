@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { LuCheck } from "react-icons/lu";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
@@ -5,7 +7,7 @@ import { css, cx } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { checkbox } from "styled-system/recipes";
 
-const Root = ({ className, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) => {
+function Root({ className, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
   const classes = checkbox();
 
   return (
@@ -15,7 +17,7 @@ const Root = ({ className, ...props }: React.ComponentProps<typeof CheckboxPrimi
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   );
-};
+}
 const Checkbox = styled(Root);
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 

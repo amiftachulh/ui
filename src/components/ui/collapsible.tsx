@@ -1,3 +1,5 @@
+"use client";
+
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { styled } from "styled-system/jsx";
 

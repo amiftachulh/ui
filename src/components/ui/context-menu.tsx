@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { LuCheck, LuChevronRight, LuCircle } from "react-icons/lu";
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
@@ -9,148 +11,225 @@ const classes = contextMenu();
 
 const ContextMenu = ContextMenuPrimitive.Root;
 
-const ContextMenuTrigger = styled(ContextMenuPrimitive.Trigger);
+function Trigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.Trigger>) {
+  return (
+    <ContextMenuPrimitive.Trigger
+      data-slot="context-menu-trigger"
+      className={className}
+      {...props}
+    />
+  );
+}
+const ContextMenuTrigger = styled(Trigger);
+ContextMenuTrigger.displayName = ContextMenuPrimitive.Trigger.displayName;
 
-const ContextMenuGroup = styled(ContextMenuPrimitive.Group);
+function Group({ className, ...props }: React.ComponentProps<typeof ContextMenuPrimitive.Group>) {
+  return (
+    <ContextMenuPrimitive.Group data-slot="context-menu-group" className={className} {...props} />
+  );
+}
+const ContextMenuGroup = styled(Group);
+ContextMenuGroup.displayName = ContextMenuPrimitive.Group.displayName;
 
 const ContextMenuPortal = ContextMenuPrimitive.Portal;
 
-const ContextMenuSub = styled(ContextMenuPrimitive.Sub);
+const ContextMenuSub = ContextMenuPrimitive.Sub;
 
-const ContextMenuRadioGroup = styled(ContextMenuPrimitive.RadioGroup);
-
-const SubTrigger = ({
+function RadioGroup({
   className,
-  inset,
+  ...props
+}: React.ComponentProps<typeof ContextMenuPrimitive.RadioGroup>) {
+  return (
+    <ContextMenuPrimitive.RadioGroup
+      data-slot="context-menu-radio-group"
+      className={cx(className)}
+      {...props}
+    />
+  );
+}
+const ContextMenuRadioGroup = styled(RadioGroup);
+ContextMenuRadioGroup.displayName = ContextMenuPrimitive.RadioGroup.displayName;
+
+function SubTrigger({
+  className,
+  insetLeft,
   children,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.SubTrigger> & { inset?: boolean }) => (
-  <ContextMenuPrimitive.SubTrigger
-    className={cx(classes.subTrigger, className)}
-    data-inset={inset}
-    {...props}
-  >
-    {children}
-    <LuChevronRight className={css({ ml: "auto", w: "4", h: "4" })} />
-  </ContextMenuPrimitive.SubTrigger>
-);
+}: React.ComponentProps<typeof ContextMenuPrimitive.SubTrigger> & { insetLeft?: boolean }) {
+  return (
+    <ContextMenuPrimitive.SubTrigger
+      data-slot="context-menu-sub-trigger"
+      className={cx(classes.subTrigger, className)}
+      data-inset={insetLeft}
+      {...props}
+    >
+      {children}
+      <LuChevronRight className={css({ ml: "auto", w: "4", h: "4" })} />
+    </ContextMenuPrimitive.SubTrigger>
+  );
+}
 const ContextMenuSubTrigger = styled(SubTrigger);
 ContextMenuSubTrigger.displayName = ContextMenuPrimitive.SubTrigger.displayName;
 
-const SubContent = ({
+function SubContent({
   className,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.SubContent>) => (
-  <ContextMenuPrimitive.SubContent className={cx(classes.subContent, className)} {...props} />
-);
+}: React.ComponentProps<typeof ContextMenuPrimitive.SubContent>) {
+  return (
+    <ContextMenuPrimitive.SubContent
+      data-slot="context-menu-sub-content"
+      className={cx(classes.subContent, className)}
+      {...props}
+    />
+  );
+}
 const ContextMenuSubContent = styled(SubContent);
 ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName;
 
-const Content = ({
+function Content({
   className,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Content>) => (
-  <ContextMenuPrimitive.Portal>
-    <ContextMenuPrimitive.Content className={cx(classes.content, className)} {...props} />
-  </ContextMenuPrimitive.Portal>
-);
+}: React.ComponentProps<typeof ContextMenuPrimitive.Content>) {
+  return (
+    <ContextMenuPrimitive.Portal>
+      <ContextMenuPrimitive.Content
+        data-slot="context-menu-content"
+        className={cx(classes.content, className)}
+        {...props}
+      />
+    </ContextMenuPrimitive.Portal>
+  );
+}
 const ContextMenuContent = styled(Content);
 ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName;
 
-const Item = ({
+function Item({
   className,
-  inset,
+  insetLeft,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Item> & { inset?: boolean }) => (
-  <ContextMenuPrimitive.Item
-    className={cx(classes.item, className)}
-    data-inset={inset}
-    {...props}
-  />
-);
+}: React.ComponentProps<typeof ContextMenuPrimitive.Item> & { insetLeft?: boolean }) {
+  return (
+    <ContextMenuPrimitive.Item
+      data-slot="context-menu-item"
+      className={cx(classes.item, className)}
+      data-inset={insetLeft}
+      {...props}
+    />
+  );
+}
 const ContextMenuItem = styled(Item);
 ContextMenuItem.displayName = ContextMenuPrimitive.Item.displayName;
 
-const CheckboxItem = ({
+function CheckboxItem({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.CheckboxItem>) => (
-  <ContextMenuPrimitive.CheckboxItem className={cx(classes.checkboxItem, className)} {...props}>
-    <span
-      className={css({
-        pos: "absolute",
-        left: "2",
-        display: "flex",
-        w: "3.5",
-        h: "3.5",
-        alignItems: "center",
-        justifyContent: "center",
-      })}
+}: React.ComponentProps<typeof ContextMenuPrimitive.CheckboxItem>) {
+  return (
+    <ContextMenuPrimitive.CheckboxItem
+      data-slot="context-menu-checkbox-item"
+      className={cx(classes.checkboxItem, className)}
+      {...props}
     >
-      <ContextMenuPrimitive.ItemIndicator>
-        <LuCheck className={css({ w: "4", h: "4" })} />
-      </ContextMenuPrimitive.ItemIndicator>
-    </span>
-    {children}
-  </ContextMenuPrimitive.CheckboxItem>
-);
+      <span
+        className={css({
+          pos: "absolute",
+          left: "2",
+          display: "flex",
+          w: "3.5",
+          h: "3.5",
+          alignItems: "center",
+          justifyContent: "center",
+        })}
+      >
+        <ContextMenuPrimitive.ItemIndicator>
+          <LuCheck className={css({ w: "4", h: "4" })} />
+        </ContextMenuPrimitive.ItemIndicator>
+      </span>
+      {children}
+    </ContextMenuPrimitive.CheckboxItem>
+  );
+}
 const ContextMenuCheckboxItem = styled(CheckboxItem);
 ContextMenuCheckboxItem.displayName = ContextMenuPrimitive.CheckboxItem.displayName;
 
-const RadioItem = ({
+function RadioItem({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.RadioItem>) => (
-  <ContextMenuPrimitive.RadioItem className={cx(classes.radioItem, className)} {...props}>
-    <span
-      className={css({
-        pos: "absolute",
-        left: "2",
-        display: "flex",
-        w: "3.5",
-        h: "3.5",
-        alignItems: "center",
-        justifyContent: "center",
-      })}
+}: React.ComponentProps<typeof ContextMenuPrimitive.RadioItem>) {
+  return (
+    <ContextMenuPrimitive.RadioItem
+      data-slot="context-menu-radio-item"
+      className={cx(classes.radioItem, className)}
+      {...props}
     >
-      <ContextMenuPrimitive.ItemIndicator>
-        <LuCircle className={css({ w: "2", h: "2", fill: "current" })} />
-      </ContextMenuPrimitive.ItemIndicator>
-    </span>
-    {children}
-  </ContextMenuPrimitive.RadioItem>
-);
+      <span
+        className={css({
+          pos: "absolute",
+          left: "2",
+          display: "flex",
+          w: "3.5",
+          h: "3.5",
+          alignItems: "center",
+          justifyContent: "center",
+        })}
+      >
+        <ContextMenuPrimitive.ItemIndicator>
+          <LuCircle className={css({ w: "2", h: "2", fill: "current" })} />
+        </ContextMenuPrimitive.ItemIndicator>
+      </span>
+      {children}
+    </ContextMenuPrimitive.RadioItem>
+  );
+}
 const ContextMenuRadioItem = styled(RadioItem);
 ContextMenuRadioItem.displayName = ContextMenuPrimitive.RadioItem.displayName;
 
-const Label = ({
+function Label({
   className,
-  inset,
+  insetLeft,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Label> & { inset?: boolean }) => (
-  <ContextMenuPrimitive.Label
-    className={cx(classes.label, className)}
-    data-inset={inset}
-    {...props}
-  />
-);
+}: React.ComponentProps<typeof ContextMenuPrimitive.Label> & { insetLeft?: boolean }) {
+  return (
+    <ContextMenuPrimitive.Label
+      data-slot="context-menu-label"
+      className={cx(classes.label, className)}
+      data-inset={insetLeft}
+      {...props}
+    />
+  );
+}
 const ContextMenuLabel = styled(Label);
 ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName;
 
-const Separator = ({
+function Separator({
   className,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Separator>) => (
-  <ContextMenuPrimitive.Separator className={cx(classes.separator, className)} {...props} />
-);
+}: React.ComponentProps<typeof ContextMenuPrimitive.Separator>) {
+  return (
+    <ContextMenuPrimitive.Separator
+      data-slot="context-menu-separator"
+      className={cx(classes.separator, className)}
+      {...props}
+    />
+  );
+}
 const ContextMenuSeparator = styled(Separator);
 ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName;
 
-const Shortcut = ({ className, ...props }: React.ComponentProps<"span">) => (
-  <span className={cx(classes.shortcut, className)} {...props} />
-);
+function Shortcut({ className, ...props }: React.ComponentProps<"span">) {
+  return (
+    <span
+      data-slot="context-menu-shortcut"
+      className={cx(classes.shortcut, className)}
+      {...props}
+    />
+  );
+}
 const ContextMenuShortcut = styled(Shortcut);
 ContextMenuShortcut.displayName = "Shortcut";
 

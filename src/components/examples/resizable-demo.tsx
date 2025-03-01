@@ -4,8 +4,11 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/componen
 export default function ResizableDemo() {
   return (
     <ResizablePanelGroup
-      direction="horizontal"
-      css={{ maxW: "md", rounded: "lg", borderWidth: "1px", md: { minW: "450px" } }}
+      resizeDirection="horizontal"
+      maxW="md"
+      rounded="lg"
+      borderWidth="1px"
+      md={{ minW: "450px" }}
     >
       <ResizablePanel defaultSize={50}>
         <styled.div
@@ -22,7 +25,7 @@ export default function ResizableDemo() {
       </ResizablePanel>
       <ResizableHandle />
       <ResizablePanel defaultSize={50}>
-        <ResizablePanelGroup direction="vertical">
+        <ResizablePanelGroup resizeDirection="vertical">
           <ResizablePanel defaultSize={25}>
             <styled.div
               css={{

@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 import { cx } from "styled-system/css";
@@ -6,18 +8,17 @@ import { progress } from "styled-system/recipes";
 
 const classes = progress();
 
-const Root = ({
-  className,
-  value,
-  ...props
-}: React.ComponentProps<typeof ProgressPrimitive.Root>) => (
-  <ProgressPrimitive.Root className={cx(classes.root, className)} {...props}>
-    <ProgressPrimitive.Indicator
-      className={classes.indicator}
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-    />
-  </ProgressPrimitive.Root>
-);
+function Root({ className, value, ...props }: React.ComponentProps<typeof ProgressPrimitive.Root>) {
+  return (
+    <ProgressPrimitive.Root data-slot="progress" className={cx(classes.root, className)} {...props}>
+      <ProgressPrimitive.Indicator
+        data-slot="progress-indicator"
+        className={classes.indicator}
+        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      />
+    </ProgressPrimitive.Root>
+  );
+}
 const Progress = styled(Root);
 Progress.displayName = ProgressPrimitive.Root.displayName;
 

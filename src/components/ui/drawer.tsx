@@ -12,75 +12,107 @@ const classes = drawer();
 const Drawer = DrawerPrimitive.Root;
 Drawer.displayName = "Drawer";
 
-const Trigger = ({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Trigger>) => (
-  <DrawerPrimitive.Trigger className={cx(classes.trigger, className)} {...props} />
-);
+function Trigger({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Trigger>) {
+  return (
+    <DrawerPrimitive.Trigger
+      data-slot="drawer-trigger"
+      className={cx(classes.trigger, className)}
+      {...props}
+    />
+  );
+}
 const DrawerTrigger = styled(Trigger);
 DrawerTrigger.displayName = "DrawerTrigger";
 
 const DrawerPortal = DrawerPrimitive.Portal;
 DrawerPortal.displayName = "DrawerPortal";
 
-const Overlay = ({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Overlay>) => (
-  <DrawerPrimitive.Overlay className={cx(classes.overlay, className)} {...props} />
-);
+function Overlay({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Overlay>) {
+  return (
+    <DrawerPrimitive.Overlay
+      data-slot="drawer-overlay"
+      className={cx(classes.overlay, className)}
+      {...props}
+    />
+  );
+}
 const DrawerOverlay = styled(Overlay);
 DrawerOverlay.displayName = "DrawerOverlay";
 
-const Close = ({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Close>) => (
-  <DrawerPrimitive.Close className={cx(classes.close, className)} {...props} />
-);
+function Close({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Close>) {
+  return (
+    <DrawerPrimitive.Close
+      data-slot="drawer-close"
+      className={cx(classes.close, className)}
+      {...props}
+    />
+  );
+}
 const DrawerClose = styled(Close);
 DrawerClose.displayName = "DrawerClose";
 
-const Content = ({
+function Content({
   className,
   side,
   children,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Content> & DrawerVariantProps) => (
-  <DrawerPortal>
-    <DrawerOverlay />
-    <DrawerPrimitive.Content
-      className={cx(drawer({ side }).content, className)}
-      data-slot="drawer-content"
-      {...props}
-    >
-      {children}
-      <DrawerClose css={{ pos: "absolute", top: "4", right: "4", cursor: "pointer" }}>
-        <LuX className={css({ w: "4", h: "4" })} />
-        <span className={css({ srOnly: true })}>Close</span>
-      </DrawerClose>
-    </DrawerPrimitive.Content>
-  </DrawerPortal>
-);
+}: React.ComponentProps<typeof DrawerPrimitive.Content> & DrawerVariantProps) {
+  return (
+    <DrawerPortal>
+      <DrawerOverlay />
+      <DrawerPrimitive.Content
+        data-slot="drawer-content"
+        className={cx(drawer({ side }).content, className)}
+        {...props}
+      >
+        {children}
+        <DrawerClose pos="absolute" top="4" right="4" cursor="pointer">
+          <LuX className={css({ w: "4", h: "4" })} />
+          <span className={css({ srOnly: true })}>Close</span>
+        </DrawerClose>
+      </DrawerPrimitive.Content>
+    </DrawerPortal>
+  );
+}
 const DrawerContent = styled(Content);
 DrawerContent.displayName = "DrawerContent";
 
-const Header = ({ className, ...props }: React.ComponentProps<"div">) => (
-  <div className={cx(classes.header, className)} {...props} />
-);
+function Header({ className, ...props }: React.ComponentProps<"div">) {
+  return <div data-slot="drawer-header" className={cx(classes.header, className)} {...props} />;
+}
 const DrawerHeader = styled(Header);
 DrawerHeader.displayName = "DrawerHeader";
 
-const Title = ({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Title>) => (
-  <DrawerPrimitive.Title className={cx(classes.title, className)} {...props} />
-);
+function Title({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Title>) {
+  return (
+    <DrawerPrimitive.Title
+      data-slot="drawer-title"
+      className={cx(classes.title, className)}
+      {...props}
+    />
+  );
+}
 const DrawerTitle = styled(Title);
 DrawerTitle.displayName = "DrawerTitle";
 
-const Description = ({
+function Description({
   className,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Description>) => (
-  <DrawerPrimitive.Description className={cx(classes.description, className)} {...props} />
-);
+}: React.ComponentProps<typeof DrawerPrimitive.Description>) {
+  return (
+    <DrawerPrimitive.Description
+      data-slot="drawer-description"
+      className={cx(classes.description, className)}
+      {...props}
+    />
+  );
+}
 const DrawerDescription = styled(Description);
 DrawerDescription.displayName = "DrawerDescription";
 
-const Footer = ({ className, ...props }: React.ComponentProps<"div">) => (
-  <div className={cx(classes.footer, className)} {...props} />
-);
+function Footer({ className, ...props }: React.ComponentProps<"div">) {
+  return <div data-slot="drawer-footer" className={cx(classes.footer, className)} {...props} />;
+}
 const DrawerFooter = styled(Footer);
 DrawerFooter.displayName = "DrawerFooter";
 

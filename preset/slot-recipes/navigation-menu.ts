@@ -61,7 +61,7 @@ export const navigationMenuSlotRecipe = defineSlotRecipe({
           pointerEvents: "none",
           opacity: "50",
         },
-        "&[data-active]": {
+        _active: {
           bg: "accent/50",
         },
         "&[data-state=open]": {

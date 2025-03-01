@@ -33,20 +33,20 @@ export default function ContextMenuDemo() {
         Right click here
       </ContextMenuTrigger>
       <ContextMenuContent css={{ w: "64" }}>
-        <ContextMenuItem inset>
+        <ContextMenuItem insetLeft>
           Back
           <ContextMenuShortcut>⌘[</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem inset disabled>
+        <ContextMenuItem insetLeft disabled>
           Forward
           <ContextMenuShortcut>⌘]</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem inset>
+        <ContextMenuItem insetLeft>
           Reload
           <ContextMenuShortcut>⌘R</ContextMenuShortcut>
         </ContextMenuItem>
         <ContextMenuSub>
-          <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
+          <ContextMenuSubTrigger insetLeft>More Tools</ContextMenuSubTrigger>
           <ContextMenuSubContent css={{ w: "48" }}>
             <ContextMenuItem>
               Save Page As...
@@ -66,7 +66,7 @@ export default function ContextMenuDemo() {
         <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
         <ContextMenuSeparator />
         <ContextMenuRadioGroup value="pedro">
-          <ContextMenuLabel inset>People</ContextMenuLabel>
+          <ContextMenuLabel insetLeft>People</ContextMenuLabel>
           <ContextMenuSeparator />
           <ContextMenuRadioItem value="pedro">Pedro Duarte</ContextMenuRadioItem>
           <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>

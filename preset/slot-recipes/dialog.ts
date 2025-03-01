@@ -2,18 +2,7 @@ import { defineSlotRecipe } from "@pandacss/dev";
 
 export const dialogSlotRecipe = defineSlotRecipe({
   className: "dialog",
-  slots: [
-    "root",
-    "trigger",
-    "portal",
-    "overlay",
-    "header",
-    "title",
-    "description",
-    "content",
-    "footer",
-    "cancel",
-  ],
+  slots: ["trigger", "overlay", "content", "header", "title", "description", "footer", "close"],
   base: {
     overlay: {
       pos: "fixed",
@@ -86,13 +75,6 @@ export const dialogSlotRecipe = defineSlotRecipe({
         flexDir: "row",
         justifyContent: "flex-end",
         gap: "2",
-      },
-    },
-
-    cancel: {
-      mt: "2",
-      sm: {
-        mt: "0",
       },
     },
   },

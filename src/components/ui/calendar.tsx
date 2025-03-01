@@ -16,14 +16,14 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   maxYear?: number;
 };
 
-const CalendarBase = ({
+function CalendarBase({
   className,
   classNames,
   showSwitcher = true,
   minYear,
   maxYear,
   ...props
-}: CalendarProps) => {
+}: CalendarProps) {
   const [view, setView] = React.useState<View>("day");
 
   return (
@@ -159,7 +159,7 @@ const CalendarBase = ({
       {...props}
     />
   );
-};
+}
 
 function CaptionLabel({
   showSwitcher,
@@ -284,9 +284,7 @@ function MonthGrid({
     );
   }
 }
-
 const Calendar = styled(CalendarBase);
-
 Calendar.displayName = "Calendar";
 
 export { Calendar };
