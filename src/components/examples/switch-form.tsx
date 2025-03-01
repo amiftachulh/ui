@@ -33,10 +33,8 @@ export default function SwitchForm() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre
-          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
-        >
-          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
+        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
+          <styled.code color="white">{JSON.stringify(data, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
@@ -44,29 +42,27 @@ export default function SwitchForm() {
 
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ w: "full", spaceY: "6" }}>
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} w="full" spaceY="6">
         <div>
-          <styled.h3 css={{ mb: "4", textStyle: "lg", fontWeight: "medium" }}>
+          <styled.h3 mb="4" textStyle="lg" fontWeight="medium">
             Email Notifications
           </styled.h3>
-          <styled.div css={{ spaceY: "4" }}>
+          <styled.div spaceY="4">
             <FormField
               control={form.control}
               name="marketing_emails"
               render={({ field }) => (
                 <FormItem
-                  css={{
-                    display: "flex",
-                    flexDir: "row",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    rounded: "lg",
-                    borderWidth: "1px",
-                    p: "4",
-                  }}
+                  display="flex"
+                  flexDir="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  rounded="lg"
+                  borderWidth="1px"
+                  p="4"
                 >
-                  <styled.div css={{ spaceY: "0.5" }}>
-                    <FormLabel css={{ textStyle: "md" }}>Marketing emails</FormLabel>
+                  <styled.div spaceY="0.5">
+                    <FormLabel textStyle="md">Marketing emails</FormLabel>
                     <FormDescription>
                       Receive emails about new products, features, and more.
                     </FormDescription>
@@ -82,18 +78,16 @@ export default function SwitchForm() {
               name="security_emails"
               render={({ field }) => (
                 <FormItem
-                  css={{
-                    display: "flex",
-                    flexDir: "row",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    rounded: "lg",
-                    borderWidth: "1px",
-                    p: "4",
-                  }}
+                  display="flex"
+                  flexDir="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  rounded="lg"
+                  borderWidth="1px"
+                  p="4"
                 >
-                  <styled.div css={{ spaceY: "0.5" }}>
-                    <FormLabel css={{ textStyle: "md" }}>Security emails</FormLabel>
+                  <styled.div spaceY="0.5">
+                    <FormLabel textStyle="md">Security emails</FormLabel>
                     <FormDescription>Receive emails about your account security.</FormDescription>
                   </styled.div>
                   <FormControl>

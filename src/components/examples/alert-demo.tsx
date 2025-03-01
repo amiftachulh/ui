@@ -9,7 +9,7 @@ import {
 
 export default function AlertDemo() {
   return (
-    <Alert>
+    <Alert w="2/3">
       <AlertIcon>
         <LuTerminal />
       </AlertIcon>

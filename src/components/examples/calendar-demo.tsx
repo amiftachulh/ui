@@ -11,7 +11,9 @@ export default function CalendarDemo() {
       mode="single"
       selected={date}
       onSelect={setDate}
-      css={{ w: "fit", borderWidth: "1px", rounded: "md" }}
+      w="fit"
+      borderWidth="1px"
+      rounded="md"
     />
   );
 }

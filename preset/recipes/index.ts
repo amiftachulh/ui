@@ -1,6 +1,7 @@
 import { buttonRecipe } from "./button";
 import { chipRecipe } from "./chip";
 import { inputRecipe } from "./input";
+import { kbdRecipe } from "./kbd";
 import { labelRecipe } from "./label";
 import { scrollRecipe } from "./scroll";
 import { separatorRecipe } from "./separator";
@@ -13,6 +14,7 @@ export const recipes = {
   button: buttonRecipe,
   chip: chipRecipe,
   input: inputRecipe,
+  kbd: kbdRecipe,
   label: labelRecipe,
   scroll: scrollRecipe,
   separator: separatorRecipe,

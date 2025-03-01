@@ -33,10 +33,8 @@ export default function CheckboxFormSingle() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre
-          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
-        >
-          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
+        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
+          <styled.code color="white">{JSON.stringify(data, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
@@ -44,27 +42,25 @@ export default function CheckboxFormSingle() {
 
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ spaceY: "6" }}>
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} spaceY="6">
         <FormField
           control={form.control}
           name="mobile"
           render={({ field }) => (
             <FormItem
-              css={{
-                display: "flex",
-                flexDir: "row",
-                alignItems: "flex-start",
-                spaceX: "3",
-                spaceY: "0",
-                rounded: "md",
-                borderWidth: "1px",
-                p: "4",
-              }}
+              display="flex"
+              flexDir="row"
+              alignItems="flex-start"
+              spaceX="3"
+              spaceY="0"
+              rounded="md"
+              borderWidth="1px"
+              p="4"
             >
               <FormControl>
                 <Checkbox checked={field.value} onCheckedChange={field.onChange} />
               </FormControl>
-              <styled.div css={{ spaceY: "1", lineHeight: "none" }}>
+              <styled.div spaceY="1" lineHeight="none">
                 <FormLabel>Use different settings for my mobile devices</FormLabel>
                 <FormDescription>
                   You can manage your mobile notifications in the{" "}

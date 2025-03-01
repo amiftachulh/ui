@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export default function TextareaWithLabel() {
   return (
-    <styled.div css={{ display: "grid", w: "full", gap: "1.5" }}>
+    <styled.div display="grid" w="full" gap="1.5">
       <Label htmlFor="message">Your message</Label>
       <Textarea placeholder="Type your message here." id="message" />
     </styled.div>

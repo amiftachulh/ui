@@ -101,9 +101,7 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "status",
     header: "Status",
-    cell: ({ row }) => (
-      <styled.div css={{ textTransform: "capitalize" }}>{row.getValue("status")}</styled.div>
-    ),
+    cell: ({ row }) => <styled.div textTransform="capitalize">{row.getValue("status")}</styled.div>,
   },
   {
     accessorKey: "email",
@@ -118,24 +116,22 @@ export const columns: ColumnDef<Payment>[] = [
         </Button>
       );
     },
-    cell: ({ row }) => (
-      <styled.div css={{ textTransform: "lowercase" }}>{row.getValue("email")}</styled.div>
-    ),
+    cell: ({ row }) => <styled.div textTransform="lowercase">{row.getValue("email")}</styled.div>,
   },
   {
     accessorKey: "amount",
-    header: () => <styled.div css={{ textAlign: "right" }}>Amount</styled.div>,
+    header: () => <styled.div textAlign="right">Amount</styled.div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"));
-
-      // Format the amount as a dollar amount
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
       }).format(amount);
 
       return (
-        <styled.div css={{ textAlign: "right", fontWeight: "medium" }}>{formatted}</styled.div>
+        <styled.div textAlign="right" fontWeight="medium">
+          {formatted}
+        </styled.div>
       );
     },
   },
@@ -148,8 +144,8 @@ export const columns: ColumnDef<Payment>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" css={{ w: "8", h: "8", p: "0" }}>
-              <styled.span css={{ srOnly: true }}>Open menu</styled.span>
+            <Button variant="ghost" w="8" h="8" p="0">
+              <styled.span srOnly>Open menu</styled.span>
               <LuEllipsis />
             </Button>
           </DropdownMenuTrigger>
@@ -194,17 +190,17 @@ export default function DataTableDemo() {
   });
 
   return (
-    <styled.div css={{ w: "full" }}>
-      <styled.div css={{ display: "flex", alignItems: "center", py: "4" }}>
+    <styled.div w="full">
+      <styled.div display="flex" alignItems="center" py="4">
         <Input
           placeholder="Filter emails..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)}
-          css={{ maxW: "sm" }}
+          maxW="sm"
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" css={{ ml: "auto" }}>
+            <Button variant="outline" ml="auto">
               Columns <LuChevronDown />
             </Button>
           </DropdownMenuTrigger>
@@ -215,7 +211,7 @@ export default function DataTableDemo() {
               .map((column) => (
                 <DropdownMenuCheckboxItem
                   key={column.id}
-                  css={{ textTransform: "capitalize" }}
+                  textTransform="capitalize"
                   checked={column.getIsVisible()}
                   onCheckedChange={(value) => column.toggleVisibility(!!value)}
                 >
@@ -225,7 +221,7 @@ export default function DataTableDemo() {
           </DropdownMenuContent>
         </DropdownMenu>
       </styled.div>
-      <styled.div css={{ rounded: "md", borderWidth: "1px" }}>
+      <styled.div rounded="md" borderWidth="1px">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -253,7 +249,7 @@ export default function DataTableDemo() {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} css={{ h: "24", textAlign: "center" }}>
+                <TableCell colSpan={columns.length} h="24" textAlign="center">
                   No results.
                 </TableCell>
               </TableRow>
@@ -261,20 +257,12 @@ export default function DataTableDemo() {
           </TableBody>
         </Table>
       </styled.div>
-      <styled.div
-        css={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-end",
-          spaceX: "2",
-          py: "4",
-        }}
-      >
-        <styled.div css={{ flex: "1", textStyle: "sm", color: "muted.fg" }}>
+      <styled.div display="flex" alignItems="center" justifyContent="flex-end" spaceX="2" py="4">
+        <styled.div flex="1" textStyle="sm" color="muted.fg">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </styled.div>
-        <styled.div css={{ spaceX: "2" }}>
+        <styled.div spaceX="2">
           <Button
             variant="outline"
             size="sm"

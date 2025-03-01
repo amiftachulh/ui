@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export default function TextareaWithButton() {
   return (
-    <styled.div css={{ display: "grid", w: "full", gap: "1.5" }}>
+    <styled.div display="grid" w="full" gap="1.5">
       <Textarea placeholder="Type your message here." />
       <Button>Send message</Button>
     </styled.div>

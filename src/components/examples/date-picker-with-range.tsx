@@ -16,19 +16,17 @@ export default function DatePickerWithRange() {
   });
 
   return (
-    <styled.div css={{ display: "grid", gap: "2" }}>
+    <styled.div display="grid" gap="2">
       <Popover>
         <PopoverTrigger asChild>
           <Button
             id="date"
             variant="outline"
-            css={{
-              w: "280px",
-              justifyContent: "flex-start",
-              textAlign: "left",
-              fontWeight: "normal",
-              color: !date ? "muted.fg" : "fg",
-            }}
+            w="280px"
+            justifyContent="flex-start"
+            textAlign="left"
+            fontWeight="normal"
+            color={!date ? "muted.fg" : "fg"}
           >
             <LuCalendar />
             {date?.from ? (
@@ -44,7 +42,7 @@ export default function DatePickerWithRange() {
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent css={{ w: "auto", p: "0" }} align="start">
+        <PopoverContent w="auto" p="0" align="start">
           <Calendar
             autoFocus
             mode="range"

@@ -37,10 +37,8 @@ export default function TextareaForm() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre
-          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
-        >
-          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
+        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
+          <styled.code color="white">{JSON.stringify(data, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
@@ -48,7 +46,7 @@ export default function TextareaForm() {
 
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ w: "2/3", spaceY: "6" }}>
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} w="2/3" spaceY="6">
         <FormField
           control={form.control}
           name="bio"

@@ -36,10 +36,8 @@ export default function DatePickerForm() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre
-          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
-        >
-          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
+        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
+          <styled.code color="white">{JSON.stringify(data, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
@@ -47,36 +45,34 @@ export default function DatePickerForm() {
 
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ spaceY: "8" }}>
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} spaceY="8">
         <FormField
           control={form.control}
           name="dob"
           render={({ field }) => (
-            <FormItem css={{ display: "flex", flexDir: "column" }}>
+            <FormItem display="flex" flexDir="column">
               <FormLabel>Date of birth</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
                     <Button
                       variant="outline"
-                      css={{
-                        w: "240px",
-                        pl: "3",
-                        textAlign: "left",
-                        fontWeight: "normal",
-                        color: !field.value ? "muted.fg" : undefined,
-                      }}
+                      w="240px"
+                      pl="3"
+                      textAlign="left"
+                      fontWeight="normal"
+                      color={!field.value ? "muted.fg" : undefined}
                     >
                       {field.value ? (
                         dayjs(field.value).format("YYYY-MM-DD")
                       ) : (
                         <span>Pick a date</span>
                       )}
-                      <LuCalendar className={css({ ml: "auto", h: "4", w: "4", opacity: "0.5" })} />
+                      <LuCalendar className={css({ ml: "auto", w: "4", h: "4", opacity: "0.5" })} />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent css={{ w: "auto", p: "0" }} align="start">
+                <PopoverContent w="auto" p="0" align="start">
                   <Calendar
                     mode="single"
                     selected={field.value}

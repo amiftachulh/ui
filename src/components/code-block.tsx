@@ -57,8 +57,8 @@ export default async function CodeBlock({
 
   return (
     <styled.div
+      pos="relative"
       css={{
-        pos: "relative",
         "& .shiki span": {
           _dark: {
             color: "var(--shiki-dark)!",
@@ -74,12 +74,12 @@ export default async function CodeBlock({
         components: {
           pre: ({ className, style: _, ...props }) => (
             <styled.pre
+              textStyle="sm"
+              maxH="80"
+              py="4"
+              bg={{ base: "zinc.100", _dark: "zinc.900" }}
+              overflow="auto"
               css={{
-                textStyle: "sm",
-                maxH: "80",
-                py: "4",
-                bg: { base: "zinc.100", _dark: "zinc.900" },
-                overflow: "auto",
                 "& .line": {
                   pos: "relative",
                   px: "4",

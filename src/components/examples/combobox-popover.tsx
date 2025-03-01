@@ -22,31 +22,11 @@ type Status = {
 };
 
 const statuses: Status[] = [
-  {
-    value: "backlog",
-    label: "Backlog",
-    icon: LuCircleHelp,
-  },
-  {
-    value: "todo",
-    label: "Todo",
-    icon: LuCircle,
-  },
-  {
-    value: "in progress",
-    label: "In Progress",
-    icon: LuCircleArrowUp,
-  },
-  {
-    value: "done",
-    label: "Done",
-    icon: LuCircleCheck,
-  },
-  {
-    value: "canceled",
-    label: "Canceled",
-    icon: LuCircleX,
-  },
+  { value: "backlog", label: "Backlog", icon: LuCircleHelp },
+  { value: "todo", label: "Todo", icon: LuCircle },
+  { value: "in progress", label: "In Progress", icon: LuCircleArrowUp },
+  { value: "done", label: "Done", icon: LuCircleCheck },
+  { value: "canceled", label: "Canceled", icon: LuCircleX },
 ];
 
 export default function ComboboxPopover() {
@@ -54,24 +34,26 @@ export default function ComboboxPopover() {
   const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(null);
 
   return (
-    <styled.div css={{ display: "flex", alignItems: "center", spaceX: "4" }}>
-      <styled.p css={{ textStyle: "sm", color: "muted.fg" }}>Status</styled.p>
+    <styled.div display="flex" alignItems="center" gap="4">
+      <styled.p textStyle="sm" color="muted.fg">
+        Status
+      </styled.p>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button variant="outline" size="sm" css={{ w: "150px", justifyContent: "flex-start" }}>
+          <Button variant="outline" size="sm" width="150px" justifyContent="flex-start">
             {selectedStatus ? (
               <>
                 <selectedStatus.icon
-                  className={css({ mr: "2", w: "4", h: "4", flexShrink: "0" })}
+                  className={css({ marginRight: "2", width: "4", height: "4", flexShrink: "0" })}
                 />
                 {selectedStatus.label}
               </>
             ) : (
-              <>+ Set status</>
+              "+ Set status"
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent css={{ p: "0" }} side="right" align="start">
+        <PopoverContent padding="0" side="right" align="start">
           <Command>
             <CommandInput placeholder="Change status..." />
             <CommandList>
@@ -82,17 +64,15 @@ export default function ComboboxPopover() {
                     key={status.value}
                     value={status.value}
                     onSelect={(value) => {
-                      setSelectedStatus(
-                        statuses.find((priority) => priority.value === value) || null
-                      );
+                      setSelectedStatus(statuses.find((s) => s.value === value) || null);
                       setOpen(false);
                     }}
                   >
                     <status.icon
                       className={css({
-                        mr: "2",
-                        w: "4",
-                        h: "4",
+                        marginRight: "2",
+                        width: "4",
+                        height: "4",
                         opacity: status.value === selectedStatus?.value ? "1" : "0.4",
                       })}
                     />

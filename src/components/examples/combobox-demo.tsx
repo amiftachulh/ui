@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { LuCheck, LuChevronsUpDown } from "react-icons/lu";
-import { css, cx } from "styled-system/css";
+import { cx } from "styled-system/css";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -15,26 +15,11 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const frameworks = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
+  { value: "next.js", label: "Next.js" },
+  { value: "sveltekit", label: "SvelteKit" },
+  { value: "nuxt.js", label: "Nuxt.js" },
+  { value: "remix", label: "Remix" },
+  { value: "astro", label: "Astro" },
 ];
 
 export default function ComboboxDemo() {
@@ -48,15 +33,16 @@ export default function ComboboxDemo() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          css={{ w: "200px", justifyContent: "space-between" }}
+          w="200px"
+          justifyContent="space-between"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
             : "Select framework..."}
-          <LuChevronsUpDown className={css({ opacity: "0.5" })} />
+          <LuChevronsUpDown opacity="0.5" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent css={{ w: "200px", p: "0" }}>
+      <PopoverContent w="200px" p="0">
         <Command>
           <CommandInput placeholder="Search framework..." />
           <CommandList>
@@ -74,8 +60,8 @@ export default function ComboboxDemo() {
                   {framework.label}
                   <LuCheck
                     className={cx(
-                      css({ ml: "auto" }),
-                      value === framework.value ? css({ opacity: "1" }) : css({ opacity: "0" })
+                      "ml-auto",
+                      value === framework.value ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>

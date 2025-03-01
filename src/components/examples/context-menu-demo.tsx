@@ -18,21 +18,19 @@ export default function ContextMenuDemo() {
   return (
     <ContextMenu>
       <ContextMenuTrigger
-        css={{
-          display: "flex",
-          w: "300px",
-          h: "150px",
-          alignItems: "center",
-          justifyContent: "center",
-          rounded: "md",
-          borderWidth: "1px",
-          borderStyle: "dashed",
-          textStyle: "sm",
-        }}
+        display="flex"
+        w="300px"
+        h="150px"
+        alignItems="center"
+        justifyContent="center"
+        rounded="md"
+        borderWidth="1px"
+        borderStyle="dashed"
+        textStyle="sm"
       >
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent css={{ w: "64" }}>
+      <ContextMenuContent w="64">
         <ContextMenuItem insetLeft>
           Back
           <ContextMenuShortcut>⌘[</ContextMenuShortcut>
@@ -47,7 +45,7 @@ export default function ContextMenuDemo() {
         </ContextMenuItem>
         <ContextMenuSub>
           <ContextMenuSubTrigger insetLeft>More Tools</ContextMenuSubTrigger>
-          <ContextMenuSubContent css={{ w: "48" }}>
+          <ContextMenuSubContent w="48">
             <ContextMenuItem>
               Save Page As...
               <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>

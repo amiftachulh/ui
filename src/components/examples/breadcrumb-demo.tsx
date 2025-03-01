@@ -1,4 +1,4 @@
-import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -25,16 +25,9 @@ export default function BreadcrumbDemo() {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger
-              className={css({
-                display: "flex",
-                alignItems: "center",
-                gap: "1",
-                cursor: "pointer",
-              })}
-            >
-              <BreadcrumbEllipsis className={css({ w: "4", h: "4" })} />
-              <span className={css({ srOnly: true })}>Toggle menu</span>
+            <DropdownMenuTrigger display="flex" alignItems="center" gap="1" cursor="pointer">
+              <BreadcrumbEllipsis w="4" h="4" />
+              <styled.span srOnly>Toggle menu</styled.span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Documentation</DropdownMenuItem>

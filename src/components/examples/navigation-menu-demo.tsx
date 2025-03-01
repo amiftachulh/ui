@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import {
   NavigationMenu,
@@ -12,7 +13,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
-const components: { title: string; href: string; description: string }[] = [
+const components = [
   {
     title: "Accordion",
     href: "/docs/components/accordion",
@@ -57,18 +58,17 @@ export default function NavigationMenuDemo() {
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
           <NavigationMenuContent>
             <styled.ul
-              css={{
-                display: "grid",
-                gap: "3",
-                p: "6",
-                md: { w: "400px" },
-                lg: { w: "500px", gridTemplateColumns: ".75fr 1fr" },
-              }}
+              display="grid"
+              gap="3"
+              p="6"
+              md={{ w: "400px" }}
+              lg={{ w: "500px", gridTemplateColumns: ".75fr 1fr" }}
             >
-              <styled.li css={{ gridRow: "span 3" }}>
+              <styled.li gridRow="span 3">
                 <NavigationMenuLink asChild>
-                  <styled.a
-                    css={{
+                  <Link
+                    href="/"
+                    className={css({
                       display: "flex",
                       w: "full",
                       h: "full",
@@ -79,21 +79,20 @@ export default function NavigationMenuDemo() {
                       bgGradient: "to-b",
                       gradientFrom: "muted/50",
                       gradientTo: "muted",
-                      p: 6,
+                      p: "6",
                       textDecoration: "none",
                       outline: "none",
                       _focus: { shadow: "md" },
-                    }}
-                    href="/"
+                    })}
                   >
-                    <styled.div css={{ mb: "2", mt: "4", textStyle: "lg", fontWeight: "medium" }}>
+                    <styled.div mb="2" mt="4" textStyle="lg" fontWeight="medium">
                       shadcn/ui
                     </styled.div>
-                    <styled.p css={{ textStyle: "sm", lineHeight: "tight", color: "muted.fg" }}>
+                    <styled.p textStyle="sm" lineHeight="tight" color="muted.fg">
                       Beautifully designed components that you can copy and paste into your apps.
                       Accessible. Customizable. Open Source.
                     </styled.p>
-                  </styled.a>
+                  </Link>
                 </NavigationMenuLink>
               </styled.li>
               <ListItem href="/docs" title="Introduction">
@@ -112,14 +111,12 @@ export default function NavigationMenuDemo() {
           <NavigationMenuTrigger>Components</NavigationMenuTrigger>
           <NavigationMenuContent>
             <styled.ul
-              css={{
-                display: "grid",
-                w: "400px",
-                gap: "3",
-                p: 4,
-                md: { gridTemplateColumns: "repeat(2, 1fr)", w: "500px" },
-                lg: { w: "600px" },
-              }}
+              display="grid"
+              w="400px"
+              gap="3"
+              p="4"
+              md={{ gridTemplateColumns: "repeat(2, 1fr)", w: "500px" }}
+              lg={{ w: "600px" }}
             >
               {components.map((component) => (
                 <ListItem key={component.title} title={component.title} href={component.href}>
@@ -139,39 +136,42 @@ export default function NavigationMenuDemo() {
   );
 }
 
-const ListItem = ({ css, title, children, ...props }: React.ComponentProps<typeof styled.a>) => {
+const ListItem = ({
+  title,
+  children,
+  ...props
+}: {
+  title: string;
+  children: React.ReactNode;
+  href: string;
+}) => {
   return (
     <styled.li>
       <NavigationMenuLink asChild>
-        <styled.a
-          css={{
+        <Link
+          className={css({
             display: "block",
             userSelect: "none",
             spaceY: "1",
             rounded: "md",
-            p: 3,
+            p: "3",
             lineHeight: "none",
             textDecoration: "none",
             outline: "none",
             transition: "colors",
             _hover: { bg: "accent", color: "accent.fg" },
             _focus: { bg: "accent", color: "accent.fg" },
-            ...css,
-          }}
+          })}
           {...props}
         >
-          <styled.div css={{ textStyle: "sm", fontWeight: "medium", lineHeight: "none" }}>
+          <styled.div textStyle="sm" fontWeight="medium" lineHeight="none">
             {title}
           </styled.div>
-          <styled.p
-            css={{ lineClamp: "2", textStyle: "sm", lineHeight: "snug", color: "muted.fg" }}
-          >
+          <styled.p lineClamp="2" textStyle="sm" lineHeight="snug" color="muted.fg">
             {children}
           </styled.p>
-        </styled.a>
+        </Link>
       </NavigationMenuLink>
     </styled.li>
   );
 };
-
-ListItem.displayName = "ListItem";

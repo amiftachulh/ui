@@ -17,7 +17,7 @@ const SIDE = ["top", "bottom", "left", "right"] as const;
 
 export default function DrawerSide() {
   return (
-    <styled.div css={{ display: "flex", alignItems: "center", gap: "4" }}>
+    <styled.div display="flex" alignItems="center" gap="4">
       {SIDE.map((side) => (
         <Drawer key={side}>
           <DrawerTrigger asChild>
@@ -30,36 +30,28 @@ export default function DrawerSide() {
                 Make changes to your profile here. Click save when you&apos;re done.
               </DrawerDescription>
             </DrawerHeader>
-            <styled.div css={{ display: "grid", gap: "4", py: "4" }}>
+            <styled.div display="grid" gap="4" py="4">
               <styled.div
-                css={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                  alignItems: "center",
-                  gap: "4",
-                }}
+                display="grid"
+                gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+                alignItems="center"
+                gap="4"
               >
-                <Label htmlFor="name" css={{ textAlign: "right" }}>
+                <Label htmlFor="name" textAlign="right">
                   Name
                 </Label>
-                <Input
-                  id="name"
-                  defaultValue="Ahmad Miftachul Hidayat"
-                  css={{ gridColumn: "span 3" }}
-                />
+                <Input id="name" defaultValue="Ahmad Miftachul Hidayat" gridColumn="span 3" />
               </styled.div>
               <styled.div
-                css={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                  alignItems: "center",
-                  gap: "4",
-                }}
+                display="grid"
+                gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+                alignItems="center"
+                gap="4"
               >
-                <Label htmlFor="username" css={{ textAlign: "right" }}>
+                <Label htmlFor="username" textAlign="right">
                   Username
                 </Label>
-                <Input id="username" defaultValue="amiftachulh" css={{ gridColumn: "span 3" }} />
+                <Input id="username" defaultValue="amiftachulh" gridColumn="span 3" />
               </styled.div>
             </styled.div>
             <DrawerFooter>

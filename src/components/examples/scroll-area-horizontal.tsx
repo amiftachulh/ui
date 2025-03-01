@@ -25,11 +25,11 @@ export const works: Artwork[] = [
 
 export default function ScrollAreaHorizontal() {
   return (
-    <ScrollArea css={{ w: "96", whiteSpace: "nowrap", rounded: "md", borderWidth: "1px" }}>
-      <styled.div css={{ display: "flex", w: "max", spaceX: "4", p: "4" }}>
+    <ScrollArea w="96" whiteSpace="nowrap" rounded="md" borderWidth="1px">
+      <styled.div display="flex" w="max" spaceX="4" p="4">
         {works.map((artwork) => (
-          <styled.figure key={artwork.artist} css={{ flexShrink: "0" }}>
-            <styled.div css={{ overflow: "hidden", rounded: "md" }}>
+          <styled.figure key={artwork.artist} flexShrink="0">
+            <styled.div overflow="hidden" rounded="md">
               <Image
                 src={artwork.art}
                 alt={`Photo by ${artwork.artist}`}
@@ -38,9 +38,9 @@ export default function ScrollAreaHorizontal() {
                 height={400}
               />
             </styled.div>
-            <styled.figcaption css={{ pt: "2", textStyle: "xs", color: "muted.fg" }}>
+            <styled.figcaption pt="2" textStyle="xs" color="muted.fg">
               Photo by{" "}
-              <styled.span css={{ fontWeight: "semibold", color: "fg" }}>
+              <styled.span fontWeight="semibold" color="fg">
                 {artwork.artist}
               </styled.span>
             </styled.figcaption>

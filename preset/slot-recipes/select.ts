@@ -73,7 +73,6 @@ export const selectSlotRecipe = defineSlotRecipe({
       bg: "bg",
       shadow: "md",
       overflow: "hidden",
-      translate: "auto",
       _open: {
         animateIn: true,
         fadeIn: "0",

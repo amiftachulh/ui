@@ -42,35 +42,32 @@ export default function ComboboxDropdownMenu() {
 
   return (
     <styled.div
-      css={{
-        display: "flex",
-        w: "full",
-        flexDir: "column",
-        alignItems: "flex-start",
-        justifyContent: "space-between",
-        rounded: "md",
-        borderWidth: "1px",
-        px: "4",
-        py: "3",
-        sm: { flexDir: "row", alignItems: "center" },
-      }}
+      display="flex"
+      w="full"
+      flexDir="column"
+      alignItems="flex-start"
+      justifyContent="space-between"
+      rounded="md"
+      borderWidth="1px"
+      px="4"
+      py="3"
+      sm={{ flexDir: "row", alignItems: "center" }}
     >
-      <styled.p css={{ textStyle: "sm", lineHeight: "none", fontWeight: "medium" }}>
+      <styled.p textStyle="sm" lineHeight="none" fontWeight="medium">
         <styled.span
-          css={{
-            mr: "2",
-            rounded: "lg",
-            px: "2",
-            py: "1",
-            textStyle: "xs",
-            lineHeight: "xs",
-            bg: "primary",
-            color: "primary.fg",
-          }}
+          display="inline-block"
+          rounded="lg"
+          px="2"
+          py="1"
+          textStyle="xs"
+          lineHeight="xs"
+          bg="primary"
+          color="primary.fg"
+          mr="2"
         >
           {label}
         </styled.span>
-        <styled.span css={{ color: "muted.fg" }}>Create a new project</styled.span>
+        <styled.span color="muted.fg">Create a new project</styled.span>
       </styled.p>
       <DropdownMenu open={open} onOpenChange={setOpen}>
         <DropdownMenuTrigger asChild>
@@ -78,26 +75,23 @@ export default function ComboboxDropdownMenu() {
             <LuEllipsis />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" css={{ w: "200px" }}>
+        <DropdownMenuContent align="end" w="200px">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <LuUser />
-              Assign to...
+              <LuUser /> Assign to...
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <LuCalendar />
-              Set due date...
+              <LuCalendar /> Set due date...
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
-                <LuTags />
-                Apply label
+                <LuTags /> Apply label
               </DropdownMenuSubTrigger>
-              <DropdownMenuSubContent css={{ p: "0" }}>
+              <DropdownMenuSubContent p="0">
                 <Command>
-                  <CommandInput placeholder="Filter label..." autoFocus={true} />
+                  <CommandInput placeholder="Filter label..." autoFocus />
                   <CommandList>
                     <CommandEmpty>No label found.</CommandEmpty>
                     <CommandGroup>
@@ -119,9 +113,8 @@ export default function ComboboxDropdownMenu() {
               </DropdownMenuSubContent>
             </DropdownMenuSub>
             <DropdownMenuSeparator />
-            <DropdownMenuItem css={{ color: "red.600" }}>
-              <LuTrash />
-              Delete
+            <DropdownMenuItem color="red.600">
+              <LuTrash /> Delete
               <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuGroup>

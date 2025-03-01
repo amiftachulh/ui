@@ -10,7 +10,7 @@ import {
 
 export default function AlertVariant() {
   return (
-    <styled.div css={{ spaceY: "4" }}>
+    <styled.div w="2/3" spaceY="4">
       {/* Info variant */}
       <Alert variant="info">
         <AlertIcon>

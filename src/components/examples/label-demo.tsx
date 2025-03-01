@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 
 export default function LabelDemo() {
   return (
-    <styled.div css={{ display: "flex", alignItems: "center", gap: "2" }}>
+    <styled.div display="flex" alignItems="center" gap="2">
       <Checkbox id="terms" />
       <Label htmlFor="terms">Accept terms and conditions</Label>
     </styled.div>

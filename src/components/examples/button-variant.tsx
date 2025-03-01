@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ButtonVariant() {
   return (
-    <styled.div css={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "4" }}>
+    <styled.div display="flex" alignItems="center" flexWrap="wrap" gap="4">
       <Button variant="primary">Button</Button>
       <Button variant="secondary">Button</Button>
       <Button variant="outline">Button</Button>

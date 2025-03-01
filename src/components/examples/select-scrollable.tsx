@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Select,
   SelectContent,
@@ -12,7 +11,7 @@ import {
 export default function SelectScrollable() {
   return (
     <Select>
-      <SelectTrigger css={{ w: "280px" }}>
+      <SelectTrigger w="280px">
         <SelectValue placeholder="Select a timezone" />
       </SelectTrigger>
       <SelectContent>

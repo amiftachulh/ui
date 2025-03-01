@@ -11,46 +11,22 @@ export default function ResizableDemo() {
       md={{ minW: "450px" }}
     >
       <ResizablePanel defaultSize={50}>
-        <styled.div
-          css={{
-            display: "flex",
-            h: "200px",
-            alignItems: "center",
-            justifyContent: "center",
-            p: "6",
-          }}
-        >
-          <styled.span css={{ fontWeight: "semibold" }}>One</styled.span>
+        <styled.div display="flex" h="200px" alignItems="center" justifyContent="center" p="6">
+          <styled.span fontWeight="semibold">One</styled.span>
         </styled.div>
       </ResizablePanel>
       <ResizableHandle />
       <ResizablePanel defaultSize={50}>
         <ResizablePanelGroup resizeDirection="vertical">
           <ResizablePanel defaultSize={25}>
-            <styled.div
-              css={{
-                display: "flex",
-                h: "full",
-                alignItems: "center",
-                justifyContent: "center",
-                p: "6",
-              }}
-            >
-              <styled.span css={{ fontWeight: "semibold" }}>Two</styled.span>
+            <styled.div display="flex" h="full" alignItems="center" justifyContent="center" p="6">
+              <styled.span fontWeight="semibold">Two</styled.span>
             </styled.div>
           </ResizablePanel>
           <ResizableHandle />
           <ResizablePanel defaultSize={75}>
-            <styled.div
-              css={{
-                display: "flex",
-                h: "full",
-                alignItems: "center",
-                justifyContent: "center",
-                p: "6",
-              }}
-            >
-              <styled.span css={{ fontWeight: "semibold" }}>Three</styled.span>
+            <styled.div display="flex" h="full" alignItems="center" justifyContent="center" p="6">
+              <styled.span fontWeight="semibold">Three</styled.span>
             </styled.div>
           </ResizablePanel>
         </ResizablePanelGroup>

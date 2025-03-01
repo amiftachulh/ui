@@ -27,14 +27,7 @@ export default function BreadcrumbWithDropdown() {
         </BreadcrumbSeparator>
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger
-              css={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1",
-                cursor: "pointer",
-              }}
-            >
+            <DropdownMenuTrigger display="flex" alignItems="center" gap="1" cursor="pointer">
               Components
               <LuChevronDown className={css({ w: "4", h: "4" })} />
             </DropdownMenuTrigger>

@@ -10,16 +10,15 @@ import {
 export default function AlertCustom() {
   return (
     <Alert
-      css={{
-        borderStartWidth: "4px",
-        borderStartColor: { base: "border.600", _dark: "red.500" },
-      }}
+      w="2/3"
+      borderStartWidth="4px"
+      borderStartColor={{ base: "border.600", _dark: "red.500" }}
     >
       <AlertIcon>
         <LuCircleX />
       </AlertIcon>
       <AlertContent>
-        <AlertTitle className="text-lg">Custom Styled Alert</AlertTitle>
+        <AlertTitle textStyle="lg">Custom Styled Alert</AlertTitle>
         <AlertDescription>With custom border styling.</AlertDescription>
       </AlertContent>
     </Alert>

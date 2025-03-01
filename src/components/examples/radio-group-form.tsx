@@ -31,54 +31,47 @@ export default function RadioGroupForm() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre
-          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
-        >
-          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
+        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
+          <styled.code color="white">{JSON.stringify(data, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
   }
+
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ w: "2/3", spaceY: "6" }}>
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} w="2/3" spaceY="6">
         <FormField
           control={form.control}
           name="type"
           render={({ field }) => (
-            <FormItem css={{ spaceY: "3" }}>
+            <FormItem spaceY="3">
               <FormLabel>Notify me about...</FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
                   defaultValue={field.value}
-                  css={{ display: "flex", flexDir: "column", spaceY: "1" }}
+                  display="flex"
+                  flexDir="column"
+                  spaceY="1"
                 >
-                  <FormItem
-                    css={{ display: "flex", alignItems: "center", spaceX: "3", spaceY: "0" }}
-                  >
+                  <FormItem display="flex" alignItems="center" spaceX="3" spaceY="0">
                     <FormControl>
                       <RadioGroupItem value="all" />
                     </FormControl>
-                    <FormLabel css={{ fontWeight: "normal" }}>All new messages</FormLabel>
+                    <FormLabel fontWeight="normal">All new messages</FormLabel>
                   </FormItem>
-                  <FormItem
-                    css={{ display: "flex", alignItems: "center", spaceX: "3", spaceY: "0" }}
-                  >
+                  <FormItem display="flex" alignItems="center" spaceX="3" spaceY="0">
                     <FormControl>
                       <RadioGroupItem value="mentions" />
                     </FormControl>
-                    <FormLabel css={{ fontWeight: "normal" }}>
-                      Direct messages and mentions
-                    </FormLabel>
+                    <FormLabel fontWeight="normal">Direct messages and mentions</FormLabel>
                   </FormItem>
-                  <FormItem
-                    css={{ display: "flex", alignItems: "center", spaceX: "3", spaceY: "0" }}
-                  >
+                  <FormItem display="flex" alignItems="center" spaceX="3" spaceY="0">
                     <FormControl>
                       <RadioGroupItem value="none" />
                     </FormControl>
-                    <FormLabel css={{ fontWeight: "normal" }}>Nothing</FormLabel>
+                    <FormLabel fontWeight="normal">Nothing</FormLabel>
                   </FormItem>
                 </RadioGroup>
               </FormControl>

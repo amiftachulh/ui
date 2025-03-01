@@ -9,7 +9,7 @@ import {
   LuSmile,
   LuUser,
 } from "react-icons/lu";
-import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import {
   CommandDialog,
   CommandEmpty,
@@ -20,6 +20,7 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
+import { Kbd } from "@/components/ui/kbd";
 
 export default function CommandDialogDemo() {
   const [open, setOpen] = useState(false);
@@ -38,30 +39,12 @@ export default function CommandDialogDemo() {
 
   return (
     <>
-      <p className={css({ textStyle: "sm", color: "muted.fg" })}>
+      <styled.p textStyle="sm" color="muted.fg">
         Press{" "}
-        <kbd
-          className={css({
-            pointerEvents: "none",
-            display: "inline-flex",
-            h: "5",
-            userSelect: "none",
-            alignItems: "center",
-            gap: "1",
-            rounded: "md",
-            borderWidth: "1px",
-            bg: "muted",
-            px: "1.5",
-            fontFamily: "mono",
-            fontSize: "0.625rem",
-            fontWeight: "medium",
-            color: "muted.fg",
-            opacity: "1",
-          })}
-        >
-          <span className={css({ textStyle: "xs" })}>⌘</span>J
-        </kbd>
-      </p>
+        <Kbd>
+          <styled.span textStyle="xs">⌘</styled.span>J
+        </Kbd>
+      </styled.p>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
