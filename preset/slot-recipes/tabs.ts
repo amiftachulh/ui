@@ -33,9 +33,11 @@ export const tabsSlotRecipe = defineSlotRecipe({
       fontWeight: "medium",
       cursor: "pointer",
       _focusVisible: {
-        ringWidth: "2",
-        ringColor: "ring",
-        ringOffset: "0.5",
+        outline: "none",
+        focusRing: "2",
+        focusRingColor: "ring",
+        focusRingOffset: "2",
+        focusRingOffsetColor: "bg",
       },
       _disabled: {
         pointerEvents: "none",
@@ -62,9 +64,11 @@ export const tabsSlotRecipe = defineSlotRecipe({
     content: {
       p: 2,
       _focusVisible: {
-        ringWidth: "2px",
-        ringColor: "ring",
-        ringOffset: "2px",
+        outline: "none",
+        focusRing: "2",
+        focusRingColor: "ring",
+        focusRingOffset: "2",
+        focusRingOffsetColor: "bg",
       },
       _vertical: {
         flex: "1",

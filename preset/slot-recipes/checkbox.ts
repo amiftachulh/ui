@@ -12,10 +12,11 @@ export const checkboxSlotRecipe = defineSlotRecipe({
       borderWidth: "1",
       borderColor: "fg",
       _focusVisible: {
-        outlineStyle: "primary",
-        ringWidth: "2",
-        ringColor: "ring",
-        ringOffset: "0.5",
+        outline: "none",
+        focusRing: "2",
+        focusRingColor: "ring",
+        focusRingOffset: "2",
+        focusRingOffsetColor: "bg",
       },
       _disabled: {
         cursor: "not-allowed",

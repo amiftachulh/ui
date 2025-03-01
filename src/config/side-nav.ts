@@ -58,6 +58,10 @@ export const sideNav: SideNavGroup[] = [
         href: "/docs/components/card",
       },
       {
+        title: "Carousel",
+        href: "/docs/components/carousel",
+      },
+      {
         title: "Checkbox",
         href: "/docs/components/checkbox",
       },

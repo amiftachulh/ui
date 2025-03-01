@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import fs from "fs";
 import path from "path";
 import { styled } from "styled-system/jsx";
-import { center } from "styled-system/patterns";
 import CodeBlock from "./code-block";
 
 type ComponentPreviewProps = {
@@ -19,12 +18,13 @@ export default async function ComponentPreview({ name }: ComponentPreviewProps) 
   return (
     <styled.div rounded="md" borderWidth="1px" my="4" overflow="hidden">
       <styled.div
-        className={center({
-          color: "fg",
-          borderBottomWidth: "1px",
-          px: "4",
-          py: "6",
-        })}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="fg"
+        borderBottomWidth="1px"
+        px="4"
+        py="6"
       >
         <Component />
       </styled.div>

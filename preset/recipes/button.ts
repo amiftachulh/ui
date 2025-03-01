@@ -15,13 +15,13 @@ export const buttonRecipe = defineRecipe({
     textStyle: "sm",
     fontWeight: "medium",
     cursor: "pointer",
-    transition: "background-color 0.2s",
+    transition: "common",
     outline: "none",
     _focusVisible: {
-      outlineStyle: "auto",
-      ringWidth: "2",
-      ringColor: "ring",
-      ringOffset: "1",
+      focusRing: "2",
+      focusRingColor: "ring",
+      focusRingOffset: "2",
+      focusRingOffsetColor: "bg",
     },
     _disabled: {
       pointerEvents: "none",

@@ -21,9 +21,11 @@ export const radioGroupSlotRecipe = defineSlotRecipe({
         outline: "none",
       },
       _focusVisible: {
-        ringWidth: "2px",
-        ringColor: "ring",
-        ringOffset: "2px",
+        outline: "none",
+        focusRing: "2",
+        focusRingColor: "ring",
+        focusRingOffset: "2",
+        focusRingOffsetColor: "bg",
       },
       _disabled: {
         cursor: "not-allowed",

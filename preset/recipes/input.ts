@@ -8,13 +8,18 @@ export const inputRecipe = defineRecipe({
     bg: "bg",
     rounded: "md",
     borderWidth: "1px",
+    transition: "common",
     _file: {
       bg: "transparent",
+      fontWeight: "medium",
+      color: "fg",
     },
     _focusVisible: {
-      ringWidth: "2",
-      ringColor: "ring",
-      ringOffset: "1",
+      outline: "none",
+      focusRing: "2",
+      focusRingColor: "ring",
+      focusRingOffset: "2",
+      focusRingOffsetColor: "bg",
     },
     _disabled: {
       opacity: "0.5",

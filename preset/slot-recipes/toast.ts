@@ -82,7 +82,10 @@ export const toastSlotRecipe = defineSlotRecipe({
       },
       _focus: {
         outline: "none",
-        ringWidth: "2",
+        focusRing: "2",
+        focusRingColor: "ring",
+        focusRingOffset: "2",
+        focusRingOffsetColor: "bg",
       },
       _disabled: {
         pointerEvents: "none",
@@ -105,7 +108,10 @@ export const toastSlotRecipe = defineSlotRecipe({
       _focus: {
         opacity: "1",
         outline: "none",
-        ringWidth: "2",
+        focusRing: "2",
+        focusRingColor: "ring",
+        focusRingOffset: "2",
+        focusRingOffsetColor: "bg",
       },
       _groupHover: {
         opacity: "1",

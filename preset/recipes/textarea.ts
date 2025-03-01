@@ -18,9 +18,10 @@ export const textareaRecipe = defineRecipe({
     },
     _focusVisible: {
       outline: "none",
-      ringWidth: "2px",
-      ringColor: "ring",
-      ringOffset: "2px",
+      focusRing: "2",
+      focusRingColor: "ring",
+      focusRingOffset: "2",
+      focusRingOffsetColor: "bg",
     },
     _disabled: {
       cursor: "not-allowed",
