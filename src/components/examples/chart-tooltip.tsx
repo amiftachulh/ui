@@ -232,8 +232,7 @@ function TooltipDemo({
           transition: "all",
           transitionTimingFunction: "ease-in-out",
           _hover: {
-            tf: true,
-            tfTranslateY: "-0.5",
+            transform: "translateY(-0.25rem)",
           },
         }),
         className

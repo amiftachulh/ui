@@ -112,9 +112,9 @@ You can always adjust this in your own project if you need to.
 ```tsx
 <Carousel>
   <CarouselContent ml={{ base: "-2", md: "-4" }}>
-    <CarouselItem pl={{base: "2", md:"4"}}>...</CarouselItem>
-    <CarouselItem pl={{base: "2", md:"4"}}>...</CarouselItem>
-    <CarouselItem pl={{base: "2", md:"4"}}>...</CarouselItem>
+    <CarouselItem pl={{ base: "2", md: "4" }}>...</CarouselItem>
+    <CarouselItem pl={{ base: "2", md: "4" }}>...</CarouselItem>
+    <CarouselItem pl={{ base: "2", md: "4" }}>...</CarouselItem>
   </CarouselContent>
 </Carousel>
 ```
@@ -162,25 +162,25 @@ Use a state and the `setApi` props to get an instance of the carousel API.
 <ComponentPreview name="carousel-api" />
 
 ```tsx highlight="1,4,22"
-import { type CarouselApi } from "@/components/ui/carousel"
+import { type CarouselApi } from "@/components/ui/carousel";
 
 export function Example() {
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-  const [count, setCount] = React.useState(0)
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
     if (!api) {
-      return
+      return;
     }
 
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
-  }, [api])
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   return (
     <Carousel setApi={setApi}>
@@ -190,7 +190,7 @@ export function Example() {
         <CarouselItem>...</CarouselItem>
       </CarouselContent>
     </Carousel>
-  )
+  );
 }
 ```
 
@@ -199,20 +199,20 @@ export function Example() {
 You can listen to events using the api instance from `setApi`.
 
 ```tsx highlight="1,4-14,17"
-import { type CarouselApi } from "@/components/ui/carousel"
+import { type CarouselApi } from "@/components/ui/carousel";
 
 export function Example() {
-  const [api, setApi] = React.useState<CarouselApi>()
+  const [api, setApi] = React.useState<CarouselApi>();
 
   React.useEffect(() => {
     if (!api) {
-      return
+      return;
     }
 
     api.on("select", () => {
       // Do something on select.
-    })
-  }, [api])
+    });
+  }, [api]);
 
   return (
     <Carousel setApi={setApi}>
@@ -222,7 +222,7 @@ export function Example() {
         <CarouselItem>...</CarouselItem>
       </CarouselContent>
     </Carousel>
-  )
+  );
 }
 ```
 
@@ -234,7 +234,7 @@ using events.
 You can use the plugins prop to add `plugins` to the carousel.
 
 ```tsx highlight="1,6-10"
-import Autoplay from "embla-carousel-autoplay"
+import Autoplay from "embla-carousel-autoplay";
 
 export function Example() {
   return (
@@ -247,7 +247,7 @@ export function Example() {
     >
       // ...
     </Carousel>
-  )
+  );
 }
 ```
 

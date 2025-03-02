@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { LuCheck, LuChevronsUpDown } from "react-icons/lu";
-import { cx } from "styled-system/css";
+import { css } from "styled-system/css";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -59,10 +59,10 @@ export default function ComboboxDemo() {
                 >
                   {framework.label}
                   <LuCheck
-                    className={cx(
-                      "ml-auto",
-                      value === framework.value ? "opacity-100" : "opacity-0"
-                    )}
+                    className={css({
+                      ml: "auto",
+                      opacity: value === framework.value ? "1" : "0",
+                    })}
                   />
                 </CommandItem>
               ))}

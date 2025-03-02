@@ -57,8 +57,8 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Installation",
-          href: "/docs/overview/installation",
+          title: "Getting Started",
+          href: "/docs/overview/getting-started",
           items: [],
         },
         // {
@@ -427,6 +427,11 @@ export const docsConfig: DocsConfig = {
         {
           title: "Tooltip",
           href: "/docs/components/tooltip",
+          items: [],
+        },
+        {
+          title: "Vaul",
+          href: "/docs/components/vaul",
           items: [],
         },
       ],

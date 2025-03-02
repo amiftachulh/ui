@@ -95,19 +95,18 @@ export const selectSlotRecipe = defineSlotRecipe({
       "&[data-side=right]": {
         slideInFromLeft: "2",
       },
-      tf: true,
       "&[data-position=popper]": {
         "&[data-side=top]": {
-          tfTranslateY: "-1",
+          transform: "translateY(calc(var(--spacing-1) * -1))",
         },
         "&[data-side=bottom]": {
-          tfTranslateY: "1",
+          transform: "translateY(var(--spacing-1))",
         },
         "&[data-side=left]": {
-          tfTranslateX: "-1",
+          transform: "translateX(calc(var(--spacing-1) * -1))",
         },
         "&[data-side=right]": {
-          tfTranslateX: "1",
+          transform: "translateX(var(--spacing-1))",
         },
       },
     },

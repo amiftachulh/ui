@@ -43,7 +43,12 @@ Before you begin, ensure you have the following dependencies installed:
         },
         {
           name: "utilities",
-          children: [{ name: "animation.ts" }, { name: "index.ts" }, { name: "transform.ts" }],
+          children: [
+            { name: "animation.ts" },
+            { name: "focus-ring.ts" },
+            { name: "index.ts" },
+            { name: "transform.ts" },
+          ],
         },
         { name: "index.ts" },
         { name: "keyframes.ts" },
@@ -121,7 +126,7 @@ export const keyframes = defineKeyframes({
 ```ts
 import { type PropertyConfig } from "@pandacss/dev";
 
-export const utilities: Record<string, PropertyConfig> = {
+export const animation: Record<string, PropertyConfig> = {
   animateIn: {
     className: "animate_in",
     values: { type: "boolean" },
@@ -281,45 +286,90 @@ export const utilities: Record<string, PropertyConfig> = {
 };
 ```
 
-`preset/utilities/transform.ts`
+`preset/utilities/focus-ring.ts`
 
 ```ts
-import { type PropertyConfig } from "@pandacss/dev";
+import { PropertyConfig } from "@pandacss/dev";
 
-const baseTransform = {
-  transform:
-    "translate(var(--panda-translate-x, 0), var(--panda-translate-y, 0)) rotate(var(--panda-rotate, 0)) skewX(var(--panda-skew-x, 0)) skewY(var(--panda-skew-y, 0)) scaleX(var(--panda-scale-x, 1)) scaleY(var(--panda-scale-y, 1))",
-};
+const ringWidth = {
+  "0": "0px",
+  "1": "1px",
+  "2": "2px",
+  "4": "4px",
+  "8": "8px",
+} as const;
 
-export const transform: Record<string, PropertyConfig> = {
-  translate: {
-    className: "translate",
-    values: "spacing",
-    transform: (value: string) => {
+export const focusRing: Record<string, PropertyConfig> = {
+  focusRing: {
+    className: "ring",
+    values: ringWidth,
+    group: "Shadow",
+    transform(value) {
       return {
-        ...baseTransform,
-        "--panda-translate-x": value,
-        "--panda-translate-y": value,
+        position: "relative",
+        "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)",
+        "--tw-ring-offset-width": "0px",
+        "--tw-ring-offset-color": "#fff",
+        "--tw-ring-color": "rgba(59, 130, 246, 0.5)",
+        "--tw-ring-offset-shadow":
+          "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+        "--tw-ring-shadow":
+          "var(--tw-ring-inset) 0 0 0 calc(" +
+          value +
+          " + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+        boxShadow:
+          "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
       };
     },
   },
-  translateY: {
-    className: "translate_y",
-    values: "spacing",
-    transform: (value: string) => {
+  focusRingColor: {
+    className: "ring-clr",
+    values: "colors",
+    group: "Shadow",
+    transform(value, { utils }) {
+      const mix = utils.colorMix(value);
+      if (mix.invalid) {
+        return {
+          "--tw-ring-color": value,
+        };
+      }
       return {
-        ...baseTransform,
-        "--panda-translate-y": value,
+        "--tw-ring-color": mix.value,
       };
     },
   },
-  translateX: {
-    className: "translate_x",
-    values: "spacing",
-    transform: (value: string) => {
+  focusRingOffset: {
+    className: "ring-offset",
+    values: ringWidth,
+    group: "Shadow",
+    transform(value) {
       return {
-        ...baseTransform,
-        "--panda-translate-x": value,
+        "--tw-ring-offset-width": value,
+      };
+    },
+  },
+  focusRingOffsetColor: {
+    className: "ring-offset-clr",
+    values: "colors",
+    group: "Shadow",
+    transform(value, { utils }) {
+      const mix = utils.colorMix(value);
+      if (mix.invalid) {
+        return {
+          "--tw-ring-offset-color": value,
+        };
+      }
+      return {
+        "--tw-ring-offset-color": mix.value,
+      };
+    },
+  },
+  focusRingInset: {
+    className: "ring-inset",
+    group: "Shadow",
+    transform() {
+      return {
+        "--tw-ring-inset": "inset",
       };
     },
   },
@@ -330,12 +380,9 @@ export const transform: Record<string, PropertyConfig> = {
 
 ```ts
 import { animation } from "./animation";
-import { transform } from "./transform";
+import { focusRing } from "./focus-ring";
 
-export const utilities = {
-  ...animation,
-  ...transform,
-};
+export const utilities = Object.assign({}, animation, focusRing);
 ```
 
 <Step>Copy the semantic tokens.</Step>
@@ -405,6 +452,9 @@ const preset = definePreset({
       bg: "bg",
       color: "fg",
     },
+    button: {
+      cursor: "pointer",
+    },
   },
   theme: {
     extend: {
@@ -444,7 +494,7 @@ export const slotRecipes = {
 
 <Step>Import the preset into your `panda.config.ts` file.</Step>
 
-```ts highlight="6,9,10"
+```ts highlight="6"
 import { defineConfig } from "@pandacss/dev";
 import preset from "./preset";
 
@@ -454,7 +504,6 @@ export default defineConfig({
   include: ["./src/**/*.{js,jsx,ts,tsx}"],
   exclude: [],
   jsxFramework: "react",
-  jsxStyleProps: "minimal",
   // This globalCss is just an example, you can remove it if you don't need it.
   globalCss: {
     extend: {
@@ -467,11 +516,6 @@ export default defineConfig({
   outdir: "styled-system",
 });
 ```
-
-<Alert
-  variant="warning"
-  description="We use jsxStyleProps: 'minimal' to avoid prop name conflicts with other headless components. If you don't have a problem with this, you can remove it. But make sure to check the prop names of the components."
-/>
 
 <Step>Edit `tsconfig.json`</Step>
 

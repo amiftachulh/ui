@@ -3,6 +3,7 @@ import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { flex } from "styled-system/patterns";
 import CommandMenu from "@/components/command-menu";
+import MobileNav from "@/components/mobile-nav";
 import ThemeToggle from "@/components/theme-toggle";
 
 export default function Header() {
@@ -21,18 +22,28 @@ export default function Header() {
         className={flex({
           align: "center",
           justify: "space-between",
-          gap: "8",
+          gap: "4",
           maxW: "breakpoint-2xl",
           h: "14",
           mx: "auto",
           px: "4",
         })}
       >
-        <div className={flex({ align: "center", gap: "8" })}>
-          <Link href="/" className={css({ textStyle: "lg", fontWeight: "bold" })}>
+        <div className={flex({ align: "center", gap: "2" })}>
+          <Link
+            href="/"
+            className={css({
+              display: "none",
+              textStyle: "lg",
+              fontWeight: "bold",
+              mr: "4",
+              md: { display: "block" },
+            })}
+          >
             UI
           </Link>
-          <nav className={flex({ gap: "4" })}>
+          <MobileNav />
+          <nav className={css({ display: "none", sm: { display: "flex", gap: "4" } })}>
             <Link
               className={css({
                 color: "fg/80",
@@ -49,7 +60,7 @@ export default function Header() {
           </nav>
         </div>
 
-        <styled.div display="flex" alignItems="center" gap="2">
+        <styled.div flex="1" display="flex" alignItems="center" gap="2" sm={{ flex: "initial" }}>
           <CommandMenu />
           <ThemeToggle />
         </styled.div>

@@ -1,0 +1,64 @@
+---
+title: Vaul
+description: Vaul is a drawer component that made on top of Radix Dialog.
+links:
+  - title: Docs
+    href: https://vaul.emilkowal.ski/getting-started
+---
+
+<ComponentPreview name="vaul-demo" />
+
+## About
+
+Vaul is built by [emilkowalski\_](https://twitter.com/emilkowalski_).
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="vaul" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="vaul.ts" type="slot-recipe" />
+
+<ComponentSource name="vaul.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Vaul,
+  VaulClose,
+  VaulContent,
+  VaulDescription,
+  VaulFooter,
+  VaulHeader,
+  VaulTitle,
+  VaulTrigger,
+} from "@/components/ui/vaul";
+```
+
+```tsx
+<Vaul>
+  <VaulTrigger>Open</VaulTrigger>
+  <VaulContent>
+    <VaulHeader>
+      <VaulTitle>Are you absolutely sure?</VaulTitle>
+      <VaulDescription>This action cannot be undone.</VaulDescription>
+    </VaulHeader>
+    <VaulFooter>
+      <Button>Submit</Button>
+      <VaulClose>
+        <Button variant="outline">Cancel</Button>
+      </VaulClose>
+    </VaulFooter>
+  </VaulContent>
+</Vaul>
+```

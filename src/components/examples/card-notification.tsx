@@ -61,8 +61,7 @@ export default function CardNotification() {
                 display="flex"
                 w="2"
                 h="2"
-                tf
-                tfTranslateY="1"
+                transform="translateY(0.25rem)"
                 rounded="full"
                 bg="sky.500"
               />

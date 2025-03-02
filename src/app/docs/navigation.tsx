@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { css } from "styled-system/css";
-import { sideNav } from "@/config/side-nav";
+import { docsConfig } from "@/config/docs";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -48,14 +48,14 @@ export default function Navigation() {
         },
       })}
     >
-      {sideNav.map((nav) => (
+      {docsConfig.sidebarNav.map((nav) => (
         <div key={nav.title}>
           <h4 className={css({ py: "1", textStyle: "sm", fontWeight: "semibold" })}>{nav.title}</h4>
           <ul className={css({ spaceY: "0.5" })}>
             {nav.items.map((item) => (
               <li key={item.href}>
                 <Link
-                  href={item.href}
+                  href={item.href as string}
                   className={css({
                     display: "block",
                     bg: pathname === item.href ? "primary/10!" : "transparent",
