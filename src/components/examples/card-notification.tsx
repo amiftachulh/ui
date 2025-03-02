@@ -57,7 +57,15 @@ export default function CardNotification() {
               pb="4"
               _last={{ mb: "0", pb: "0" }}
             >
-              <styled.span display="flex" w="2" h="2" translateY="1" rounded="full" bg="sky.500" />
+              <styled.span
+                display="flex"
+                w="2"
+                h="2"
+                tf
+                tfTranslateY="1"
+                rounded="full"
+                bg="sky.500"
+              />
               <styled.div spaceY="1">
                 <styled.p textStyle="sm" fontWeight="medium" lineHeight="none">
                   {notification.title}

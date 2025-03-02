@@ -45,11 +45,12 @@ export const switchSlotRecipe = defineSlotRecipe({
       shadow: "lg",
       outlineWidth: "0",
       transition: "transform",
+      tf: true,
       "&[data-state=checked]": {
-        translateX: "5",
+        tfTranslateX: "5",
       },
       "&[data-state=unchecked]": {
-        translateX: "0",
+        tfTranslateX: "0",
       },
     },
   },

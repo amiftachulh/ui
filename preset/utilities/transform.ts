@@ -6,35 +6,68 @@ const baseTransform = {
 };
 
 export const transform: Record<string, PropertyConfig> = {
-  translate: {
-    className: "translate",
-    values: "spacing",
-    transform: (value: string) => {
-      return {
-        ...baseTransform,
-        "--panda-translate-x": value,
-        "--panda-translate-y": value,
-      };
-    },
+  tf: {
+    className: "tf",
+    values: { type: "boolean" },
+    transform: (value: boolean) => (value ? baseTransform : {}),
   },
-  translateY: {
-    className: "translate_y",
+  tfTranslateX: {
+    className: "tf_translate_x",
     values: "spacing",
-    transform: (value: string) => {
-      return {
-        ...baseTransform,
-        "--panda-translate-y": value,
-      };
-    },
+    transform: (value: string) => ({
+      "--panda-translate-x": value,
+    }),
   },
-  translateX: {
-    className: "translate_x",
+  tfTranslateY: {
+    className: "tf_translate_y",
     values: "spacing",
-    transform: (value: string) => {
-      return {
-        ...baseTransform,
-        "--panda-translate-x": value,
-      };
-    },
+    transform: (value: string) => ({
+      "--panda-translate-y": value,
+    }),
+  },
+  tfTranslate: {
+    className: "tf_translate",
+    values: "spacing",
+    transform: (value: string) => ({
+      "--panda-translate-x": value,
+      "--panda-translate-y": value,
+    }),
+  },
+  tfRotate: {
+    className: "tf_rotate",
+    transform: (value: string) => ({
+      "--panda-rotate": value,
+    }),
+  },
+  tfScaleX: {
+    className: "tf_scale_x",
+    transform: (value: string) => ({
+      "--panda-scale-x": value,
+    }),
+  },
+  tfScaleY: {
+    className: "tf_scale_y",
+    transform: (value: string) => ({
+      "--panda-scale-y": value,
+    }),
+  },
+  tfScale: {
+    className: "tf_scale",
+    transform: (value: string) => ({
+      "--panda-scale-x": value,
+      "--panda-scale-y": value,
+    }),
+  },
+  tfSkewX: {
+    className: "tf_skew_x",
+    transform: (value: string) => ({
+      "--panda-skew-x": value,
+    }),
+  },
+  tfSkewY: {
+    className: "tf_skew_y",
+    transform: (value: string) => ({
+      "--panda-skew-y": value,
+    }),
   },
 };
