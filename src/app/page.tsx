@@ -13,7 +13,7 @@ export default function Home() {
         <p
           className={css({ color: "muted.fg", textStyle: "sm", mt: "2", md: { textStyle: "lg" } })}
         >
-          A collection of headless component styled with Panda CSS based on shadcn.
+          A collection of component styled with Panda CSS based on shadcn.
         </p>
         <div className={flex({ direction: "column", gap: "2", mt: "4", sm: { flexDir: "row" } })}>
           <Link className={button()} href="/docs/overview/getting-started">
