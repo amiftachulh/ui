@@ -33,6 +33,13 @@ export const semanticTokens = defineSemanticTokens({
     border: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
     input: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
     ring: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+    chart: {
+      1: { value: { base: "hsl(12 76% 61%)", _dark: "hsl(220 70% 50%)" } },
+      2: { value: { base: "hsl(173 58% 39%)", _dark: "hsl(160 60% 45%)" } },
+      3: { value: { base: "hsl(197 37% 24%)", _dark: "hsl(30 80% 55%)" } },
+      4: { value: { base: "hsl(43 74% 66%)", _dark: "hsl(280 65% 60%)" } },
+      5: { value: { base: "hsl(27 87% 67%)", _dark: "hsl(340 75% 55%)" } },
+    },
   },
   animations: {
     "accordion-up": { value: "accordion-up {durations.normal} {easings.out}" },

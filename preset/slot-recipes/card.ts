@@ -7,12 +7,8 @@ export const cardSlotRecipe = defineSlotRecipe({
     root: {
       bg: "card",
       color: "card.fg",
-      display: "flex",
-      flexDir: "column",
-      gap: "6",
       rounded: "xl",
       borderWidth: "1px",
-      py: "6",
       shadow: "sm",
     },
 
@@ -25,6 +21,7 @@ export const cardSlotRecipe = defineSlotRecipe({
 
     title: {
       lineHeight: "none",
+      letterSpacing: "tight",
       fontWeight: "semibold",
     },
 
@@ -34,13 +31,15 @@ export const cardSlotRecipe = defineSlotRecipe({
     },
 
     content: {
-      px: "6",
+      p: "6",
+      pt: "0",
     },
 
     footer: {
       display: "flex",
       alignItems: "center",
-      px: "6",
+      p: "6",
+      pt: "0",
     },
   },
 });
