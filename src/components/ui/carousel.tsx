@@ -5,6 +5,7 @@ import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import { css, cx } from "styled-system/css";
 import { styled } from "styled-system/jsx";
+import { carousel } from "styled-system/recipes";
 import { Button } from "@/components/ui/button";
 
 type CarouselApi = UseEmblaCarouselType[1];
@@ -39,6 +40,8 @@ function useCarousel() {
 
   return context;
 }
+
+const classes = carousel();
 
 function Root({
   orientation = "horizontal",
@@ -117,7 +120,7 @@ function Root({
     >
       <div
         onKeyDownCapture={handleKeyDown}
-        className={cx(css({ pos: "relative" }), className)}
+        className={cx(classes.root, className)}
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
@@ -136,15 +139,7 @@ function Content({ className, ...props }: React.ComponentProps<"div">) {
 
   return (
     <div ref={carouselRef} className={css({ overflow: "hidden" })} data-slot="carousel-content">
-      <div
-        data-orientation={orientation}
-        className={cx(
-          css({ display: "flex" }),
-          orientation === "horizontal" ? css({ ml: "-4" }) : css({ mt: "-4", flexDir: "column" }),
-          className
-        )}
-        {...props}
-      />
+      <div data-orientation={orientation} className={cx(classes.content, className)} {...props} />
     </div>
   );
 }
@@ -160,11 +155,7 @@ function Item({ className, ...props }: React.ComponentProps<"div">) {
       aria-roledescription="slide"
       data-slot="carousel-item"
       data-orientation={orientation}
-      className={cx(
-        css({ minW: "0", flexShrink: "0", flexGrow: "0", flexBasis: "full" }),
-        orientation === "horizontal" ? css({ pl: "4" }) : css({ pt: "4" }),
-        className
-      )}
+      className={cx(classes.item, className)}
       {...props}
     />
   );
@@ -186,13 +177,7 @@ function CarouselPrevious({
       data-orientation={orientation}
       variant={variant}
       size={size}
-      className={cx(
-        css({ pos: "absolute", w: "8", h: "8", rounded: "full" }),
-        orientation === "horizontal"
-          ? css({ top: "50%", left: "-12", translateY: "-50%" })
-          : css({ top: "-12", left: "50%", translateX: "-50%", rotate: "90deg" }),
-        className
-      )}
+      className={cx(classes.previous, className)}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
@@ -218,10 +203,8 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cx(
-        css({ pos: "absolute", w: "8", h: "8", rounded: "full" }),
-        orientation === "horizontal"
-          ? css({ top: "50%", right: "-12", translateY: "-50%" })
-          : css({ bottom: "-12", left: "50%", translateX: "-50%", rotate: "90deg" }),
+        classes.next,
+
         className
       )}
       disabled={!canScrollNext}

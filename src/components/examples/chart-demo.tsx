@@ -142,7 +142,7 @@ export default function ChartDemo() {
         spaceY="0"
         borderBottomWidth="1px"
         p="0"
-        sm={{ py: "6" }}
+        sm={{ flexDir: "row" }}
       >
         <styled.div
           display="flex"
@@ -179,7 +179,7 @@ export default function ChartDemo() {
                 sm={{ borderLeftWidth: "1px", borderTopWidth: "0", px: "8", py: "6" }}
                 css={{
                   "&[data-active=true]": {
-                    bg: "muted.50",
+                    bg: "muted/50",
                   },
                 }}
                 onClick={() => setActiveChart(chart)}

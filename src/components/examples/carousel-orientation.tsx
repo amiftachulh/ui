@@ -17,7 +17,7 @@ export default function CarouselOrientation() {
       orientation="vertical"
       w="full"
       maxW="xs"
-      my="16"
+      my="24"
     >
       <CarouselContent mt="-1" h="200px">
         {Array.from({ length: 5 }).map((_, index) => (

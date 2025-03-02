@@ -16,6 +16,9 @@ const preset = definePreset({
       bg: "bg",
       color: "fg",
     },
+    button: {
+      cursor: "pointer",
+    },
   },
   theme: {
     extend: {

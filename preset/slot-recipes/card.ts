@@ -7,7 +7,7 @@ export const cardSlotRecipe = defineSlotRecipe({
     root: {
       bg: "card",
       color: "card.fg",
-      rounded: "xl",
+      rounded: "lg",
       borderWidth: "1px",
       shadow: "sm",
     },
@@ -16,18 +16,19 @@ export const cardSlotRecipe = defineSlotRecipe({
       display: "flex",
       flexDir: "column",
       gap: "1.5",
-      px: "6",
+      p: "6",
     },
 
     title: {
+      textStyle: "2xl",
+      fontWeight: "semibold",
       lineHeight: "none",
       letterSpacing: "tight",
-      fontWeight: "semibold",
     },
 
     description: {
-      color: "muted.fg",
       textStyle: "sm",
+      color: "muted.fg",
     },
 
     content: {
