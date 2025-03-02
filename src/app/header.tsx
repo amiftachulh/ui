@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { flex } from "styled-system/patterns";
+import CommandMenu from "@/components/command-menu";
 import ThemeToggle from "@/components/theme-toggle";
 
 export default function Header() {
@@ -27,7 +29,9 @@ export default function Header() {
         })}
       >
         <div className={flex({ align: "center", gap: "8" })}>
-          <h1 className={css({ textStyle: "lg", fontWeight: "bold" })}>UI</h1>
+          <Link href="/" className={css({ textStyle: "lg", fontWeight: "bold" })}>
+            UI
+          </Link>
           <nav className={flex({ gap: "4" })}>
             <Link
               className={css({
@@ -44,7 +48,11 @@ export default function Header() {
             </Link>
           </nav>
         </div>
-        <ThemeToggle />
+
+        <styled.div display="flex" alignItems="center" gap="2">
+          <CommandMenu />
+          <ThemeToggle />
+        </styled.div>
       </div>
     </header>
   );
