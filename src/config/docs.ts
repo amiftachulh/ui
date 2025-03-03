@@ -320,6 +320,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Multi Select",
+          href: "/docs/components/multi-select",
+          items: [],
+        },
+        {
           title: "Navigation Menu",
           href: "/docs/components/navigation-menu",
           items: [],

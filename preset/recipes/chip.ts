@@ -5,7 +5,7 @@ export const chipRecipe = defineRecipe({
   base: {
     display: "inline-flex",
     alignItems: "center",
-    borderRadius: "sm",
+    rounded: "full",
     gap: "2",
     fontWeight: "medium",
     fontVariantNumeric: "tabular-nums",
