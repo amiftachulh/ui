@@ -14,7 +14,7 @@ export const kbdRecipe = defineRecipe({
     bg: "muted",
     px: "1.5",
     fontFamily: "mono",
-    fontSize: "0.625rem",
+    textStyle: "xs",
     fontWeight: "medium",
     color: "muted.fg",
     opacity: "1",
