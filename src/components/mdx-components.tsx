@@ -130,6 +130,7 @@ const components: MDXComponents = {
     <styled.code
       className={chip({ variant: "secondary", size: "md" })}
       px="0.5"
+      rounded="sm"
       color="secondary.fg"
       userSelect="auto"
     >
@@ -155,7 +156,7 @@ const components: MDXComponents = {
     </styled.blockquote>
   ),
   table: (props) => (
-    <styled.div rounded="mb" borderWidth="1px">
+    <styled.div rounded="md" borderWidth="1px">
       <Table {...props} />
     </styled.div>
   ),

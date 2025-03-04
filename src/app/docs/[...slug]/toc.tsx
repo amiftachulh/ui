@@ -53,6 +53,28 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
         w: "full",
         maxWidth: "220px",
         overflowY: "auto",
+        _hover: {
+          _scrollbarThumb: {
+            bg: "zinc.300",
+            _dark: {
+              bg: "zinc.700",
+            },
+          },
+        },
+        _scrollbar: {
+          w: "1.5",
+          h: "1.5",
+        },
+        _scrollbarThumb: {
+          bg: "transparent",
+          rounded: "full",
+        },
+        _scrollbarTrack: {
+          bg: "transparent",
+        },
+        "&::-webkit-scrollbar-corner": {
+          bg: "transparent",
+        },
         lg: {
           display: "block",
         },

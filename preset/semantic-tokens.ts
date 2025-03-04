@@ -22,6 +22,10 @@ export const semanticTokens = defineSemanticTokens({
       DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.800}" } },
       fg: { value: { base: "{colors.zinc.500}", _dark: "{colors.zinc.400}" } },
     },
+    danger: {
+      DEFAULT: { value: { base: "{colors.red.500}", _dark: "{colors.red.600}" } },
+      fg: { value: { base: "{colors.red.50}", _dark: "{colors.red.900}" } },
+    },
     card: {
       DEFAULT: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.950}" } },
       fg: { value: { base: "{colors.zinc.950}", _dark: "{colors.zinc.50}" } },
@@ -46,6 +50,5 @@ export const semanticTokens = defineSemanticTokens({
     "accordion-down": { value: "accordion-down {durations.normal} {easings.out}" },
     "accordion-left": { value: "accordion-left {durations.normal} {easings.out}" },
     "accordion-right": { value: "accordion-right {durations.normal} {easings.out}" },
-    "caret-blink": { value: "caret-blink 1.25s {easings.out} infinite" },
   },
 });
