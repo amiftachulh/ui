@@ -1,0 +1,76 @@
+---
+title: Phone Input
+description: A phone input field with country code dropdown.
+links:
+  - title: Docs
+    href: https://catamphetamine.gitlab.io/react-phone-number-input
+---
+
+<ComponentPreview name="phone-input-demo" />
+
+## About
+
+The `Phone Input` component is built on top of [React Phone Number Input](https://catamphetamine.gitlab.io/react-phone-number-input).
+Thanks to [omeralpi](https://github.com/omeralpi) for implementing this component.
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="react-phone-number-input" />
+
+<Step>Add these components to your project:</Step>
+
+- [Button](/docs/components/button)
+- [Command](/docs/components/command)
+- [Input](/docs/components/input)
+- [Popover](/docs/components/popover)
+- [Scroll Area](/docs/components/scroll-area)
+
+<Step>Copy and paste the following code into your project:</Step>
+
+<ComponentSource name="phone-input.tsx" type="component" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import { PhoneInput } from "@/components/ui/phone-input";
+```
+
+```tsx
+const [value, setValue] = React.useState("");
+
+return <InputPhone value={value} onChange={setValue} />;
+```
+
+## Examples
+
+### Setting default country
+
+<ComponentPreview name="phone-input-default-country" />
+
+### Internationalization
+
+<ComponentPreview name="phone-input-internationalization" />
+
+### Force international format
+
+<ComponentPreview name="phone-input-international" />
+
+### Force national format
+
+<ComponentPreview name="phone-input-national" />
+
+### initialValueFormat
+
+<ComponentPreview name="phone-input-initial" />
+
+### Formatting value
+
+<ComponentPreview name="phone-input-formatting-value" />

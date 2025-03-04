@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { styled } from "styled-system/jsx";
 import { z } from "zod";
@@ -14,20 +15,18 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { PhoneInput } from "@/components/ui/phone-input";
 import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  phone: z.string().refine(isValidPhoneNumber, { message: "Invalid phone number" }),
 });
 
-export default function FormDemo() {
+export default function PhoneInputDemo() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      phone: "",
     },
   });
 
@@ -44,21 +43,30 @@ export default function FormDemo() {
 
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} w="2/3" spaceY="6">
+      <styled.form
+        onSubmit={form.handleSubmit(onSubmit)}
+        display="flex"
+        flexDir="column"
+        alignItems="flex-start"
+        spaceY="8"
+      >
         <FormField
           control={form.control}
-          name="username"
+          name="phone"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
+            <FormItem display="flex" flexDir="column" alignItems="flex-start">
+              <FormLabel textAlign="left">Phone Number</FormLabel>
+              <FormControl w="full">
+                <PhoneInput placeholder="Enter a phone number" {...field} />
               </FormControl>
-              <FormDescription>This is your public display name.</FormDescription>
+              <FormDescription textAlign="left">Enter a phone number</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
+        <pre>
+          <styled.code color="fg">{JSON.stringify(form.watch("phone"), null, 2)}</styled.code>
+        </pre>
         <Button type="submit">Submit</Button>
       </styled.form>
     </Form>

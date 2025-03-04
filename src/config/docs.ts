@@ -345,6 +345,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Phone Input",
+          href: "/docs/components/phone-input",
+          items: [],
+        },
+        {
           title: "Popover",
           href: "/docs/components/popover",
           items: [],
