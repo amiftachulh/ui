@@ -290,6 +290,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Empty State",
+          href: "/docs/components/empty-state",
+          items: [],
+        },
+        {
           title: "Form",
           href: "/docs/components/form",
           items: [],

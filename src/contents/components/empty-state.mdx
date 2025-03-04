@@ -1,0 +1,52 @@
+---
+title: Empty State
+description: Display a message when there is no data to show.
+---
+
+<ComponentPreview name="empty-state-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-slot" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="empty-state.ts" type="slot-recipe" />
+
+<ComponentSource name="empty-state.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  EmptyState,
+  EmptyStateAction,
+  EmptyStateDescription,
+  EmptyStateIndicator,
+  EmptyStateTitle,
+} from "@/components/ui/empty-state";
+```
+
+```tsx
+<EmptyState>
+  <EmptyStateIndicator>
+    <LuShoppingCart />
+  </EmptyStateIndicator>
+  <EmptyStateContent>
+    <EmptyStateTitle>Your cart is empty</EmptyStateTitle>
+    <EmptyStateDescription>Explore our products and add items to your cart</EmptyStateDescription>
+  </EmptyStateContent>
+  <EmptyStateActions>
+    <Button>Explore products</Button>
+    <Button variant="outline">Learn more</Button>
+  </EmptyStateActions>
+</EmptyState>
+```

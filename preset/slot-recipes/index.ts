@@ -11,6 +11,7 @@ import { contextMenuSlotRecipe } from "./context-menu";
 import { dialogSlotRecipe } from "./dialog";
 import { drawerSlotRecipe } from "./drawer";
 import { dropdownMenuSlotRecipe } from "./dropdown-menu";
+import { emptyStateSlotRecipe } from "./empty-state";
 import { hoverCardSlotRecipe } from "./hover-card";
 import { menubarSlotRecipe } from "./menubar";
 import { navigationMenuSlotRecipe } from "./navigation-menu";
@@ -43,6 +44,7 @@ export const slotRecipes = {
   dropdownMenu: dropdownMenuSlotRecipe,
   dialog: dialogSlotRecipe,
   drawer: drawerSlotRecipe,
+  emptyState: emptyStateSlotRecipe,
   hoverCard: hoverCardSlotRecipe,
   menubar: menubarSlotRecipe,
   navigationMenu: navigationMenuSlotRecipe,
