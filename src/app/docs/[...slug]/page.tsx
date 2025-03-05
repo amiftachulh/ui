@@ -1,7 +1,7 @@
 import { LuExternalLink } from "react-icons/lu";
 import { notFound } from "next/navigation";
 import { styled } from "styled-system/jsx";
-import { chip } from "styled-system/recipes";
+import { badge } from "styled-system/recipes";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -83,7 +83,7 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
                 <styled.a
                   key={link.href}
                   href={link.href}
-                  className={chip({ variant: "secondary" })}
+                  className={badge({ variant: "secondary" })}
                   rounded="sm"
                   css={{
                     _hover: {

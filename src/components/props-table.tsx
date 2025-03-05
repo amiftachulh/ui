@@ -1,7 +1,7 @@
 import { LuInfo } from "react-icons/lu";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
-import { Chip } from "./ui/chip";
+import { Badge } from "./ui/badge";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 
@@ -32,7 +32,7 @@ export default function PropsTable({ data }: PropsTableProps) {
             <TableRow key={d.name}>
               <TableCell>
                 <styled.div display="flex" alignItems="center" gap="2">
-                  <Chip variant="secondary">{d.name}</Chip>
+                  <Badge variant="secondary">{d.name}</Badge>
                   <Popover>
                     <PopoverTrigger className="group" cursor="pointer">
                       <LuInfo
@@ -55,10 +55,10 @@ export default function PropsTable({ data }: PropsTableProps) {
                 </styled.div>
               </TableCell>
               <TableCell>
-                <Chip variant="secondary">{d.type}</Chip>
+                <Badge variant="secondary">{d.type}</Badge>
               </TableCell>
               <TableCell>
-                <Chip variant="secondary">{d.default}</Chip>
+                <Badge variant="secondary">{d.default}</Badge>
               </TableCell>
             </TableRow>
           ))}

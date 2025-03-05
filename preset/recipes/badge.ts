@@ -1,12 +1,13 @@
 import { defineRecipe } from "@pandacss/dev";
 
-export const chipRecipe = defineRecipe({
-  className: "chip",
+export const badgeRecipe = defineRecipe({
+  className: "badge",
   base: {
     display: "inline-flex",
     alignItems: "center",
     rounded: "full",
-    gap: "2",
+    gap: "1",
+    py: "0.5",
     fontWeight: "medium",
     fontVariantNumeric: "tabular-nums",
     borderWidth: "1px",
@@ -30,24 +31,20 @@ export const chipRecipe = defineRecipe({
     },
     size: {
       xs: {
-        textStyle: "2xs",
+        textStyle: "xs",
         px: "1",
-        minH: "4",
       },
       sm: {
         textStyle: "xs",
         px: "1.5",
-        minH: "5",
       },
       md: {
         textStyle: "sm",
         px: "2",
-        minH: "6",
       },
       lg: {
         textStyle: "sm",
         px: "2.5",
-        minH: "7",
       },
     },
   },

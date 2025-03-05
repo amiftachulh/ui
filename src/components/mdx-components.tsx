@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
-import { chip } from "styled-system/recipes";
+import { badge } from "styled-system/recipes";
 import CodeBlock from "./code-block";
 import ComponentPreview from "./component-preview";
 import ComponentSource from "./component-source";
@@ -128,7 +128,7 @@ const components: MDXComponents = {
   },
   code: ({ children }) => (
     <styled.code
-      className={chip({ variant: "secondary", size: "md" })}
+      className={badge({ variant: "secondary", size: "md" })}
       px="0.5"
       rounded="sm"
       color="secondary.fg"

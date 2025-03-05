@@ -4,8 +4,8 @@ import * as React from "react";
 import { LuCheck, LuChevronDown, LuCircleX, LuX } from "react-icons/lu";
 import { css, cx } from "styled-system/css";
 import { flex } from "styled-system/patterns";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Chip } from "@/components/ui/chip";
 import {
   Command,
   CommandEmpty,
@@ -131,21 +131,18 @@ function MultiSelect({
     <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen} modal={modalPopover}>
       <PopoverTrigger asChild>
         <Button
-          {...props}
           variant="outline"
           onClick={handleTogglePopover}
           display="flex"
           w="full"
           px="3"
-          rounded="md"
-          borderWidth="1px"
-          minH="10"
-          h="auto"
           alignItems="center"
           justifyContent="space-between"
+          _hover={{ bg: "transparent" }}
           css={{
             "& svg": { pointerEvents: "auto" },
           }}
+          {...props}
         >
           {selectedValues.length > 0 ? (
             <div
@@ -166,34 +163,30 @@ function MultiSelect({
               >
                 {selectedValues.slice(0, maxCount).map((value) => {
                   const option = options.find((o) => o.value === value);
-                  const IconComponent = option?.icon;
                   return (
-                    <Chip key={value}>
-                      {IconComponent && (
-                        <IconComponent className={css({ w: "4", h: "4", mr: "2" })} />
-                      )}
+                    <Badge key={value} variant="secondary">
                       {option?.label}
                       <LuCircleX
-                        className={css({ ml: "2", h: "4", w: "4", cursor: "pointer" })}
+                        className={css({ h: "4", w: "4", cursor: "pointer" })}
                         onClick={(event) => {
                           event.stopPropagation();
                           toggleOption(value);
                         }}
                       />
-                    </Chip>
+                    </Badge>
                   );
                 })}
                 {selectedValues.length > maxCount && (
-                  <Chip bg="transparent" color="fg" borderColor="fg" _hover={{ bg: "transparent" }}>
+                  <Badge variant="secondary" _hover={{ bg: "transparent" }}>
                     {`+ ${selectedValues.length - maxCount} more`}
                     <LuCircleX
-                      className={css({ ml: "2", h: "4", w: "4", cursor: "pointer" })}
+                      className={css({ h: "4", w: "4", cursor: "pointer" })}
                       onClick={(event) => {
                         event.stopPropagation();
                         clearExtraOptions();
                       }}
                     />
-                  </Chip>
+                  </Badge>
                 )}
               </div>
               <div
@@ -304,11 +297,6 @@ function MultiSelect({
                     >
                       <LuCheck className={css({ w: "4", h: "4" })} />
                     </div>
-                    {option.icon && (
-                      <option.icon
-                        className={css({ mr: "2", w: "4", h: "4", color: "muted.fg" })}
-                      />
-                    )}
                     <span>{option.label}</span>
                   </CommandItem>
                 );

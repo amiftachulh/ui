@@ -199,11 +199,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/avatar",
           items: [],
         },
-        // {
-        //   title: "Badge",
-        //   href: "/docs/components/badge",
-        //   items: [],
-        // },
+        {
+          title: "Badge",
+          href: "/docs/components/badge",
+          items: [],
+        },
         {
           title: "Breadcrumb",
           href: "/docs/components/breadcrumb",
@@ -237,11 +237,6 @@ export const docsConfig: DocsConfig = {
         {
           title: "Checkbox",
           href: "/docs/components/checkbox",
-          items: [],
-        },
-        {
-          title: "Chip",
-          href: "/docs/components/chip",
           items: [],
         },
         {

@@ -1,5 +1,5 @@
+import { badgeRecipe } from "./badge";
 import { buttonRecipe } from "./button";
-import { chipRecipe } from "./chip";
 import { inputRecipe } from "./input";
 import { kbdRecipe } from "./kbd";
 import { labelRecipe } from "./label";
@@ -12,7 +12,7 @@ import { toggleGroupRecipe } from "./toggle-group";
 
 export const recipes = {
   button: buttonRecipe,
-  chip: chipRecipe,
+  badge: badgeRecipe,
   input: inputRecipe,
   kbd: kbdRecipe,
   label: labelRecipe,
