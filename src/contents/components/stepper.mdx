@@ -20,6 +20,14 @@ Stepperize is built and maintained by [damianricobelli](https://x.com/damianrico
 
 <PackageInstaller name="@stepperize/react" />
 
+<Step>Add [Button](/components/button) component to your project.</Step>
+
+<Step>Copy `use-media-query` hook to your project.</Step>
+
+This is optional, but if you want to use the responsive variant of the stepper, you need to copy the `use-media-query` hook to your project.
+
+<ComponentSource name="use-media-query.tsx" type="hook" />
+
 <Step>Copy and paste the following code into your project.</Step>
 
 <ComponentSource name="stepper.tsx" type="component" />
@@ -43,7 +51,7 @@ A `Stepper` component is composed of the following parts:
 ## Usage
 
 ```tsx
-import { defineStepper } from "@/components/ui/stepper"
+import { defineStepper } from "@/components/ui/stepper";
 
 const {
   StepperProvider,
@@ -57,7 +65,7 @@ const {
   { id: "step-1", title: "Step 1" },
   { id: "step-2", title: "Step 2" },
   { id: "step-3", title: "Step 3" }
-)
+);
 
 export function Component() {
   return (
@@ -72,7 +80,7 @@ export function Component() {
       <StepperPanel />
       <StepperControls>...</StepperControls>
     </StepperProvider>
-  )
+  );
 }
 ```
 
@@ -96,22 +104,18 @@ const { StepperProvider, ... } = defineStepper(
 
 ```tsx
 export function MyFirstStepper() {
-  return <StepperProvider>...</StepperProvider>
+  return <StepperProvider>...</StepperProvider>;
 }
 ```
 
-<Step>
-  Add a `StepperNavigation` component to render the navigation buttons and
-  labels.
-</Step>
+<Step>Add a `StepperNavigation` component to render the navigation buttons and labels.</Step>
 
 ```tsx
-const { StepperProvider, StepperNavigation, StepperStep, StepperTitle } =
-  defineStepper(
-    { id: "step-1", title: "Step 1" },
-    { id: "step-2", title: "Step 2" },
-    { id: "step-3", title: "Step 3" }
-  )
+const { StepperProvider, StepperNavigation, StepperStep, StepperTitle } = defineStepper(
+  { id: "step-1", title: "Step 1" },
+  { id: "step-2", title: "Step 2" },
+  { id: "step-3", title: "Step 3" }
+);
 export function MyFirstStepper() {
   return (
     <StepperProvider>
@@ -125,7 +129,7 @@ export function MyFirstStepper() {
         </StepperNavigation>
       )}
     </StepperProvider>
-  )
+  );
 }
 ```
 
@@ -156,10 +160,7 @@ export function MyFirstStepper() {
 }
 ```
 
-<Step>
-  Add a `StepperControls` component to render the buttons to navigate through
-  the steps.
-</Step>
+<Step>Add a `StepperControls` component to render the buttons to navigate through the steps.</Step>
 
 ```tsx
 const { StepperProvider, StepperControls, ... } = defineStepper(
@@ -210,7 +211,7 @@ const {
   { id: "step-1", title: "Step 1" },
   { id: "step-2", title: "Step 2" },
   { id: "step-3", title: "Step 3" }
-)
+);
 
 export function MyFirstStepper() {
   return (
@@ -231,11 +232,7 @@ export function MyFirstStepper() {
           })}
           <StepperControls>
             {!methods.isLast && (
-              <Button
-                variant="secondary"
-                onClick={methods.prev}
-                disabled={methods.isFirst}
-              >
+              <Button variant="secondary" onClick={methods.prev} disabled={methods.isFirst}>
                 Previous
               </Button>
             )}
@@ -246,7 +243,7 @@ export function MyFirstStepper() {
         </>
       )}
     </StepperProvider>
-  )
+  );
 }
 
 const Content = ({ id }: { id: string }) => {
@@ -254,8 +251,8 @@ const Content = ({ id }: { id: string }) => {
     <StepperPanel className="h-[200px] content-center rounded border bg-slate-50 p-8">
       <p className="text-xl font-normal">Content for {id}</p>
     </StepperPanel>
-  )
-}
+  );
+};
 ```
 
 </Steps>
@@ -270,10 +267,9 @@ They also compose well with other shadcn/ui components such as DropdownMenu, Col
 In the next sections, we'll go over each component and how to use them.
 
 <Callout>
-  If you want to use
-  [@stepperize/react](https://stepperize.vercel.app/docs/react) API directly,
-  like `when`, `switch`, `match`, etc. you can use the `useStepper` hook from
-  your stepper instance and build your own components.
+  If you want to use [@stepperize/react](https://stepperize.vercel.app/docs/react) API directly,
+  like `when`, `switch`, `match`, etc. you can use the `useStepper` hook from your stepper instance
+  and build your own components.
 </Callout>
 
 ## defineStepper
@@ -289,7 +285,7 @@ const stepperInstance = defineStepper(
   { id: "step-1", title: "Step 1", description: "Step 1 description" },
   { id: "step-2", title: "Step 2", description: "Step 2 description" },
   { id: "step-3", title: "Step 3", description: "Step 3 description" }
-)
+);
 ```
 
 Each instance will return:
@@ -309,9 +305,8 @@ And the components:
 - `StepperControls`
 
 <Callout>
-  Each step in the `defineStepper` needs only an `id` to work and they are not
-  limited to any type. You can define anything within each step, even
-  components!
+  Each step in the `defineStepper` needs only an `id` to work and they are not limited to any type.
+  You can define anything within each step, even components!
 </Callout>
 
 ## useStepper
@@ -331,20 +326,20 @@ const { StepperProvider, useStepper } = defineStepper(
   { id: "step-1", title: "Step 1" },
   { id: "step-2", title: "Step 2" },
   { id: "step-3", title: "Step 3" }
-)
+);
 
 export function MyStepper() {
-  const methods = useStepper() // ❌ This won't work if the component is not within the provider
+  const methods = useStepper(); // ❌ This won't work if the component is not within the provider
   return (
     <StepperProvider>
       <MyCustomComponent />
     </StepperProvider>
-  )
+  );
 }
 
 function MyCustomComponent() {
-  const methods = useStepper() // ✅ This will work
-  return <div>{methods.currentStep.title}</div>
+  const methods = useStepper(); // ✅ This will work
+  return <div>{methods.currentStep.title}</div>;
 }
 ```
 
@@ -368,8 +363,8 @@ You can set the initial step and metadata for the stepper passing these props:
 - `initialMetadata` - The initial metadata to set for the steps. See [Metadata](#metadata) for more information.
 
 <Callout>
-  If you don't need the `methods` prop, you can just pass the children directly
-  and get the methods from the `useStepper` hook from your stepper instance.
+  If you don't need the `methods` prop, you can just pass the children directly and get the methods
+  from the `useStepper` hook from your stepper instance.
 </Callout>
 
 **Props**
@@ -390,9 +385,7 @@ The `StepperNavigation` component is used to render the navigation buttons and l
 
 The `StepperStep` component is a wrapper of the button and labels. You just need to pass the `of` prop which is the step id you want to render.
 
-<Callout>
-  This is a good place to add your `onClick` handler.
-</Callout>
+<Callout>This is a good place to add your `onClick` handler.</Callout>
 
 **Props**
 
@@ -402,8 +395,8 @@ The `StepperStep` component is a wrapper of the button and labels. You just need
 | `icon` | `React.ReactNode` | Icon to render instead of the step number |
 
 <Callout>
-  To keep the stepper simple and consistent, `StepperStep` only accepts these 3
-  types of children: `StepperTitle`, `StepperDescription` and `StepperPanel`
+  To keep the stepper simple and consistent, `StepperStep` only accepts these 3 types of children:
+  `StepperTitle`, `StepperDescription` and `StepperPanel`
 </Callout>
 
 ### StepperTitle
@@ -459,10 +452,10 @@ For example:
 
 ```tsx
 methods.beforeNext(async () => {
-  const valid = await form.trigger()
-  if (!valid) return false
-  return true
-})
+  const valid = await form.trigger();
+  if (!valid) return false;
+  return true;
+});
 ```
 
 That function will validate the form and check if the step is valid before moving to the next step returning a boolean value.
@@ -475,7 +468,7 @@ Through the methods you can access functions like `goTo` to skip to a specific s
 
 ```tsx
 // From step 1 to step 3
-methods.goTo("step-3")
+methods.goTo("step-3");
 ```
 
 ## Metadata
@@ -483,7 +476,7 @@ methods.goTo("step-3")
 You can add metadata to each step to store any information you need. This data can be accessed in the `useStepper` hook and changed at any time.
 
 ```tsx
-const { metadata, getMetadata, setMetadata, resetMetadata } = useStepper()
+const { metadata, getMetadata, setMetadata, resetMetadata } = useStepper();
 ```
 
 ## Multi Scoped
@@ -514,41 +507,29 @@ const stepperInstance2 = defineStepper(
 
 ### Variant
 
-<ComponentPreview
-  name="stepper-variant"
-/>
+<ComponentPreview name="stepper-variant" />
 
 ### Responsive variant
 
 If you need to render the stepper in a responsive way, you can use a custom hook to detect the screen size and render the stepper in a different variant.
 
-<Callout >
-  Resize the window to see the stepper in a different variant.
-</Callout>
+<Callout>Resize the window to see the stepper in a different variant.</Callout>
 
-<ComponentPreview
-  name="stepper-responsive-variant"
-/>
+<ComponentPreview name="stepper-responsive-variant" />
 
 ### Description
 
 You can add a description to each step by using `<StepperDescription />` component inside `<StepperStep />`.
 
-<ComponentPreview
-  name="stepper-description"
-/>
+<ComponentPreview name="stepper-description" />
 
 ### Label Orientation
 
 You can change the orientation of the labels by using the `labelOrientation` prop in the `Stepper` component.
 
-<Callout>
-  This is only applicable if `variant` is `"horizontal"`.
-</Callout>
+<Callout>This is only applicable if `variant` is `"horizontal"`.</Callout>
 
-<ComponentPreview
-  name="stepper-label-orientation"
-/>
+<ComponentPreview name="stepper-label-orientation" />
 
 ### Icon
 
@@ -560,9 +541,7 @@ You can add an icon to each step by using the `icon` prop in the `StepperStep` c
 
 If you need to track the scroll position of the stepper, you can use the `tracking` prop in the `Stepper` component.
 
-<ComponentPreview
-  name="stepper-tracking"
-/>
+<ComponentPreview name="stepper-tracking" />
 
 ### Forms
 
@@ -574,6 +553,5 @@ If you need to add custom components, you can do so by using the `useStepper` ho
 
 <Callout>
   If all this is not enough for you, you can use the
-  [@stepperize/react](https://stepperize.vercel.app/docs/react) API to create
-  your own stepper.
+  [@stepperize/react](https://stepperize.vercel.app/docs/react) API to create your own stepper.
 </Callout>
