@@ -18,7 +18,7 @@ type PropsTableProps = {
 
 export default function PropsTable({ data }: PropsTableProps) {
   return (
-    <styled.div rounded="md" borderWidth="1px">
+    <styled.div css={{ rounded: "md", borderWidth: "1px" }}>
       <Table>
         <TableHeader>
           <TableRow>
@@ -31,10 +31,10 @@ export default function PropsTable({ data }: PropsTableProps) {
           {data.map((d) => (
             <TableRow key={d.name}>
               <TableCell>
-                <styled.div display="flex" alignItems="center" gap="2">
+                <styled.div css={{ display: "flex", alignItems: "center", gap: "2" }}>
                   <Badge variant="secondary">{d.name}</Badge>
                   <Popover>
-                    <PopoverTrigger className="group" cursor="pointer">
+                    <PopoverTrigger className="group">
                       <LuInfo
                         className={css({
                           w: "4",
@@ -50,7 +50,7 @@ export default function PropsTable({ data }: PropsTableProps) {
                         })}
                       />
                     </PopoverTrigger>
-                    <PopoverContent textStyle="sm">{d.description}</PopoverContent>
+                    <PopoverContent css={{ textStyle: "sm" }}>{d.description}</PopoverContent>
                   </Popover>
                 </styled.div>
               </TableCell>

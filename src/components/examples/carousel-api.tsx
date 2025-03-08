@@ -31,20 +31,22 @@ export default function CarouselApiDemo() {
   }, [api]);
 
   return (
-    <styled.div mx="auto" maxW="xs">
-      <Carousel setApi={setApi} w="full" maxW="xs">
+    <styled.div css={{ mx: "auto", maxW: "xs" }}>
+      <Carousel setApi={setApi} css={{ w: "full", maxW: "xs" }}>
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index}>
               <Card>
                 <CardContent
-                  display="flex"
-                  aspectRatio="square"
-                  alignItems="center"
-                  justifyContent="center"
-                  p="6"
+                  css={{
+                    display: "flex",
+                    aspectRatio: "square",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    p: "6",
+                  }}
                 >
-                  <styled.span textStyle="4xl" fontWeight="semibold">
+                  <styled.span css={{ textStyle: "4xl", fontWeight: "semibold" }}>
                     {index + 1}
                   </styled.span>
                 </CardContent>
@@ -55,7 +57,7 @@ export default function CarouselApiDemo() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <styled.div py="2" textAlign="center" textStyle="sm" color="muted.fg">
+      <styled.div css={{ py: "2", textAlign: "center", textStyle: "sm", color: "muted.fg" }}>
         Slide {current} of {count}
       </styled.div>
     </styled.div>

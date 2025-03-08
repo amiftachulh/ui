@@ -47,8 +47,8 @@ const PhoneInputBase = ({ className, onChange, ...props }: PhoneInputProps) => {
 const PhoneInput = styled(PhoneInputBase);
 PhoneInput.displayName = "PhoneInput";
 
-const InputComponent = (props: React.ComponentProps<typeof Input>) => (
-  <Input roundedStart="0" roundedEnd="md" {...props} />
+const InputComponent = ({ css, ...props }: React.ComponentProps<typeof Input>) => (
+  <Input css={{ roundedStart: "0", roundedEnd: "md", ...css }} {...props} />
 );
 InputComponent.displayName = "InputComponent";
 
@@ -73,14 +73,16 @@ const CountrySelect = ({
         <Button
           type="button"
           variant="outline"
-          display="flex"
-          gap="1"
-          roundedStart="md"
-          roundedEnd="0"
-          borderRightWidth="0"
-          px="3"
-          _focus={{ zIndex: 10 }}
           disabled={disabled}
+          css={{
+            display: "flex",
+            gap: "1",
+            roundedStart: "md",
+            roundedEnd: "0",
+            borderRightWidth: "0",
+            px: "3",
+            _focus: { zIndex: 10 },
+          }}
         >
           <FlagComponent country={selectedCountry} countryName={selectedCountry} />
           <LuChevronsUpDown
@@ -88,11 +90,11 @@ const CountrySelect = ({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent w="300px" p="0">
+      <PopoverContent css={{ w: "300px", p: "0" }}>
         <Command>
           <CommandInput placeholder="Search country..." />
           <CommandList>
-            <ScrollArea h="72">
+            <ScrollArea css={{ h: "72" }}>
               <CommandEmpty>No country found.</CommandEmpty>
               <CommandGroup>
                 {countryList.map(({ value, label }) =>

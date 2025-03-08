@@ -11,5 +11,5 @@ export default function ProgressDemo() {
     return () => clearTimeout(timer);
   }, []);
 
-  return <Progress value={progress} w="60%" />;
+  return <Progress value={progress} css={{ w: "60%" }} />;
 }

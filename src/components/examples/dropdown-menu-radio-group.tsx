@@ -20,7 +20,7 @@ export default function DropdownMenuRadioGroupDemo() {
       <DropdownMenuTrigger asChild>
         <Button variant="outline">Open</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent w="56">
+      <DropdownMenuContent css={{ w: "56" }}>
         <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>

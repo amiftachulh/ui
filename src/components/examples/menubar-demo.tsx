@@ -74,16 +74,16 @@ export default function MenubarDemo() {
           <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
           <MenubarCheckboxItem checked>Always Show Full URLs</MenubarCheckboxItem>
           <MenubarSeparator />
-          <MenubarItem insetLeft>
+          <MenubarItem inset>
             Reload <MenubarShortcut>⌘R</MenubarShortcut>
           </MenubarItem>
-          <MenubarItem disabled insetLeft>
+          <MenubarItem disabled inset>
             Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
           </MenubarItem>
           <MenubarSeparator />
-          <MenubarItem insetLeft>Toggle Fullscreen</MenubarItem>
+          <MenubarItem inset>Toggle Fullscreen</MenubarItem>
           <MenubarSeparator />
-          <MenubarItem insetLeft>Hide Sidebar</MenubarItem>
+          <MenubarItem inset>Hide Sidebar</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
@@ -95,9 +95,9 @@ export default function MenubarDemo() {
             <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
           </MenubarRadioGroup>
           <MenubarSeparator />
-          <MenubarItem insetLeft>Edit...</MenubarItem>
+          <MenubarItem inset>Edit...</MenubarItem>
           <MenubarSeparator />
-          <MenubarItem insetLeft>Add Profile...</MenubarItem>
+          <MenubarItem inset>Add Profile...</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
     </Menubar>

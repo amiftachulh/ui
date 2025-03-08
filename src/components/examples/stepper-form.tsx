@@ -34,30 +34,30 @@ const ShippingForm = () => {
   } = useFormContext<ShippingFormValues>();
 
   return (
-    <styled.div spaceY="4" textAlign="start">
-      <styled.div spaceY="2">
+    <styled.div css={{ spaceY: "4", textAlign: "start" }}>
+      <styled.div css={{ spaceY: "2" }}>
         <Label htmlFor={register("address").name}>Address</Label>
         <Input id={register("address").name} {...register("address")} />
         {errors.address && (
-          <styled.span textStyle="sm" color="danger">
+          <styled.span css={{ textStyle: "sm", color: "danger" }}>
             {errors.address.message}
           </styled.span>
         )}
       </styled.div>
-      <styled.div spaceY="2">
+      <styled.div css={{ spaceY: "2" }}>
         <Label htmlFor={register("city").name}>City</Label>
         <Input id={register("city").name} {...register("city")} />
         {errors.city && (
-          <styled.span textStyle="sm" color="danger">
+          <styled.span css={{ textStyle: "sm", color: "danger" }}>
             {errors.city.message}
           </styled.span>
         )}
       </styled.div>
-      <styled.div spaceY="2">
+      <styled.div css={{ spaceY: "2" }}>
         <Label htmlFor={register("postalCode").name}>Postal Code</Label>
         <Input id={register("postalCode").name} {...register("postalCode")} />
         {errors.postalCode && (
-          <styled.span textStyle="sm" color="danger">
+          <styled.span css={{ textStyle: "sm", color: "danger" }}>
             {errors.postalCode.message}
           </styled.span>
         )}
@@ -73,32 +73,30 @@ function PaymentForm() {
   } = useFormContext<PaymentFormValues>();
 
   return (
-    <styled.div spaceY="4" textAlign="start">
-      <styled.div spaceY="4">
+    <styled.div css={{ spaceY: "4", textAlign: "start" }}>
+      <styled.div css={{ spaceY: "4" }}>
         <Label htmlFor={register("cardNumber").name}>Card Number</Label>
         <Input id={register("cardNumber").name} {...register("cardNumber")} />
         {errors.cardNumber && (
-          <styled.span textStyle="sm" color="danger">
+          <styled.span css={{ textStyle: "sm", color: "danger" }}>
             {errors.cardNumber.message}
           </styled.span>
         )}
       </styled.div>
-      <styled.div spaceY="2">
+      <styled.div css={{ spaceY: "2" }}>
         <Label htmlFor={register("expirationDate").name}>Expiration Date</Label>
         <Input id={register("expirationDate").name} {...register("expirationDate")} />
         {errors.expirationDate && (
-          <styled.span textStyle="sm" color="danger">
+          <styled.span css={{ textStyle: "sm", color: "danger" }}>
             {errors.expirationDate.message}
           </styled.span>
         )}
       </styled.div>
-      <styled.div spaceY="2">
+      <styled.div css={{ spaceY: "2" }}>
         <Label htmlFor={register("cvv").name}>CVV</Label>
         <Input id={register("cvv").name} {...register("cvv")} />
         {errors.cvv && (
-          <styled.span textStyle="sm" color="danger">
-            {errors.cvv.message}
-          </styled.span>
+          <styled.span css={{ textStyle: "sm", color: "danger" }}>{errors.cvv.message}</styled.span>
         )}
       </styled.div>
     </styled.div>
@@ -106,7 +104,7 @@ function PaymentForm() {
 }
 
 function CompleteComponent() {
-  return <styled.div textAlign="center">Thank you! Your order is complete.</styled.div>;
+  return <styled.div css={{ textAlign: "center" }}>Thank you! Your order is complete.</styled.div>;
 }
 
 const {
@@ -157,9 +155,11 @@ const FormStepperComponent = () => {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
-          <styled.div textStyle="sm">{methods.current.id}</styled.div>
-          <styled.code color="white">{JSON.stringify(values, null, 2)}</styled.code>
+        <styled.pre
+          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
+        >
+          <styled.div css={{ textStyle: "sm" }}>{methods.current.id}</styled.div>
+          <styled.code css={{ color: "white" }}>{JSON.stringify(values, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
@@ -167,7 +167,7 @@ const FormStepperComponent = () => {
 
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} spaceY="4">
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ spaceY: "4" }}>
         <StepperNavigation>
           {methods.all.map((step) => (
             <StepperStep

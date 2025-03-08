@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { docsConfig } from "@/config/docs";
 
 export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <aside
-      className={css({
+    <styled.aside
+      css={{
         position: "sticky",
         top: "14",
         left: "0",
@@ -46,12 +47,14 @@ export default function Navigation() {
         md: {
           display: "block",
         },
-      })}
+      }}
     >
       {docsConfig.sidebarNav.map((nav) => (
         <div key={nav.title}>
-          <h4 className={css({ py: "1", textStyle: "sm", fontWeight: "semibold" })}>{nav.title}</h4>
-          <ul className={css({ spaceY: "0.5" })}>
+          <styled.h4 css={{ py: "1", textStyle: "sm", fontWeight: "semibold" }}>
+            {nav.title}
+          </styled.h4>
+          <styled.ul css={{ spaceY: "0.5" }}>
             {nav.items.map((item) => (
               <li key={item.href}>
                 <Link
@@ -73,9 +76,9 @@ export default function Navigation() {
                 </Link>
               </li>
             ))}
-          </ul>
+          </styled.ul>
         </div>
       ))}
-    </aside>
+    </styled.aside>
   );
 }

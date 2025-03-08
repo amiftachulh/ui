@@ -25,7 +25,7 @@ const chartConfig = {
 
 export default function Chart1() {
   return (
-    <ChartContainer config={chartConfig} w="full" minH="200px">
+    <ChartContainer config={chartConfig} css={{ w: "full", minH: "200px" }}>
       <BarChart accessibilityLayer data={chartData}>
         <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
         <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />

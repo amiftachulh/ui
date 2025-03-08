@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 
 export default function InputSize() {
   return (
-    <styled.div w="full" spaceY="4">
+    <styled.div css={{ w: "full", spaceY: "4" }}>
       <Input size="sm" placeholder="Small" />
       <Input size="md" placeholder="Medium" />
       <Input size="lg" placeholder="Large" />

@@ -14,22 +14,23 @@ export default function CarouselSize() {
       opts={{
         align: "start",
       }}
-      w="full"
-      maxW="sm"
+      css={{ w: "full", maxW: "sm" }}
     >
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} md={{ flexBasis: "1/2" }} lg={{ flexBasis: "1/3" }}>
-            <styled.div p="1">
+          <CarouselItem key={index} css={{ md: { flexBasis: "1/2" }, lg: { flexBasis: "1/3" } }}>
+            <styled.div css={{ p: "1" }}>
               <Card>
                 <CardContent
-                  display="flex"
-                  aspectRatio="square"
-                  alignItems="center"
-                  justifyContent="center"
-                  p="6"
+                  css={{
+                    display: "flex",
+                    aspectRatio: "square",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    p: "6",
+                  }}
                 >
-                  <styled.span textStyle="3xl" fontWeight="semibold">
+                  <styled.span css={{ textStyle: "3xl", fontWeight: "semibold" }}>
                     {index + 1}
                   </styled.span>
                 </CardContent>

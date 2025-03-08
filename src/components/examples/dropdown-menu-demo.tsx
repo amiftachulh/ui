@@ -36,7 +36,7 @@ export default function DropdownMenuDemo() {
       <DropdownMenuTrigger asChild>
         <Button variant="outline">Open</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent w="56">
+      <DropdownMenuContent css={{ w: "56" }}>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>

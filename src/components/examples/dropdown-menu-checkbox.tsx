@@ -24,7 +24,7 @@ export default function DropdownMenuCheckboxes() {
       <DropdownMenuTrigger asChild>
         <Button variant="outline">Open</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent w="56">
+      <DropdownMenuContent css={{ w: "56" }}>
         <DropdownMenuLabel>Appearance</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>

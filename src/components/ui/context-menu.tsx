@@ -55,15 +55,15 @@ ContextMenuRadioGroup.displayName = ContextMenuPrimitive.RadioGroup.displayName;
 
 function SubTrigger({
   className,
-  insetLeft,
+  inset,
   children,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.SubTrigger> & { insetLeft?: boolean }) {
+}: React.ComponentProps<typeof ContextMenuPrimitive.SubTrigger> & { inset?: boolean }) {
   return (
     <ContextMenuPrimitive.SubTrigger
       data-slot="context-menu-sub-trigger"
       className={cx(classes.subTrigger, className)}
-      data-inset={insetLeft}
+      data-inset={inset}
       {...props}
     >
       {children}
@@ -108,14 +108,14 @@ ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName;
 
 function Item({
   className,
-  insetLeft,
+  inset,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Item> & { insetLeft?: boolean }) {
+}: React.ComponentProps<typeof ContextMenuPrimitive.Item> & { inset?: boolean }) {
   return (
     <ContextMenuPrimitive.Item
       data-slot="context-menu-item"
       className={cx(classes.item, className)}
-      data-inset={insetLeft}
+      data-inset={inset}
       {...props}
     />
   );
@@ -191,14 +191,14 @@ ContextMenuRadioItem.displayName = ContextMenuPrimitive.RadioItem.displayName;
 
 function Label({
   className,
-  insetLeft,
+  inset,
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Label> & { insetLeft?: boolean }) {
+}: React.ComponentProps<typeof ContextMenuPrimitive.Label> & { inset?: boolean }) {
   return (
     <ContextMenuPrimitive.Label
       data-slot="context-menu-label"
       className={cx(classes.label, className)}
-      data-inset={insetLeft}
+      data-inset={inset}
       {...props}
     />
   );

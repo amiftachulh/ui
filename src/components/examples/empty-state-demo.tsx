@@ -12,7 +12,7 @@ import { Button } from "../ui/button";
 export default function EmptyStateDemo() {
   return (
     <EmptyState>
-      <EmptyStateIndicator textStyle="5xl">
+      <EmptyStateIndicator css={{ textStyle: "5xl" }}>
         <LuShoppingCart />
       </EmptyStateIndicator>
       <EmptyStateContent>

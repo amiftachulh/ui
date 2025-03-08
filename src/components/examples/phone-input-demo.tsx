@@ -34,8 +34,10 @@ export default function PhoneInputDemo() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
-          <styled.code color="white">{JSON.stringify(data, null, 2)}</styled.code>
+        <styled.pre
+          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
+        >
+          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
@@ -45,27 +47,26 @@ export default function PhoneInputDemo() {
     <Form {...form}>
       <styled.form
         onSubmit={form.handleSubmit(onSubmit)}
-        display="flex"
-        flexDir="column"
-        alignItems="flex-start"
-        spaceY="8"
+        css={{ display: "flex", flexDir: "column", alignItems: "flex-start", spaceY: "8" }}
       >
         <FormField
           control={form.control}
           name="phone"
           render={({ field }) => (
-            <FormItem display="flex" flexDir="column" alignItems="flex-start">
-              <FormLabel textAlign="left">Phone Number</FormLabel>
-              <FormControl w="full">
+            <FormItem css={{ display: "flex", flexDir: "column", alignItems: "flex-start" }}>
+              <FormLabel css={{ textAlign: "left" }}>Phone Number</FormLabel>
+              <FormControl css={{ w: "full" }}>
                 <PhoneInput placeholder="Enter a phone number" {...field} />
               </FormControl>
-              <FormDescription textAlign="left">Enter a phone number</FormDescription>
+              <FormDescription css={{ textAlign: "left" }}>Enter a phone number</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         <pre>
-          <styled.code color="fg">{JSON.stringify(form.watch("phone"), null, 2)}</styled.code>
+          <styled.code css={{ color: "muted.fg" }}>
+            {JSON.stringify(form.watch("phone"), null, 2)}
+          </styled.code>
         </pre>
         <Button type="submit">Submit</Button>
       </styled.form>

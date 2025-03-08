@@ -23,12 +23,14 @@ export default async function ComponentSource({ name, type }: ComponentSourcePro
   const content = fs.readFileSync(file, "utf8");
 
   return (
-    <styled.div my="4" borderWidth="1" rounded="md" overflow="hidden">
+    <styled.div css={{ my: "4", borderWidth: "1px", rounded: "md", overflow: "hidden" }}>
       <styled.div
-        px="4"
-        py="1.5"
-        fontFamily="var(--global-font-mono, var(--font-mono-fallback))"
-        textStyle="sm"
+        css={{
+          px: "4",
+          py: "1.5",
+          fontFamily: "var(--global-font-mono, var(--font-mono-fallback))",
+          textStyle: "sm",
+        }}
       >
         {title}
         {name}

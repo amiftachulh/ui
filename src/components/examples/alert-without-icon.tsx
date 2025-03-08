@@ -2,7 +2,7 @@ import { Alert, AlertContent, AlertDescription, AlertTitle } from "@/components/
 
 export default function AlertWithoutIcon() {
   return (
-    <Alert variant="info" w="2/3">
+    <Alert variant="info" css={{ w: "2/3" }}>
       <AlertContent>
         <AlertTitle>Info only</AlertTitle>
         <AlertDescription>This alert doesn&apos;t have an icon.</AlertDescription>

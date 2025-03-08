@@ -30,7 +30,7 @@ const chartConfig = {
 
 export default function ChartWithTooltip() {
   return (
-    <ChartContainer config={chartConfig} w="full" minH="200px">
+    <ChartContainer config={chartConfig} css={{ w: "full", minH: "200px" }}>
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <XAxis

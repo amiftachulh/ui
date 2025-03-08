@@ -17,7 +17,7 @@ export default function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
-      flexShrink="0"
+      css={{ flexShrink: "0" }}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       suppressHydrationWarning

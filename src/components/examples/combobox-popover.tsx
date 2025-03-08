@@ -34,13 +34,15 @@ export default function ComboboxPopover() {
   const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(null);
 
   return (
-    <styled.div display="flex" alignItems="center" gap="4">
-      <styled.p textStyle="sm" color="muted.fg">
-        Status
-      </styled.p>
+    <styled.div css={{ display: "flex", alignItems: "center", gap: "4" }}>
+      <styled.p css={{ textStyle: "sm", color: "muted.fg" }}>Status</styled.p>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button variant="outline" size="sm" width="150px" justifyContent="flex-start">
+          <Button
+            variant="outline"
+            size="sm"
+            css={{ width: "150px", justifyContent: "flex-start" }}
+          >
             {selectedStatus ? (
               <>
                 <selectedStatus.icon
@@ -53,7 +55,7 @@ export default function ComboboxPopover() {
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent padding="0" side="right" align="start">
+        <PopoverContent side="right" align="start" css={{ p: "0" }}>
           <Command>
             <CommandInput placeholder="Change status..." />
             <CommandList>

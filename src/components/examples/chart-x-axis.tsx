@@ -25,7 +25,7 @@ const chartConfig = {
 
 export default function ChartXAxis() {
   return (
-    <ChartContainer config={chartConfig} w="full" minH="200px">
+    <ChartContainer config={chartConfig} css={{ w: "fuull", minH: "200px" }}>
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <XAxis

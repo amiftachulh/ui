@@ -63,7 +63,7 @@ function Content({
         {...props}
       >
         {children}
-        <DialogClose pos="absolute" top="4" right="4" cursor="pointer">
+        <DialogClose css={{ pos: "absolute", top: "4", right: "4", cursor: "pointer" }}>
           <LuX className={css({ w: "4", h: "4" })} />
           <span className={css({ srOnly: true })}>Close</span>
         </DialogClose>

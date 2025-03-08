@@ -33,7 +33,7 @@ const {
 
 export default function StepperDemo() {
   return (
-    <StepperProvider spaceY="4" variant="horizontal">
+    <StepperProvider variant="horizontal" css={{ spaceY: "4" }}>
       {({ methods }) => (
         <React.Fragment>
           <StepperNavigation>
@@ -68,17 +68,17 @@ export default function StepperDemo() {
 const Content = ({ id }: { id: string }) => {
   return (
     <StepperPanel
-      h="200px"
-      alignContent="center"
-      rounded="md"
-      borderWidth="1px"
-      bg="slate.50"
-      p="8"
-      _dark={{ bg: "slate.950" }}
+      css={{
+        h: "200px",
+        alignContent: "center",
+        rounded: "md",
+        borderWidth: "1px",
+        bg: "slate.50",
+        p: "8",
+        _dark: { bg: "slate.950" },
+      }}
     >
-      <styled.p textStyle="xl" fontWeight="normal">
-        Content for {id}
-      </styled.p>
+      <styled.p css={{ textStyle: "xl", fontWeight: "normal" }}>Content for {id}</styled.p>
     </StepperPanel>
   );
 };

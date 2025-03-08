@@ -5,7 +5,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 
 export default function TooltipDemo() {
   return (
-    <styled.div display="flex" flexWrap="wrap" alignItems="start" gap="4">
+    <styled.div css={{ display: "flex", flexWrap: "wrap", alignItems: "start", gap: "4" }}>
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="outline">Hover</Button>
@@ -14,11 +14,11 @@ export default function TooltipDemo() {
           <p>Add to library</p>
         </TooltipContent>
       </Tooltip>
-      <styled.div display="flex" gap="2">
+      <styled.div css={{ display: "flex", gap: "2" }}>
         {["top", "right", "bottom", "left"].map((side) => (
           <Tooltip key={side}>
             <TooltipTrigger asChild>
-              <Button variant="outline" textTransform="capitalize">
+              <Button variant="outline" css={{ textTransform: "capitalize" }}>
                 {side}
               </Button>
             </TooltipTrigger>
@@ -32,7 +32,7 @@ export default function TooltipDemo() {
         <TooltipTrigger asChild>
           <Button variant="ghost" size="icon">
             <LuInfo />
-            <styled.span srOnly>Info</styled.span>
+            <styled.span css={{ srOnly: true }}>Info</styled.span>
           </Button>
         </TooltipTrigger>
         <TooltipContent>

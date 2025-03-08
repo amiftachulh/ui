@@ -90,19 +90,17 @@ SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayNam
 
 function Content({
   className,
-  contentPosition = "popper",
+  position = "popper",
   children,
   ...props
-}: Omit<React.ComponentProps<typeof SelectPrimitive.Content>, "position"> & {
-  contentPosition?: SelectPrimitive.SelectContentProps["position"];
-}) {
+}: React.ComponentProps<typeof SelectPrimitive.Content>) {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cx(classes.content, className)}
-        position={contentPosition}
-        data-position={contentPosition}
+        position={position}
+        data-position={position}
         {...props}
       >
         <SelectScrollUpButton />
@@ -117,7 +115,7 @@ function Content({
               scrollMarginY: "1",
             },
           })}
-          data-position={contentPosition}
+          data-position={position}
         >
           {children}
         </SelectPrimitive.Viewport>

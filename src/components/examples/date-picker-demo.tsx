@@ -15,17 +15,19 @@ export default function DatePickerDemo() {
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          w="280px"
-          justifyContent="start"
-          textAlign="left"
-          fontWeight="normal"
-          color={!date ? "muted.fg" : "fg"}
+          css={{
+            w: "280px",
+            justifyContent: "start",
+            textAlign: "left",
+            fontWeight: "normal",
+            color: !date ? "muted.fg" : "fg",
+          }}
         >
           <LuCalendar />
           {date ? dayjs(date).format("YYYY-MM-DD") : <span>Pick a date</span>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent w="auto" p="0">
+      <PopoverContent css={{ w: "auto", p: "0" }}>
         <Calendar mode="single" selected={date} onSelect={setDate} autoFocus />
       </PopoverContent>
     </Popover>

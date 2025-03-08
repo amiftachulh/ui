@@ -84,8 +84,8 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
                   key={link.href}
                   href={link.href}
                   className={badge({ variant: "secondary" })}
-                  rounded="sm"
                   css={{
+                    rounded: "sm",
                     _hover: {
                       textDecoration: "underline",
                     },

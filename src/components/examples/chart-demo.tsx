@@ -134,64 +134,70 @@ export default function ChartDemo() {
   );
 
   return (
-    <Card w="full">
+    <Card css={{ w: "full" }}>
       <CardHeader
-        display="flex"
-        flexDir="column"
-        alignItems="stretch"
-        spaceY="0"
-        borderBottomWidth="1px"
-        p="0"
-        sm={{ flexDir: "row" }}
+        css={{
+          display: "flex",
+          flexDir: "column",
+          alignItems: "stretch",
+          spaceY: "0",
+          borderBottomWidth: "1px",
+          p: "0",
+          sm: { flexDir: "row" },
+        }}
       >
         <styled.div
-          display="flex"
-          flex="1"
-          flexDir="column"
-          justifyContent="center"
-          gap="1"
-          px="6"
-          py="5"
-          sm={{ py: "6" }}
+          css={{
+            display: "flex",
+            flex: "1",
+            flexDir: "column",
+            justifyContent: "center",
+            gap: "1",
+            px: "6",
+            py: "5",
+            sm: { py: "6" },
+          }}
         >
           <CardTitle>Bar Chart - Interactive</CardTitle>
           <CardDescription>Showing total visitors for the last 3 months</CardDescription>
         </styled.div>
-        <styled.div display="flex">
+        <styled.div css={{ display: "flex" }}>
           {["desktop", "mobile"].map((key) => {
             const chart = key as keyof typeof chartConfig;
             return (
               <styled.button
                 key={chart}
                 data-active={activeChart === chart}
-                pos="relative"
-                zIndex="30"
-                display="flex"
-                flex="1"
-                flexDir="column"
-                justifyContent="center"
-                gap="1"
-                borderTopWidth="1px"
-                px="6"
-                py="4"
-                textAlign="left"
-                _even={{ borderLeftWidth: "1px" }}
-                sm={{ borderLeftWidth: "1px", borderTopWidth: "0", px: "8", py: "6" }}
                 css={{
+                  pos: "relative",
+                  zIndex: "30",
+                  display: "flex",
+                  flex: "1",
+                  flexDir: "column",
+                  justifyContent: "center",
+                  gap: "1",
+                  borderTopWidth: "1px",
+                  px: "6",
+                  py: "4",
+                  textAlign: "left",
+                  _even: { borderLeftWidth: "1px" },
+                  sm: { borderLeftWidth: "1px", borderTopWidth: "0", px: "8", py: "6" },
                   "&[data-active=true]": {
                     bg: "muted/50",
                   },
                 }}
                 onClick={() => setActiveChart(chart)}
               >
-                <styled.span textStyle="xs" color="muted.fg">
+                <styled.span css={{ textStyle: "xs", color: "muted.fg" }}>
                   {chartConfig[chart].label}
                 </styled.span>
                 <styled.span
-                  textStyle="lg"
-                  fontWeight="bold"
-                  lineHeight="none"
-                  sm={{ textStyle: "3xl" }}
+                  css={{
+                    textStyle: "lg",
+                    fontWeight: "bold",
+                    lineHeight: "none",
+                    sm: { textStyle: "3xl" },
+                  }}
                 >
                   {total[key as keyof typeof total].toLocaleString()}
                 </styled.span>
@@ -200,8 +206,8 @@ export default function ChartDemo() {
           })}
         </styled.div>
       </CardHeader>
-      <CardContent px="2" sm={{ p: "6" }}>
-        <ChartContainer config={chartConfig} aspectRatio="auto" h="250px" w="full">
+      <CardContent css={{ px: "2", sm: { p: "6" } }}>
+        <ChartContainer config={chartConfig} css={{ aspectRatio: "auto", w: "full", h: "250px" }}>
           <BarChart
             accessibilityLayer
             data={chartData}

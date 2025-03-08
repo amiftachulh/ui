@@ -18,12 +18,30 @@ import {
 import { toast } from "@/hooks/use-toast";
 
 const items = [
-  { id: "recents", label: "Recents" },
-  { id: "home", label: "Home" },
-  { id: "applications", label: "Applications" },
-  { id: "desktop", label: "Desktop" },
-  { id: "downloads", label: "Downloads" },
-  { id: "documents", label: "Documents" },
+  {
+    id: "recents",
+    label: "Recents",
+  },
+  {
+    id: "home",
+    label: "Home",
+  },
+  {
+    id: "applications",
+    label: "Applications",
+  },
+  {
+    id: "desktop",
+    label: "Desktop",
+  },
+  {
+    id: "downloads",
+    label: "Downloads",
+  },
+  {
+    id: "documents",
+    label: "Documents",
+  },
 ] as const;
 
 const formSchema = z.object({
@@ -44,8 +62,10 @@ export default function CheckboxFormMultiple() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
-          <styled.code color="white">{JSON.stringify(data, null, 2)}</styled.code>
+        <styled.pre
+          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
+        >
+          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
@@ -53,14 +73,14 @@ export default function CheckboxFormMultiple() {
 
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} spaceY="8">
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ spaceY: "8" }}>
         <FormField
           control={form.control}
           name="items"
           render={() => (
             <FormItem>
-              <styled.div mb="4">
-                <FormLabel textStyle="md">Sidebar</FormLabel>
+              <styled.div css={{ mb: "4" }}>
+                <FormLabel css={{ textStyle: "md" }}>Sidebar</FormLabel>
                 <FormDescription>
                   Select the items you want to display in the sidebar.
                 </FormDescription>
@@ -70,28 +90,32 @@ export default function CheckboxFormMultiple() {
                   key={item.id}
                   control={form.control}
                   name="items"
-                  render={({ field }) => (
-                    <FormItem
-                      key={item.id}
-                      display="flex"
-                      flexDir="row"
-                      alignItems="flex-start"
-                      spaceX="3"
-                      spaceY="0"
-                    >
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value?.includes(item.id)}
-                          onCheckedChange={(checked) =>
-                            checked
-                              ? field.onChange([...field.value, item.id])
-                              : field.onChange(field.value?.filter((value) => value !== item.id))
-                          }
-                        />
-                      </FormControl>
-                      <FormLabel fontWeight="normal">{item.label}</FormLabel>
-                    </FormItem>
-                  )}
+                  render={({ field }) => {
+                    return (
+                      <FormItem
+                        key={item.id}
+                        css={{
+                          display: "flex",
+                          flexDir: "row",
+                          alignItems: "flex-start",
+                          spaceX: "3",
+                          spaceY: "0",
+                        }}
+                      >
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value?.includes(item.id)}
+                            onCheckedChange={(checked) => {
+                              return checked
+                                ? field.onChange([...field.value, item.id])
+                                : field.onChange(field.value?.filter((value) => value !== item.id));
+                            }}
+                          />
+                        </FormControl>
+                        <FormLabel css={{ fontWeight: "normal" }}>{item.label}</FormLabel>
+                      </FormItem>
+                    );
+                  }}
                 />
               ))}
               <FormMessage />

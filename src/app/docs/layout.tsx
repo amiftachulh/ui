@@ -1,11 +1,11 @@
-import { flex } from "styled-system/patterns";
+import { styled } from "styled-system/jsx";
 import Navigation from "./navigation";
 
 export default async function DocLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className={flex({ gap: "4" })}>
+    <styled.div css={{ display: "flex", gap: "4" }}>
       <Navigation />
       {children}
-    </div>
+    </styled.div>
   );
 }

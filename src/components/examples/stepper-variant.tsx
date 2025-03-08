@@ -35,17 +35,17 @@ export default function StepperVariant() {
   const [variant, setVariant] = React.useState<Variant>("horizontal");
 
   return (
-    <styled.div display="flex" w="full" flexDir="column" gap="8">
+    <styled.div css={{ display: "flex", w: "full", flexDir: "column", gap: "8" }}>
       <RadioGroup value={variant} onValueChange={(value) => setVariant(value as Variant)}>
-        <styled.div display="flex" alignItems="center" columnGap="2">
+        <styled.div css={{ display: "flex", alignItems: "center", columnGap: "2" }}>
           <RadioGroupItem value="horizontal" id="horizontal-variant" />
           <Label htmlFor="horizontal-variant">Horizontal</Label>
         </styled.div>
-        <styled.div display="flex" alignItems="center" columnGap="2">
+        <styled.div css={{ display: "flex", alignItems: "center", columnGap: "2" }}>
           <RadioGroupItem value="vertical" id="vertical-variant" />
           <Label htmlFor="vertical-variant">Vertical</Label>
         </styled.div>
-        <styled.div display="flex" alignItems="center" columnGap="2">
+        <styled.div css={{ display: "flex", alignItems: "center", columnGap: "2" }}>
           <RadioGroupItem value="circle" id="circle-variant" />
           <Label htmlFor="circle-variant">Circle</Label>
         </styled.div>
@@ -59,7 +59,7 @@ export default function StepperVariant() {
 
 const HorizontalStepper = () => {
   return (
-    <StepperProvider spaceY="4" variant="horizontal">
+    <StepperProvider variant="horizontal" css={{ spaceY: "4" }}>
       {({ methods }) => (
         <React.Fragment>
           <StepperNavigation>
@@ -93,24 +93,24 @@ const HorizontalStepper = () => {
 const Content = ({ id }: { id: string }) => {
   return (
     <StepperPanel
-      h="200px"
-      alignContent="center"
-      rounded="md"
-      borderWidth="1px"
-      bg="slate.50"
-      p="8"
-      _dark={{ bg: "slate.950" }}
+      css={{
+        h: "200px",
+        alignContent: "center",
+        rounded: "md",
+        borderWidth: "1px",
+        bg: "slate.50",
+        p: "8",
+        _dark: { bg: "slate.950" },
+      }}
     >
-      <styled.p textStyle="xl" fontWeight="normal">
-        Content for {id}
-      </styled.p>
+      <styled.p css={{ textStyle: "xl", fontWeight: "normal" }}>Content for {id}</styled.p>
     </StepperPanel>
   );
 };
 
 const VerticalStepper = () => {
   return (
-    <StepperProvider spaceY="4" variant="vertical">
+    <StepperProvider variant="vertical" css={{ spaceY: "4" }}>
       {({ methods }) => (
         <>
           <StepperNavigation>
@@ -119,15 +119,17 @@ const VerticalStepper = () => {
                 <StepperTitle>{step.title}</StepperTitle>
                 {methods.when(step.id, () => (
                   <StepperPanel
-                    h="200px"
-                    alignContent="center"
-                    rounded="md"
-                    borderWidth="1px"
-                    bg="slate.50"
-                    p="8"
-                    _dark={{ bg: "slate.950" }}
+                    css={{
+                      h: "200px",
+                      alignContent: "center",
+                      rounded: "md",
+                      borderWidth: "1px",
+                      bg: "slate.50",
+                      p: "8",
+                      _dark: { bg: "slate.950" },
+                    }}
                   >
-                    <styled.p textStyle="xl" fontWeight="normal">
+                    <styled.p css={{ textStyle: "xl", fontWeight: "normal" }}>
                       Content for {step.id}
                     </styled.p>
                   </StepperPanel>
@@ -153,7 +155,7 @@ const VerticalStepper = () => {
 
 const CircleStepper = () => {
   return (
-    <StepperProvider spaceY="4" variant="circle">
+    <StepperProvider variant="circle" css={{ spaceY: "4" }}>
       {({ methods }) => (
         <React.Fragment>
           <StepperNavigation>
@@ -163,15 +165,17 @@ const CircleStepper = () => {
           </StepperNavigation>
           {methods.when(methods.current.id, () => (
             <StepperPanel
-              h="200px"
-              alignContent="center"
-              rounded="md"
-              borderWidth="1px"
-              bg="slate.50"
-              p="8"
-              _dark={{ bg: "slate.950" }}
+              css={{
+                h: "200px",
+                alignContent: "center",
+                rounded: "md",
+                borderWidth: "1px",
+                bg: "slate.50",
+                p: "8",
+                _dark: { bg: "slate.950" },
+              }}
             >
-              <styled.p textStyle="xl" fontWeight="normal">
+              <styled.p css={{ textStyle: "xl", fontWeight: "normal" }}>
                 Content for {methods.current.id}
               </styled.p>
             </StepperPanel>

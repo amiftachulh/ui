@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { css, cva } from "styled-system/css";
+import { cva } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import type { Heading } from "@/lib/mdx";
 
 const headingVariants = cva({
@@ -42,8 +43,8 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
   }, [headings]);
 
   return (
-    <nav
-      className={css({
+    <styled.nav
+      css={{
         pos: "sticky",
         top: "14",
         display: "none",
@@ -78,11 +79,11 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
         lg: {
           display: "block",
         },
-      })}
+      }}
     >
-      <div className={css({ spaceY: "2" })}>
-        <h4 className={css({ fontWeight: "semibold" })}>On this page</h4>
-        <ul className={css({ spaceY: "2", textStyle: "sm" })}>
+      <styled.div css={{ spaceY: "2" }}>
+        <styled.h4 css={{ fontWeight: "semibold" }}>On this page</styled.h4>
+        <styled.ul css={{ spaceY: "2", textStyle: "sm" }}>
           {headings
             .filter((heading) => heading.level !== 1)
             .map((heading) => (
@@ -92,23 +93,27 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
                   level: heading.level as typeof headingVariants.__type.level,
                 })}
               >
-                <a
+                <styled.a
                   href={`#${heading.id}`}
-                  className={css({
+                  data-active={activeId === heading.id}
+                  css={{
                     display: "inline-block",
-                    color: activeId === heading.id ? "fg" : "fg/80",
-                    fontWeight: activeId === heading.id ? "medium" : "normal",
+                    color: "fg/80",
                     _hover: {
                       color: "fg",
                     },
-                  })}
+                    "&[data-active=true]": {
+                      color: "fg",
+                      fontWeight: "medium",
+                    },
+                  }}
                 >
                   {heading.text}
-                </a>
+                </styled.a>
               </li>
             ))}
-        </ul>
-      </div>
-    </nav>
+        </styled.ul>
+      </styled.div>
+    </styled.nav>
   );
 }

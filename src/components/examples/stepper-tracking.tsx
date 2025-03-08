@@ -45,21 +45,21 @@ export default function StepperVerticalFollow() {
   const [tracking, setTracking] = React.useState(false);
 
   return (
-    <styled.div display="flex" w="full" flexDir="column" gap="8">
+    <styled.div css={{ display: "flex", w: "full", flexDir: "column", gap: "8" }}>
       <RadioGroup
         value={tracking.toString()}
         onValueChange={(value) => setTracking(value === "true")}
       >
-        <styled.div display="flex" alignItems="center" columnGap="2">
+        <styled.div css={{ display: "flex", alignItems: "center", columnGap: "2" }}>
           <RadioGroupItem value="true" id="tracking" />
           <Label htmlFor="tracking">Tracking</Label>
         </styled.div>
-        <styled.div display="flex" alignItems="center" columnGap="2">
+        <styled.div css={{ display: "flex", alignItems: "center", columnGap: "2" }}>
           <RadioGroupItem value="false" id="no-tracking" />
           <Label htmlFor="no-tracking">No Tracking</Label>
         </styled.div>
       </RadioGroup>
-      <StepperProvider spaceY="4" variant="vertical" tracking={tracking}>
+      <StepperProvider variant="vertical" tracking={tracking} css={{ spaceY: "4" }}>
         {({ methods }) => (
           <React.Fragment>
             <StepperNavigation>
@@ -67,17 +67,19 @@ export default function StepperVerticalFollow() {
                 <StepperStep key={step.id} of={step.id} onClick={() => methods.goTo(step.id)}>
                   <StepperTitle>{step.title}</StepperTitle>
                   {methods.when(step.id, () => (
-                    <StepperPanel spaceY="4">
+                    <StepperPanel css={{ spaceY: "4" }}>
                       <styled.div
-                        h="200px"
-                        alignContent="center"
-                        rounded="md"
-                        borderWidth="1px"
-                        bg="slate.50"
-                        p="8"
-                        _dark={{ bg: "slate.950" }}
+                        css={{
+                          h: "200px",
+                          alignContent: "center",
+                          rounded: "md",
+                          borderWidth: "1px",
+                          bg: "slate.50",
+                          p: "8",
+                          _dark: { bg: "slate.950" },
+                        }}
                       >
-                        <styled.p textStyle="xl" fontWeight="normal">
+                        <styled.p css={{ textStyle: "xl", fontWeight: "normal" }}>
                           Content for {step.id}
                         </styled.p>
                       </styled.div>

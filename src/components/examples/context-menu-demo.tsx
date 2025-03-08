@@ -18,34 +18,36 @@ export default function ContextMenuDemo() {
   return (
     <ContextMenu>
       <ContextMenuTrigger
-        display="flex"
-        w="300px"
-        h="150px"
-        alignItems="center"
-        justifyContent="center"
-        rounded="md"
-        borderWidth="1px"
-        borderStyle="dashed"
-        textStyle="sm"
+        css={{
+          display: "flex",
+          w: "300px",
+          h: "150px",
+          alignItems: "center",
+          justifyContent: "center",
+          rounded: "md",
+          borderWidth: "1px",
+          borderStyle: "dashed",
+          textStyle: "sm",
+        }}
       >
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent w="64">
-        <ContextMenuItem insetLeft>
+      <ContextMenuContent css={{ w: "64" }}>
+        <ContextMenuItem inset>
           Back
           <ContextMenuShortcut>⌘[</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem insetLeft disabled>
+        <ContextMenuItem inset disabled>
           Forward
           <ContextMenuShortcut>⌘]</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem insetLeft>
+        <ContextMenuItem inset>
           Reload
           <ContextMenuShortcut>⌘R</ContextMenuShortcut>
         </ContextMenuItem>
         <ContextMenuSub>
-          <ContextMenuSubTrigger insetLeft>More Tools</ContextMenuSubTrigger>
-          <ContextMenuSubContent w="48">
+          <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
+          <ContextMenuSubContent css={{ w: "48" }}>
             <ContextMenuItem>
               Save Page As...
               <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
@@ -64,7 +66,7 @@ export default function ContextMenuDemo() {
         <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
         <ContextMenuSeparator />
         <ContextMenuRadioGroup value="pedro">
-          <ContextMenuLabel insetLeft>People</ContextMenuLabel>
+          <ContextMenuLabel inset>People</ContextMenuLabel>
           <ContextMenuSeparator />
           <ContextMenuRadioItem value="pedro">Pedro Duarte</ContextMenuRadioItem>
           <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>

@@ -16,15 +16,17 @@ export default async function ComponentPreview({ name }: ComponentPreviewProps) 
   const Component = dynamic(() => import(`./examples/${name}`));
 
   return (
-    <styled.div rounded="md" borderWidth="1px" my="4" overflow="hidden">
+    <styled.div css={{ rounded: "md", borderWidth: "1px", my: "4", overflow: "hidden" }}>
       <styled.div
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        color="fg"
-        borderBottomWidth="1px"
-        px="4"
-        py="6"
+        css={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "fg",
+          borderBottomWidth: "1px",
+          px: "4",
+          py: "6",
+        }}
       >
         <Component />
       </styled.div>

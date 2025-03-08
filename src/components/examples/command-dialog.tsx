@@ -39,10 +39,10 @@ export default function CommandDialogDemo() {
 
   return (
     <>
-      <styled.p textStyle="sm" color="muted.fg">
+      <styled.p css={{ textStyle: "sm", color: "muted.fg" }}>
         Press{" "}
         <Kbd>
-          <styled.span textStyle="xs">⌘</styled.span>J
+          <styled.span css={{ textStyle: "xs" }}>⌘</styled.span>J
         </Kbd>
       </styled.p>
       <CommandDialog open={open} onOpenChange={setOpen}>

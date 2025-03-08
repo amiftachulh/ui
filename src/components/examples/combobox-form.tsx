@@ -40,7 +40,9 @@ const languages = [
 ] as const;
 
 const formSchema = z.object({
-  language: z.string().min(1, "Please select a language."),
+  language: z.string({
+    required_error: "Please select a language.",
+  }),
 });
 
 export default function ComboboxForm() {
@@ -52,8 +54,10 @@ export default function ComboboxForm() {
     toast({
       title: "You submitted the following values:",
       description: (
-        <styled.pre mt="2" w="340px" rounded="md" bg="slate.950" p="4" borderWidth="1px">
-          <styled.code color="white">{JSON.stringify(data, null, 2)}</styled.code>
+        <styled.pre
+          css={{ mt: "2", w: "340px", rounded: "md", bg: "slate.950", p: "4", borderWidth: "1px" }}
+        >
+          <styled.code css={{ color: "white" }}>{JSON.stringify(data, null, 2)}</styled.code>
         </styled.pre>
       ),
     });
@@ -61,12 +65,12 @@ export default function ComboboxForm() {
 
   return (
     <Form {...form}>
-      <styled.form onSubmit={form.handleSubmit(onSubmit)} spaceY="6">
+      <styled.form onSubmit={form.handleSubmit(onSubmit)} css={{ spaceY: "6" }}>
         <FormField
           control={form.control}
           name="language"
           render={({ field }) => (
-            <FormItem display="flex" flexDir="column">
+            <FormItem css={{ display: "flex", flexDir: "column" }}>
               <FormLabel>Language</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
@@ -74,20 +78,28 @@ export default function ComboboxForm() {
                     <Button
                       variant="outline"
                       role="combobox"
-                      w="200px"
-                      justifyContent="space-between"
-                      color={!field.value ? "muted.fg" : undefined}
+                      css={{
+                        w: "200px",
+                        justifyContent: "space-between",
+                        color: !field.value ? "muted.fg" : undefined,
+                      }}
                     >
                       {field.value
-                        ? languages.find((lang) => lang.value === field.value)?.label
+                        ? languages.find((language) => language.value === field.value)?.label
                         : "Select language"}
                       <LuChevronsUpDown
-                        className={css({ ml: "2", w: "4", h: "4", opacity: "0.5" })}
+                        className={css({
+                          ml: "2",
+                          w: "4",
+                          h: "4",
+                          flexShrink: "0",
+                          opacity: "0.5",
+                        })}
                       />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent w="200px" p="0">
+                <PopoverContent css={{ w: "200px", p: "0" }}>
                   <Command>
                     <CommandInput placeholder="Search language..." />
                     <CommandList>
@@ -95,9 +107,11 @@ export default function ComboboxForm() {
                       <CommandGroup>
                         {languages.map((language) => (
                           <CommandItem
-                            key={language.value}
                             value={language.label}
-                            onSelect={() => form.setValue("language", language.value)}
+                            key={language.value}
+                            onSelect={() => {
+                              form.setValue("language", language.value);
+                            }}
                           >
                             {language.label}
                             <LuCheck

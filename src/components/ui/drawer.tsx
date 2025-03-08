@@ -66,7 +66,7 @@ function Content({
         {...props}
       >
         {children}
-        <DrawerClose pos="absolute" top="4" right="4" cursor="pointer">
+        <DrawerClose css={{ pos: "absolute", top: "4", right: "4", cursor: "pointer" }}>
           <LuX className={css({ w: "4", h: "4" })} />
           <span className={css({ srOnly: true })}>Close</span>
         </DrawerClose>

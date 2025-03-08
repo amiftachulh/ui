@@ -58,13 +58,15 @@ export default function NavigationMenuDemo() {
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
           <NavigationMenuContent>
             <styled.ul
-              display="grid"
-              gap="3"
-              p="6"
-              md={{ w: "400px" }}
-              lg={{ w: "500px", gridTemplateColumns: ".75fr 1fr" }}
+              css={{
+                display: "grid",
+                gap: "3",
+                p: "6",
+                md: { w: "400px" },
+                lg: { w: "500px", gridTemplateColumns: ".75fr 1fr" },
+              }}
             >
-              <styled.li gridRow="span 3">
+              <styled.li css={{ gridRow: "span 3" }}>
                 <NavigationMenuLink asChild>
                   <Link
                     href="/"
@@ -85,10 +87,10 @@ export default function NavigationMenuDemo() {
                       _focus: { shadow: "md" },
                     })}
                   >
-                    <styled.div mb="2" mt="4" textStyle="lg" fontWeight="medium">
+                    <styled.div css={{ mb: "2", mt: "4", textStyle: "lg", fontWeight: "medium" }}>
                       shadcn/ui
                     </styled.div>
-                    <styled.p textStyle="sm" lineHeight="tight" color="muted.fg">
+                    <styled.p css={{ textStyle: "sm", lineHeight: "tight", color: "muted.fg" }}>
                       Beautifully designed components that you can copy and paste into your apps.
                       Accessible. Customizable. Open Source.
                     </styled.p>
@@ -111,12 +113,14 @@ export default function NavigationMenuDemo() {
           <NavigationMenuTrigger>Components</NavigationMenuTrigger>
           <NavigationMenuContent>
             <styled.ul
-              display="grid"
-              w="400px"
-              gap="3"
-              p="4"
-              md={{ gridTemplateColumns: "repeat(2, 1fr)", w: "500px" }}
-              lg={{ w: "600px" }}
+              css={{
+                display: "grid",
+                w: "400px",
+                gap: "3",
+                p: "4",
+                md: { gridTemplateColumns: "repeat(2, 1fr)", w: "500px" },
+                lg: { w: "600px" },
+              }}
             >
               {components.map((component) => (
                 <ListItem key={component.title} title={component.title} href={component.href}>
@@ -164,10 +168,12 @@ const ListItem = ({
           })}
           {...props}
         >
-          <styled.div textStyle="sm" fontWeight="medium" lineHeight="none">
+          <styled.div css={{ textStyle: "sm", fontWeight: "medium", lineHeight: "none" }}>
             {title}
           </styled.div>
-          <styled.p lineClamp="2" textStyle="sm" lineHeight="snug" color="muted.fg">
+          <styled.p
+            css={{ lineClamp: "2", textStyle: "sm", lineHeight: "snug", color: "muted.fg" }}
+          >
             {children}
           </styled.p>
         </Link>

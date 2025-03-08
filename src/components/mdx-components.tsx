@@ -24,10 +24,12 @@ const components: MDXComponents = {
   h1: ({ children }) => (
     <styled.h1
       id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
-      color="fg"
-      lineHeight="tight"
-      fontWeight="semibold"
-      fontSize="3xl"
+      css={{
+        color: "fg",
+        lineHeight: "tight",
+        fontWeight: "semibold",
+        fontSize: "3xl",
+      }}
     >
       {children}
     </styled.h1>
@@ -35,14 +37,16 @@ const components: MDXComponents = {
   h2: ({ children }) => (
     <styled.h2
       id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
-      color="fg"
-      lineHeight="tight"
-      fontWeight="semibold"
-      fontSize="2xl"
-      mt="12"
-      mb="6"
-      pb="2"
-      borderBottomWidth="1px"
+      css={{
+        color: "fg",
+        lineHeight: "tight",
+        fontWeight: "semibold",
+        fontSize: "2xl",
+        mt: "12",
+        mb: "6",
+        pb: "2",
+        borderBottomWidth: "1px",
+      }}
     >
       {children}
     </styled.h2>
@@ -50,11 +54,13 @@ const components: MDXComponents = {
   h3: ({ children }) => (
     <styled.h3
       id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
-      color="fg"
-      lineHeight="tight"
-      fontWeight="semibold"
-      fontSize="xl"
-      mt="8"
+      css={{
+        color: "fg",
+        lineHeight: "tight",
+        fontWeight: "semibold",
+        fontSize: "xl",
+        mt: "8",
+      }}
     >
       {children}
     </styled.h3>
@@ -62,20 +68,18 @@ const components: MDXComponents = {
   h4: ({ children }) => (
     <styled.h4
       id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
-      color="fg"
-      lineHeight="tight"
-      fontWeight="semibold"
-      fontSize="lg"
-      mt="6"
+      css={{
+        color: "fg",
+        lineHeight: "tight",
+        fontWeight: "semibold",
+        fontSize: "lg",
+        mt: "6",
+      }}
     >
       {children}
     </styled.h4>
   ),
-  p: ({ children }) => (
-    <styled.p my="4" lineHeight="relaxed">
-      {children}
-    </styled.p>
-  ),
+  p: ({ children }) => <styled.p css={{ my: "4", lineHeight: "relaxed" }}>{children}</styled.p>,
   a: ({ href, ...props }) => {
     const linkClass = css({
       color: "primary/90",
@@ -94,19 +98,13 @@ const components: MDXComponents = {
     return <a href={href} className={linkClass} {...props} target="_blank" />;
   },
   strong: ({ children }) => (
-    <styled.strong color="fg" fontWeight="semibold">
-      {children}
-    </styled.strong>
+    <styled.strong css={{ color: "fg", fontWeight: "semibold" }}>{children}</styled.strong>
   ),
   ul: ({ children }) => (
-    <styled.ul listStyleType="disc" my="4" pl="6">
-      {children}
-    </styled.ul>
+    <styled.ul css={{ listStyleType: "disc", my: "4", pl: "6" }}>{children}</styled.ul>
   ),
   ol: ({ children }) => (
-    <styled.ol listStyleType="decimal" my="4" pl="6">
-      {children}
-    </styled.ol>
+    <styled.ol css={{ listStyleType: "decimal", my: "4", pl: "6" }}>{children}</styled.ol>
   ),
   li: ({ children }) => <styled.li css={{ my: "1" }}>{children}</styled.li>,
   pre: (props) => {
@@ -129,23 +127,25 @@ const components: MDXComponents = {
   code: ({ children }) => (
     <styled.code
       className={badge({ variant: "secondary", size: "md" })}
-      px="0.5"
-      rounded="sm"
-      color="secondary.fg"
-      userSelect="auto"
+      css={{
+        px: "0.5",
+        rounded: "sm",
+        color: "secondary.fg",
+        userSelect: "auto",
+      }}
     >
       {children}
     </styled.code>
   ),
   blockquote: ({ children }) => (
     <styled.blockquote
-      fontWeight="medium"
-      fontStyle="italic"
-      color="fg"
-      borderLeftWidth="4px"
-      borderLeftColor="border"
-      paddingLeft="4"
       css={{
+        fontWeight: "medium",
+        fontStyle: "italic",
+        color: "fg",
+        borderLeftWidth: "4px",
+        borderLeftColor: "border",
+        paddingLeft: "4",
         "& p": {
           marginTop: "4",
           marginBottom: "4",
@@ -156,14 +156,14 @@ const components: MDXComponents = {
     </styled.blockquote>
   ),
   table: (props) => (
-    <styled.div rounded="md" borderWidth="1px">
+    <styled.div css={{ rounded: "md", borderWidth: "1px" }}>
       <Table {...props} />
     </styled.div>
   ),
-  thead: (props) => <TableHeader bg="muted" {...props} />,
+  thead: (props) => <TableHeader css={{ bg: "muted" }} {...props} />,
   tbody: TableBody,
   tr: TableRow,
-  th: (props) => <TableHead color="fg" {...props} />,
+  th: (props) => <TableHead css={{ color: "fg" }} {...props} />,
   td: TableCell,
   ComponentPreview,
   ComponentSource,
@@ -171,22 +171,24 @@ const components: MDXComponents = {
   CodeBlock,
   Step: (props) => (
     <styled.h3
-      mt="8"
-      mb="4"
-      scrollMargin="20"
-      fontWeight="medium"
-      letterSpacing="tight"
+      css={{
+        mt: "8",
+        mb: "4",
+        scrollMargin: "20",
+        fontWeight: "medium",
+        letterSpacing: "tight",
+      }}
       {...props}
     />
   ),
   Steps: (props) => (
     <styled.div
-      my="4"
-      ml="4"
-      pl="8"
-      borderLeftWidth="1px"
-      counterReset="step"
       css={{
+        my: "4",
+        ml: "4",
+        pl: "8",
+        borderLeftWidth: "1px",
+        counterReset: "step",
         "& > h3": {
           counterIncrement: "step",
         },
@@ -215,7 +217,7 @@ const components: MDXComponents = {
     const Icon = alertIconMap[variant as keyof typeof alertIconMap];
 
     return (
-      <Alert variant={variant} my="4">
+      <Alert variant={variant} css={{ my: "4" }}>
         <AlertIcon>
           <Icon />
         </AlertIcon>
@@ -227,11 +229,11 @@ const components: MDXComponents = {
   },
   Callout: ({ children }) => (
     <styled.div
-      bg={{ base: "zinc.100", _dark: "zinc.900" }}
-      p="4"
-      borderWidth="1px"
-      rounded="md"
       css={{
+        bg: { base: "zinc.100", _dark: "zinc.900" },
+        p: "4",
+        borderWidth: "1px",
+        rounded: "md",
         "& *": {
           textStyle: "sm",
           "&:first-child": { mt: "0" },

@@ -15,17 +15,17 @@ export default function CarouselOrientation() {
         align: "start",
       }}
       orientation="vertical"
-      w="full"
-      maxW="xs"
-      my="24"
+      css={{ w: "full", maxW: "xs", my: "24" }}
     >
-      <CarouselContent mt="-1" h="200px">
+      <CarouselContent css={{ mt: "-1", h: "200px" }}>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} pt="1" md={{ flexBasis: "50%" }}>
-            <styled.div p="1">
+          <CarouselItem key={index} css={{ pt: "1", md: { flexBasis: "1/2" } }}>
+            <styled.div css={{ p: "1" }}>
               <Card>
-                <CardContent display="flex" alignItems="center" justifyContent="center" p="6">
-                  <styled.span textStyle="3xl" fontWeight="semibold">
+                <CardContent
+                  css={{ display: "flex", alignItems: "center", justifyContent: "center", p: "6" }}
+                >
+                  <styled.span css={{ textStyle: "3xl", fontWeight: "semibold" }}>
                     {index + 1}
                   </styled.span>
                 </CardContent>

@@ -21,25 +21,25 @@ import {
 
 export default function CardDemo() {
   return (
-    <Card w="350px">
+    <Card css={{ w: "350px" }}>
       <CardHeader>
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <CardContent>
         <form>
-          <styled.div display="grid" w="full" alignItems="center" gap="4">
-            <styled.div display="flex" flexDir="column" gap="1.5">
+          <styled.div css={{ display: "grid", w: "full", alignItems: "center", gap: "4" }}>
+            <styled.div css={{ display: "flex", flexDir: "column", gap: "1.5" }}>
               <Label htmlFor="name">Name</Label>
               <Input id="name" placeholder="Name of your project" />
             </styled.div>
-            <styled.div display="flex" flexDir="column" gap="1.5">
+            <styled.div css={{ display: "flex", flexDir: "column", gap: "1.5" }}>
               <Label htmlFor="framework">Framework</Label>
               <Select>
                 <SelectTrigger id="framework">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
-                <SelectContent contentPosition="popper">
+                <SelectContent>
                   <SelectItem value="next">Next.js</SelectItem>
                   <SelectItem value="sveltekit">SvelteKit</SelectItem>
                   <SelectItem value="astro">Astro</SelectItem>
@@ -50,7 +50,7 @@ export default function CardDemo() {
           </styled.div>
         </form>
       </CardContent>
-      <CardFooter display="flex" justifyContent="space-between">
+      <CardFooter css={{ display: "flex", justifyContent: "center" }}>
         <Button variant="outline">Cancel</Button>
         <Button>Deploy</Button>
       </CardFooter>

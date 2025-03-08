@@ -28,19 +28,21 @@ const notifications = [
 
 export default function CardNotification() {
   return (
-    <Card w="380px">
+    <Card css={{ w: "380px" }}>
       <CardHeader>
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>
       </CardHeader>
-      <CardContent display="grid" gap="4">
-        <styled.div display="flex" alignItems="center" gap="4" rounded="md" borderWidth="1px" p="4">
+      <CardContent css={{ display: "grid", gap: "4" }}>
+        <styled.div
+          css={{ display: "flex", alignItems: "center", gap: "4", borderWidth: "1px", p: "4" }}
+        >
           <LuBellRing />
-          <styled.div flex="1" spaceY="1">
-            <styled.p textStyle="sm" fontWeight="medium" lineHeight="none">
+          <styled.div css={{ flex: 1, spaceY: "1" }}>
+            <styled.p css={{ textStyle: "sm", fontWeight: "medium", lineHeight: "none" }}>
               Push Notifications
             </styled.p>
-            <styled.p textStyle="sm" color="muted.fg">
+            <styled.p css={{ textStyle: "sm", color: "muted.fg" }}>
               Send notifications to device.
             </styled.p>
           </styled.div>
@@ -50,26 +52,30 @@ export default function CardNotification() {
           {notifications.map((notification, index) => (
             <styled.div
               key={index}
-              mb="4"
-              display="grid"
-              gridTemplateColumns="25px 1fr"
-              alignItems="flex-start"
-              pb="4"
-              _last={{ mb: "0", pb: "0" }}
+              css={{
+                mb: "4",
+                display: "grid",
+                gridTemplateColumns: "25px 1fr",
+                alignItems: "flex-start",
+                pb: "4",
+                _last: { mb: "0", pb: "0" },
+              }}
             >
               <styled.span
-                display="flex"
-                w="2"
-                h="2"
-                transform="translateY(0.25rem)"
-                rounded="full"
-                bg="sky.500"
+                css={{
+                  display: "flex",
+                  w: "2",
+                  h: "2",
+                  transform: "translateY(0.25rem)",
+                  rounded: "full",
+                  bg: "sky.500",
+                }}
               />
-              <styled.div spaceY="1">
-                <styled.p textStyle="sm" fontWeight="medium" lineHeight="none">
+              <styled.div css={{ spaceY: "1" }}>
+                <styled.p css={{ textStyle: "sm", fontWeight: "medium", lineHeight: "none" }}>
                   {notification.title}
                 </styled.p>
-                <styled.p textStyle="sm" color="muted.fg">
+                <styled.p css={{ textStyle: "sm", color: "muted.fg" }}>
                   {notification.description}
                 </styled.p>
               </styled.div>
@@ -78,7 +84,7 @@ export default function CardNotification() {
         </div>
       </CardContent>
       <CardFooter>
-        <Button w="full">
+        <Button css={{ w: "full" }}>
           <LuCheck /> Mark all as read
         </Button>
       </CardFooter>

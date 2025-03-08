@@ -65,14 +65,14 @@ MenubarContent.displayName = MenubarPrimitive.Content.displayName;
 
 function Item({
   className,
-  insetLeft,
+  inset,
   ...props
-}: React.ComponentProps<typeof MenubarPrimitive.Item> & { insetLeft?: boolean }) {
+}: React.ComponentProps<typeof MenubarPrimitive.Item> & { inset?: boolean }) {
   return (
     <MenubarPrimitive.Item
       data-slot="menubar-item"
       className={cx(classes.item, className)}
-      data-inset={insetLeft}
+      data-inset={inset}
       {...props}
     />
   );
@@ -150,14 +150,14 @@ MenubarRadioItem.displayName = MenubarPrimitive.RadioItem.displayName;
 
 function Label({
   className,
-  insetLeft,
+  inset,
   ...props
-}: React.ComponentProps<typeof MenubarPrimitive.Label> & { insetLeft?: boolean }) {
+}: React.ComponentProps<typeof MenubarPrimitive.Label> & { inset?: boolean }) {
   return (
     <MenubarPrimitive.Label
       data-slot="menubar-label"
       className={cx(classes.label, className)}
-      data-inset={insetLeft}
+      data-inset={inset}
       {...props}
     />
   );
@@ -192,15 +192,15 @@ const MenubarSub = MenubarPrimitive.Sub;
 
 function SubTrigger({
   className,
-  insetLeft,
+  inset,
   children,
   ...props
-}: React.ComponentProps<typeof MenubarPrimitive.SubTrigger> & { insetLeft?: boolean }) {
+}: React.ComponentProps<typeof MenubarPrimitive.SubTrigger> & { inset?: boolean }) {
   return (
     <MenubarPrimitive.SubTrigger
       data-slot="menubar-sub-trigger"
       className={cx(classes.subTrigger, className)}
-      data-inset={insetLeft}
+      data-inset={inset}
       {...props}
     >
       {children}

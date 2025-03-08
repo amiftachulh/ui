@@ -20,24 +20,24 @@ export default function DialogCloseButton() {
       <DialogTrigger asChild>
         <Button variant="outline">Share</Button>
       </DialogTrigger>
-      <DialogContent sm={{ maxW: "md" }}>
+      <DialogContent css={{ sm: { maxW: "md" } }}>
         <DialogHeader>
           <DialogTitle>Share link</DialogTitle>
           <DialogDescription>Anyone who has this link will be able to view this.</DialogDescription>
         </DialogHeader>
-        <styled.div display="flex" alignItems="center" spaceX="2">
-          <styled.div display="grid" flex="1" gap="2">
-            <Label htmlFor="link" srOnly>
+        <styled.div css={{ display: "flex", alignItems: "center", spaceX: "2" }}>
+          <styled.div css={{ display: "grid", flex: "1", gap: "2" }}>
+            <Label htmlFor="link" css={{ srOnly: true }}>
               Link
             </Label>
             <Input id="link" defaultValue="https://ui.shadcn.com/docs/installation" readOnly />
           </styled.div>
-          <Button type="submit" size="sm" px="3">
-            <styled.span srOnly>Copy</styled.span>
+          <Button type="submit" size="sm" css={{ px: "3" }}>
+            <styled.span css={{ srOnly: true }}>Copy</styled.span>
             <LuCopy />
           </Button>
         </styled.div>
-        <DialogFooter sm={{ justifyContent: "flex-start" }}>
+        <DialogFooter css={{ sm: { justifyContent: "flex-start" } }}>
           <DialogClose asChild>
             <Button type="button" variant="secondary">
               Close

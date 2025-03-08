@@ -33,8 +33,7 @@ export default function ComboboxDemo() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          w="200px"
-          justifyContent="space-between"
+          css={{ w: "200px", justifyContent: "space-between" }}
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
@@ -42,7 +41,7 @@ export default function ComboboxDemo() {
           <LuChevronsUpDown opacity="0.5" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent w="200px" p="0">
+      <PopoverContent css={{ w: "200px", p: "0" }}>
         <Command>
           <CommandInput placeholder="Search framework..." />
           <CommandList>

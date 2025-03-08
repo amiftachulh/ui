@@ -5,7 +5,7 @@ import { Toggle } from "@/components/ui/toggle";
 
 export default function ToggleSize() {
   return (
-    <styled.div display="flex" alignItems="center" flexWrap="wrap" gap="4">
+    <styled.div css={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "4" }}>
       <Toggle variant="outline" size="sm" aria-label="Toggle italic">
         <LuItalic className={css({ w: "4", h: "4" })} />
       </Toggle>

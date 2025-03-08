@@ -3,7 +3,7 @@ import { Alert, AlertContent, AlertDescription, AlertIcon } from "@/components/u
 
 export default function AlertWithoutTitle() {
   return (
-    <Alert variant="success" w="2/3">
+    <Alert variant="success" css={{ w: "2/3" }}>
       <AlertIcon>
         <LuCircleCheckBig />
       </AlertIcon>

@@ -10,6 +10,7 @@ import {
   useFormContext,
 } from "react-hook-form";
 import { Slot } from "@radix-ui/react-slot";
+import { css, cx } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { Label as LabelBase } from "@/components/ui/label";
 
@@ -37,7 +38,7 @@ const FormField = <
   );
 };
 
-const useFormField = () => {
+function useFormField() {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
   const { getFieldState, formState } = useFormContext();
@@ -58,7 +59,7 @@ const useFormField = () => {
     formMessageId: `${id}-form-item-message`,
     ...fieldState,
   };
-};
+}
 
 type FormItemContextValue = {
   id: string;
@@ -66,15 +67,21 @@ type FormItemContextValue = {
 
 const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
 
-function FormItem(props: React.ComponentProps<typeof styled.div>) {
+function Item({ className, ...props }: React.ComponentProps<"div">) {
   const id = React.useId();
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <styled.div data-slot="form-item" display="grid" gap="2" {...props} />
+      <div
+        data-slot="form-item"
+        className={cx(css({ display: "grid", gap: "2" }), className)}
+        {...props}
+      />
     </FormItemContext.Provider>
   );
 }
+const FormItem = styled(Item);
+FormItem.displayName = "FormItem";
 
 function FormLabel({ css, ...props }: React.ComponentProps<typeof LabelBase>) {
   const { error, formItemId } = useFormField();
@@ -111,21 +118,22 @@ function Control(props: React.ComponentProps<typeof Slot>) {
 const FormControl = styled(Control);
 FormControl.displayName = "FormControl";
 
-function FormDescription(props: React.ComponentProps<typeof styled.p>) {
+function Description({ className, ...props }: React.ComponentProps<"p">) {
   const { formDescriptionId } = useFormField();
 
   return (
-    <styled.p
+    <p
       id={formDescriptionId}
       data-slot="form-description"
-      textStyle="sm"
-      color="muted.fg"
+      className={cx(css({ textStyle: "sm", color: "muted.fg" }), className)}
       {...props}
     />
   );
 }
+const FormDescription = styled(Description);
+FormDescription.displayName = "FormDescription";
 
-const FormMessage = (props: React.ComponentProps<typeof styled.p>) => {
+const Message = ({ className, ...props }: React.ComponentProps<"p">) => {
   const { error, formMessageId } = useFormField();
   const body = error ? String(error?.message ?? "") : props.children;
 
@@ -134,11 +142,17 @@ const FormMessage = (props: React.ComponentProps<typeof styled.p>) => {
   }
 
   return (
-    <styled.p id={formMessageId} color="red.500" textStyle="sm" fontWeight="medium" {...props}>
+    <p
+      id={formMessageId}
+      className={cx(css({ color: "danger", textStyle: "sm", fontWeight: "medium" }), className)}
+      {...props}
+    >
       {body}
-    </styled.p>
+    </p>
   );
 };
+const FormMessage = styled(Message);
+FormMessage.displayName = "FormMessage";
 
 export {
   Form,

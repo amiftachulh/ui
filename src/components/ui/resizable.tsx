@@ -11,15 +11,11 @@ const classes = resizable();
 
 function PanelGroup({
   className,
-  resizeDirection,
   ...props
-}: Omit<React.ComponentProps<typeof ResizablePrimitive.PanelGroup>, "direction"> & {
-  resizeDirection: ResizablePrimitive.PanelGroupProps["direction"];
-}) {
+}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {
   return (
     <ResizablePrimitive.PanelGroup
       data-slot="resizable-panel-group"
-      direction={resizeDirection}
       className={cx(classes.panelGroup, className)}
       {...props}
     />

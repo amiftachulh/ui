@@ -83,7 +83,7 @@ const defineStepper = <const Steps extends Stepperize.Step[]>(
 
   const StepperContainer = ({
     children,
-    className,
+    css,
     ...props
   }: Omit<React.ComponentProps<typeof styled.div>, "children"> & {
     children:
@@ -93,7 +93,7 @@ const defineStepper = <const Steps extends Stepperize.Step[]>(
     const methods = useStepper();
 
     return (
-      <styled.div w="full" className={className} {...props}>
+      <styled.div css={{ w: "full", ...css }} {...props}>
         {typeof children === "function" ? children({ methods }) : children}
       </styled.div>
     );

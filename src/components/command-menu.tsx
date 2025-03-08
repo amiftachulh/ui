@@ -55,29 +55,31 @@ export default function CommandMenu({ ...props }: DialogProps) {
     <>
       <Button
         variant="outline"
-        pos="relative"
-        w="full"
-        justifyContent="space-between"
-        rounded="md"
-        bg="muted/50"
-        color="muted.fg"
-        textStyle="sm"
-        fontWeight="normal"
-        shadow="none"
-        md={{ w: 40 }}
-        lg={{ w: 56 }}
-        xl={{ w: 64 }}
+        css={{
+          pos: "relative",
+          w: "full",
+          justifyContent: "space-between",
+          rounded: "md",
+          bg: "muted/50",
+          color: "muted.fg",
+          textStyle: "sm",
+          fontWeight: "normal",
+          shadow: "none",
+          md: { w: 40 },
+          lg: { w: 56 },
+          xl: { w: 64 },
+        }}
         onClick={() => setOpen(true)}
         {...props}
       >
-        <styled.span display="none" lg={{ display: "inline-flex" }}>
+        <styled.span css={{ display: "none", lg: { display: "inline-flex" } }}>
           Search documentation...
         </styled.span>
-        <styled.span display="inline-flex" lg={{ display: "none" }}>
+        <styled.span css={{ display: "inline-flex", lg: { display: "none" } }}>
           Search...
         </styled.span>
         <Kbd>
-          <styled.span textStyle="xs">⌘</styled.span>K
+          <styled.span css={{ textStyle: "xs" }}>⌘</styled.span>K
         </Kbd>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
@@ -109,12 +111,14 @@ export default function CommandMenu({ ...props }: DialogProps) {
                   }}
                 >
                   <styled.div
-                    mr="2"
-                    display="flex"
-                    w="4"
-                    h="4"
-                    alignItems="center"
-                    justifyContent="center"
+                    css={{
+                      mr: "2",
+                      display: "flex",
+                      w: "4",
+                      h: "4",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
                   >
                     <LuCircle className={css({ w: "3", h: "3" })} />
                   </styled.div>

@@ -22,7 +22,7 @@ export default function PhoneInputFormattingValue() {
         onCountryChange={setCountry}
         placeholder="Enter a phone number"
       />
-      <styled.div mt="4" spaceY="2" textStyle="sm">
+      <styled.div css={{ mt: "4", spaceY: "2", textStyle: "sm" }}>
         <div>National: {phoneNumber && formatPhoneNumber(phoneNumber)}</div>
         <div>International: {phoneNumber && formatPhoneNumberIntl(phoneNumber)}</div>
         <div>Country code: {country && getCountryCallingCode(country)}</div>

@@ -6,6 +6,7 @@ import {
   LuSmile,
   LuUser,
 } from "react-icons/lu";
+import { css } from "styled-system/css";
 import {
   Command,
   CommandEmpty,
@@ -19,7 +20,9 @@ import {
 
 export default function CommandDemo() {
   return (
-    <Command rounded="lg" borderWidth="1px" shadow="md" md={{ minWidth: "450px" }}>
+    <Command
+      className={css({ rounded: "lg", borderWidth: "1px", shadow: "md", md: { minW: "450px" } })}
+    >
       <CommandInput placeholder="Type a command or search" />
       <CommandList>
         <CommandEmpty>No results found</CommandEmpty>

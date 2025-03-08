@@ -25,9 +25,11 @@ export default function BreadcrumbDemo() {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger display="flex" alignItems="center" gap="1" cursor="pointer">
-              <BreadcrumbEllipsis w="4" h="4" />
-              <styled.span srOnly>Toggle menu</styled.span>
+            <DropdownMenuTrigger
+              css={{ display: "flex", alignItems: "center", gap: "1", cursor: "pointer" }}
+            >
+              <BreadcrumbEllipsis css={{ w: "4", h: "4" }} />
+              <styled.span css={{ srOnly: true }}>Toggle menu</styled.span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Documentation</DropdownMenuItem>

@@ -494,7 +494,7 @@ export const slotRecipes = {
 
 <Step>Import the preset into your `panda.config.ts` file.</Step>
 
-```ts highlight="6"
+```ts highlight="6,9-10"
 import { defineConfig } from "@pandacss/dev";
 import preset from "./preset";
 
@@ -504,6 +504,7 @@ export default defineConfig({
   include: ["./src/**/*.{js,jsx,ts,tsx}"],
   exclude: [],
   jsxFramework: "react",
+  jsxStyleProps: "minimal",
   // This globalCss is just an example, you can remove it if you don't need it.
   globalCss: {
     extend: {
@@ -516,6 +517,10 @@ export default defineConfig({
   outdir: "styled-system",
 });
 ```
+
+<Alert variant="warning"
+  description="We need to set jsxStyleProps to `minimal` to avoid conflicts with the component props."
+/>
 
 <Step>Edit `tsconfig.json`</Step>
 

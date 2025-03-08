@@ -10,20 +10,22 @@ import {
 
 export default function CarouselDemo() {
   return (
-    <Carousel w="full" maxW="xs">
+    <Carousel css={{ w: "full", maxW: "xs" }}>
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
-            <styled.div p="1">
+            <styled.div css={{ p: "1" }}>
               <Card>
                 <CardContent
-                  display="flex"
-                  aspectRatio="square"
-                  alignItems="center"
-                  justifyContent="center"
-                  p="6"
+                  css={{
+                    display: "flex",
+                    aspectRatio: "square",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    p: "6",
+                  }}
                 >
-                  <styled.span textStyle="4xl" fontWeight="semibold">
+                  <styled.span css={{ textStyle: "4xl", fontWeight: "semibold" }}>
                     {index + 1}
                   </styled.span>
                 </CardContent>

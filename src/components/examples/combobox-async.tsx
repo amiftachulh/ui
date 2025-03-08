@@ -3,6 +3,7 @@
 import * as React from "react";
 import { LuCheck, LuChevronsUpDown, LuLoader } from "react-icons/lu";
 import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -26,7 +27,6 @@ export default function ComboboxAsync() {
   const [frameworks, setFrameworks] = React.useState<Framework[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  // Fetch data when the popover opens or when search query changes
   React.useEffect(() => {
     if (open) {
       fetchFrameworks(searchQuery);
@@ -36,10 +36,8 @@ export default function ComboboxAsync() {
   const fetchFrameworks = async (query: string) => {
     setIsLoading(true);
     try {
-      // Simulate API call with timeout
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Mock response data - replace with your actual API call
       const mockData = [
         { value: "next.js", label: "Next.js" },
         { value: "sveltekit", label: "SvelteKit" },
@@ -67,10 +65,7 @@ export default function ComboboxAsync() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={css({
-            w: "200px",
-            justifyContent: "space-between",
-          })}
+          css={{ w: "200px", justifyContent: "space-between" }}
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label ||
@@ -79,7 +74,7 @@ export default function ComboboxAsync() {
           <LuChevronsUpDown className={css({ opacity: "0.5" })} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className={css({ w: "200px", p: "0" })}>
+      <PopoverContent css={{ w: "200px", p: "0" }}>
         <Command>
           <CommandInput
             placeholder="Search framework..."
@@ -88,8 +83,8 @@ export default function ComboboxAsync() {
           />
           <CommandList>
             {isLoading ? (
-              <div
-                className={css({
+              <styled.div
+                css={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -97,7 +92,7 @@ export default function ComboboxAsync() {
                   px: "2",
                   color: "gray.500",
                   fontSize: "sm",
-                })}
+                }}
               >
                 <LuLoader
                   className={css({
@@ -106,7 +101,7 @@ export default function ComboboxAsync() {
                   })}
                 />
                 <span>Loading frameworks...</span>
-              </div>
+              </styled.div>
             ) : (
               <>
                 <CommandEmpty>No framework found.</CommandEmpty>

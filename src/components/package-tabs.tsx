@@ -17,32 +17,36 @@ export default function PackageTabs({ items }: PackageTabsProps) {
 
   return (
     <Tabs
-      my="4"
-      borderWidth="1"
-      rounded="md"
-      overflow="hidden"
       value={selected}
       onValueChange={(value) => {
         localStorage.setItem("package-manager", value);
         setSelected(value);
+      }}
+      css={{
+        my: "4",
+        borderWidth: "1",
+        rounded: "md",
+        overflow: "hidden",
       }}
     >
       <TabsList>
         {packageManagers.map((p) => (
           <TabsTrigger
             key={p.name}
-            gap="2"
-            borderRightWidth="1"
-            _hover={{ bg: "primary/10" }}
-            _active={{ bg: "primary/10" }}
             value={p.name}
+            css={{
+              gap: "2",
+              borderRightWidth: "1",
+              _hover: { bg: "primary/10" },
+              _active: { bg: "primary/10" },
+            }}
           >
             {p.icon} {p.name}
           </TabsTrigger>
         ))}
       </TabsList>
       {packageManagers.map((p, i) => (
-        <TabsContent key={p.name} p="0" value={p.name}>
+        <TabsContent key={p.name} value={p.name} css={{ p: "0" }}>
           {items[i]}
         </TabsContent>
       ))}

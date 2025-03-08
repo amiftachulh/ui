@@ -1,12 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { css, cx } from "styled-system/css";
+import { styled } from "styled-system/jsx";
 
 export default function ChartTooltip() {
   return (
-    <div
-      className={css({
+    <styled.div
+      css={{
         display: "grid",
         aspectRatio: "16 / 9",
         w: "full",
@@ -25,33 +25,33 @@ export default function ChartTooltip() {
           justifyContent: "center",
           p: 4,
         },
-      })}
+      }}
     >
       <div>
-        <div
-          className={css({
+        <styled.div
+          css={{
             pos: "absolute",
             top: "45px",
             left: "-35px",
             zIndex: 10,
             textStyle: "sm",
             fontWeight: "medium",
-          })}
+          }}
         >
           Label
-        </div>
-        <svg
+        </styled.div>
+        <styled.svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 193 40"
           width="50"
           height="12"
           fill="none"
-          className={css({
+          css={{
             pos: "absolute",
             left: "-5px",
             top: "50px",
-            zIndex: 10,
-          })}
+            zIndex: "10",
+          }}
         >
           <g clipPath="url(#a)">
             <path
@@ -64,42 +64,42 @@ export default function ChartTooltip() {
               <path fill="currentColor" d="M0 0h193v40H0z" />
             </clipPath>
           </defs>
-        </svg>
+        </styled.svg>
         <TooltipDemo
           label="Page Views"
           payload={[
             { name: "Desktop", value: 186, fill: "var(--colors-chart-1)" },
             { name: "Mobile", value: 80, fill: "var(--colors-chart-2)" },
           ]}
-          className={css({ w: "8rem" })}
+          css={{ w: "8rem" }}
         />
       </div>
-      <div className={css({ alignItems: "flex-end" })}>
-        <div
-          className={css({
+      <styled.div css={{ alignItems: "flex-end" }}>
+        <styled.div
+          css={{
             pos: "absolute",
             top: "0px",
             left: "122px",
             zIndex: 10,
             textStyle: "sm",
             fontWeight: "medium",
-          })}
+          }}
         >
           Name
-        </div>
-        <svg
+        </styled.div>
+        <styled.svg
           xmlns="http://www.w3.org/2000/svg"
           width="35"
           height="42"
           fill="none"
           viewBox="0 0 122 148"
-          className={css({
+          css={{
             pos: "absolute",
             top: "10px",
             left: "85px",
             zIndex: 10,
             transform: "scaleX(-1)",
-          })}
+          }}
         >
           <g clipPath="url(#ab)">
             <path
@@ -112,7 +112,7 @@ export default function ChartTooltip() {
               <path fill="currentColor" d="M0 0h122v148H0z" />
             </clipPath>
           </defs>
-        </svg>
+        </styled.svg>
         <TooltipDemo
           label="Browser"
           hideLabel
@@ -121,50 +121,50 @@ export default function ChartTooltip() {
             { name: "Firefox", value: 1000, fill: "var(--colors-chart-4)" },
           ]}
           indicator="dashed"
-          className={css({ w: "8rem" })}
+          css={{ w: "8rem" }}
         />
-      </div>
-      <div className={css({ display: "none!", md: { display: "flex!" } })}>
+      </styled.div>
+      <styled.div css={{ display: "none", md: { display: "flex" } }}>
         <TooltipDemo
           label="Page Views"
           payload={[{ name: "Desktop", value: 12486, fill: "var(--colors-chart-3)" }]}
-          className={css({ w: "9rem" })}
+          css={{ w: "9rem" }}
           indicator="line"
         />
-      </div>
-      <div className={css({ alignItems: "flex-start!", justifyContent: "flex-start!" })}>
-        <div
-          className={css({
+      </styled.div>
+      <styled.div css={{ alignItems: "flex-start", justifyContent: "flex-start" }}>
+        <styled.div
+          css={{
             pos: "absolute",
             top: "60px",
             left: "50px",
             zIndex: 10,
             textStyle: "sm",
             fontWeight: "medium",
-          })}
+          }}
         >
           Indicator
-        </div>
+        </styled.div>
         <TooltipDemo
           label="Browser"
           hideLabel
           payload={[{ name: "Chrome", value: 1286, fill: "var(--colors-chart-1)" }]}
           indicator="dot"
-          className={css({ w: "8rem" })}
+          css={{ w: "8rem" }}
         />
-        <svg
+        <styled.svg
           xmlns="http://www.w3.org/2000/svg"
           width="15"
           height="34"
           fill="none"
           viewBox="0 0 75 175"
-          className={css({
+          css={{
             pos: "absolute",
             top: "38px",
             left: "30px",
-            zIndex: 10,
+            zIndex: "10",
             transform: "rotate(-40deg)",
-          })}
+          }}
         >
           <g clipPath="url(#abc)">
             <path
@@ -177,9 +177,9 @@ export default function ChartTooltip() {
               <path fill="currentColor" d="M0 0h75v175H0z" />
             </clipPath>
           </defs>
-        </svg>
-      </div>
-    </div>
+        </styled.svg>
+      </styled.div>
+    </styled.div>
   );
 }
 
@@ -189,7 +189,7 @@ function TooltipDemo({
   payload,
   hideLabel,
   hideIndicator,
-  className,
+  css,
 }: {
   label: string;
   hideLabel?: boolean;
@@ -202,9 +202,9 @@ function TooltipDemo({
   }[];
   nameKey?: string;
   labelKey?: string;
-} & React.ComponentProps<"div">) {
+} & React.ComponentProps<typeof styled.div>) {
   const tooltipLabel = hideLabel ? null : (
-    <div className={css({ fontWeight: "medium" })}>{label}</div>
+    <styled.div css={{ fontWeight: "medium" }}>{label}</styled.div>
   );
 
   if (!payload?.length) {
@@ -214,74 +214,68 @@ function TooltipDemo({
   const nestLabel = payload.length === 1 && indicator !== "dot";
 
   return (
-    <div
-      className={cx(
-        css({
-          display: "grid",
-          minW: "8rem",
-          alignItems: "flex-start",
-          gap: 1.5,
-          rounded: "lg",
-          borderWidth: "1px",
-          borderColor: "border/50",
-          bg: "bg",
-          px: "2.5",
-          py: "1.5",
-          textStyle: "xs",
-          shadow: "xl",
-          transition: "all",
-          transitionTimingFunction: "ease-in-out",
-          _hover: {
-            transform: "translateY(-0.25rem)",
-          },
-        }),
-        className
-      )}
+    <styled.div
+      css={{
+        display: "grid",
+        minW: "8rem",
+        alignItems: "flex-start",
+        gap: 1.5,
+        rounded: "lg",
+        borderWidth: "1px",
+        borderColor: "border/50",
+        bg: "bg",
+        px: "2.5",
+        py: "1.5",
+        textStyle: "xs",
+        shadow: "xl",
+        transition: "all",
+        transitionTimingFunction: "ease-in-out",
+        _hover: {
+          transform: "translateY(-0.25rem)",
+        },
+        ...css,
+      }}
     >
       {!nestLabel ? tooltipLabel : null}
-      <div className={css({ display: "grid", gap: "1.5" })}>
+      <styled.div css={{ display: "grid", gap: "1.5" }}>
         {payload.map((item, index) => {
           const indicatorColor = item.fill;
 
           return (
-            <div
+            <styled.div
               key={index}
-              className={cx(
-                css({
-                  display: "flex",
-                  w: "full",
-                  alignItems: "stretch",
-                  gap: "2",
-                  "& > svg": {
-                    w: "2.5",
-                    h: "2.5",
-                    color: "muted.fg",
-                  },
-                }),
-                indicator === "dot" && css({ alignItems: "center!" })
-              )}
+              css={{
+                display: "flex",
+                w: "full",
+                alignItems: indicator === "dot" ? "center" : "stretch",
+                gap: "2",
+                "& > svg": {
+                  w: "2.5",
+                  h: "2.5",
+                  color: "muted.fg",
+                },
+              }}
             >
               <>
                 {!hideIndicator && (
-                  <div
-                    className={cx(
-                      css({
-                        flexShrink: "0",
-                        rounded: "2px",
-                        borderColor: "var(--color-border)",
-                        bg: "var(--color-bg)",
-                      }),
-                      indicator === "dot" && css({ w: "2.5!", h: "2.5!" }),
-                      indicator === "line" && css({ w: "1!" }),
-                      indicator === "dashed" &&
-                        css({
-                          w: "0!",
-                          borderWidth: "1.5px!",
-                          borderStyle: "dashed!",
-                          bg: "transparent!",
-                        }),
-                      nestLabel && indicator === "dashed" && css({ my: "0.5!" })
-                    )}
+                  <styled.div
+                    data-indicator={indicator}
+                    data-nest-label={nestLabel}
+                    css={{
+                      flexShrink: "0",
+                      rounded: "2px",
+                      borderColor: "var(--color-border)",
+                      bg: "var(--color-bg)",
+                      "&[data-indicator=dot]": { w: "2.5", h: "2.5" },
+                      "&[data-indicator=line]": { w: "1" },
+                      "&[data-indicator=dashed]": {
+                        w: "0",
+                        borderWidth: "1.5px",
+                        borderStyle: "dashed",
+                        bg: "transparent",
+                        "&[data-nest-label=true]": { my: "0.5" },
+                      },
+                    }}
                     style={
                       {
                         "--color-bg": indicatorColor,
@@ -290,37 +284,35 @@ function TooltipDemo({
                     }
                   />
                 )}
-                <div
-                  className={cx(
-                    css({
-                      display: "flex",
-                      flex: "1",
-                      justifyContent: "space-between",
-                      lineHeight: "none",
-                    }),
-                    nestLabel ? css({ alignItems: "flex-end!" }) : css({ alignItems: "center!" })
-                  )}
+                <styled.div
+                  css={{
+                    display: "flex",
+                    flex: "1",
+                    alignItems: nestLabel ? "flex-end" : "center",
+                    justifyContent: "space-between",
+                    lineHeight: "none",
+                  }}
                 >
-                  <div className={css({ display: "grid", gap: "1.5" })}>
+                  <styled.div css={{ display: "grid", gap: "1.5" }}>
                     {nestLabel ? tooltipLabel : null}
-                    <span className={css({ color: "muted.fg" })}>{item.name}</span>
-                  </div>
-                  <span
-                    className={css({
+                    <styled.span css={{ color: "muted.fg" }}>{item.name}</styled.span>
+                  </styled.div>
+                  <styled.span
+                    css={{
                       color: "fg",
                       fontFamily: "var(--global-font-mono, var(--font-mono-fallback))",
                       fontWeight: "medium",
                       fontVariantNumeric: "tabular-nums",
-                    })}
+                    }}
                   >
                     {item.value.toLocaleString()}
-                  </span>
-                </div>
+                  </styled.span>
+                </styled.div>
               </>
-            </div>
+            </styled.div>
           );
         })}
-      </div>
-    </div>
+      </styled.div>
+    </styled.div>
   );
 }

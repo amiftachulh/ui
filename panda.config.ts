@@ -7,6 +7,7 @@ export default defineConfig({
   include: ["./src/**/*.{js,jsx,ts,tsx}"],
   exclude: [],
   jsxFramework: "react",
+  jsxStyleProps: "minimal",
   globalCss: {
     extend: {
       html: {
