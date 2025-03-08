@@ -3,7 +3,7 @@
 import { styled } from "styled-system/jsx";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 
-export function ResizableDemo() {
+export default function ResizableDemo() {
   return (
     <ResizablePanelGroup
       direction="horizontal"
