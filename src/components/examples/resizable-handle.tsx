@@ -1,3 +1,5 @@
+"use client";
+
 import { styled } from "styled-system/jsx";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 
