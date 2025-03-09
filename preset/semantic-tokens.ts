@@ -44,6 +44,20 @@ export const semanticTokens = defineSemanticTokens({
       4: { value: { base: "hsl(43 74% 66%)", _dark: "hsl(280 65% 60%)" } },
       5: { value: { base: "hsl(27 87% 67%)", _dark: "hsl(340 75% 55%)" } },
     },
+    sidebar: {
+      DEFAULT: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.950}" } },
+      fg: { value: { base: "{colors.zinc.950}", _dark: "{colors.zinc.50}" } },
+      primary: {
+        DEFAULT: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.100}" } },
+        fg: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.900}" } },
+      },
+      accent: {
+        DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.800}" } },
+        fg: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+      },
+      border: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
+      ring: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+    },
   },
   animations: {
     "accordion-up": { value: "accordion-up {durations.normal} {easings.out}" },

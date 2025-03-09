@@ -379,11 +379,11 @@ export const docsConfig: DocsConfig = {
         //   href: "/docs/components/sheet",
         //   items: [],
         // },
-        // {
-        //   title: "Sidebar",
-        //   href: "/docs/components/sidebar",
-        //   items: [],
-        // },
+        {
+          title: "Sidebar",
+          href: "/docs/components/sidebar",
+          items: [],
+        },
         {
           title: "Skeleton",
           href: "/docs/components/skeleton",
