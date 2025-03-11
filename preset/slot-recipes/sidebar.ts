@@ -50,8 +50,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       display: "none",
       w: "var(--sidebar-width)",
       h: "svh",
-      transition: "all",
-      transitionTimingFunction: "linear",
+      transition: "left, right, width {durations.normal} {easings.default}",
       md: { display: "flex" },
       ".group[data-side=left] &": {
         left: "0",
@@ -195,8 +194,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       rounded: "md",
       textStyle: "xs",
       fontWeight: "medium",
-      transition: "all",
-      transitionTimingFunction: "linear",
+      transition: "margin, opacity {durations.normal} {easings.linear}",
       outline: "none",
       _focusVisible: {
         focusRing: "2",
