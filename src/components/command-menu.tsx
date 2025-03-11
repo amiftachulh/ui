@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { type DialogProps } from "@radix-ui/react-dialog";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
+import { scroll } from "styled-system/recipes";
 import { docsConfig } from "@/config/docs";
 import { Button } from "./ui/button";
 import {
@@ -84,7 +85,7 @@ export default function CommandMenu({ ...props }: DialogProps) {
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
+        <CommandList className={scroll()}>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Links">
             {docsConfig.mainNav.map((navItem) => (

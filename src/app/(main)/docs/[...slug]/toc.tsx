@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
+import { scroll } from "styled-system/recipes";
 import type { Heading } from "@/lib/mdx";
 
 const headingVariants = cva({
@@ -44,16 +45,20 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
 
   return (
     <styled.nav
+      className={scroll()}
       css={{
         pos: "sticky",
         top: "14",
         display: "none",
         h: "calc(100vh - 3.5rem)",
-        px: "4",
+        pl: "4",
         py: "10",
         w: "full",
         maxWidth: "220px",
         overflowY: "auto",
+        _scrollbarThumb: {
+          bg: "transparent",
+        },
         _hover: {
           _scrollbarThumb: {
             bg: "zinc.300",
@@ -61,20 +66,6 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
               bg: "zinc.700",
             },
           },
-        },
-        _scrollbar: {
-          w: "1.5",
-          h: "1.5",
-        },
-        _scrollbarThumb: {
-          bg: "transparent",
-          rounded: "full",
-        },
-        _scrollbarTrack: {
-          bg: "transparent",
-        },
-        "&::-webkit-scrollbar-corner": {
-          bg: "transparent",
         },
         lg: {
           display: "block",

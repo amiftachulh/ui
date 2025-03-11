@@ -15,18 +15,14 @@ export const focusRing: Record<string, PropertyConfig> = {
     group: "Shadow",
     transform(value, { token }) {
       return {
-        "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)",
-        "--tw-ring-offset-width": "0px",
-        "--tw-ring-offset-color": "#fff",
-        "--tw-ring-color": "rgba(59, 130, 246, 0.5)",
-        "--tw-ring-offset-shadow":
-          "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
-        "--tw-ring-shadow":
-          "var(--tw-ring-inset) 0 0 0 calc(" +
-          value +
-          " + var(--tw-ring-offset-width)) var(--tw-ring-color)",
-        boxShadow:
-          "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
+        "--panda-ring-inset": "var(--panda-empty,/*!*/ /*!*/)",
+        "--panda-ring-offset-width": "0px",
+        "--panda-ring-offset-color": "#fff",
+        "--panda-ring-color": token("colors.primary"),
+        "--panda-ring-offset-shadow":
+          "var(--panda-ring-inset) 0 0 0 var(--panda-ring-offset-width) var(--panda-ring-offset-color)",
+        "--panda-ring-shadow": `var(--panda-ring-inset) 0 0 0 calc(${value} + var(--panda-ring-offset-width)) var(--panda-ring-color)`,
+        boxShadow: "var(--panda-ring-offset-shadow), var(--panda-ring-shadow)",
       };
     },
   },
@@ -36,13 +32,8 @@ export const focusRing: Record<string, PropertyConfig> = {
     group: "Shadow",
     transform(value, { utils }) {
       const mix = utils.colorMix(value);
-      if (mix.invalid) {
-        return {
-          "--tw-ring-color": value,
-        };
-      }
       return {
-        "--tw-ring-color": mix.value,
+        "--panda-ring-color": mix.invalid ? value : mix.value,
       };
     },
   },
@@ -52,7 +43,7 @@ export const focusRing: Record<string, PropertyConfig> = {
     group: "Shadow",
     transform(value) {
       return {
-        "--tw-ring-offset-width": value,
+        "--panda-ring-offset-width": value,
       };
     },
   },
@@ -62,13 +53,8 @@ export const focusRing: Record<string, PropertyConfig> = {
     group: "Shadow",
     transform(value, { utils }) {
       const mix = utils.colorMix(value);
-      if (mix.invalid) {
-        return {
-          "--tw-ring-offset-color": value,
-        };
-      }
       return {
-        "--tw-ring-offset-color": mix.value,
+        "--panda-ring-offset-color": mix.invalid ? value : mix.value,
       };
     },
   },
@@ -77,7 +63,7 @@ export const focusRing: Record<string, PropertyConfig> = {
     group: "Shadow",
     transform() {
       return {
-        "--tw-ring-inset": "inset",
+        "--panda-ring-inset": "inset",
       };
     },
   },

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
+import { scroll } from "styled-system/recipes";
 import { docsConfig } from "@/config/docs";
 
 export default function Navigation() {
@@ -11,6 +12,7 @@ export default function Navigation() {
 
   return (
     <styled.aside
+      className={scroll()}
       css={{
         position: "sticky",
         top: "14",
@@ -18,10 +20,13 @@ export default function Navigation() {
         overflowY: "auto",
         display: "none",
         h: "calc(100vh - 3.5rem)",
-        px: "4",
+        pr: "4",
         py: "10",
         minWidth: "240px",
         spaceY: "2",
+        _scrollbarThumb: {
+          bg: "transparent",
+        },
         _hover: {
           _scrollbarThumb: {
             bg: "zinc.300",
@@ -29,20 +34,6 @@ export default function Navigation() {
               bg: "zinc.700",
             },
           },
-        },
-        _scrollbar: {
-          w: "1.5",
-          h: "1.5",
-        },
-        _scrollbarThumb: {
-          bg: "transparent",
-          rounded: "full",
-        },
-        _scrollbarTrack: {
-          bg: "transparent",
-        },
-        "&::-webkit-scrollbar-corner": {
-          bg: "transparent",
         },
         md: {
           display: "block",

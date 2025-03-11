@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
+import { container } from "styled-system/patterns";
 import CommandMenu from "@/components/command-menu";
 import MobileNav from "@/components/mobile-nav";
 import ThemeToggle from "@/components/theme-toggle";
@@ -18,15 +19,16 @@ export default function Header() {
       }}
     >
       <styled.div
+        className={container()}
         css={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           gap: "4",
-          maxW: "breakpoint-2xl",
+          // maxW: "breakpoint-2xl",
           h: "14",
-          mx: "auto",
-          px: "4",
+          // mx: "auto",
+          // px: "4",
         }}
       >
         <styled.div css={{ display: "flex", alignItems: "center", gap: "2" }}>
