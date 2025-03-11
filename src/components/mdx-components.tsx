@@ -158,7 +158,7 @@ const components: MDXComponents = {
     </styled.blockquote>
   ),
   table: (props) => (
-    <styled.div css={{ rounded: "md", borderWidth: "1px" }}>
+    <styled.div css={{ my: "4", rounded: "md", borderWidth: "1px" }}>
       <Table {...props} />
     </styled.div>
   ),

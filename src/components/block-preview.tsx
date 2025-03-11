@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import CodeBlock from "./code-block";
 
@@ -14,7 +15,7 @@ export default async function BlockPreview({ name }: BlockPreviewProps) {
   const content = fs.readFileSync(file, "utf8");
 
   return (
-    <styled.div css={{ rounded: "md", borderWidth: "1px", my: "4", overflow: "hidden" }}>
+    <styled.div css={{ spaceY: "2" }}>
       <styled.div
         css={{
           pos: "relative",
@@ -39,7 +40,10 @@ export default async function BlockPreview({ name }: BlockPreviewProps) {
           <styled.iframe src={`/view/${name}`} css={{ w: "full", h: "full" }} />
         </styled.div>
       </styled.div>
-      <CodeBlock lang="tsx">{content}</CodeBlock>
+
+      <CodeBlock className={css({ borderWidth: "1px", rounded: "md" })} lang="tsx">
+        {content}
+      </CodeBlock>
     </styled.div>
   );
 }

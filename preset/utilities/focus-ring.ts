@@ -13,9 +13,8 @@ export const focusRing: Record<string, PropertyConfig> = {
     className: "ring",
     values: ringWidth,
     group: "Shadow",
-    transform(value) {
+    transform(value, { token }) {
       return {
-        position: "relative",
         "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)",
         "--tw-ring-offset-width": "0px",
         "--tw-ring-offset-color": "#fff",
