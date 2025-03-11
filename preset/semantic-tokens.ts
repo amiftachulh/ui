@@ -45,7 +45,7 @@ export const semanticTokens = defineSemanticTokens({
       5: { value: { base: "hsl(27 87% 67%)", _dark: "hsl(340 75% 55%)" } },
     },
     sidebar: {
-      DEFAULT: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.950}" } },
+      DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.900}" } },
       fg: { value: { base: "{colors.zinc.950}", _dark: "{colors.zinc.50}" } },
       primary: {
         DEFAULT: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.100}" } },

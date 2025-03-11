@@ -3,7 +3,7 @@ title: Sidebar
 description: A composable, themeable and customizable sidebar component.
 ---
 
-<ComponentPreview name="sidebar-demo" />
+<BlockPreview name="sidebar-07" />
 
 Sidebars are one of the most complex components to build. They are central to any application and
 often contain a lot of moving parts.
@@ -12,3 +12,71 @@ I (shadcn) don't like building sidebars. So I (shadcn) built 30+ of them. All ki
 configurations. Then I (shadcn) extracted the core components into `sidebar.tsx`.
 
 We now have a solid foundation to build on top of. Composable. Themeable. Customizable.
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-slot" />
+
+<Step>Add these components to your project.</Step>
+
+- [Button](/docs/components/button)
+- [Drawer](/docs/components/drawer)
+- [Input](/docs/components/input)
+- [Separator](/docs/components/separator)
+- [Skeleton](/docs/components/skeleton)
+- [Tooltip](/docs/components/tooltip)
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="sidebar.ts" type="slot-recipe" />
+
+<ComponentSource name="sidebar-menu-button.ts" type="recipe" />
+
+<ComponentSource name="sidebar.tsx" type="component" />
+
+<ComponentSource name="use-media-query.tsx" type="hook" />
+
+<Step>Add the following colors to your semantic tokens.</Step>
+
+```tsx highlight="4-17"
+export const semanticTokens = defineSemanticTokens({
+  colors: {
+    // ... other colors
+    sidebar: {
+      DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.900}" } },
+      fg: { value: { base: "{colors.zinc.950}", _dark: "{colors.zinc.50}" } },
+      primary: {
+        DEFAULT: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.100}" } },
+        fg: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.900}" } },
+      },
+      accent: {
+        DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.800}" } },
+        fg: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+      },
+      border: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
+      ring: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+    },
+  },
+});
+```
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Structure
+
+A `Sidebar` component is composed of the following parts:
+
+- `SidebarProvider` - Handles collapsible state.
+- `Sidebar` - The sidebar container.
+- `SidebarHeader` and `SidebarFooter` - Sticky at the top and bottom of the sidebar.
+- `SidebarContent` - Scrollable content.
+- `SidebarGroup` - Section within the `SidebarContent`.
+- `SidebarTrigger` - Trigger for the `Sidebar`.
+
+<Image src="/images/sidebar-structure-dark.png" width="716" height="420" alt="Sidebar Structure" />

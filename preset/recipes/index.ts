@@ -5,6 +5,7 @@ import { kbdRecipe } from "./kbd";
 import { labelRecipe } from "./label";
 import { scrollRecipe } from "./scroll";
 import { separatorRecipe } from "./separator";
+import { sidebarMenuButtonRecipe } from "./sidebar-menu-button";
 import { skeletonRecipe } from "./skeleton";
 import { textareaRecipe } from "./textarea";
 import { toggleRecipe } from "./toggle";
@@ -18,6 +19,7 @@ export const recipes = {
   label: labelRecipe,
   scroll: scrollRecipe,
   separator: separatorRecipe,
+  sidebarMenuButton: sidebarMenuButtonRecipe,
   skeleton: skeletonRecipe,
   textarea: textareaRecipe,
   toggle: toggleRecipe,

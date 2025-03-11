@@ -3,8 +3,9 @@
 import * as React from "react";
 import { LuPanelLeft } from "react-icons/lu";
 import { Slot } from "@radix-ui/react-slot";
-import { css, cva, cx, type RecipeVariantProps } from "styled-system/css";
+import { css, cx } from "styled-system/css";
 import { styled } from "styled-system/jsx";
+import { sidebar, sidebarMenuButton, SidebarMenuButtonVariantProps } from "styled-system/recipes";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -18,6 +19,8 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useMediaQuery } from "@/hooks/use-media-query";
+
+const classes = sidebar();
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -129,16 +132,7 @@ function Provider({
               ...style,
             } as React.CSSProperties
           }
-          className={cx(
-            "group-sidebar-wrapper",
-            css({
-              display: "flex",
-              minH: "svh",
-              w: "full",
-              "&:has([data-variant=inset])": { bg: "sidebar" },
-            }),
-            className
-          )}
+          className={cx("group-sidebar-wrapper", classes.wrapper, className)}
           {...props}
         >
           {children}
@@ -166,20 +160,7 @@ function Root({
 
   if (collapsible === "none") {
     return (
-      <div
-        data-slot="sidebar"
-        className={cx(
-          css({
-            bg: "sidebar",
-            color: "sidebar.fg",
-            w: "var(--sidebar-width)",
-            h: "full",
-            flexDir: "column",
-          }),
-          className
-        )}
-        {...props}
-      >
+      <div data-slot="sidebar" className={cx(classes.nonCollapsibleRoot, className)} {...props}>
         {children}
       </div>
     );
@@ -192,13 +173,13 @@ function Root({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className={css({
+          css={{
             bg: "sidebar",
             color: "sidebar.fg",
             w: "var(--sidebar-width)",
             p: "0",
             "& > button": { display: "none" },
-          })}
+          }}
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -206,7 +187,7 @@ function Root({
           }
           side={side}
         >
-          <DrawerHeader className={css({ srOnly: true })}>
+          <DrawerHeader css={{ srOnly: true }}>
             <DrawerTitle>Sidebar</DrawerTitle>
             <DrawerDescription>Displays the mobile sidebar.</DrawerDescription>
           </DrawerHeader>
@@ -237,7 +218,7 @@ function Root({
             pos: "relative",
             w: "var(--sidebar-width)",
             bg: "transparent",
-            transition: "width 200ms linear",
+            transition: "all",
             ".group[data-collapsible=offcanvas] &": { w: "0" },
             ".group[data-side=right] &": { transform: "rotate(180deg)" },
             ".group[data-collapsible=icon] &": { w: "var(--sidebar-width-icon)" },
@@ -248,42 +229,7 @@ function Root({
           })
         )}
       />
-      <div
-        className={cx(
-          css({
-            pos: "fixed",
-            insetY: "0",
-            zIndex: "10",
-            w: "var(--sidebar-width)",
-            h: "svh",
-            transitionProperty: "left, right, width",
-            transitionDuration: "200ms",
-            transitionTimingFunction: "linear",
-            md: { display: "flex" },
-            ".group[data-side=left] &": {
-              left: "0",
-              ".group[data-collapsible=offcanvas] &": { left: "calc(var(--sidebar-width) * -1)" },
-            },
-            ".group[data-side=right] &": {
-              right: "0",
-              ".group[data-collapsible=offcanvas] &": { right: "calc(var(--sidebar-width) * -1)" },
-            },
-            ".group[data-collapsible=icon] &": {
-              w: "var(--sidebar-width-icon)",
-              ".group[data-side=left] &": { borderRightWidth: "1px" },
-              ".group[data-side=right] &": { borderLeftWidth: "1px" },
-            },
-            ".group[data-variant=floating] &, .group[data-variant=inset] &": {
-              p: "2",
-              ".group[data-collapsible=icon] &": {
-                w: "calc(var(--sidebar-width-icon) + var(--spacing-4) + 2px)",
-              },
-            },
-          }),
-          className
-        )}
-        {...props}
-      >
+      <div className={cx(classes.root, className)} {...props}>
         <div
           data-sidebar="sidebar"
           className={css({
@@ -318,7 +264,7 @@ function Trigger({ className, onClick, ...props }: React.ComponentProps<typeof B
       data-slot="sidebar-trigger"
       variant="ghost"
       size="icon"
-      className={cx(css({ w: "7", h: "7" }), className)}
+      className={cx(classes.trigger, className)}
       onClick={(event) => {
         onClick?.(event);
         toggleSidebar();
@@ -344,44 +290,7 @@ function Rail({ className, ...props }: React.ComponentProps<"button">) {
       tabIndex={-1}
       onClick={toggleSidebar}
       title="Toggle Sidebar"
-      className={cx(
-        css({
-          pos: "absolute",
-          insetY: "0",
-          zIndex: "20",
-          display: "none",
-          w: "4",
-          transform: "translateX(-50%)",
-          transition: "all",
-          transitionTimingFunction: "linear",
-          _after: {
-            pos: "absolute",
-            insetY: "0",
-            left: "50%",
-            w: "2px",
-          },
-          _hover: {
-            _after: {
-              bg: "sidebar.border",
-            },
-          },
-          sm: { display: "flex" },
-          ".group[data-side=left] &": { right: "-4" },
-          ".group[data-side=right] &": { left: "0" },
-          "[data-side=left] &": { cursor: "w-resize" },
-          "[data-side=right] &": { cursor: "e-resize" },
-          "[data-side=left][data-state=collapsed] &": { cursor: "e-resize" },
-          "[data-side=right][data-state=collapsed] &": { cursor: "w-resize" },
-          ".group[data-collapsible=offcanvas] &": {
-            transform: "translateX(0)",
-            _after: { left: "100%" },
-            _hover: { bg: "sidebar" },
-          },
-          "[data-side=left][data-collapsible=offcanvas] &": { right: "-2" },
-          "[data-side=right][data-collapsible=offcanvas] &": { left: "-2" },
-        }),
-        className
-      )}
+      className={cx(classes.rail, className)}
       {...props}
     />
   );
@@ -390,32 +299,7 @@ const SidebarRail = styled(Rail);
 SidebarRail.displayName = "SidebarRail";
 
 function Inset({ className, ...props }: React.ComponentProps<"main">) {
-  return (
-    <main
-      data-slot="sidebar-inset"
-      className={cx(
-        css({
-          bg: "bg",
-          pos: "relative",
-          display: "flex",
-          flex: "1",
-          flexDir: "column",
-          w: "full",
-          md: {
-            ".peer[data-variant=inset] ~ &": {
-              m: "2",
-              ml: "0",
-              rounded: "xl",
-              shadow: "sm",
-              ".peer[data-state=collapsed] ~ &": { ml: "2" },
-            },
-          },
-        }),
-        className
-      )}
-      {...props}
-    />
-  );
+  return <main data-slot="sidebar-inset" className={cx(classes.inset, className)} {...props} />;
 }
 const SidebarInset = styled(Inset);
 SidebarInset.displayName = "SidebarInset";
@@ -425,7 +309,7 @@ function SidebarInputBase({ className, ...props }: React.ComponentProps<typeof I
     <Input
       data-slot="sidebar-input"
       data-sidebar="input"
-      className={cx(css({ bg: "bg", w: "full", h: "8", shadow: "none" }), className)}
+      className={cx(classes.input, className)}
       {...props}
     />
   );
@@ -438,7 +322,7 @@ function Header({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-header"
       data-sidebar="header"
-      className={cx(css({ display: "flex", flexDir: "column", gap: "2", p: "2" }), className)}
+      className={cx(classes.header, className)}
       {...props}
     />
   );
@@ -451,7 +335,7 @@ function Footer({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-footer"
       data-sidebar="footer"
-      className={cx(css({ display: "flex", flexDir: "column", gap: "2", p: "2" }), className)}
+      className={cx(classes.footer, className)}
       {...props}
     />
   );
@@ -464,7 +348,7 @@ function SidebarSeparatorBase({ className, ...props }: React.ComponentProps<type
     <Separator
       data-slot="sidebar-separator"
       data-sidebar="separator"
-      className={cx(css({ bg: "sidebar.border", mx: "2", w: "auto" }), className)}
+      className={cx(classes.separator, className)}
       {...props}
     />
   );
@@ -477,18 +361,7 @@ function Content({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-content"
       data-sidebar="content"
-      className={cx(
-        css({
-          display: "flex",
-          flex: "1",
-          flexDir: "column",
-          gap: "2",
-          minH: "0",
-          overflow: "auto",
-          ".group[data-collapse=icon] &": { overflow: "hidden" },
-        }),
-        className
-      )}
+      className={cx(classes.content, className)}
       {...props}
     />
   );
@@ -501,10 +374,7 @@ function Group({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-group"
       data-sidebar="group"
-      className={cx(
-        css({ pos: "relative", flex: "1", flexDir: "column", w: "full", minW: "0", p: "2" }),
-        className
-      )}
+      className={cx(classes.group, className)}
       {...props}
     />
   );
@@ -523,39 +393,7 @@ function GroupLabel({
     <Comp
       data-slot="sidebar-group-label"
       data-sidebar="group-label"
-      className={cx(
-        css({
-          color: "sidebar.fg/70",
-          display: "flex",
-          alignItems: "center",
-          flexShrink: "0",
-          h: "8",
-          px: "2",
-          rounded: "md",
-          textStyle: "xs",
-          fontWeight: "medium",
-          transitionProperty: "margin, opacity",
-          transitionDuration: "fast",
-          transitionTimingFunction: "linear",
-          outline: "none",
-          _focusVisible: {
-            focusRing: "2",
-            focusRingColor: "sidebar.ring",
-            focusRingOffset: "2",
-            focusRingOffsetColor: "sidebar",
-          },
-          "& > svg": {
-            w: "4",
-            h: "4",
-            flexShrink: "0",
-          },
-          ".group[data-collapse=icon] &": {
-            mt: "-8",
-            opacity: "0",
-          },
-        }),
-        className
-      )}
+      className={cx(classes.groupLabel, className)}
       {...props}
     />
   );
@@ -574,43 +412,7 @@ function GroupAction({
     <Comp
       data-slot="sidebar-group-action"
       data-sidebar="group-action"
-      className={cx(
-        css({
-          color: "sidebar.fg",
-          pos: "absolute",
-          top: "3.5",
-          right: "3",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          aspectRatio: "square",
-          w: "5",
-          p: "0",
-          rounded: "md",
-          outline: "none",
-          transition: "transform",
-          _focusVisible: {
-            focusRing: "2",
-            focusRingColor: "sidebar.ring",
-            focusRingOffset: "2",
-            focusRingOffsetColor: "sidebar",
-          },
-          "& > svg": {
-            w: "4",
-            h: "4",
-            flexShrink: "0",
-          },
-          _after: {
-            pos: "absolute",
-            inset: "-2",
-            md: { display: "none" },
-          },
-          ".group[data-collapse=icon] &": {
-            display: "none",
-          },
-        }),
-        className
-      )}
+      className={cx(classes.groupAction, className)}
       {...props}
     />
   );
@@ -623,7 +425,7 @@ function GroupContent({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-group-content"
       data-sidebar="group-content"
-      className={cx(css({ w: "full", textStyle: "sm" }), className)}
+      className={cx(classes.groupContent, className)}
       {...props}
     />
   );
@@ -636,10 +438,7 @@ function Menu({ className, ...props }: React.ComponentProps<"ul">) {
     <ul
       data-slot="sidebar-menu"
       data-sidebar="menu"
-      className={cx(
-        css({ display: "flex", w: "full", minW: "0", flexDir: "column", gap: "1" }),
-        className
-      )}
+      className={cx(classes.menu, className)}
       {...props}
     />
   );
@@ -652,112 +451,13 @@ function MenuItem({ className, ...props }: React.ComponentProps<"li">) {
     <li
       data-slot="sidebar-menu-item"
       data-sidebar="menu-item"
-      className={cx("group-menu-item", css({ pos: "relative" }), className)}
+      className={cx("group-menu-item", classes.menuItem, className)}
       {...props}
     />
   );
 }
 const SidebarMenuItem = styled(MenuItem);
 SidebarMenuItem.displayName = "SidebarMenuItem";
-
-const sidebarMenuButtonVariants = cva({
-  base: {
-    display: "flex",
-    w: "full",
-    alignItems: "center",
-    gap: "2",
-    overflow: "hidden",
-    rounded: "md",
-    p: "2",
-    textStyle: "sm",
-    textAlign: "left",
-    outline: "none",
-    transitionProperty: "width, height, padding",
-    transitionDuration: "fast",
-    transitionTimingFunction: "ease",
-    _hover: {
-      bg: "sidebar.accent",
-      color: "sidebar.accent.fg",
-    },
-    _focusVisible: {
-      focusRing: "2",
-      focusRingColor: "ring",
-      focusRingOffset: "2",
-      focusRingOffsetColor: "bg",
-    },
-    _disabled: {
-      pointerEvents: "none",
-      opacity: "0.5",
-    },
-    ".group-menu-item:has([data-sidebar=menu-action]) &": {
-      pr: "8",
-    },
-    "&[data-active=true]": {
-      bg: "sidebar.accent",
-      color: "sidebar.accent.fg",
-      fontWeight: "medium",
-    },
-    _open: {
-      _hover: {
-        bg: "sidebar.accent",
-        color: "sidebar.accent.fg",
-      },
-    },
-    ".group[data-collapsible=icon] &": {
-      w: "8!",
-      h: "8!",
-      p: "2!",
-    },
-    "& > span:last-child": {
-      truncate: true,
-    },
-    "& > svg": {
-      w: "4",
-      h: "4",
-      flexShrink: "0",
-    },
-  },
-  variants: {
-    variant: {
-      default: {
-        _hover: {
-          bg: "sidebar.accent",
-          color: "sidebar.accent.fg",
-        },
-      },
-      outline: {
-        bg: "background",
-        shadow: "0 0 0 1px hsl(var(--colors-sidebar-border))",
-        _hover: {
-          bg: "sidebar.accent",
-          color: "sidebar.accent.fg",
-          shadow: "0 0 0 1px hsl(var(--colors-sidebar-accent))",
-        },
-      },
-    },
-    size: {
-      sm: {
-        h: "7",
-        textStyle: "xs",
-      },
-      md: {
-        h: "8",
-        textStyle: "sm",
-      },
-      lg: {
-        h: "12",
-        textStyle: "sm",
-        ".group[data-collapsible=icon] &": {
-          p: "0!",
-        },
-      },
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-    size: "md",
-  },
-});
 
 function MenuButton({
   asChild = false,
@@ -771,7 +471,7 @@ function MenuButton({
   asChild?: boolean;
   isActive?: boolean;
   tooltip?: string | React.ComponentProps<typeof TooltipContent>;
-} & RecipeVariantProps<typeof sidebarMenuButtonVariants>) {
+} & SidebarMenuButtonVariantProps) {
   const Comp = asChild ? Slot : "button";
   const { isMobile, state } = useSidebar();
 
@@ -781,7 +481,7 @@ function MenuButton({
       data-sidebar="menu-button"
       data-size={size}
       data-active={isActive}
-      className={cx(sidebarMenuButtonVariants({ variant, size }), className)}
+      className={cx(sidebarMenuButton({ variant, size }), className)}
       {...props}
     />
   );
@@ -826,68 +526,8 @@ function MenuAction({
     <Comp
       data-slot="sidebar-menu-action"
       data-sidebar="menu-action"
-      className={cx(
-        css({
-          pos: "absolute",
-          top: "1.5",
-          right: "1",
-          display: "flex",
-          aspectRatio: "square",
-          w: "5",
-          alignItems: "center",
-          justifyContent: "center",
-          rounded: "md",
-          p: "0",
-          color: "sidebar.fg",
-          outline: "none",
-          transition: "transform",
-          _hover: {
-            bg: "sidebar.accent",
-            color: "sidebar.accent.fg",
-          },
-          _focusVisible: {
-            focusRing: "2",
-            focusRingColor: "sidebar.ring",
-            focusRingOffset: "2",
-            focusRingOffsetColor: "sidebar",
-          },
-          ".peer-menu-button:hover ~ &": {
-            color: "sidebar.accent.fg",
-          },
-          _after: {
-            pos: "absolute",
-            inset: "-2",
-            md: { display: "none" },
-          },
-          ".peer-menu-button[data-size=sm] ~ &": {
-            top: "1",
-          },
-          ".peer-menu-button[data-size=md] ~ &": {
-            top: "1.5",
-          },
-          ".peer-menu-button[data-size=lg] ~ &": {
-            top: "2.5",
-          },
-          ".group[data-collapsible=icon] &": {
-            display: "none",
-          },
-        }),
-        showOnHover &&
-          css({
-            ".peer-menu-button[data-active=true] ~ &": {
-              color: "sidebar.accent.fg",
-            },
-            ".group-menu-item:focus-within &": {
-              opacity: "1",
-            },
-            ".group-menu-item:hover &": {
-              opacity: "1",
-            },
-            _open: { opacity: "1" },
-            md: { opacity: "0" },
-          }),
-        className
-      )}
+      data-show-on-hover={showOnHover}
+      className={cx(classes.menuAction, className)}
       {...props}
     />
   );
@@ -900,44 +540,7 @@ function MenuBadge({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-menu-badge"
       data-sidebar="menu-badge"
-      className={cx(
-        css({
-          color: "sidebar.fg",
-          pointerEvents: "none",
-          pos: "absolute",
-          right: "1",
-          display: "flex",
-          minW: "5",
-          h: "5",
-          alignItems: "center",
-          justifyContent: "center",
-          rounded: "md",
-          px: "1",
-          textStyle: "xs",
-          fontWeight: "medium",
-          fontVariantNumeric: "tabular-nums",
-          userSelect: "none",
-          ".peer-menu-button:hover ~ &": {
-            color: "sidebar.accent.fg",
-          },
-          ".peer-menu-button[data-active=true] ~ &": {
-            color: "sidebar.accent.fg",
-          },
-          ".peer-menu-button[data-size=sm] ~ &": {
-            top: "1",
-          },
-          ".peer-menu-button[data-size=md] ~ &": {
-            top: "1.5",
-          },
-          ".peer-menu-button[data-size=lg] ~ &": {
-            top: "2.5",
-          },
-          ".group[data-collapsible=icon] &": {
-            display: "none",
-          },
-        }),
-        className
-      )}
+      className={cx(classes.menuBadge, className)}
       {...props}
     />
   );
@@ -961,10 +564,7 @@ function MenuSkeleton({
     <div
       data-slot="sidebar-menu-skeleton"
       data-sidebar="menu-skeleton"
-      className={cx(
-        css({ display: "flex", h: "8", alignItems: "center", gap: "2", rounded: "md", px: "2" }),
-        className
-      )}
+      className={cx(classes.menuSkeleton, className)}
       {...props}
     >
       {showIcon && (
@@ -990,24 +590,7 @@ function MenuSub({ className, ...props }: React.ComponentProps<"ul">) {
     <ul
       data-slot="sidebar-menu-sub"
       data-sidebar="menu-sub"
-      className={cx(
-        css({
-          borderColor: "sidebar.border",
-          mx: "3.5",
-          display: "flex",
-          minW: "0",
-          transform: "translateX(-1px)",
-          flexDir: "column",
-          gap: "1",
-          borderLeftWidth: "1px",
-          px: "2.5",
-          py: "0.5",
-          ".group[data-collapse=icon] &": {
-            display: "none",
-          },
-        }),
-        className
-      )}
+      className={cx(classes.menuSub, className)}
       {...props}
     />
   );
@@ -1020,7 +603,7 @@ function MenuSubItem({ className, ...props }: React.ComponentProps<"li">) {
     <li
       data-slot="sidebar-menu-sub-item"
       data-sidebar="menu-sub-item"
-      className={cx("group-menu-sub-item", css({ pos: "relative" }), className)}
+      className={cx("group-menu-sub-item", classes.menuSubItem, className)}
       {...props}
     />
   );
@@ -1047,53 +630,7 @@ function MenuSubButton({
       data-sidebar="menu-sub-button"
       data-size={size}
       data-active={isActive}
-      className={cx(
-        css({
-          display: "flex",
-          alignItems: "center",
-          gap: "2",
-          minW: "0",
-          h: "7",
-          color: "sidebar.fg",
-          transform: "translateX(-1px)",
-          outline: "none",
-          overflow: "hidden",
-          rounded: "md",
-          _hover: {
-            bg: "sidebar.accent",
-            color: "sidebar.accent.fg",
-          },
-          "&[data-active=true]": {
-            bg: "sidebar.accent",
-            color: "sidebar.accent.fg",
-          },
-          _focusVisible: {
-            focusRing: "2",
-            focusRingColor: "sidebar.ring",
-            focusRingOffset: "2",
-            focusRingOffsetColor: "sidebar",
-          },
-          _disabled: {
-            pointerEvents: "none",
-            opacity: "0.5",
-          },
-          "&[data-size=sm]": { textStyle: "xs" },
-          "&[data-size=md]": { textStyle: "sm" },
-          ".group[data-collapsible=icon] &": {
-            display: "none",
-          },
-          "& > svg": {
-            w: "4",
-            h: "4",
-            flexShrink: "0",
-            color: "sidebar.accent.fg",
-            _last: {
-              truncate: true,
-            },
-          },
-        }),
-        className
-      )}
+      className={cx(classes.menuSubButton, className)}
       {...props}
     />
   );

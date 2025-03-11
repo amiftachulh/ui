@@ -1,9 +1,11 @@
 import { LuCircleCheckBig, LuCircleX, LuInfo, LuTriangleAlert } from "react-icons/lu";
+import Image from "next/image";
 import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { badge } from "styled-system/recipes";
+import BlockPreview from "./block-preview";
 import CodeBlock from "./code-block";
 import ComponentPreview from "./component-preview";
 import ComponentSource from "./component-source";
@@ -165,8 +167,22 @@ const components: MDXComponents = {
   tr: TableRow,
   th: (props) => <TableHead css={{ color: "fg" }} {...props} />,
   td: TableCell,
+  Image: ({ className: _, ...props }: React.ComponentProps<typeof Image>) => (
+    // eslint-disable-next-line jsx-a11y/alt-text
+    <Image
+      className={css({
+        borderWidth: "1px",
+        rounded: "md",
+        overflow: "hidden",
+        my: "4",
+        w: "full",
+      })}
+      {...props}
+    />
+  ),
   ComponentPreview,
   ComponentSource,
+  BlockPreview,
   PackageInstaller,
   CodeBlock,
   Step: (props) => (

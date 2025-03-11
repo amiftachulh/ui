@@ -22,6 +22,7 @@ import { radioGroupSlotRecipe } from "./radio-group";
 import { resizableSlotRecipe } from "./resizable";
 import { scrollAreaSlotRecipe } from "./scroll-area";
 import { selectSlotRecipe } from "./select";
+import { sidebarSlotRecipe } from "./sidebar";
 import { sliderSlotRecipe } from "./slider";
 import { switchSlotRecipe } from "./switch";
 import { tableSlotRecipe } from "./table";
@@ -55,6 +56,7 @@ export const slotRecipes = {
   resizable: resizableSlotRecipe,
   scrollArea: scrollAreaSlotRecipe,
   select: selectSlotRecipe,
+  sidebar: sidebarSlotRecipe,
   slider: sliderSlotRecipe,
   switchRecipe: switchSlotRecipe,
   table: tableSlotRecipe,

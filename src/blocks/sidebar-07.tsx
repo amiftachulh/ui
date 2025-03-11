@@ -77,7 +77,7 @@ const data = {
   user: {
     name: "shadcn",
     email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "https://github.com/shadcn.png",
   },
   teams: [
     {
@@ -330,7 +330,7 @@ export default function Page() {
                   key={item.title}
                   asChild
                   defaultOpen={item.isActive}
-                  className="group/collapsible"
+                  className="group-collapsible"
                 >
                   <SidebarMenuItem>
                     <CollapsibleTrigger asChild>
@@ -341,7 +341,6 @@ export default function Page() {
                           className={css({
                             ml: "auto",
                             transition: "transform",
-                            transitionDuration: "fast",
                             ".group-collapsible[data-state=open] &": {
                               transform: "rotate(90deg)",
                             },
@@ -386,7 +385,7 @@ export default function Page() {
                     <DropdownMenuTrigger asChild>
                       <SidebarMenuAction showOnHover>
                         <LuEllipsis />
-                        <span className="sr-only">More</span>
+                        <styled.span css={{ srOnly: true }}>More</styled.span>
                       </SidebarMenuAction>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent side="bottom" align="end" css={{ w: "48", rounded: "lg" }}>
