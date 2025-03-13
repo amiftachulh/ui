@@ -13,11 +13,13 @@ import components from "@/components/mdx-components";
 
 const contentDir = path.join(process.cwd(), "src/contents");
 
-export async function getDocBySlug(slug: string): Promise<{
+export type Doc = {
   meta: Record<string, any>;
   content: React.ReactNode;
   headings: Heading[];
-}> {
+};
+
+export async function getDocBySlug(slug: string): Promise<Doc> {
   const realSlug = slug.replace(/\.mdx$/, "");
   const [group, fileSlug] = realSlug.split("/");
 
@@ -45,7 +47,7 @@ export async function getDocBySlug(slug: string): Promise<{
   return {
     meta: {
       ...frontmatter,
-      slug: realSlug,
+      slug: `/docs/${realSlug}`,
     },
     content: <MDXContent components={components} />,
     headings,
