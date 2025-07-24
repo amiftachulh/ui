@@ -1,0 +1,46 @@
+---
+title: Avatar
+description: An image element with a fallback for representing the user.
+links:
+  - title: Docs
+    href: https://www.radix-ui.com/primitives/docs/components/avatar
+---
+
+<ComponentPreview name="avatar-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-avatar" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="avatar.ts" type="slot-recipe" />
+
+<ComponentSource name="avatar.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+```
+
+```tsx
+<Avatar>
+  <AvatarImage src="https://github.com/amiftachulh.png" />
+  <AvatarFallback>A</Avatar.Fallback>
+</Avatar>
+```
+
+## Examples
+
+### Avatar Group
+
+<ComponentPreview name="avatar-group" />

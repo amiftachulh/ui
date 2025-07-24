@@ -1,0 +1,52 @@
+---
+title: Badge
+description: Displays a badge or a component that looks like a badge.
+---
+
+<ComponentPreview name="badge-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-slot" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge.ts" type="recipe" />
+
+<ComponentSource name="badge.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/ui/badge";
+```
+
+```tsx
+<Badge variant="primary | outline | secondary | danger">Badge</Badge>
+```
+
+### Link
+
+You can use the `asChild` prop to make another component look like a badge. Here's an example of a link that looks like a badge.
+
+```tsx
+import { Link } from "next/link"
+
+import { Badge } from "@/components/ui/badge"
+
+export function LinkAsBadge() {
+  return (
+    <Badge asChild>
+      <Link href="/">Badge</Link>
+    </Badge>
+  )
+}
+```

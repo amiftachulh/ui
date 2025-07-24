@@ -1,0 +1,67 @@
+---
+title: Dialog
+description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+links:
+  - title: Docs
+    href: https://www.radix-ui.com/primitives/docs/components/dialog
+---
+
+<ComponentPreview name="dialog-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-dialog" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="dialog.ts" type="slot-recipe" />
+
+<ComponentSource name="dialog.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogDescription>
+        This action cannot be undone. This will permanently delete your account and remove your data
+        from our servers.
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```
+
+## Examples
+
+### Dialog Custom Close Button
+
+<ComponentPreview name="dialog-custom-close" />
+
+### Responsive Dialog
+
+You can make the dialog become a drawer on smaller screens by using this recipe.
+
+<ComponentSource name="dialog-responsive.ts" type="slot-recipe" />

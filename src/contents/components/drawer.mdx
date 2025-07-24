@@ -1,0 +1,64 @@
+---
+title: Drawer
+description: A drawer component for React.
+links:
+  - title: Docs
+    href: https://drawer.emilkowal.ski/getting-started
+---
+
+<ComponentPreview name="drawer-demo" />
+
+## About
+
+Drawer is built by [emilkowalski\_](https://twitter.com/emilkowalski_).
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="vaul" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="drawer.ts" type="slot-recipe" />
+
+<ComponentSource name="drawer.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+```
+
+```tsx
+<Drawer>
+  <DrawerTrigger>Open</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+      <DrawerDescription>This action cannot be undone.</DrawerDescription>
+    </DrawerHeader>
+    <DrawerFooter>
+      <Button>Submit</Button>
+      <DrawerClose>
+        <Button variant="outline">Cancel</Button>
+      </DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+```

@@ -1,0 +1,83 @@
+---
+title: Calendar
+description: A date field component that allows users to enter and edit date.
+links:
+  - title: Docs
+    href: https://daypicker.dev/
+---
+
+<ComponentPreview name="calendar-demo" />
+
+## About
+
+The `Calendar` component is built on top of [React DayPicker](https://daypicker.dev/).
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="react-day-picker" />
+
+<Step>Add the [Button](/docs/components/button) component to your project.</Step>
+
+The `Calendar` component uses the `Button` component. Make sure you have it installed in your project.
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="calendar.tsx" type="component" />
+
+</Steps>
+
+## Usage
+
+```tsx
+import { Calendar } from "@/components/ui/calendar";
+```
+
+```tsx
+const [date, setDate] = useState<Date>();
+
+return (
+  <Calendar
+    mode="single"
+    selected={date}
+    onSelect={setDate}
+    className={css({ w: "fit", borderWidth: "1px", rounded: "md" })}
+  />
+);
+```
+
+See the [React DayPicker](https://daypicker.dev/) documentation for more information.
+
+## Customization
+
+See the [React DayPicker](https://react-day-picker.js.org/docs/customization) documentation for more information on how to customize the `Calendar` component.
+
+## Date Picker
+
+You can use the `<Calendar>` component to build a date picker. See the [Date Picker](/docs/components/date-picker) page for more information.
+
+## Persian / Hijri / Jalali Calendar
+
+To use the Persian calendar, edit `components/ui/calendar.tsx` and replace `react-day-picker` with `react-day-picker/persian`.
+
+```diff
+- import { DayPicker } from "react-day-picker"
++ import { DayPicker } from "react-day-picker/persian"
+```
+
+## Examples
+
+### Multiple Months
+
+<ComponentPreview name="calendar-multiple-months" />
+
+### Month and Year Selector
+
+<ComponentPreview name="calendar-month-year" />
+
+### Date and Time Picker
+
+<ComponentPreview name="calendar-date-time" />

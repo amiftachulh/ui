@@ -1,0 +1,81 @@
+---
+title: Breadcrumb
+description: Breadcrumb component is used to display the current location within a navigational hierarchy.
+---
+
+<ComponentPreview name="breadcrumb-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-slot" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="breadcrumb.ts" type="slot-recipe" />
+
+<ComponentSource name="breadcrumb.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+```
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+## Examples
+
+### Custom Separator
+
+Use a custom component as `children` for `<BreadcrumbSeparator />` to create a custom separator.
+
+<ComponentPreview name="breadcrumb-custom-separator" />
+
+### Dropdown
+
+You can compose `<BreadcrumbItem />` with a `<DropdownMenu />` to create a dropdown in the breadcrumb.
+
+<ComponentPreview name="breadcrumb-dropdown" />
+
+### Collapsed
+
+We provide a `<BreadcrumbEllipsis />` component to show a collapsed state when the breadcrumb is too long.
+
+<ComponentPreview name="breadcrumb-collapsed" />
+
+### Link Component
+
+To use a custom link component from your routing library, you can use the `asChild` prop on `<BreadcrumbLink />`.
+
+<ComponentPreview name="breadcrumb-link" />

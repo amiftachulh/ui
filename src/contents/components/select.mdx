@@ -1,0 +1,58 @@
+---
+title: Select
+description: Displays a list of options for the user to pick from—triggered by a button.
+links:
+  - title: Docs
+    href: https://radix-ui.com/primitives/docs/components/select
+---
+
+<ComponentPreview name="select-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-select" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="select.ts" type="slot-recipe" />
+
+<ComponentSource name="select.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+```
+
+```tsx
+<Select>
+  <SelectTrigger className={css({ w: "180px" })}>
+    <SelectValue placeholder="Theme" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Light</SelectItem>
+    <SelectItem value="dark">Dark</SelectItem>
+    <SelectItem value="system">System</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Examples
+
+### Scrollable
+
+<ComponentPreview name="select-scrollable" />

@@ -1,0 +1,73 @@
+---
+title: Accordion
+description: A vertically stacked set of interactive headings that each reveal an associated section of content.
+links:
+  - title: Docs
+    href: https://www.radix-ui.com/primitives/docs/components/accordion
+---
+
+<ComponentPreview name="accordion-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-accordion" />
+
+<Step>Add keyframes to your preset then add it to semantic tokens.</Step>
+
+```ts highlight="3-10"
+export const keyframes = defineKeyframes({
+  // ... other keyframes
+  "accordion-down": {
+    from: { height: 0 },
+    to: { height: "var(--radix-accordion-content-height)" },
+  },
+  "accordion-up": {
+    from: { height: "var(--radix-accordion-content-height)" },
+    to: { height: 0 },
+  },
+});
+```
+
+```ts highlight="4,5"
+export const semanticTokens = defineSemanticTokens({
+  // ... other semantic tokens
+  animations: {
+    "accordion-down": { value: "accordion-down {durations.normal} {easings.out}" },
+    "accordion-up": { value: "accordion-up {durations.normal} {easings.out}" },
+  },
+});
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="accordion.ts" type="slot-recipe" />
+
+<ComponentSource name="accordion.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+```
+
+```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```

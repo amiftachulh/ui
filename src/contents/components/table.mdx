@@ -1,0 +1,62 @@
+---
+title: Table
+description: A responsive table component.
+---
+
+<ComponentPreview name="table-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="table.ts" type="slot-recipe" />
+
+<ComponentSource name="table.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+```
+
+```tsx
+<Table>
+  <TableCaption>A list of your recent invoices</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead css={{ w: "100px" }}>Invoice</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead>Method</TableHead>
+      <TableHead css={{ textAlign: "right" }}>Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell css={{ fontWeight: "medium" }}>INV001</TableCell>
+      <TableCell>Paid</TableCell>
+      <TableCell>Credit Card</TableCell>
+      <TableCell css={{ textAlign: "right" }}>$25000</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Data Table
+
+You can use the `<Table />` component to build more complex data tables. Combine it with [TanStack Table](https://tanstack.com/table/latest) to create tables with sorting, filtering and pagination.
+
+See the [Data Table](/docs/components/data-table) documentation for more information.

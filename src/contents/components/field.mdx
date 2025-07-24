@@ -1,0 +1,47 @@
+---
+title: Field
+description: The Field component is used to create accessible form fields.
+---
+
+<ComponentPreview name="field-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-slot" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="field.ts" type="slot-recipe" />
+
+<ComponentSource name="field.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import { Field, FieldLabel, FieldControl, FieldDescription, FieldError } from "@/components/ui/field";
+```
+
+```tsx
+<Field>
+  <FieldLabel>Username</FieldLabel>
+  <FieldControl>
+    <input type="text" />
+  </FieldControl>
+  <FieldDescription>Enter your username</FieldDescription>
+  <FieldError>Username is required</FieldError>
+</Field>
+```
+
+## Examples
+
+### Form
+
+<ComponentPreview name="field-form" />

@@ -1,0 +1,103 @@
+---
+title: Toast
+description: A succinct message that is displayed temporarily.
+links:
+  - title: Docs
+    href: https://radix-ui.com/primitives/docs/components/toast
+---
+
+<ComponentPreview name="toast-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-toast" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="toast.ts" type="slot-recipe" />
+
+<ComponentSource name="toast.tsx" type="component" />
+
+<ComponentSource name="toaster.tsx" type="component" />
+
+<ComponentSource name="use-toast.ts" type="hook" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+<Step>Add the Toaster component to your layout.</Step>
+
+`app/layout.tsx`
+
+```tsx
+import { Toaster } from "@/components/ui/toaster";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  );
+}
+```
+
+</Steps>
+
+## Usage
+
+The `useToast` hook returns a `toast` function that you can use to display a toast.
+
+```tsx
+import { useToast } from "@/hooks/use-toast";
+```
+
+```tsx
+export const ToastDemo = () => {
+  const { toast } = useToast();
+
+  return (
+    <Button
+      onClick={() => {
+        toast({
+          title: "Scheduled: Catch up",
+          description: "Friday, February 10, 2023 at 5:57 PM",
+        });
+      }}
+    >
+      Show Toast
+    </Button>
+  );
+};
+```
+
+<Alert
+  variant="info"
+  description="To display multiple toasts at the same time, you can update the TOAST_LIMIT in use-toast.ts."
+/>
+
+## Examples
+
+### Simple
+
+<ComponentPreview name="toast-simple" />
+
+### With Title
+
+<ComponentPreview name="toast-title" />
+
+### With Actions
+
+<ComponentPreview name="toast-action" />
+
+### Danger
+
+Use `toast({ variant: "danger" })` to display a danger toast.
+
+<ComponentPreview name="toast-danger" />

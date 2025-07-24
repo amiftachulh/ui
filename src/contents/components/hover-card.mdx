@@ -1,0 +1,40 @@
+---
+title: Hover Card
+description: For sighted users to preview content available behind a link.
+links:
+  - title: Docs
+    href: https://radix-ui.com/primitives/docs/components/hover-card
+---
+
+<ComponentPreview name="hover-card-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-hover-card" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="hover-card.ts" type="slot-recipe" />
+
+<ComponentSource name="hover-card.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+```
+
+```tsx
+<HoverCard>
+  <HoverCardTrigger>Hover</HoverCardTrigger>
+  <HoverCardContent>The React Framework – created and maintained by @vercel.</HoverCardContent>
+</HoverCard>
+```

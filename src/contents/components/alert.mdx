@@ -1,0 +1,66 @@
+---
+title: Alert
+description: Display important messages to users.
+---
+
+<ComponentPreview name="alert-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="alert.ts" type="slot-recipe" />
+
+<ComponentSource name="alert.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Alert,
+  AlertContent,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+} from "@/components/ui/alert";
+```
+
+```tsx
+<Alert variant="info">
+  <AlertIcon>
+    <LuInfo />
+  </AlertIcon>
+  <AlertContent>
+    <AlertTitle>Info</AlertTitle>
+    <AlertDescription>This is an info alert.</AlertDescription>
+  </AlertContent>
+</Alert>
+```
+
+## Examples
+
+### Variant
+
+<ComponentPreview name="alert-variant" />
+
+### Without Icon
+
+<ComponentPreview name="alert-without-icon" />
+
+### Without Title
+
+<ComponentPreview name="alert-without-title" />
+
+### Only Description
+
+<ComponentPreview name="alert-only-description" />
+
+### Custom
+
+<ComponentPreview name="alert-custom" />
