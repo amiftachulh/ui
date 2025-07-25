@@ -1,0 +1,105 @@
+---
+title: Timeline
+description: A component to display a timeline of events.
+---
+
+<ComponentPreview name="timeline-demo" />
+
+## Installation
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="timeline.ts" type="slot-recipe" />
+
+<ComponentSource name="timeline.tsx" type="component" />
+
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { timelineSlotRecipe } from "./timeline";
+
+export const slotRecipes = {
+  timeline: timelineSlotRecipe,
+};
+```
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDescription,
+  TimelineDot,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineTitle,
+} from "@/components/ui/timeline";
+```
+
+```tsx
+<Timeline>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineDot />
+      <TimelineConnector />
+    </TimelineSeparator>
+    <TimelineContent>
+      <TimelineTitle>Eat</TimelineTitle>
+      <TimelineDescription>Because you need strength</TimelineDescription>
+    </TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineDot />
+      <TimelineConnector />
+    </TimelineSeparator>
+    <TimelineContent>
+      <TimelineTitle>Code</TimelineTitle>
+      <TimelineDescription>Because it's awesome!</TimelineDescription>
+    </TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineDot />
+      <TimelineConnector />
+    </TimelineSeparator>
+    <TimelineContent>
+      <TimelineTitle>Sleep</TimelineTitle>
+      <TimelineDescription>Because you need rest</TimelineDescription>
+    </TimelineContent>
+  </TimelineItem>
+  <TimelineItem>
+    <TimelineSeparator>
+      <TimelineDot />
+    </TimelineSeparator>
+    <TimelineContent>
+      <TimelineTitle>Repeat</TimelineTitle>
+      <TimelineDescription>
+        Because this is the life you love!
+      </TimelineDescription>
+    </TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+## Examples
+
+### Alternate
+
+<ComponentPreview name="timeline-alternate" />
+
+### With Icon
+
+<ComponentPreview name="timeline-with-icon" />
+
+### Horizontal
+
+<ComponentPreview name="timeline-horizontal" />

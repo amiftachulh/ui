@@ -425,6 +425,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Timeline",
+          href: "/docs/components/timeline",
+          items: [],
+        },
+        {
           title: "Toast",
           href: "/docs/components/toast",
           items: [],

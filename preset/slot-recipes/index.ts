@@ -29,6 +29,7 @@ import { sliderSlotRecipe } from "./slider";
 import { switchSlotRecipe } from "./switch";
 import { tableSlotRecipe } from "./table";
 import { tabsSlotRecipe } from "./tabs";
+import { timelineSlotRecipe } from "./timeline";
 import { toastSlotRecipe } from "./toast";
 import { toggleGroupRecipe } from "./toggle-group";
 import { tooltipSlotRecipe } from "./tooltip";
@@ -65,6 +66,7 @@ export const slotRecipes = {
   switchRecipe: switchSlotRecipe,
   table: tableSlotRecipe,
   tabs: tabsSlotRecipe,
+  timeline: timelineSlotRecipe,
   toast: toastSlotRecipe,
   toggleGroup: toggleGroupRecipe,
   tooltip: tooltipSlotRecipe,
