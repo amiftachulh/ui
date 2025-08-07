@@ -10,7 +10,6 @@ export const inputRecipe = defineRecipe({
     bg: "transparent",
     px: "3",
     py: "1",
-    textStyle: "sm",
     rounded: "md",
     borderWidth: "1px",
     borderColor: "input",
@@ -49,6 +48,9 @@ export const inputRecipe = defineRecipe({
       _dark: {
         outlineColor: "danger/40",
       },
+    },
+    md: {
+      textStyle: "sm",
     },
     _dark: {
       bg: "input/30",

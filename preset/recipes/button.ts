@@ -119,7 +119,7 @@ export const buttonRecipe = defineRecipe({
         h: "8",
         gap: "1.5",
         px: "3",
-        "&:has(svg)": {
+        "&:has(> svg)": {
           px: "2.5",
         },
       },
@@ -127,14 +127,14 @@ export const buttonRecipe = defineRecipe({
         h: "9",
         px: "4",
         py: "2",
-        "&:has(svg)": {
+        "&:has(> svg)": {
           px: "3",
         },
       },
       lg: {
         h: "10",
         px: "6",
-        "&:has(svg)": {
+        "&:has(> svg)": {
           px: "4",
         },
       },

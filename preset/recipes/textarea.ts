@@ -9,7 +9,6 @@ export const textareaRecipe = defineRecipe({
     bg: "transparent",
     px: "3",
     py: "2",
-    textStyle: "sm",
     fieldSizing: "content",
     borderWidth: "1px",
     borderColor: "input",
@@ -36,6 +35,9 @@ export const textareaRecipe = defineRecipe({
       _dark: {
         outlineColor: "danger/40",
       },
+    },
+    md: {
+      textStyle: "sm",
     },
     _dark: {
       bg: "input/30",
