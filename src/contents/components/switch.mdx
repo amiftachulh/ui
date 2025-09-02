@@ -27,6 +27,16 @@ links:
 
 <ComponentSource name="switch.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { switchSlotRecipe } from "./switch";
+
+export const slotRecipes = {
+  switchRecipe: switchSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

@@ -26,6 +26,16 @@ links:
 
 <ComponentSource name="use-toast.ts" type="hook" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { toastSlotRecipe } from "./toast";
+
+export const slotRecipes = {
+  toast: toastSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 <Step>Add the Toaster component to your layout.</Step>

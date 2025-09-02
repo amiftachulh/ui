@@ -22,6 +22,16 @@ links:
 
 <ComponentSource name="scroll-area.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { scrollAreaSlotRecipe } from "./scroll-area";
+
+export const slotRecipes = {
+  scrollArea: scrollAreaSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

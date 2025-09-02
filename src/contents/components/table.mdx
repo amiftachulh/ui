@@ -15,6 +15,16 @@ description: A responsive table component.
 
 <ComponentSource name="table.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { tableSlotRecipe } from "./table";
+
+export const slotRecipes = {
+  table: tableSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

@@ -26,6 +26,16 @@ The `ToggleGroup` component uses the `toggle` recipe. Make sure you have it inst
 
 <ComponentSource name="toggle-group.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { toggleGroupSlotRecipe } from "./toggle-group";
+
+export const slotRecipes = {
+  toggleGroup: toggleGroupSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

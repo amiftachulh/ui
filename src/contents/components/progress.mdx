@@ -22,6 +22,16 @@ links:
 
 <ComponentSource name="progress.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { progressSlotRecipe } from "./progress";
+
+export const slotRecipes = {
+  progress: progressSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

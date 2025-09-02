@@ -22,6 +22,16 @@ links:
 
 <ComponentSource name="hover-card.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { hoverCardSlotRecipe } from "./hover-card";
+
+export const slotRecipes = {
+  hoverCard: hoverCardSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

@@ -15,6 +15,16 @@ description: Pagination with page navigation, next and previous links.
 
 <ComponentSource name="pagination.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { paginationSlotRecipe } from "./pagination";
+
+export const slotRecipes = {
+  pagination: paginationSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

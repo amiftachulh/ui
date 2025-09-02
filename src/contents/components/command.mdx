@@ -26,6 +26,16 @@ The `Command` component uses the `Dialog` component. Make sure you have it insta
 
 <ComponentSource name="command.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { commandSlotRecipe } from "./command";
+
+export const slotRecipes = {
+  command: commandSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

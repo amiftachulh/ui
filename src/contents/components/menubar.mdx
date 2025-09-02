@@ -22,6 +22,16 @@ links:
 
 <ComponentSource name="menubar.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { menubarSlotRecipe } from "./menubar";
+
+export const slotRecipes = {
+  menubar: menubarSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

@@ -15,6 +15,16 @@ description: Use to show a placeholder while content is loading.
 
 <ComponentSource name="skeleton.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { skeletonRecipe } from "./skeleton";
+
+export const recipes = {
+  skeleton: skeletonRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

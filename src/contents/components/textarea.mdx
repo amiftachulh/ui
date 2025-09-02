@@ -15,6 +15,16 @@ description: Displays a form textarea or a component that looks like a textarea.
 
 <ComponentSource name="textarea.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { textareaRecipe } from "./textarea";
+
+export const recipes = {
+  textarea: textareaRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

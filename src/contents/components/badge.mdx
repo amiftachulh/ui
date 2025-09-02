@@ -19,6 +19,16 @@ description: Displays a badge or a component that looks like a badge.
 
 <ComponentSource name="badge.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { badgeRecipe } from "./badge";
+
+export const recipes = {
+  badge: badgeRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>
@@ -38,15 +48,14 @@ import { Badge } from "@/components/ui/badge";
 You can use the `asChild` prop to make another component look like a badge. Here's an example of a link that looks like a badge.
 
 ```tsx
-import { Link } from "next/link"
-
-import { Badge } from "@/components/ui/badge"
+import { Link } from "next/link";
+import { Badge } from "@/components/ui/badge";
 
 export function LinkAsBadge() {
   return (
     <Badge asChild>
       <Link href="/">Badge</Link>
     </Badge>
-  )
+  );
 }
 ```

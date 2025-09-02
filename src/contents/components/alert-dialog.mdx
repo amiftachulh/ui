@@ -26,6 +26,16 @@ The `AlertDialog` component uses the `button` recipe. Make sure you have it inst
 
 <ComponentSource name="alert-dialog.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { alertDialogSlotRecipe } from "./alert-dialog";
+
+export const slotRecipes = {
+  alertDialog: alertDialogSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

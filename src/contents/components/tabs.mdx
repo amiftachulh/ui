@@ -22,6 +22,16 @@ links:
 
 <ComponentSource name="tabs.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { tabsSlotRecipe } from "./tabs";
+
+export const slotRecipes = {
+  tabs: tabsSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

@@ -22,6 +22,16 @@ links:
 
 <ComponentSource name="navigation-menu.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { navigationMenuSlotRecipe } from "./navigation-menu";
+
+export const slotRecipes = {
+  navigationMenu: navigationMenuSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

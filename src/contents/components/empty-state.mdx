@@ -19,6 +19,16 @@ description: Display a message when there is no data to show.
 
 <ComponentSource name="empty-state.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { emptyStateSlotRecipe } from "./empty-state";
+
+export const slotRecipes = {
+  emptyState: emptyStateSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

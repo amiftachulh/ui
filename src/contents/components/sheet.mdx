@@ -22,6 +22,16 @@ links:
 
 <ComponentSource name="sheet.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { sheetSlotRecipe } from "./sheet";
+
+export const slotRecipes = {
+  sheet: sheetSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

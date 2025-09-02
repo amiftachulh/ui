@@ -26,6 +26,16 @@ Drawer is built by [emilkowalski\_](https://twitter.com/emilkowalski_).
 
 <ComponentSource name="drawer.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { drawerSlotRecipe } from "./drawer";
+
+export const slotRecipes = {
+  drawer: drawerSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

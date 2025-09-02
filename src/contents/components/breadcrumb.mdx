@@ -19,6 +19,16 @@ description: Breadcrumb component is used to display the current location within
 
 <ComponentSource name="breadcrumb.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { breadcrumbSlotRecipe } from "./breadcrumb";
+
+export const slotRecipes = {
+  breadcrumb: breadcrumbSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>

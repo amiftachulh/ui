@@ -19,6 +19,16 @@ description: The Field component is used to create accessible form fields.
 
 <ComponentSource name="field.tsx" type="component" />
 
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { fieldSlotRecipe } from "./field";
+
+export const slotRecipes = {
+  field: fieldSlotRecipe,
+};
+```
+
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>
@@ -26,7 +36,13 @@ description: The Field component is used to create accessible form fields.
 ## Usage
 
 ```tsx
-import { Field, FieldLabel, FieldControl, FieldDescription, FieldError } from "@/components/ui/field";
+import {
+  Field,
+  FieldControl,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/components/ui/field";
 ```
 
 ```tsx
