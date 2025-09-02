@@ -82,6 +82,7 @@ export const buttonRecipe = defineRecipe({
       outline: {
         bg: "bg",
         borderWidth: "1px",
+        borderColor: "border",
         shadow: "xs",
         _hover: {
           bg: "accent",
@@ -111,6 +112,35 @@ export const buttonRecipe = defineRecipe({
         textUnderlineOffset: "4px",
         _hover: {
           textDecoration: "underline",
+        },
+      },
+      input: {
+        bg: "bg",
+        borderWidth: "1px",
+        borderColor: "input",
+        shadow: "xs",
+        fontWeight: "normal",
+        textStyle: "md",
+        md: {
+          textStyle: "sm",
+        },
+        _hover: {
+          bg: "accent",
+          color: "accent.fg",
+        },
+        _invalid: {
+          borderColor: "danger",
+          outlineColor: "danger/20",
+        },
+        _dark: {
+          bg: "input/30",
+          borderColor: "input",
+          _hover: {
+            bg: "input/50",
+          },
+        },
+        "&:has(> svg)": {
+          px: "3",
         },
       },
     },
