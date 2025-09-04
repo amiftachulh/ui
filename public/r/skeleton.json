@@ -1,0 +1,16 @@
+{
+  "name": "skeleton",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "src/registry/default/ui/skeleton.tsx",
+      "type": "registry:ui",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { skeleton } from \"styled-system/recipes\";\n\nconst Skeleton = styled(\"div\", skeleton);\nSkeleton.displayName = \"Skeleton\";\n\nexport { Skeleton };\n"
+    },
+    {
+      "path": "src/registry/default/recipes/skeleton.ts",
+      "type": "registry:recipe",
+      "content": "import { defineRecipe } from \"@pandacss/dev\";\n\nexport const skeletonRecipe = defineRecipe({\n  className: \"skeleton\",\n  base: {\n    bg: \"accent\",\n    animation: \"pulse\",\n    rounded: \"md\",\n  },\n});\n"
+    }
+  ]
+}

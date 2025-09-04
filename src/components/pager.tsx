@@ -1,9 +1,9 @@
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import Link from "next/link";
 import { styled } from "styled-system/jsx";
-import { Button } from "@/components/ui/button";
 import { docsConfig } from "@/config/docs";
 import type { Doc } from "@/lib/mdx";
+import { Button } from "@/registry/default/ui/button";
 import type { NavItem, NavItemWithChildren } from "@/types/nav";
 
 interface DocsPagerProps {

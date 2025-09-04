@@ -7,8 +7,14 @@ import { usePathname } from "next/navigation";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { docsConfig } from "@/config/docs";
-import { Button } from "./ui/button";
-import { Drawer, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from "./ui/drawer";
+import { Button } from "@/registry/default/ui/button";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/registry/default/ui/drawer";
 
 export default function MobileNav() {
   const pathname = usePathname();

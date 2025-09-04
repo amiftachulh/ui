@@ -5,6 +5,15 @@ import type { MDXComponents } from "mdx/types";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { badge } from "styled-system/recipes";
+import { Alert, AlertContent, AlertDescription, AlertIcon } from "@/registry/default/ui/alert";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/registry/default/ui/table";
 import BlockPreview from "./block-preview";
 import CodeBlock from "./code-block";
 import ComponentPreview from "./component-preview";
@@ -12,8 +21,6 @@ import ComponentSource from "./component-source";
 import { FileTree } from "./file-tree";
 import PackageInstaller from "./package-installer";
 import PropsTable from "./props-table";
-import { Alert, AlertContent, AlertDescription, AlertIcon } from "./ui/alert";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 
 const alertIconMap = {
   info: LuInfo,

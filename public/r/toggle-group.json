@@ -1,0 +1,22 @@
+{
+  "name": "toggle-group",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-toggle-group"
+  ],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/ui/toggle-group.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport * as ToggleGroupPrimitive from \"@radix-ui/react-toggle-group\";\nimport { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { toggle, toggleGroup, ToggleVariantProps } from \"styled-system/recipes\";\n\nconst classes = toggleGroup();\n\nconst ToggleGroupContext = React.createContext<ToggleVariantProps>({\n  variant: \"plain\",\n  size: \"md\",\n});\n\nfunction Root({\n  className,\n  variant,\n  size,\n  children,\n  ...props\n}: React.ComponentProps<typeof ToggleGroupPrimitive.Root> & ToggleVariantProps) {\n  return (\n    <ToggleGroupPrimitive.Root\n      data-variant={variant}\n      data-size={size}\n      className={cx(classes.root, className)}\n      {...props}\n    >\n      <ToggleGroupContext.Provider value={{ variant, size }}>\n        {children}\n      </ToggleGroupContext.Provider>\n    </ToggleGroupPrimitive.Root>\n  );\n}\nconst ToggleGroup = styled(Root);\nToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;\n\nfunction Item({\n  className,\n  children,\n  variant,\n  size,\n  ...props\n}: React.ComponentProps<typeof ToggleGroupPrimitive.Item> & ToggleVariantProps) {\n  const context = React.useContext(ToggleGroupContext);\n\n  return (\n    <ToggleGroupPrimitive.Item\n      data-variant={context.variant || variant}\n      data-size={context.size || size}\n      className={cx(\n        toggle({\n          variant: context.variant || variant,\n          size: context.size || size,\n        }),\n        classes.item,\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </ToggleGroupPrimitive.Item>\n  );\n}\nconst ToggleGroupItem = styled(Item);\nToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;\n\nexport { ToggleGroup, ToggleGroupItem };\n"
+    },
+    {
+      "path": "src/registry/default/slot-recipes/toggle-group.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const toggleGroupRecipe = defineSlotRecipe({\n  className: \"toggle-group\",\n  slots: [\"root\", \"item\"],\n  base: {\n    root: {\n      display: \"flex\",\n      alignItems: \"center\",\n      flexWrap: \"wrap\",\n      w: \"fit\",\n      rounded: \"md\",\n      \"&[data-variant=outline]\": {\n        shadow: \"xs\",\n      },\n    },\n\n    item: {\n      minW: \"0\",\n      flex: \"1\",\n      flexShrink: \"0\",\n      rounded: \"0\",\n      shadow: \"none\",\n      _first: {\n        roundedLeft: \"md\",\n      },\n      _last: {\n        roundedRight: \"md\",\n      },\n      _focus: {\n        zIndex: \"10\",\n      },\n      _focusVisible: {\n        zIndex: \"10\",\n      },\n      \"&[data-variant=outline]\": {\n        borderLeftWidth: \"0!\",\n        _first: {\n          borderLeftWidth: \"1px!\",\n        },\n      },\n    },\n  },\n});\n"
+    }
+  ]
+}

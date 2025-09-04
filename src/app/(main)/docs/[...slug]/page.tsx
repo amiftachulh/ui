@@ -3,14 +3,14 @@ import { notFound } from "next/navigation";
 import { styled } from "styled-system/jsx";
 import { badge } from "styled-system/recipes";
 import { DocsPager } from "@/components/pager";
+import { getAllDocs, getDocBySlug } from "@/lib/mdx";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { getAllDocs, getDocBySlug } from "@/lib/mdx";
+} from "@/registry/default/ui/breadcrumb";
 import TableOfContents from "./toc";
 
 export async function generateStaticParams() {

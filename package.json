@@ -10,6 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "check": "tsc --noEmit",
+    "build:registry": "tsx scripts/build-registry.ts",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -80,6 +81,7 @@
     "eslint-config-next": "15.4.3",
     "prettier": "^3.6.2",
     "shiki": "^2.1.0",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "name": "separator",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-separator"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/ui/separator.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\nimport * as SeparatorPrimitive from \"@radix-ui/react-separator\";\nimport { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { separator } from \"styled-system/recipes\";\n\nfunction Root({ className, ...props }: React.ComponentProps<typeof SeparatorPrimitive.Root>) {\n  return <SeparatorPrimitive.Root className={cx(separator(), className)} {...props} />;\n}\nconst Separator = styled(Root);\nSeparator.displayName = SeparatorPrimitive.Root.displayName;\n\nexport { Separator };\n"
+    },
+    {
+      "path": "src/registry/default/recipes/separator.ts",
+      "type": "registry:recipe",
+      "content": "import { defineRecipe } from \"@pandacss/dev\";\n\nexport const separatorRecipe = defineRecipe({\n  className: \"separator\",\n  base: {\n    flexShrink: \"0\",\n    bg: \"border\",\n    _horizontal: {\n      w: \"full\",\n      h: \"1px\",\n    },\n    _vertical: {\n      w: \"1px\",\n      h: \"full\",\n    },\n  },\n});\n"
+    }
+  ]
+}

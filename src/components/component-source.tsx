@@ -10,10 +10,10 @@ type ComponentSourceProps = {
 };
 
 const typeMap = {
-  recipe: { dir: "preset/recipes", title: "preset/recipes/" },
-  "slot-recipe": { dir: "preset/slot-recipes", title: "preset/slot-recipes/" },
-  component: { dir: "src/components/ui", title: "@/components/ui/" },
-  hook: { dir: "src/hooks", title: "@/hooks/" },
+  recipe: { dir: "src/registry/default/recipes", title: "preset/recipes/" },
+  "slot-recipe": { dir: "src/registry/default/slot-recipes", title: "preset/slot-recipes/" },
+  component: { dir: "src/registry/default/ui", title: "@/components/ui/" },
+  hook: { dir: "src/registry/default/hooks", title: "@/hooks/" },
 };
 
 export default async function ComponentSource({ name, type }: ComponentSourceProps) {

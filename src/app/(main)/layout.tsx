@@ -1,7 +1,7 @@
 import { styled } from "styled-system/jsx";
 import { container } from "styled-system/patterns";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/registry/default/ui/sonner";
+import { Toaster } from "@/registry/default/ui/toaster";
 import Header from "./header";
 
 export default function MainLayout({

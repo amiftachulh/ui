@@ -1,0 +1,19 @@
+{
+  "name": "progress",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-progress"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/ui/progress.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport * as ProgressPrimitive from \"@radix-ui/react-progress\";\nimport { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { progress } from \"styled-system/recipes\";\n\nconst classes = progress();\n\nfunction Root({ className, value, ...props }: React.ComponentProps<typeof ProgressPrimitive.Root>) {\n  return (\n    <ProgressPrimitive.Root className={cx(classes.root, className)} {...props}>\n      <ProgressPrimitive.Indicator\n        className={classes.indicator}\n        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}\n      />\n    </ProgressPrimitive.Root>\n  );\n}\nconst Progress = styled(Root);\nProgress.displayName = ProgressPrimitive.Root.displayName;\n\nexport { Progress };\n"
+    },
+    {
+      "path": "src/registry/default/slot-recipes/progress.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const progressSlotRecipe = defineSlotRecipe({\n  className: \"progress\",\n  slots: [\"root\", \"indicator\"],\n  base: {\n    root: {\n      pos: \"relative\",\n      w: \"full\",\n      h: \"4\",\n      overflow: \"hidden\",\n      rounded: \"full\",\n      bg: \"primary/20\",\n    },\n\n    indicator: {\n      w: \"full\",\n      h: \"full\",\n      flex: \"1\",\n      bg: \"primary\",\n      transition: \"all\",\n    },\n  },\n});\n"
+    }
+  ]
+}

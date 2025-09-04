@@ -20,7 +20,7 @@ export const dynamicParams = false;
 
 export default async function View({ params }: { params: Promise<{ name: string }> }) {
   const name = (await params).name;
-  const mod = await import(`@/blocks/${name}.tsx`);
+  const mod = await import(`@/registry/default/blocks/${name}.tsx`);
   const Component = mod.default;
 
   return <Component />;

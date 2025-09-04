@@ -2,7 +2,7 @@ import * as React from "react";
 import { LuChevronRight, LuFile, LuFolder } from "react-icons/lu";
 import * as Accordion from "@radix-ui/react-accordion";
 import { css } from "styled-system/css";
-import { Separator } from "./ui/separator";
+import { Separator } from "@/registry/default/ui/separator";
 
 interface FileTreeData {
   name: string;

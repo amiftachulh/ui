@@ -1,13 +1,13 @@
-import { badgeRecipe } from "./badge";
-import { buttonRecipe } from "./button";
-import { inputRecipe } from "./input";
-import { kbdRecipe } from "./kbd";
-import { labelRecipe } from "./label";
-import { scrollRecipe } from "./scroll";
-import { separatorRecipe } from "./separator";
-import { skeletonRecipe } from "./skeleton";
-import { textareaRecipe } from "./textarea";
-import { toggleRecipe } from "./toggle";
+import { badgeRecipe } from "@/registry/default/recipes/badge";
+import { buttonRecipe } from "@/registry/default/recipes/button";
+import { inputRecipe } from "@/registry/default/recipes/input";
+import { kbdRecipe } from "@/registry/default/recipes/kbd";
+import { labelRecipe } from "@/registry/default/recipes/label";
+import { scrollRecipe } from "@/registry/default/recipes/scroll";
+import { separatorRecipe } from "@/registry/default/recipes/separator";
+import { skeletonRecipe } from "@/registry/default/recipes/skeleton";
+import { textareaRecipe } from "@/registry/default/recipes/textarea";
+import { toggleRecipe } from "@/registry/default/recipes/toggle";
 
 export const recipes = {
   button: buttonRecipe,

@@ -1,0 +1,19 @@
+{
+  "name": "accordion",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-accordion"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/ui/accordion.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuChevronDown } from \"react-icons/lu\";\nimport * as AccordionPrimitive from \"@radix-ui/react-accordion\";\nimport { css } from \"styled-system/css\";\nimport { accordion } from \"styled-system/recipes\";\nimport { createStyleContext } from \"@/registry/default/lib/create-style-context\";\n\nconst { withProvider, withContext } = createStyleContext(accordion);\n\nconst AccordionHeader = withContext(AccordionPrimitive.Header, \"header\");\n\nfunction Trigger({ children, ...props }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {\n  return (\n    <AccordionHeader>\n      <AccordionPrimitive.Trigger {...props}>\n        {children}\n        <LuChevronDown\n          className={css({\n            flexShrink: \"0\",\n            w: \"4\",\n            h: \"4\",\n            color: \"muted.fg\",\n            transform: \"translateY(0.125rem)\",\n            transition: \"transform\",\n            transitionDuration: \"normal\",\n            pointerEvents: \"none\",\n            \"[data-state=open] &\": {\n              transform: \"translateY(0.125rem) rotate(180deg)\",\n            },\n          })}\n        />\n      </AccordionPrimitive.Trigger>\n    </AccordionHeader>\n  );\n}\n\nfunction Content({ children, ...props }: React.ComponentProps<typeof AccordionPrimitive.Content>) {\n  return (\n    <AccordionPrimitive.Content {...props}>\n      <div className={css({ pt: \"0\", pb: \"4\" })}>{children}</div>\n    </AccordionPrimitive.Content>\n  );\n}\n\nconst Accordion = withProvider(AccordionPrimitive.Root, \"root\");\nconst AccordionItem = withContext(AccordionPrimitive.Item, \"item\");\nconst AccordionTrigger = withContext(Trigger, \"trigger\");\nconst AccordionContent = withContext(Content, \"content\");\n\nexport { Accordion, AccordionItem, AccordionTrigger, AccordionContent };\n"
+    },
+    {
+      "path": "src/registry/default/slot-recipes/accordion.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const accordionSlotRecipe = defineSlotRecipe({\n  className: \"accordion\",\n  slots: [\"root\", \"header\", \"trigger\", \"item\", \"content\"],\n  base: {\n    item: {\n      borderBottomWidth: \"1px\",\n      _last: {\n        borderBottomWidth: \"0\",\n      },\n    },\n\n    header: {\n      display: \"flex\",\n    },\n\n    trigger: {\n      display: \"flex\",\n      flex: \"1\",\n      alignItems: \"flex-start\",\n      justifyContent: \"space-between\",\n      gap: \"4\",\n      py: \"4\",\n      textAlign: \"left\",\n      textStyle: \"sm\",\n      fontWeight: \"medium\",\n      transition: \"all\",\n      rounded: \"md\",\n      outlineColor: \"transparent\",\n      _disabled: {\n        pointerEvents: \"none\",\n        opacity: \"0.5\",\n      },\n      _hover: {\n        textDecoration: \"underline\",\n      },\n      _focusVisible: {\n        borderColor: \"ring\",\n        outlineWidth: \"3px\",\n        outlineStyle: \"solid\",\n        outlineColor: \"ring/50\",\n      },\n    },\n\n    content: {\n      overflow: \"hidden\",\n      textStyle: \"sm\",\n      _open: {\n        animation: \"accordion-down\",\n      },\n      _closed: {\n        animation: \"accordion-up\",\n      },\n    },\n  },\n});\n"
+    }
+  ]
+}

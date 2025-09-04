@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useState } from "react";
 import { packageManagers } from "@/config/package-managers";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/default/ui/tabs";
 
 type PackageTabsProps = {
   items: React.ReactNode[];
@@ -18,7 +18,7 @@ export default function PackageTabs({ items }: PackageTabsProps) {
   return (
     <Tabs
       value={selected}
-      onValueChange={(value) => {
+      onValueChange={(value: string) => {
         localStorage.setItem("package-manager", value);
         setSelected(value);
       }}

@@ -1,9 +1,16 @@
 import { LuInfo } from "react-icons/lu";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
-import { Badge } from "./ui/badge";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
+import { Badge } from "@/registry/default/ui/badge";
+import { Popover, PopoverContent, PopoverTrigger } from "@/registry/default/ui/popover";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/registry/default/ui/table";
 
 type PropsTableData = {
   name: string;

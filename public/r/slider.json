@@ -1,0 +1,19 @@
+{
+  "name": "slider",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-slider"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/ui/slider.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\nimport * as SliderPrimitive from \"@radix-ui/react-slider\";\nimport { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { slider } from \"styled-system/recipes\";\n\nconst classes = slider();\n\nfunction Root({\n  className,\n  defaultValue,\n  value,\n  min = 0,\n  max = 100,\n  ...props\n}: React.ComponentProps<typeof SliderPrimitive.Root>) {\n  const _values = React.useMemo(\n    () => (Array.isArray(value) ? value : Array.isArray(defaultValue) ? defaultValue : [min, max]),\n    [value, defaultValue, min, max]\n  );\n\n  return (\n    <SliderPrimitive.Root\n      defaultValue={defaultValue}\n      value={value}\n      min={min}\n      max={max}\n      className={cx(classes.root, className)}\n      {...props}\n    >\n      <SliderPrimitive.Track className={classes.track}>\n        <SliderPrimitive.Range className={classes.range} />\n      </SliderPrimitive.Track>\n      {Array.from({ length: _values.length }).map((_, i) => (\n        <SliderPrimitive.Thumb key={i} className={classes.thumb} />\n      ))}\n    </SliderPrimitive.Root>\n  );\n}\nconst Slider = styled(Root);\nSlider.displayName = SliderPrimitive.Root.displayName;\n\nexport { Slider };\n"
+    },
+    {
+      "path": "src/registry/default/slot-recipes/slider.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const sliderSlotRecipe = defineSlotRecipe({\n  className: \"slider\",\n  slots: [\"root\", \"track\", \"range\", \"thumb\"],\n  base: {\n    root: {\n      pos: \"relative\",\n      display: \"flex\",\n      alignItems: \"center\",\n      w: \"full\",\n      touchAction: \"none\",\n      userSelect: \"none\",\n      _disabled: {\n        opacity: \"0.5\",\n      },\n      _vertical: {\n        h: \"full\",\n        minH: \"44\",\n        w: \"auto\",\n        flexDir: \"column\",\n      },\n    },\n\n    track: {\n      bg: \"muted\",\n      pos: \"relative\",\n      flexGrow: \"1\",\n      overflow: \"hidden\",\n      rounded: \"full\",\n      _horizontal: {\n        h: \"1.5\",\n        w: \"full\",\n      },\n      _vertical: {\n        w: \"1.5\",\n        h: \"full\",\n      },\n    },\n\n    range: {\n      bg: \"primary\",\n      pos: \"absolute\",\n      _horizontal: {\n        h: \"full\",\n      },\n      _vertical: {\n        w: \"full\",\n      },\n    },\n\n    thumb: {\n      bg: \"bg\",\n      display: \"block\",\n      w: \"4\",\n      h: \"4\",\n      flexShrink: \"0\",\n      rounded: \"full\",\n      borderWidth: \"1px\",\n      borderColor: \"primary\",\n      shadow: \"sm\",\n      transition: \"common\",\n      outlineColor: \"transparent\",\n      _hover: {\n        outlineWidth: \"4px\",\n        outlineStyle: \"solid\",\n        outlineColor: \"ring/50\",\n      },\n      _focusVisible: {\n        outlineWidth: \"4px\",\n        outlineStyle: \"solid\",\n        outlineColor: \"ring/50\",\n      },\n      _disabled: {\n        pointerEvents: \"none\",\n        opacity: \"0.5\",\n      },\n    },\n  },\n});\n"
+    }
+  ]
+}

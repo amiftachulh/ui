@@ -1,0 +1,19 @@
+{
+  "name": "popover",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-popover"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/ui/popover.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport * as PopoverPrimitive from \"@radix-ui/react-popover\";\nimport { popover } from \"styled-system/recipes\";\nimport { createStyleContext } from \"@/registry/default/lib/create-style-context\";\n\nconst { withRootProvider, withContext } = createStyleContext(popover);\n\nconst Popover = withRootProvider(PopoverPrimitive.Root);\nconst PopoverTrigger = withContext(PopoverPrimitive.Trigger, \"trigger\");\n\nfunction Content({\n  align = \"center\",\n  sideOffset = 4,\n  ...props\n}: React.ComponentProps<typeof PopoverPrimitive.Content>) {\n  return (\n    <PopoverPrimitive.Portal>\n      <PopoverPrimitive.Content align={align} sideOffset={sideOffset} {...props} />\n    </PopoverPrimitive.Portal>\n  );\n}\nconst PopoverContent = withContext(Content, \"content\");\n\nconst PopoverAnchor = withContext(PopoverPrimitive.Anchor, \"anchor\");\n\nexport { Popover, PopoverTrigger, PopoverContent, PopoverAnchor };\n"
+    },
+    {
+      "path": "src/registry/default/slot-recipes/popover.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const popoverSlotRecipe = defineSlotRecipe({\n  className: \"popover\",\n  slots: [\"trigger\", \"content\", \"anchor\"],\n  base: {\n    content: {\n      zIndex: \"50\",\n      w: \"72\",\n      bg: \"popover\",\n      color: \"popover.fg\",\n      p: \"4\",\n      borderWidth: \"1px\",\n      rounded: \"md\",\n      outline: \"none\",\n      shadow: \"md\",\n      transformOrigin: \"var(--radix-popover-content-transform-origin)\",\n      _open: {\n        animateIn: true,\n        fadeIn: \"0\",\n        zoomIn: \"95\",\n      },\n      _closed: {\n        animateOut: true,\n        fadeOut: \"0\",\n        zoomOut: \"95\",\n      },\n      \"&[data-side=top]\": {\n        slideInFromBottom: \"2\",\n      },\n      \"&[data-side=bottom]\": {\n        slideInFromTop: \"2\",\n      },\n      \"&[data-side=left]\": {\n        slideInFromRight: \"2\",\n      },\n      \"&[data-side=right]\": {\n        slideInFromLeft: \"2\",\n      },\n    },\n  },\n});\n"
+    }
+  ]
+}

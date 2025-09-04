@@ -1,0 +1,19 @@
+{
+  "name": "checkbox",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-checkbox"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/ui/checkbox.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuCheck } from \"react-icons/lu\";\nimport * as CheckboxPrimitive from \"@radix-ui/react-checkbox\";\nimport { css, cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { checkbox } from \"styled-system/recipes\";\n\nfunction Root({ className, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {\n  const classes = checkbox();\n\n  return (\n    <CheckboxPrimitive.Root className={cx(\"peer\", classes.root, className)} {...props}>\n      <CheckboxPrimitive.Indicator className={classes.indicator}>\n        <LuCheck className={css({ w: \"3.5\", h: \"3.5\" })} />\n      </CheckboxPrimitive.Indicator>\n    </CheckboxPrimitive.Root>\n  );\n}\nconst Checkbox = styled(Root);\nCheckbox.displayName = CheckboxPrimitive.Root.displayName;\n\nexport { Checkbox };\n"
+    },
+    {
+      "path": "src/registry/default/slot-recipes/checkbox.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const checkboxSlotRecipe = defineSlotRecipe({\n  className: \"checkbox\",\n  slots: [\"root\", \"indicator\"],\n  base: {\n    root: {\n      w: \"4\",\n      h: \"4\",\n      flexShrink: \"0\",\n      rounded: \"sm\",\n      borderWidth: \"1px\",\n      borderColor: \"input\",\n      transitionProperty: \"outline\",\n      transitionDuration: \"fastest\",\n      outline: \"none\",\n      _focusVisible: {\n        borderColor: \"ring\",\n        outlineWidth: \"3px\",\n        outlineStyle: \"solid\",\n        outlineColor: \"ring/50\",\n      },\n      _disabled: {\n        cursor: \"not-allowed\",\n        opacity: \"0.5\",\n      },\n      _checked: {\n        bg: \"primary\",\n        color: \"primary.fg\",\n        borderColor: \"primary\",\n      },\n      \"&[aria-invalid='true']\": {\n        borderColor: \"danger\",\n        outlineColor: \"danger/20\",\n      },\n      _dark: {\n        bg: \"input/30\",\n        _checked: {\n          bg: \"primary\",\n          borderColor: \"primary\",\n        },\n        \"&[aria-invalid='true']\": {\n          outlineColor: \"danger/40\",\n        },\n      },\n    },\n\n    indicator: {\n      display: \"flex\",\n      alignItems: \"center\",\n      justifyContent: \"center\",\n      color: \"currentColor\",\n    },\n  },\n});\n"
+    }
+  ]
+}

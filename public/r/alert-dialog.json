@@ -1,0 +1,22 @@
+{
+  "name": "alert-dialog",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-alert-dialog"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/registry/default/ui/alert-dialog.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport * as AlertDialogPrimitive from \"@radix-ui/react-alert-dialog\";\nimport { cx } from \"styled-system/css\";\nimport { alertDialog, button } from \"styled-system/recipes\";\nimport { createStyleContext } from \"@/registry/default/lib/create-style-context\";\n\nconst { withRootProvider, withContext } = createStyleContext(alertDialog);\n\nconst AlertDialog = withRootProvider(AlertDialogPrimitive.Root);\nconst AlertDialogTrigger = withContext(AlertDialogPrimitive.Trigger, \"trigger\");\nconst AlertDialogPortal = AlertDialogPrimitive.Portal;\nconst AlertDialogOverlay = withContext(AlertDialogPrimitive.Overlay, \"overlay\");\n\nfunction Content(props: React.ComponentProps<typeof AlertDialogPrimitive.Content>) {\n  return (\n    <AlertDialogPortal>\n      <AlertDialogOverlay />\n      <AlertDialogPrimitive.Content {...props} />\n    </AlertDialogPortal>\n  );\n}\nconst AlertDialogContent = withContext(Content, \"content\");\n\nconst AlertDialogHeader = withContext(\"div\", \"header\");\nconst AlertDialogTitle = withContext(AlertDialogPrimitive.Title, \"title\");\nconst AlertDialogDescription = withContext(AlertDialogPrimitive.Description, \"description\");\nconst AlertDialogFooter = withContext(\"div\", \"footer\");\n\nfunction Action({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Action>) {\n  return <AlertDialogPrimitive.Action className={cx(button(), className)} {...props} />;\n}\nconst AlertDialogAction = withContext(Action, \"action\");\n\nfunction Cancel({ className, ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Cancel>) {\n  return (\n    <AlertDialogPrimitive.Cancel\n      className={cx(button({ variant: \"outline\" }), className)}\n      {...props}\n    />\n  );\n}\nconst AlertDialogCancel = withContext(Cancel, \"cancel\");\n\nexport {\n  AlertDialog,\n  AlertDialogAction,\n  AlertDialogCancel,\n  AlertDialogContent,\n  AlertDialogDescription,\n  AlertDialogFooter,\n  AlertDialogHeader,\n  AlertDialogOverlay,\n  AlertDialogPortal,\n  AlertDialogTitle,\n  AlertDialogTrigger,\n};\n"
+    },
+    {
+      "path": "src/registry/default/slot-recipes/alert-dialog.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const alertDialogSlotRecipe = defineSlotRecipe({\n  className: \"alert-dialog\",\n  slots: [\n    \"trigger\",\n    \"overlay\",\n    \"content\",\n    \"header\",\n    \"title\",\n    \"description\",\n    \"footer\",\n    \"action\",\n    \"cancel\",\n  ],\n  base: {\n    overlay: {\n      pos: \"fixed\",\n      inset: \"0\",\n      zIndex: \"50\",\n      bg: \"black/50\",\n      _open: {\n        animateIn: true,\n        fadeIn: \"0\",\n      },\n      _closed: {\n        animateOut: true,\n        fadeOut: \"0\",\n      },\n    },\n\n    content: {\n      pos: \"fixed\",\n      left: \"50%\",\n      top: \"50%\",\n      zIndex: \"50\",\n      display: \"grid\",\n      w: \"full\",\n      maxW: \"calc(100% - 2rem)\",\n      transform: \"translate(-50%, -50%)\",\n      gap: \"4\",\n      borderWidth: \"1px\",\n      bg: \"bg\",\n      p: \"6\",\n      rounded: \"lg\",\n      shadow: \"lg\",\n      _open: {\n        animateIn: true,\n        fadeIn: \"0\",\n        zoomIn: \"95\",\n        slideInFromLeft: \"50%\",\n        slideInFromTop: \"48%\",\n      },\n      _closed: {\n        animateOut: true,\n        fadeOut: \"0\",\n        zoomOut: \"95\",\n        slideOutToLeft: \"50%\",\n        slideOutToTop: \"48%\",\n      },\n      sm: {\n        maxW: \"lg\",\n      },\n    },\n\n    header: {\n      display: \"flex\",\n      flexDir: \"column\",\n      gap: \"2\",\n      textAlign: \"center\",\n      sm: {\n        textAlign: \"left\",\n      },\n    },\n\n    title: {\n      textStyle: \"lg\",\n      fontWeight: \"semibold\",\n    },\n\n    description: {\n      color: \"muted.fg\",\n      textStyle: \"sm\",\n    },\n\n    footer: {\n      display: \"flex\",\n      flexDir: \"column-reverse\",\n      gap: \"2\",\n      sm: {\n        flexDir: \"row\",\n        justifyContent: \"flex-end\",\n      },\n    },\n  },\n});\n"
+    }
+  ]
+}

@@ -7,12 +7,12 @@ type ComponentPreviewProps = {
   name: string;
 };
 
-const dir = path.join(process.cwd(), "src/components/examples");
+const dir = path.join(process.cwd(), "src/registry/default/examples");
 
 export default async function ComponentPreview({ name }: ComponentPreviewProps) {
   const file = path.join(dir, `${name}.tsx`);
   const content = fs.readFileSync(file, "utf8");
-  const mod = await import(`@/components/examples/${name}.tsx`);
+  const mod = await import(`@/registry/default/examples/${name}.tsx`);
   const Component = mod.default;
 
   return (

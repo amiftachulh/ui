@@ -8,7 +8,7 @@ import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { scroll } from "styled-system/recipes";
 import { docsConfig } from "@/config/docs";
-import { Button } from "./ui/button";
+import { Button } from "@/registry/default/ui/button";
 import {
   CommandDialog,
   CommandEmpty,
@@ -17,8 +17,8 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "./ui/command";
-import { Kbd } from "./ui/kbd";
+} from "@/registry/default/ui/command";
+import { Kbd } from "@/registry/default/ui/kbd";
 
 export default function CommandMenu(props: React.ComponentProps<typeof Button>) {
   const router = useRouter();

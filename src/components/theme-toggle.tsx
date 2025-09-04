@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { LuMoon, LuSun } from "react-icons/lu";
 import { useTheme } from "next-themes";
-import { Button } from "./ui/button";
+import { Button } from "@/registry/default/ui/button";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();

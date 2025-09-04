@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { LuCheck, LuClipboard } from "react-icons/lu";
 import { css } from "styled-system/css";
-import { Button } from "./ui/button";
+import { Button } from "@/registry/default/ui/button";
 
 type CodeCopyButtonProps = {
   code: string;
