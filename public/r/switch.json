@@ -6,12 +6,12 @@
   ],
   "files": [
     {
-      "path": "src/registry/default/ui/switch.tsx",
+      "path": "registry/default/ui/switch.tsx",
       "type": "registry:ui",
       "content": "import * as React from \"react\";\nimport * as SwitchPrimitive from \"@radix-ui/react-switch\";\nimport { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { switchRecipe } from \"styled-system/recipes\";\n\nconst classes = switchRecipe();\n\nfunction Root({ className, ...props }: React.ComponentProps<typeof SwitchPrimitive.Root>) {\n  return (\n    <SwitchPrimitive.Root className={cx(\"peer\", classes.root, className)} {...props}>\n      <SwitchPrimitive.Thumb className={classes.thumb} />\n    </SwitchPrimitive.Root>\n  );\n}\nconst Switch = styled(Root);\nSwitch.displayName = SwitchPrimitive.Root.displayName;\n\nexport { Switch };\n"
     },
     {
-      "path": "src/registry/default/slot-recipes/switch.ts",
+      "path": "registry/default/slot-recipes/switch.ts",
       "type": "registry:slot-recipe",
       "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const switchSlotRecipe = defineSlotRecipe({\n  className: \"switch\",\n  slots: [\"root\", \"thumb\"],\n  base: {\n    root: {\n      display: \"inline-flex\",\n      alignItems: \"center\",\n      w: \"8\",\n      h: \"1.15rem\",\n      flexShrink: \"0\",\n      rounded: \"full\",\n      borderWidth: \"1px\",\n      borderColor: \"transparent\",\n      shadow: \"xs\",\n      transition: \"all\",\n      outlineColor: \"transparent\",\n      cursor: \"pointer\",\n      _focusVisible: {\n        borderColor: \"ring\",\n        outlineWidth: \"3px\",\n        outlineStyle: \"solid\",\n        outlineColor: \"ring/50\",\n      },\n      _disabled: {\n        cursor: \"not-allowed\",\n        opacity: \"0.5\",\n      },\n      \"&[data-state=checked]\": {\n        bg: \"primary\",\n        borderColor: \"primary\",\n      },\n      \"&[data-state=unchecked]\": {\n        bg: \"input\",\n        _dark: {\n          bg: \"input/80\",\n        },\n      },\n    },\n\n    thumb: {\n      display: \"block\",\n      w: \"4\",\n      h: \"4\",\n      rounded: \"full\",\n      bg: \"bg\",\n      shadow: \"lg\",\n      outlineWidth: \"0\",\n      transition: \"transform\",\n      pointerEvents: \"none\",\n      \"&[data-state=checked]\": {\n        transform: \"translateX(calc(100% - 2px))\",\n        _dark: {\n          bg: \"primary.fg\",\n        },\n      },\n      \"&[data-state=unchecked]\": {\n        transform: \"translateX(0)\",\n        _dark: {\n          bg: \"fg\",\n        },\n      },\n    },\n  },\n});\n"
     }

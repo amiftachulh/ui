@@ -3,12 +3,12 @@
   "type": "registry:ui",
   "files": [
     {
-      "path": "src/registry/default/ui/label.tsx",
+      "path": "registry/default/ui/label.tsx",
       "type": "registry:ui",
       "content": "import { styled } from \"styled-system/jsx\";\nimport { label } from \"styled-system/recipes\";\n\nconst Label = styled(\"label\", label);\nLabel.displayName = \"Label\";\n\nexport { Label };\n"
     },
     {
-      "path": "src/registry/default/recipes/label.ts",
+      "path": "registry/default/recipes/label.ts",
       "type": "registry:recipe",
       "content": "import { defineRecipe } from \"@pandacss/dev\";\n\nexport const labelRecipe = defineRecipe({\n  className: \"label\",\n  base: {\n    display: \"flex\",\n    alignItems: \"center\",\n    gap: \"2\",\n    textStyle: \"sm\",\n    lineHeight: \"none\",\n    fontWeight: \"medium\",\n    userSelect: \"none\",\n    \"[data-disabled=true] &\": {\n      pointerEvents: \"none\",\n      opacity: \"0.5\",\n    },\n    \".peer:disabled ~ &\": {\n      cursor: \"not-allowed\",\n      opacity: \"0.5\",\n    },\n  },\n});\n"
     }

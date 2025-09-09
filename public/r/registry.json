@@ -10,11 +10,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/accordion.tsx",
+          "path": "registry/default/ui/accordion.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/accordion.ts",
+          "path": "registry/default/slot-recipes/accordion.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -27,11 +27,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/alert.tsx",
+          "path": "registry/default/ui/alert.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/alert.ts",
+          "path": "registry/default/slot-recipes/alert.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -47,11 +47,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/alert-dialog.tsx",
+          "path": "registry/default/ui/alert-dialog.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/alert-dialog.ts",
+          "path": "registry/default/slot-recipes/alert-dialog.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -64,11 +64,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/avatar.tsx",
+          "path": "registry/default/ui/avatar.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/avatar.ts",
+          "path": "registry/default/slot-recipes/avatar.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -81,11 +81,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/badge.tsx",
+          "path": "registry/default/ui/badge.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/badge.ts",
+          "path": "registry/default/recipes/badge.ts",
           "type": "registry:recipe"
         }
       ]
@@ -98,11 +98,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/breadcrumb.tsx",
+          "path": "registry/default/ui/breadcrumb.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/breadcrumb.ts",
+          "path": "registry/default/slot-recipes/breadcrumb.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -115,11 +115,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/button.tsx",
+          "path": "registry/default/ui/button.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/button.ts",
+          "path": "registry/default/recipes/button.ts",
           "type": "registry:recipe"
         }
       ]
@@ -136,7 +136,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/calendar.tsx",
+          "path": "registry/default/ui/calendar.tsx",
           "type": "registry:ui"
         }
       ]
@@ -146,11 +146,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "src/registry/default/ui/card.tsx",
+          "path": "registry/default/ui/card.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/card.ts",
+          "path": "registry/default/slot-recipes/card.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -166,7 +166,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/carousel.tsx",
+          "path": "registry/default/ui/carousel.tsx",
           "type": "registry:ui"
         }
       ]
@@ -179,7 +179,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/chart.tsx",
+          "path": "registry/default/ui/chart.tsx",
           "type": "registry:ui"
         }
       ]
@@ -192,11 +192,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/checkbox.tsx",
+          "path": "registry/default/ui/checkbox.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/checkbox.ts",
+          "path": "registry/default/slot-recipes/checkbox.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -209,7 +209,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/collapsible.tsx",
+          "path": "registry/default/ui/collapsible.tsx",
           "type": "registry:ui"
         }
       ]
@@ -225,7 +225,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/command.tsx",
+          "path": "registry/default/ui/command.tsx",
           "type": "registry:ui"
         }
       ]
@@ -238,11 +238,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/context-menu.tsx",
+          "path": "registry/default/ui/context-menu.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/context-menu.ts",
+          "path": "registry/default/slot-recipes/context-menu.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -255,11 +255,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/dialog.tsx",
+          "path": "registry/default/ui/dialog.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/dialog.ts",
+          "path": "registry/default/slot-recipes/dialog.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -273,11 +273,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/drawer.tsx",
+          "path": "registry/default/ui/drawer.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/drawer.ts",
+          "path": "registry/default/slot-recipes/drawer.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -290,11 +290,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/dropdown-menu.tsx",
+          "path": "registry/default/ui/dropdown-menu.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/dropdown-menu.ts",
+          "path": "registry/default/slot-recipes/dropdown-menu.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -307,7 +307,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/field.tsx",
+          "path": "registry/default/ui/field.tsx",
           "type": "registry:ui"
         }
       ]
@@ -320,11 +320,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/hover-card.tsx",
+          "path": "registry/default/ui/hover-card.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/hover-card.ts",
+          "path": "registry/default/slot-recipes/hover-card.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -334,11 +334,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "src/registry/default/ui/input.tsx",
+          "path": "registry/default/ui/input.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/input.ts",
+          "path": "registry/default/recipes/input.ts",
           "type": "registry:recipe"
         }
       ]
@@ -348,11 +348,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "src/registry/default/ui/kbd.tsx",
+          "path": "registry/default/ui/kbd.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/kbd.ts",
+          "path": "registry/default/recipes/kbd.ts",
           "type": "registry:recipe"
         }
       ]
@@ -362,11 +362,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "src/registry/default/ui/label.tsx",
+          "path": "registry/default/ui/label.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/label.ts",
+          "path": "registry/default/recipes/label.ts",
           "type": "registry:recipe"
         }
       ]
@@ -379,11 +379,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/menubar.tsx",
+          "path": "registry/default/ui/menubar.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/menubar.ts",
+          "path": "registry/default/slot-recipes/menubar.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -396,11 +396,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/navigation-menu.tsx",
+          "path": "registry/default/ui/navigation-menu.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/navigation-menu.ts",
+          "path": "registry/default/slot-recipes/navigation-menu.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -413,11 +413,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/pagination.tsx",
+          "path": "registry/default/ui/pagination.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/pagination.ts",
+          "path": "registry/default/slot-recipes/pagination.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -437,7 +437,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/phone-input.tsx",
+          "path": "registry/default/ui/phone-input.tsx",
           "type": "registry:ui"
         }
       ]
@@ -450,11 +450,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/popover.tsx",
+          "path": "registry/default/ui/popover.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/popover.ts",
+          "path": "registry/default/slot-recipes/popover.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -467,11 +467,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/progress.tsx",
+          "path": "registry/default/ui/progress.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/progress.ts",
+          "path": "registry/default/slot-recipes/progress.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -484,11 +484,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/radio-group.tsx",
+          "path": "registry/default/ui/radio-group.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/radio-group.ts",
+          "path": "registry/default/slot-recipes/radio-group.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -501,11 +501,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/resizable.tsx",
+          "path": "registry/default/ui/resizable.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/resizable.ts",
+          "path": "registry/default/slot-recipes/resizable.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -518,11 +518,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/scroll-area.tsx",
+          "path": "registry/default/ui/scroll-area.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/scroll-area.ts",
+          "path": "registry/default/slot-recipes/scroll-area.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -535,11 +535,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/select.tsx",
+          "path": "registry/default/ui/select.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/select.ts",
+          "path": "registry/default/slot-recipes/select.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -552,11 +552,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/separator.tsx",
+          "path": "registry/default/ui/separator.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/separator.ts",
+          "path": "registry/default/recipes/separator.ts",
           "type": "registry:recipe"
         }
       ]
@@ -569,11 +569,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/sheet.tsx",
+          "path": "registry/default/ui/sheet.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/sheet.ts",
+          "path": "registry/default/slot-recipes/sheet.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -596,15 +596,15 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/sidebar.tsx",
+          "path": "registry/default/ui/sidebar.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/hooks/use-media-query.ts",
+          "path": "registry/default/hooks/use-media-query.ts",
           "type": "registry:hook"
         },
         {
-          "path": "src/registry/default/slot-recipes/sidebar.ts",
+          "path": "registry/default/slot-recipes/sidebar.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -614,11 +614,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "src/registry/default/ui/skeleton.tsx",
+          "path": "registry/default/ui/skeleton.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/skeleton.ts",
+          "path": "registry/default/recipes/skeleton.ts",
           "type": "registry:recipe"
         }
       ]
@@ -631,11 +631,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/slider.tsx",
+          "path": "registry/default/ui/slider.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/slider.ts",
+          "path": "registry/default/slot-recipes/slider.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -648,7 +648,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/sonner.tsx",
+          "path": "registry/default/ui/sonner.tsx",
           "type": "registry:ui"
         }
       ]
@@ -661,11 +661,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/switch.tsx",
+          "path": "registry/default/ui/switch.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/switch.ts",
+          "path": "registry/default/slot-recipes/switch.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -675,11 +675,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "src/registry/default/ui/table.tsx",
+          "path": "registry/default/ui/table.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/table.ts",
+          "path": "registry/default/slot-recipes/table.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -692,11 +692,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/tabs.tsx",
+          "path": "registry/default/ui/tabs.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/tabs.ts",
+          "path": "registry/default/slot-recipes/tabs.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -706,11 +706,11 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "src/registry/default/ui/textarea.tsx",
+          "path": "registry/default/ui/textarea.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/textarea.ts",
+          "path": "registry/default/recipes/textarea.ts",
           "type": "registry:recipe"
         }
       ]
@@ -723,11 +723,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/timeline.tsx",
+          "path": "registry/default/ui/timeline.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/timeline.ts",
+          "path": "registry/default/slot-recipes/timeline.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -740,15 +740,15 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/toast.tsx",
+          "path": "registry/default/ui/toast.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/hooks/use-toast.ts",
+          "path": "registry/default/hooks/use-toast.ts",
           "type": "registry:hook"
         },
         {
-          "path": "src/registry/default/ui/toaster.tsx",
+          "path": "registry/default/ui/toaster.tsx",
           "type": "registry:ui"
         }
       ]
@@ -761,11 +761,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/toggle.tsx",
+          "path": "registry/default/ui/toggle.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/recipes/toggle.ts",
+          "path": "registry/default/recipes/toggle.ts",
           "type": "registry:recipe"
         }
       ]
@@ -781,11 +781,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/toggle-group.tsx",
+          "path": "registry/default/ui/toggle-group.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/toggle-group.ts",
+          "path": "registry/default/slot-recipes/toggle-group.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -798,11 +798,11 @@
       ],
       "files": [
         {
-          "path": "src/registry/default/ui/tooltip.tsx",
+          "path": "registry/default/ui/tooltip.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/registry/default/slot-recipes/tooltip.ts",
+          "path": "registry/default/slot-recipes/tooltip.ts",
           "type": "registry:slot-recipe"
         }
       ]
@@ -812,7 +812,7 @@
       "type": "registry:hook",
       "files": [
         {
-          "path": "src/registry/default/hooks/use-media-query.ts",
+          "path": "registry/default/hooks/use-media-query.ts",
           "type": "registry:hook"
         }
       ]
@@ -822,7 +822,7 @@
       "type": "registry:hook",
       "files": [
         {
-          "path": "src/registry/default/hooks/use-toast.ts",
+          "path": "registry/default/hooks/use-toast.ts",
           "type": "registry:hook"
         }
       ]
@@ -832,7 +832,7 @@
       "type": "registry:lib",
       "files": [
         {
-          "path": "src/registry/default/lib/create-style-context.tsx",
+          "path": "registry/default/lib/create-style-context.tsx",
           "type": "registry:lib"
         }
       ]

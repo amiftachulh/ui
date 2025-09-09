@@ -68,7 +68,7 @@ async function buildRegistryJsonFile() {
       const files = item.files?.map((file) => {
         return {
           ...file,
-          path: `src/registry/default/${file.path}`,
+          path: `registry/default/${file.path}`,
         };
       });
 
@@ -101,7 +101,7 @@ async function buildRegistry() {
   for (const registryItem of result.data.items) {
     // Loop through each file in the files array
     for (const file of registryItem.files ?? []) {
-      file["content"] = await fs.readFile(file.path, "utf-8");
+      file["content"] = await fs.readFile(`src/${file.path}`, "utf-8");
     }
 
     // Validate the registry item

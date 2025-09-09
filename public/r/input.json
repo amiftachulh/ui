@@ -3,12 +3,12 @@
   "type": "registry:ui",
   "files": [
     {
-      "path": "src/registry/default/ui/input.tsx",
+      "path": "registry/default/ui/input.tsx",
       "type": "registry:ui",
       "content": "import { styled } from \"styled-system/jsx\";\nimport { input } from \"styled-system/recipes\";\n\nconst Input = styled(\"input\", input);\nInput.displayName = \"Input\";\n\nexport { Input };\n"
     },
     {
-      "path": "src/registry/default/recipes/input.ts",
+      "path": "registry/default/recipes/input.ts",
       "type": "registry:recipe",
       "content": "import { defineRecipe } from \"@pandacss/dev\";\n\nexport const inputRecipe = defineRecipe({\n  className: \"input\",\n  base: {\n    display: \"flex\",\n    w: \"full\",\n    minW: \"0\",\n    h: \"9\",\n    bg: \"transparent\",\n    px: \"3\",\n    py: \"1\",\n    rounded: \"md\",\n    borderWidth: \"1px\",\n    borderColor: \"input\",\n    shadow: \"xs\",\n    transition: \"common\",\n    outlineColor: \"transparent\",\n    _placeholder: {\n      color: \"muted.fg\",\n    },\n    _selection: {\n      bg: \"primary\",\n      color: \"primary.fg\",\n    },\n    _file: {\n      display: \"inline-flex\",\n      bg: \"transparent\",\n      color: \"fg\",\n      fontWeight: \"medium\",\n      textStyle: \"sm\",\n      borderWidth: \"0\",\n    },\n    _focusVisible: {\n      borderColor: \"ring\",\n      outlineWidth: \"3px\",\n      outlineStyle: \"solid\",\n      outlineColor: \"ring/50\",\n    },\n    _disabled: {\n      pointerEvents: \"none\",\n      cursor: \"not-allowed\",\n      opacity: \"0.5\",\n    },\n    \"&[aria-invalid='true']\": {\n      borderColor: \"danger\",\n      outlineColor: \"danger/20\",\n      _dark: {\n        outlineColor: \"danger/40\",\n      },\n    },\n    md: {\n      textStyle: \"sm\",\n    },\n    _dark: {\n      bg: \"input/30\",\n    },\n  },\n});\n"
     }

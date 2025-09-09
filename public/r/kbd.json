@@ -3,12 +3,12 @@
   "type": "registry:ui",
   "files": [
     {
-      "path": "src/registry/default/ui/kbd.tsx",
+      "path": "registry/default/ui/kbd.tsx",
       "type": "registry:ui",
       "content": "import { styled } from \"styled-system/jsx\";\nimport { kbd } from \"styled-system/recipes\";\n\nconst Kbd = styled(\"kbd\", kbd);\nKbd.displayName = \"Kbd\";\n\nexport { Kbd };\n"
     },
     {
-      "path": "src/registry/default/recipes/kbd.ts",
+      "path": "registry/default/recipes/kbd.ts",
       "type": "registry:recipe",
       "content": "import { defineRecipe } from \"@pandacss/dev\";\n\nexport const kbdRecipe = defineRecipe({\n  className: \"kbd\",\n  base: {\n    pointerEvents: \"none\",\n    display: \"inline-flex\",\n    h: \"5\",\n    userSelect: \"none\",\n    alignItems: \"center\",\n    gap: \"1\",\n    rounded: \"md\",\n    borderWidth: \"1px\",\n    bg: \"muted\",\n    px: \"1.5\",\n    fontFamily: \"mono\",\n    textStyle: \"xs\",\n    fontWeight: \"medium\",\n    color: \"muted.fg\",\n    opacity: \"1\",\n  },\n});\n"
     }

@@ -6,12 +6,12 @@
   ],
   "files": [
     {
-      "path": "src/registry/default/ui/radio-group.tsx",
+      "path": "registry/default/ui/radio-group.tsx",
       "type": "registry:ui",
       "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuCircle } from \"react-icons/lu\";\nimport * as RadioGroupPrimitive from \"@radix-ui/react-radio-group\";\nimport { css } from \"styled-system/css\";\nimport { radioGroup } from \"styled-system/recipes\";\nimport { createStyleContext } from \"@/registry/default/lib/create-style-context\";\n\nconst { withProvider, withContext } = createStyleContext(radioGroup);\n\nconst RadioGroup = withProvider(RadioGroupPrimitive.Root, \"root\");\nconst RadioGroupIndicator = withContext(RadioGroupPrimitive.Indicator, \"indicator\");\n\nfunction Item(props: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {\n  return (\n    <RadioGroupPrimitive.Item {...props}>\n      <RadioGroupIndicator>\n        <LuCircle\n          className={css({\n            pos: \"absolute\",\n            top: \"50%\",\n            left: \"50%\",\n            transform: \"translate(-50%, -50%)\",\n            w: \"2\",\n            h: \"2\",\n            fill: \"primary\",\n          })}\n        />\n      </RadioGroupIndicator>\n    </RadioGroupPrimitive.Item>\n  );\n}\nconst RadioGroupItem = withContext(Item, \"item\");\n\nexport { RadioGroup, RadioGroupItem };\n"
     },
     {
-      "path": "src/registry/default/slot-recipes/radio-group.ts",
+      "path": "registry/default/slot-recipes/radio-group.ts",
       "type": "registry:slot-recipe",
       "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const radioGroupSlotRecipe = defineSlotRecipe({\n  className: \"radio-group\",\n  slots: [\"root\", \"item\", \"indicator\"],\n  base: {\n    root: {\n      display: \"grid\",\n      gap: \"3\",\n    },\n\n    item: {\n      aspectRatio: \"square\",\n      w: \"4\",\n      h: \"4\",\n      flexShrink: \"0\",\n      color: \"primary\",\n      borderWidth: \"1px\",\n      borderColor: \"input\",\n      rounded: \"full\",\n      shadow: \"xs\",\n      transition: \"common\",\n      outlineColor: \"transparent\",\n      _focusVisible: {\n        borderColor: \"ring\",\n        outlineWidth: \"3px\",\n        outlineStyle: \"solid\",\n        outlineColor: \"ring/50\",\n      },\n      _disabled: {\n        cursor: \"not-allowed\",\n        opacity: \"0.5\",\n      },\n      \"&[aria-invalid=true]\": {\n        borderColor: \"danger\",\n        outlineColor: \"danger/20\",\n        _dark: {\n          outlineColor: \"danger/40\",\n        },\n      },\n      _dark: {\n        bg: \"input/30\",\n      },\n    },\n\n    indicator: {\n      pos: \"relative\",\n      display: \"flex\",\n      alignItems: \"center\",\n      justifyContent: \"center\",\n    },\n  },\n});\n"
     }
