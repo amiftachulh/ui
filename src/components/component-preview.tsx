@@ -11,7 +11,12 @@ const dir = path.join(process.cwd(), "src/registry/default/examples");
 
 export default async function ComponentPreview({ name }: ComponentPreviewProps) {
   const file = path.join(dir, `${name}.tsx`);
-  const content = fs.readFileSync(file, "utf8");
+  let content = fs.readFileSync(file, "utf8");
+
+  content = content
+    .replace(/@\/registry\/default\/ui\//g, "@/components/ui/")
+    .replace(/@\/registry\/default\//g, "@/");
+
   const mod = await import(`@/registry/default/examples/${name}.tsx`);
   const Component = mod.default;
 

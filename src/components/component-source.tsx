@@ -20,7 +20,11 @@ export default async function ComponentSource({ name, type }: ComponentSourcePro
   const { dir, title } = typeMap[type];
   const file = path.join(process.cwd(), dir, name);
   const extension = name.split(".")[1] as BundledLanguage;
-  const content = fs.readFileSync(file, "utf8");
+  let content = fs.readFileSync(file, "utf8");
+
+  content = content
+    .replace(/@\/registry\/default\/ui\//g, "@/components/ui/")
+    .replace(/@\/registry\/default\//g, "@/");
 
   return (
     <styled.div css={{ my: "4", borderWidth: "1px", rounded: "md", overflow: "hidden" }}>
