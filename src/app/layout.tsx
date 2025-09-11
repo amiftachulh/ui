@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Nore UI",
+    template: "%s • Nore UI",
     default: "Nore UI",
   },
   description: "A collection of UI components built with React and Panda CSS",

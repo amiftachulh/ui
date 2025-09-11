@@ -5,7 +5,11 @@ import { LuChevronsUpDown } from "react-icons/lu";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { Button } from "@/registry/default/ui/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/registry/default/ui/collapsible";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/default/ui/collapsible";
 
 export default function CollapsibleDemo() {
   const [isOpen, setIsOpen] = useState(false);

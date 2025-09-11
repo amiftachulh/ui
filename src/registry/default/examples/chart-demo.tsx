@@ -4,7 +4,13 @@ import * as React from "react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/registry/default/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/registry/default/ui/card";
 import {
   ChartConfig,
   ChartContainer,

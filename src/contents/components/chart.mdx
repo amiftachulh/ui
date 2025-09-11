@@ -43,6 +43,44 @@ version is released, you can follow the official upgrade path to upgrade your ch
 
 ## Installation
 
+<InstallationTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<Steps>
+
+<Step>Run the following command to install `chart.tsx`</Step>
+
+<PackageRunner command="nore-ui@latest add chart" />
+
+<Step>Add the following colors to your semantic tokens.</Step>
+
+```ts highlight="4-10"
+export const semanticTokens = defineSemanticTokens({
+  colors: {
+    // ... other colors
+    chart: {
+      1: { value: { base: "hsl(12 76% 61%)", _dark: "hsl(220 70% 50%)" } },
+      2: { value: { base: "hsl(173 58% 39%)", _dark: "hsl(160 60% 45%)" } },
+      3: { value: { base: "hsl(197 37% 24%)", _dark: "hsl(30 80% 55%)" } },
+      4: { value: { base: "hsl(43 74% 66%)", _dark: "hsl(280 65% 60%)" } },
+      5: { value: { base: "hsl(27 87% 67%)", _dark: "hsl(340 75% 55%)" } },
+    },
+  },
+});
+```
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
 <Steps>
 
 <Step>Install the following dependencies:</Step>
@@ -72,6 +110,10 @@ export const semanticTokens = defineSemanticTokens({
 
 </Steps>
 
+</TabsContent>
+
+</InstallationTabs>
+
 ## Your First Chart
 
 Let's build your first chart. We'll build a bar chart, add a grid, axis, tooltip and legend.
@@ -100,8 +142,6 @@ const chartData = [
 ];
 ```
 
-{" "}
-
 <Step>Define your chart config</Step>
 
 The chart config holds configuration for the chart. This is where you place human-readable
@@ -121,8 +161,6 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 ```
-
-{" "}
 
 <Step>Build your chart</Step>
 

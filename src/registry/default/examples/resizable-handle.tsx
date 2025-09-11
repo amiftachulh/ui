@@ -1,7 +1,11 @@
 "use client";
 
 import { styled } from "styled-system/jsx";
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/registry/default/ui/resizable";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/registry/default/ui/resizable";
 
 export default function ResizableDemo() {
   return (

@@ -15,6 +15,51 @@ We now have a solid foundation to build on top of. Composable. Themeable. Custom
 
 ## Installation
 
+<InstallationTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<Steps>
+
+<Step>Run the following command to install `sidebar.tsx`</Step>
+
+<PackageRunner command="nore-ui@latest add sidebar" />
+
+<Step>Add the following colors to your semantic tokens.</Step>
+
+```tsx
+export const semanticTokens = defineSemanticTokens({
+  colors: {
+    // ... other colors
+    sidebar: {
+      DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.900}" } },
+      fg: { value: { base: "{colors.zinc.950}", _dark: "{colors.zinc.50}" } },
+      primary: {
+        DEFAULT: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.100}" } },
+        fg: { value: { base: "{colors.zinc.50}", _dark: "{colors.zinc.900}" } },
+      },
+      accent: {
+        DEFAULT: { value: { base: "{colors.zinc.100}", _dark: "{colors.zinc.800}" } },
+        fg: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+      },
+      border: { value: { base: "{colors.zinc.200}", _dark: "{colors.zinc.800}" } },
+      ring: { value: { base: "{colors.zinc.900}", _dark: "{colors.zinc.50}" } },
+    },
+  },
+});
+```
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
 <Steps>
 
 <Step>Install the following dependencies:</Step>
@@ -65,6 +110,10 @@ export const semanticTokens = defineSemanticTokens({
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
 
 </Steps>
+
+</TabsContent>
+
+</InstallationTabs>
 
 ## Structure
 

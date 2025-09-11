@@ -3,3 +3,4 @@ pnpm-lock.yaml
 prisma/
 styled-system/
 registry/__index__.tsx
+public

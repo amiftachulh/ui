@@ -16,6 +16,31 @@ Before you begin, ensure you have the following dependencies installed:
 
 ## Installation
 
+<Tabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<Steps>
+
+<Step>Run the following command to initialize Nore UI</Step>
+
+<PackageRunner command="nore-ui@latest init" />
+
+<Step>You can add components to your project by running the following command:</Step>
+
+<PackageRunner command="nore-ui@latest add [component]" />
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
 <Steps>
 
 <Step>Organize your project structure as follows:</Step>
@@ -576,3 +601,7 @@ Add `baseUrl` to the `compilerOptions` to simplify file imports. If `styled-syst
 You can now start adding components to your project.
 
 </Steps>
+
+</TabsContent>
+
+</Tabs>
