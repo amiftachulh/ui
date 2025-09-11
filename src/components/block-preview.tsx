@@ -12,7 +12,11 @@ const dir = path.join(process.cwd(), "src/registry/default/blocks/");
 
 export default async function BlockPreview({ name }: BlockPreviewProps) {
   const file = path.join(dir, `${name}.tsx`);
-  const content = fs.readFileSync(file, "utf8");
+  let content = fs.readFileSync(file, "utf8");
+
+  content = content
+    .replace(/@\/registry\/default\/ui\//g, "@/components/ui/")
+    .replace(/@\/registry\/default\//g, "@/");
 
   return (
     <styled.div css={{ spaceY: "2" }}>
