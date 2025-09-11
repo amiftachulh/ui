@@ -8,7 +8,7 @@ type BlockPreviewProps = {
   name: string;
 };
 
-const dir = path.join(process.cwd(), "src/blocks/");
+const dir = path.join(process.cwd(), "src/registry/default/blocks/");
 
 export default async function BlockPreview({ name }: BlockPreviewProps) {
   const file = path.join(dir, `${name}.tsx`);
