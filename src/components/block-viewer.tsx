@@ -282,7 +282,7 @@ function BlockViewerView() {
             pos: "absolute",
             inset: "0",
             right: "4",
-            backgroundImage: "radial-gradient(#d4d4d4 1px, transparent 1px",
+            backgroundImage: "radial-gradient(#d4d4d4 1px, transparent 1px)",
             backgroundSize: "20px 20px",
             _dark: {
               backgroundImage: "radial-gradient(#404040 1px, transparent 1px)",
