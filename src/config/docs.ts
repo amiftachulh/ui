@@ -19,21 +19,17 @@ export interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: "Home",
-      href: "/",
-    },
-    {
-      title: "Documentation",
-      href: "/docs",
+      title: "Docs",
+      href: "/docs/overview/introduction",
     },
     {
       title: "Components",
       href: "/docs/components/accordion",
     },
-    // {
-    //   title: "Blocks",
-    //   href: "/blocks",
-    // },
+    {
+      title: "Blocks",
+      href: "/blocks",
+    },
     // {
     //   title: "Charts",
     //   href: "/charts",

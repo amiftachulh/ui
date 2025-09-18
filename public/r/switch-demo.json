@@ -1,0 +1,14 @@
+{
+  "name": "switch-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "switch"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/switch-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport { Switch } from \"@/registry/default/ui/switch\";\n\nexport default function SwitchDemo() {\n  return (\n    <styled.div css={{ display: \"flex\", alignItems: \"center\", spaceX: \"2\" }}>\n      <Switch id=\"airplane-mode\" />\n      <Label htmlFor=\"airplane-mode\">Airplane Mode</Label>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

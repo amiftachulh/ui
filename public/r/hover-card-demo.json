@@ -1,0 +1,14 @@
+{
+  "name": "hover-card-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "hover-card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/hover-card-demo.tsx",
+      "type": "registry:example",
+      "content": "import { LuCalendarDays } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { button } from \"styled-system/recipes\";\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\nimport { HoverCard, HoverCardContent, HoverCardTrigger } from \"@/registry/default/ui/hover-card\";\n\nexport default function HoverCardDemo() {\n  return (\n    <HoverCard>\n      <HoverCardTrigger asChild>\n        <a\n          href=\"https://nextjs.org\"\n          className={button({ variant: \"link\" })}\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n        >\n          @nextjs\n        </a>\n      </HoverCardTrigger>\n      <HoverCardContent css={{ w: \"80\" }}>\n        <styled.div css={{ display: \"flex\", justifyContent: \"space-between\", gap: \"4\" }}>\n          <Avatar>\n            <AvatarImage src=\"https://github.com/vercel.png\" />\n            <AvatarFallback>VC</AvatarFallback>\n          </Avatar>\n          <styled.div css={{ spaceY: \"1\" }}>\n            <styled.h4 css={{ textStyle: \"sm\", fontWeight: \"semibold\" }}>@nextjs</styled.h4>\n            <styled.p css={{ textStyle: \"sm\" }}>\n              The React Framework - created and maintained by @vercel.\n            </styled.p>\n            <styled.div css={{ display: \"flex\", alignItems: \"center\", pt: \"2\" }}>\n              <LuCalendarDays className={css({ mr: \"2\", w: \"4\", h: \"4\", opacity: \"0.7\" })} />\n              <styled.span css={{ textStyle: \"xs\", color: \"muted.fg\" }}>\n                Joined December 2021\n              </styled.span>\n            </styled.div>\n          </styled.div>\n        </styled.div>\n      </HoverCardContent>\n    </HoverCard>\n  );\n}\n"
+    }
+  ]
+}

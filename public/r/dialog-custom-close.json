@@ -1,0 +1,15 @@
+{
+  "name": "dialog-custom-close",
+  "type": "registry:example",
+  "registryDependencies": [
+    "dialog",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/dialog-custom-close.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@/registry/default/ui/dialog\";\nimport { Input } from \"@/registry/default/ui/input\";\nimport { Label } from \"@/registry/default/ui/label\";\n\nexport default function DialogCloseButton() {\n  return (\n    <Dialog>\n      <DialogTrigger asChild>\n        <Button variant=\"outline\">Share</Button>\n      </DialogTrigger>\n      <DialogContent css={{ sm: { maxW: \"md\" } }}>\n        <DialogHeader>\n          <DialogTitle>Share link</DialogTitle>\n          <DialogDescription>Anyone who has this link will be able to view this.</DialogDescription>\n        </DialogHeader>\n        <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"2\" }}>\n          <styled.div css={{ display: \"grid\", flex: \"1\", gap: \"2\" }}>\n            <Label htmlFor=\"link\" css={{ srOnly: true }}>\n              Link\n            </Label>\n            <Input id=\"link\" defaultValue=\"https://ui.shadcn.com/docs/installation\" readOnly />\n          </styled.div>\n        </styled.div>\n        <DialogFooter css={{ sm: { justifyContent: \"flex-start\" } }}>\n          <DialogClose asChild>\n            <Button type=\"button\" variant=\"secondary\">\n              Close\n            </Button>\n          </DialogClose>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n}\n"
+    }
+  ]
+}

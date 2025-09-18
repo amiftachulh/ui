@@ -1,0 +1,14 @@
+{
+  "name": "timeline-alternate",
+  "type": "registry:example",
+  "registryDependencies": [
+    "timeline"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/timeline-alternate.tsx",
+      "type": "registry:example",
+      "content": "import {\n  Timeline,\n  TimelineConnector,\n  TimelineContent,\n  TimelineDescription,\n  TimelineDot,\n  TimelineItem,\n  TimelineSeparator,\n  TimelineTitle,\n} from \"@/registry/default/ui/timeline\";\n\nexport default function TimelineAlternate() {\n  return (\n    <Timeline>\n      <TimelineItem css={{ _before: { content: \"''\", flex: \"1\" } }}>\n        <TimelineSeparator>\n          <TimelineDot variant=\"outline\" />\n          <TimelineConnector />\n        </TimelineSeparator>\n        <TimelineContent>\n          <TimelineTitle>Eat</TimelineTitle>\n          <TimelineDescription>Because you need strength</TimelineDescription>\n        </TimelineContent>\n      </TimelineItem>\n      <TimelineItem css={{ _after: { content: \"''\", flex: \"1\" } }}>\n        <TimelineContent>\n          <TimelineTitle>Code</TimelineTitle>\n          <TimelineDescription>Because it&apos;s awesome!</TimelineDescription>\n        </TimelineContent>\n        <TimelineSeparator>\n          <TimelineDot variant=\"outline\" />\n          <TimelineConnector />\n        </TimelineSeparator>\n      </TimelineItem>\n      <TimelineItem css={{ _before: { content: \"''\", flex: \"1\" } }}>\n        <TimelineSeparator>\n          <TimelineDot variant=\"outline\" />\n          <TimelineConnector />\n        </TimelineSeparator>\n        <TimelineContent>\n          <TimelineTitle>Sleep</TimelineTitle>\n          <TimelineDescription>Because you need rest</TimelineDescription>\n        </TimelineContent>\n      </TimelineItem>\n      <TimelineItem css={{ _after: { content: \"''\", flex: \"1\" } }}>\n        <TimelineContent>\n          <TimelineTitle>Repeat</TimelineTitle>\n          <TimelineDescription>Because this is the life you love!</TimelineDescription>\n        </TimelineContent>\n        <TimelineSeparator>\n          <TimelineDot variant=\"outline\" />\n        </TimelineSeparator>\n      </TimelineItem>\n    </Timeline>\n  );\n}\n"
+    }
+  ]
+}

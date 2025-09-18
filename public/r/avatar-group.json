@@ -1,0 +1,14 @@
+{
+  "name": "avatar-group",
+  "type": "registry:example",
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/avatar-group.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\n\nexport default function AvatarGroup() {\n  return (\n    <styled.div\n      css={{\n        display: \"flex\",\n        spaceX: \"-2\",\n        _hover: { spaceX: \"1\" },\n        \"& > .avatar__root\": {\n          transition: \"all\",\n          outlineWidth: \"2px\",\n          outlineStyle: \"solid\",\n          outlineColor: \"bg\",\n        },\n      }}\n    >\n      <Avatar>\n        <AvatarImage src=\"https://github.com/amiftachulh.png\" alt=\"@amiftachulh\" />\n        <AvatarFallback>A</AvatarFallback>\n      </Avatar>\n      <Avatar>\n        <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n        <AvatarFallback>CN</AvatarFallback>\n      </Avatar>\n      <Avatar>\n        <AvatarImage src=\"https://github.com/segunadebayo.png\" alt=\"@segunadebayo\" />\n        <AvatarFallback>S</AvatarFallback>\n      </Avatar>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

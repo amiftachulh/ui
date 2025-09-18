@@ -1,0 +1,14 @@
+{
+  "name": "resizable-vertical",
+  "type": "registry:example",
+  "registryDependencies": [
+    "resizable"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/resizable-vertical.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { styled } from \"styled-system/jsx\";\nimport {\n  ResizableHandle,\n  ResizablePanel,\n  ResizablePanelGroup,\n} from \"@/registry/default/ui/resizable\";\n\nexport default function ResizableVertical() {\n  return (\n    <ResizablePanelGroup\n      direction=\"vertical\"\n      css={{ minH: \"200px\", maxW: \"md\", rounded: \"lg\", borderWidth: \"1px\", md: { minW: \"450px\" } }}\n    >\n      <ResizablePanel defaultSize={25}>\n        <styled.div\n          css={{\n            display: \"flex\",\n            h: \"full\",\n            alignItems: \"center\",\n            justifyContent: \"center\",\n            p: \"6\",\n          }}\n        >\n          <styled.span css={{ fontWeight: \"semibold\" }}>Header</styled.span>\n        </styled.div>\n      </ResizablePanel>\n      <ResizableHandle />\n      <ResizablePanel defaultSize={75}>\n        <styled.div\n          css={{\n            display: \"flex\",\n            h: \"full\",\n            alignItems: \"center\",\n            justifyContent: \"center\",\n            p: \"6\",\n          }}\n        >\n          <styled.span css={{ fontWeight: \"semibold\" }}>Content</styled.span>\n        </styled.div>\n      </ResizablePanel>\n    </ResizablePanelGroup>\n  );\n}\n"
+    }
+  ]
+}

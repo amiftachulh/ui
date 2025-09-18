@@ -1,0 +1,14 @@
+{
+  "name": "alert-custom",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert-custom.tsx",
+      "type": "registry:example",
+      "content": "import { LuCircleX } from \"react-icons/lu\";\nimport {\n  Alert,\n  AlertContent,\n  AlertDescription,\n  AlertIcon,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\";\n\nexport default function AlertCustom() {\n  return (\n    <Alert\n      css={{\n        w: \"2/3\",\n        borderStartWidth: \"4px\",\n        borderStartColor: { base: \"border.600\", _dark: \"red.500\" },\n      }}\n    >\n      <AlertIcon>\n        <LuCircleX />\n      </AlertIcon>\n      <AlertContent>\n        <AlertTitle css={{ textStyle: \"lg\" }}>Custom Styled Alert</AlertTitle>\n        <AlertDescription>With custom border styling.</AlertDescription>\n      </AlertContent>\n    </Alert>\n  );\n}\n"
+    }
+  ]
+}

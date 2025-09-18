@@ -1,0 +1,14 @@
+{
+  "name": "phone-input-initial",
+  "type": "registry:example",
+  "registryDependencies": [
+    "phone-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/phone-input-initial.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { PhoneInput } from \"@/registry/default/ui/phone-input\";\n\nexport default function PhoneInputInitial() {\n  const [phoneNumber, setPhoneNumber] = useState(\"\");\n\n  return (\n    <PhoneInput\n      value={phoneNumber}\n      onChange={setPhoneNumber}\n      initialValueFormat=\"national\"\n      placeholder=\"Enter a phone number\"\n    />\n  );\n}\n"
+    }
+  ]
+}

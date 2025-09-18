@@ -1,0 +1,14 @@
+{
+  "name": "avatar-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/avatar-demo.tsx",
+      "type": "registry:example",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\n\nexport default function AvatarDemo() {\n  return (\n    <Avatar>\n      <AvatarImage src=\"https://github.com/amiftachulh.png\" alt=\"@amiftachulh\" />\n      <AvatarFallback>A</AvatarFallback>\n    </Avatar>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "carousel-plugin",
+  "type": "registry:example",
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/carousel-plugin.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport Autoplay from \"embla-carousel-autoplay\";\nimport { styled } from \"styled-system/jsx\";\nimport { Card, CardContent } from \"@/registry/default/ui/card\";\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@/registry/default/ui/carousel\";\n\nexport default function CarouselPlugin() {\n  const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));\n\n  return (\n    <Carousel\n      plugins={[plugin.current]}\n      onMouseEnter={plugin.current.stop}\n      onMouseLeave={plugin.current.reset}\n      css={{ w: \"full\", maxW: \"xs\" }}\n    >\n      <CarouselContent>\n        {Array.from({ length: 5 }).map((_, index) => (\n          <CarouselItem key={index}>\n            <styled.div css={{ p: \"1\" }}>\n              <Card>\n                <CardContent\n                  css={{\n                    display: \"flex\",\n                    aspectRatio: \"square\",\n                    alignItems: \"center\",\n                    justifyContent: \"center\",\n                    p: \"6\",\n                  }}\n                >\n                  <styled.span css={{ textStyle: \"4xl\", fontWeight: \"semibold\" }}>\n                    {index + 1}\n                  </styled.span>\n                </CardContent>\n              </Card>\n            </styled.div>\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n  );\n}\n"
+    }
+  ]
+}

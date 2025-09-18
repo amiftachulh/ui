@@ -1,0 +1,14 @@
+{
+  "name": "timeline-with-icon",
+  "type": "registry:example",
+  "registryDependencies": [
+    "timeline"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/timeline-with-icon.tsx",
+      "type": "registry:example",
+      "content": "import { LuCode, LuHeart, LuMoon, LuPizza } from \"react-icons/lu\";\nimport {\n  Timeline,\n  TimelineConnector,\n  TimelineContent,\n  TimelineDescription,\n  TimelineDot,\n  TimelineItem,\n  TimelineSeparator,\n  TimelineTitle,\n} from \"@/registry/default/ui/timeline\";\n\nexport default function TimelineWithIcon() {\n  return (\n    <Timeline>\n      <TimelineItem>\n        <TimelineSeparator>\n          <TimelineDot>\n            <LuPizza />\n          </TimelineDot>\n          <TimelineConnector />\n        </TimelineSeparator>\n        <TimelineContent>\n          <TimelineTitle>Eat</TimelineTitle>\n          <TimelineDescription>Because you need strength</TimelineDescription>\n        </TimelineContent>\n      </TimelineItem>\n      <TimelineItem>\n        <TimelineSeparator>\n          <TimelineDot>\n            <LuCode />\n          </TimelineDot>\n          <TimelineConnector />\n        </TimelineSeparator>\n        <TimelineContent>\n          <TimelineTitle>Code</TimelineTitle>\n          <TimelineDescription>Because it&apos;s awesome!</TimelineDescription>\n        </TimelineContent>\n      </TimelineItem>\n      <TimelineItem>\n        <TimelineSeparator>\n          <TimelineDot>\n            <LuMoon />\n          </TimelineDot>\n          <TimelineConnector />\n        </TimelineSeparator>\n        <TimelineContent>\n          <TimelineTitle>Sleep</TimelineTitle>\n          <TimelineDescription>Because you need rest</TimelineDescription>\n        </TimelineContent>\n      </TimelineItem>\n      <TimelineItem>\n        <TimelineSeparator>\n          <TimelineDot>\n            <LuHeart />\n          </TimelineDot>\n        </TimelineSeparator>\n        <TimelineContent>\n          <TimelineTitle>Repeat</TimelineTitle>\n          <TimelineDescription>Because this is the life you love!</TimelineDescription>\n        </TimelineContent>\n      </TimelineItem>\n    </Timeline>\n  );\n}\n"
+    }
+  ]
+}

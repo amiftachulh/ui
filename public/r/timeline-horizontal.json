@@ -1,0 +1,14 @@
+{
+  "name": "timeline-horizontal",
+  "type": "registry:example",
+  "registryDependencies": [
+    "timeline"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/timeline-horizontal.tsx",
+      "type": "registry:example",
+      "content": "import { LuPackageCheck, LuShoppingCart, LuTruck } from \"react-icons/lu\";\nimport {\n  Timeline,\n  TimelineConnector,\n  TimelineContent,\n  TimelineDescription,\n  TimelineDot,\n  TimelineItem,\n  TimelineSeparator,\n  TimelineTitle,\n} from \"@/registry/default/ui/timeline\";\n\nexport default function TimelineHorizontal() {\n  return (\n    <Timeline orientation=\"horizontal\" css={{ minH: \"40\" }}>\n      <TimelineItem css={{ _before: { content: \"''\", flex: \"1\" } }}>\n        <TimelineSeparator>\n          <TimelineDot>\n            <LuShoppingCart />\n          </TimelineDot>\n          <TimelineConnector />\n        </TimelineSeparator>\n        <TimelineContent>\n          <TimelineTitle>Ordered</TimelineTitle>\n          <TimelineDescription css={{ whiteSpace: \"nowrap\" }}>\n            9.15 AM, January 1, 2024\n          </TimelineDescription>\n        </TimelineContent>\n      </TimelineItem>\n      <TimelineItem css={{ _after: { content: \"''\", flex: \"1\" } }}>\n        <TimelineContent>\n          <TimelineTitle>Shipped</TimelineTitle>\n          <TimelineDescription css={{ whiteSpace: \"nowrap\" }}>\n            12:20 PM, January 4, 2024\n          </TimelineDescription>\n        </TimelineContent>\n        <TimelineSeparator>\n          <TimelineDot>\n            <LuPackageCheck />\n          </TimelineDot>\n          <TimelineConnector />\n        </TimelineSeparator>\n      </TimelineItem>\n      <TimelineItem css={{ _before: { content: \"''\", flex: \"1\" } }}>\n        <TimelineSeparator>\n          <TimelineDot>\n            <LuTruck />\n          </TimelineDot>\n          <TimelineConnector />\n        </TimelineSeparator>\n        <TimelineContent>\n          <TimelineTitle>Out for Delivery</TimelineTitle>\n          <TimelineDescription css={{ whiteSpace: \"nowrap\" }}>\n            07:00 AM, January 8, 2024\n          </TimelineDescription>\n        </TimelineContent>\n      </TimelineItem>\n    </Timeline>\n  );\n}\n"
+    }
+  ]
+}

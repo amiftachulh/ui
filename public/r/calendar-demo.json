@@ -1,0 +1,14 @@
+{
+  "name": "calendar-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "calendar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/calendar-demo.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\n\nexport default function CalendarDemo() {\n  const [date, setDate] = useState<Date>();\n\n  return (\n    <Calendar\n      mode=\"single\"\n      selected={date}\n      onSelect={setDate}\n      css={{ w: \"fit\", borderWidth: \"1px\", rounded: \"md\" }}\n    />\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "badge-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/badge-demo.tsx",
+      "type": "registry:example",
+      "content": "import { LuBadgeCheck } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Badge } from \"@/registry/default/ui/badge\";\n\nexport default function BadgeDemo() {\n  return (\n    <styled.div css={{ display: \"flex\", flexDir: \"column\", alignItems: \"center\", gap: \"2\" }}>\n      <styled.div css={{ display: \"flex\", w: \"full\", flexWrap: \"wrap\", gap: \"2\" }}>\n        <Badge>Badge</Badge>\n        <Badge variant=\"secondary\">Secondary</Badge>\n        <Badge variant=\"danger\">Danger</Badge>\n        <Badge variant=\"outline\">Outline</Badge>\n      </styled.div>\n      <styled.div css={{ display: \"flex\", w: \"full\", flexWrap: \"wrap\", gap: \"2\" }}>\n        <Badge\n          variant=\"secondary\"\n          css={{ bg: \"blue.500\", color: \"white\", _dark: { bg: \"blue.600\" } }}\n        >\n          <LuBadgeCheck />\n          Verified\n        </Badge>\n        <Badge\n          css={{\n            minW: \"5\",\n            h: \"5\",\n            rounded: \"full\",\n            px: \"1\",\n            fontFamily: \"mono\",\n            fontVariantNumeric: \"tabular-nums\",\n          }}\n        >\n          8\n        </Badge>\n        <Badge\n          css={{\n            minW: \"5\",\n            h: \"5\",\n            rounded: \"full\",\n            px: \"1\",\n            fontFamily: \"mono\",\n            fontVariantNumeric: \"tabular-nums\",\n          }}\n          variant=\"danger\"\n        >\n          99\n        </Badge>\n        <Badge\n          css={{\n            minW: \"5\",\n            h: \"5\",\n            rounded: \"full\",\n            px: \"1\",\n            fontFamily: \"mono\",\n            fontVariantNumeric: \"tabular-nums\",\n          }}\n          variant=\"outline\"\n        >\n          20+\n        </Badge>\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

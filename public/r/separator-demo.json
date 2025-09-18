@@ -1,0 +1,14 @@
+{
+  "name": "separator-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/separator-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Separator } from \"@/registry/default/ui/separator\";\n\nexport default function SeparatorDemo() {\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"18.75rem\", mx: \"3.5\" }}>\n      <styled.div css={{ fontWeight: \"medium\" }}>Radix Primitives</styled.div>\n      <div>An open-source UI component library.</div>\n      <Separator css={{ my: \"3.5\" }} />\n      <styled.div css={{ display: \"flex\", h: \"5\", alignItems: \"center\" }}>\n        <div>Blog</div>\n        <Separator css={{ mx: \"3.5\" }} decorative orientation=\"vertical\" />\n        <div>Docs</div>\n        <Separator css={{ mx: \"3.5\" }} decorative orientation=\"vertical\" />\n        <div>Source</div>\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

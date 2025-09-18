@@ -1,0 +1,14 @@
+{
+  "name": "phone-input-internationalization",
+  "type": "registry:example",
+  "registryDependencies": [
+    "phone-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/phone-input-internationalization.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport ja from \"react-phone-number-input/locale/ja\";\nimport { PhoneInput } from \"@/registry/default/ui/phone-input\";\n\nexport default function PhoneInputInternationalization() {\n  const [phoneNumber, setPhoneNumber] = useState(\"\");\n\n  return (\n    <PhoneInput\n      value={phoneNumber}\n      onChange={setPhoneNumber}\n      labels={ja}\n      placeholder=\"電話番号を入力してください\"\n    />\n  );\n}\n"
+    }
+  ]
+}

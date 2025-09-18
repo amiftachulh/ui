@@ -1,0 +1,14 @@
+{
+  "name": "alert-without-icon",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert-without-icon.tsx",
+      "type": "registry:example",
+      "content": "import { Alert, AlertContent, AlertDescription, AlertTitle } from \"@/registry/default/ui/alert\";\n\nexport default function AlertWithoutIcon() {\n  return (\n    <Alert variant=\"info\" css={{ w: \"2/3\" }}>\n      <AlertContent>\n        <AlertTitle>Info only</AlertTitle>\n        <AlertDescription>This alert doesn&apos;t have an icon.</AlertDescription>\n      </AlertContent>\n    </Alert>\n  );\n}\n"
+    }
+  ]
+}

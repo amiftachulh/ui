@@ -1,0 +1,14 @@
+{
+  "name": "toggle-size",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/toggle-size.tsx",
+      "type": "registry:example",
+      "content": "import { LuItalic } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { Toggle } from \"@/registry/default/ui/toggle\";\n\nexport default function ToggleSize() {\n  return (\n    <styled.div css={{ display: \"flex\", alignItems: \"center\", flexWrap: \"wrap\", gap: \"4\" }}>\n      <Toggle variant=\"outline\" size=\"sm\" aria-label=\"Toggle italic\">\n        <LuItalic className={css({ w: \"4\", h: \"4\" })} />\n      </Toggle>\n      <Toggle variant=\"outline\" size=\"md\" aria-label=\"Toggle italic\">\n        <LuItalic className={css({ w: \"4\", h: \"4\" })} />\n      </Toggle>\n      <Toggle variant=\"outline\" size=\"lg\" aria-label=\"Toggle italic\">\n        <LuItalic className={css({ w: \"4\", h: \"4\" })} />\n      </Toggle>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "carousel-api",
+  "type": "registry:example",
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/carousel-api.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { styled } from \"styled-system/jsx\";\nimport { Card, CardContent } from \"@/registry/default/ui/card\";\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n  type CarouselApi,\n} from \"@/registry/default/ui/carousel\";\n\nexport default function CarouselApiDemo() {\n  const [api, setApi] = React.useState<CarouselApi>();\n  const [current, setCurrent] = React.useState(0);\n  const [count, setCount] = React.useState(0);\n\n  React.useEffect(() => {\n    if (!api) {\n      return;\n    }\n\n    setCount(api.scrollSnapList().length);\n    setCurrent(api.selectedScrollSnap() + 1);\n\n    api.on(\"select\", () => {\n      setCurrent(api.selectedScrollSnap() + 1);\n    });\n  }, [api]);\n\n  return (\n    <styled.div css={{ mx: \"auto\", maxW: \"xs\" }}>\n      <Carousel setApi={setApi} css={{ w: \"full\", maxW: \"xs\" }}>\n        <CarouselContent>\n          {Array.from({ length: 5 }).map((_, index) => (\n            <CarouselItem key={index}>\n              <Card>\n                <CardContent\n                  css={{\n                    display: \"flex\",\n                    aspectRatio: \"square\",\n                    alignItems: \"center\",\n                    justifyContent: \"center\",\n                    p: \"6\",\n                  }}\n                >\n                  <styled.span css={{ textStyle: \"4xl\", fontWeight: \"semibold\" }}>\n                    {index + 1}\n                  </styled.span>\n                </CardContent>\n              </Card>\n            </CarouselItem>\n          ))}\n        </CarouselContent>\n        <CarouselPrevious />\n        <CarouselNext />\n      </Carousel>\n      <styled.div css={{ py: \"2\", textAlign: \"center\", textStyle: \"sm\", color: \"muted.fg\" }}>\n        Slide {current} of {count}\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

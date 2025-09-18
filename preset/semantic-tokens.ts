@@ -24,6 +24,10 @@ export const semanticTokens = defineSemanticTokens({
       DEFAULT: { value: { base: "{colors.red.500}", _dark: "{colors.red.400}" } },
       fg: { value: { base: "{colors.neutral.50}", _dark: "{colors.neutral.900}" } },
     },
+    surface: {
+      DEFAULT: { value: { base: "{colors.neutral.50}", _dark: "{colors.neutral.900}" } },
+      fg: { value: { base: "{colors.neutral.950}", _dark: "{colors.neutral.50}" } },
+    },
     card: {
       DEFAULT: { value: { base: "{colors.white}", _dark: "{colors.neutral.900}" } },
       fg: { value: { base: "{colors.neutral.950}", _dark: "{colors.neutral.50}" } },

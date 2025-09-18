@@ -1,0 +1,14 @@
+{
+  "name": "combobox-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "command"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/combobox-demo.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuCheck, LuChevronsUpDown } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from \"@/registry/default/ui/command\";\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/registry/default/ui/popover\";\n\nconst frameworks = [\n  { value: \"next.js\", label: \"Next.js\" },\n  { value: \"sveltekit\", label: \"SvelteKit\" },\n  { value: \"nuxt.js\", label: \"Nuxt.js\" },\n  { value: \"remix\", label: \"Remix\" },\n  { value: \"astro\", label: \"Astro\" },\n];\n\nexport default function ComboboxDemo() {\n  const [open, setOpen] = React.useState(false);\n  const [value, setValue] = React.useState(\"\");\n\n  return (\n    <Popover open={open} onOpenChange={setOpen}>\n      <PopoverTrigger asChild>\n        <Button\n          variant=\"outline\"\n          role=\"combobox\"\n          aria-expanded={open}\n          css={{ w: \"200px\", justifyContent: \"space-between\" }}\n        >\n          {value\n            ? frameworks.find((framework) => framework.value === value)?.label\n            : \"Select framework...\"}\n          <LuChevronsUpDown opacity=\"0.5\" />\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent css={{ w: \"200px\", p: \"0\" }}>\n        <Command>\n          <CommandInput placeholder=\"Search framework...\" />\n          <CommandList>\n            <CommandEmpty>No framework found.</CommandEmpty>\n            <CommandGroup>\n              {frameworks.map((framework) => (\n                <CommandItem\n                  key={framework.value}\n                  value={framework.value}\n                  onSelect={(currentValue) => {\n                    setValue(currentValue === value ? \"\" : currentValue);\n                    setOpen(false);\n                  }}\n                >\n                  {framework.label}\n                  <LuCheck\n                    className={css({\n                      ml: \"auto\",\n                      opacity: value === framework.value ? \"1\" : \"0\",\n                    })}\n                  />\n                </CommandItem>\n              ))}\n            </CommandGroup>\n          </CommandList>\n        </Command>\n      </PopoverContent>\n    </Popover>\n  );\n}\n"
+    }
+  ]
+}

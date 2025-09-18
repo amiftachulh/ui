@@ -1,0 +1,89 @@
+[
+  {
+    "name": "login-01",
+    "description": "A simple login form.",
+    "categories": [
+      "authentication"
+    ]
+  },
+  {
+    "name": "login-02",
+    "description": "A two column login page with a cover image.",
+    "categories": [
+      "authentication"
+    ]
+  },
+  {
+    "name": "login-03",
+    "description": "A login page with a muted background color.",
+    "categories": [
+      "authentication"
+    ]
+  },
+  {
+    "name": "login-04",
+    "description": "A login page with form and image.",
+    "categories": [
+      "authentication"
+    ]
+  },
+  {
+    "name": "login-05",
+    "description": "A simple email-only login page.",
+    "categories": [
+      "authentication"
+    ]
+  },
+  {
+    "name": "sidebar-07",
+    "description": "A sidebar that collapses to icons."
+  },
+  {
+    "name": "sidebar-controlled",
+    "description": ""
+  },
+  {
+    "name": "sidebar-demo",
+    "description": ""
+  },
+  {
+    "name": "sidebar-footer",
+    "description": ""
+  },
+  {
+    "name": "sidebar-group-action",
+    "description": ""
+  },
+  {
+    "name": "sidebar-group-collapsible",
+    "description": ""
+  },
+  {
+    "name": "sidebar-group",
+    "description": ""
+  },
+  {
+    "name": "sidebar-header",
+    "description": ""
+  },
+  {
+    "name": "sidebar-menu-action",
+    "description": ""
+  },
+  {
+    "name": "sidebar-menu-badge",
+    "description": ""
+  },
+  {
+    "name": "sidebar-menu-collapsible",
+    "description": ""
+  },
+  {
+    "name": "sidebar-menu-sub",
+    "description": ""
+  },
+  {
+    "name": "sidebar-menu",
+    "description": ""
+  }
+]

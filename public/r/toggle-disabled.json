@@ -1,0 +1,14 @@
+{
+  "name": "toggle-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/toggle-disabled.tsx",
+      "type": "registry:example",
+      "content": "import { LuUnderline } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { Toggle } from \"@/registry/default/ui/toggle\";\n\nexport default function ToggleDisabled() {\n  return (\n    <Toggle aria-label=\"Toggle underline\" disabled>\n      <LuUnderline className={css({ w: \"4\", h: \"4\" })} />\n    </Toggle>\n  );\n}\n"
+    }
+  ]
+}

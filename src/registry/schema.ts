@@ -50,6 +50,8 @@ export const registryItemSchema = z.object({
   devDependencies: z.array(z.string()).optional(),
   registryDependencies: z.array(z.string()).optional(),
   files: z.array(registryItemFileSchema).optional(),
+  meta: z.record(z.string(), z.any()).optional(),
+  categories: z.array(z.string()).optional(),
 });
 
 export type RegistryItem = z.infer<typeof registryItemSchema>;

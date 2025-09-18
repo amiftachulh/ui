@@ -1,0 +1,14 @@
+{
+  "name": "alert-variant",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert-variant.tsx",
+      "type": "registry:example",
+      "content": "import { LuCircleCheckBig, LuCircleX, LuInfo, LuTriangleAlert } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  Alert,\n  AlertContent,\n  AlertDescription,\n  AlertIcon,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\";\n\nexport default function AlertVariant() {\n  return (\n    <styled.div css={{ w: \"2/3\", spaceY: \"4\" }}>\n      {/* Info variant */}\n      <Alert variant=\"info\">\n        <AlertIcon>\n          <LuInfo />\n        </AlertIcon>\n        <AlertContent>\n          <AlertTitle>Info</AlertTitle>\n          <AlertDescription>This is an info message.</AlertDescription>\n        </AlertContent>\n      </Alert>\n\n      {/* Success variant */}\n      <Alert variant=\"success\">\n        <AlertIcon>\n          <LuCircleCheckBig />\n        </AlertIcon>\n        <AlertContent>\n          <AlertTitle>Success!</AlertTitle>\n          <AlertDescription>Your changes have been saved successfully.</AlertDescription>\n        </AlertContent>\n      </Alert>\n\n      {/* Warning variant */}\n      <Alert variant=\"warning\">\n        <AlertIcon>\n          <LuTriangleAlert />\n        </AlertIcon>\n        <AlertContent>\n          <AlertTitle>Warning</AlertTitle>\n          <AlertDescription>Your subscription will expire in 7 days.</AlertDescription>\n        </AlertContent>\n      </Alert>\n\n      {/* Danger variant */}\n      <Alert variant=\"danger\">\n        <AlertIcon>\n          <LuCircleX />\n        </AlertIcon>\n        <AlertContent>\n          <AlertTitle>Error</AlertTitle>\n          <AlertDescription>Failed to save changes. Please try again.</AlertDescription>\n        </AlertContent>\n      </Alert>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

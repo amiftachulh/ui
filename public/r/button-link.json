@@ -1,0 +1,14 @@
+{
+  "name": "button-link",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-link.tsx",
+      "type": "registry:example",
+      "content": "import Link from \"next/link\";\nimport { button } from \"styled-system/recipes\";\n\nexport default function ButtonLink() {\n  return (\n    <Link className={button({ variant: \"outline\" })} href=\"/docs/components/button\">\n      Link\n    </Link>\n  );\n}\n"
+    }
+  ]
+}

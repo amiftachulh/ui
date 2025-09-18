@@ -1,0 +1,14 @@
+{
+  "name": "tabs-vertical",
+  "type": "registry:example",
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/tabs-vertical.tsx",
+      "type": "registry:example",
+      "content": "import { Tabs, TabsContent, TabsList, TabsTrigger } from \"@/registry/default/ui/tabs\";\n\nexport default function TabsVertical() {\n  return (\n    <Tabs defaultValue=\"account\" orientation=\"vertical\" css={{ w: \"full\" }}>\n      <TabsList>\n        <TabsTrigger value=\"account\">Account</TabsTrigger>\n        <TabsTrigger value=\"documents\">Documents</TabsTrigger>\n        <TabsTrigger value=\"settings\">Settings</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"account\" css={{ p: \"2\" }}>\n        <p>Make changes to your accounts.</p>\n      </TabsContent>\n      <TabsContent value=\"documents\" css={{ p: \"2\" }}>\n        <p>Access and update your documents.</p>\n      </TabsContent>\n      <TabsContent value=\"settings\" css={{ p: \"2\" }}>\n        <p>Edit your profile or update contact informations.</p>\n      </TabsContent>\n    </Tabs>\n  );\n}\n"
+    }
+  ]
+}

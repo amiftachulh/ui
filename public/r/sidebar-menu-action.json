@@ -1,0 +1,15 @@
+{
+  "name": "sidebar-menu-action",
+  "type": "registry:block",
+  "description": "",
+  "registryDependencies": [
+    "sidebar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/sidebar-menu-action.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { LuChartPie, LuEllipsis, LuFrame, LuLifeBuoy, LuMap, LuSend } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from \"@/registry/default/ui/dropdown-menu\";\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarGroupLabel,\n  SidebarMenu,\n  SidebarMenuAction,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n} from \"@/registry/default/ui/sidebar\";\n\nconst projects = [\n  {\n    name: \"Design Engineering\",\n    url: \"#\",\n    icon: LuFrame,\n  },\n  {\n    name: \"Sales & Marketing\",\n    url: \"#\",\n    icon: LuChartPie,\n  },\n  {\n    name: \"Travel\",\n    url: \"#\",\n    icon: LuMap,\n  },\n  {\n    name: \"Support\",\n    url: \"#\",\n    icon: LuLifeBuoy,\n  },\n  {\n    name: \"Feedback\",\n    url: \"#\",\n    icon: LuSend,\n  },\n];\n\nexport default function AppSidebar() {\n  return (\n    <SidebarProvider>\n      <Sidebar>\n        <SidebarContent>\n          <SidebarGroup>\n            <SidebarGroupLabel>Projects</SidebarGroupLabel>\n            <SidebarGroupContent>\n              <SidebarMenu>\n                {projects.map((project) => (\n                  <SidebarMenuItem key={project.name}>\n                    <SidebarMenuButton\n                      asChild\n                      css={{\n                        \".group-menu-item:has([data-state=open]) &\": { bg: \"sidebar.accent\" },\n                      }}\n                    >\n                      <a href={project.url}>\n                        <project.icon />\n                        <span>{project.name}</span>\n                      </a>\n                    </SidebarMenuButton>\n                    <DropdownMenu>\n                      <DropdownMenuTrigger asChild>\n                        <SidebarMenuAction>\n                          <LuEllipsis />\n                          <styled.span css={{ srOnly: true }}>More</styled.span>\n                        </SidebarMenuAction>\n                      </DropdownMenuTrigger>\n                      <DropdownMenuContent side=\"right\" align=\"start\">\n                        <DropdownMenuItem>\n                          <span>Edit Project</span>\n                        </DropdownMenuItem>\n                        <DropdownMenuItem>\n                          <span>Delete Project</span>\n                        </DropdownMenuItem>\n                      </DropdownMenuContent>\n                    </DropdownMenu>\n                  </SidebarMenuItem>\n                ))}\n              </SidebarMenu>\n            </SidebarGroupContent>\n          </SidebarGroup>\n        </SidebarContent>\n      </Sidebar>\n    </SidebarProvider>\n  );\n}\n"
+    }
+  ]
+}

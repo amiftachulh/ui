@@ -1,0 +1,14 @@
+{
+  "name": "scroll-area-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "scroll-area"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/scroll-area-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { ScrollArea } from \"@/registry/default/ui/scroll-area\";\n\nconst tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);\n\nexport default function ScrollAreaDemo() {\n  return (\n    <ScrollArea css={{ w: \"48\", h: \"72\", rounded: \"md\", borderWidth: \"1px\" }}>\n      <styled.div css={{ p: \"4\" }}>\n        <styled.h4 css={{ mb: \"4\", textStyle: \"sm\", fontWeight: \"medium\", lineHeight: \"none\" }}>\n          Tags\n        </styled.h4>\n        <styled.div css={{ divideY: \"1px\" }}>\n          {tags.map((tag) => (\n            <styled.div\n              key={tag}\n              css={{ py: \"2\", textStyle: \"sm\", _first: { pt: \"0\" }, _last: { pb: \"0\" } }}\n            >\n              {tag}\n            </styled.div>\n          ))}\n        </styled.div>\n      </styled.div>\n    </ScrollArea>\n  );\n}\n"
+    }
+  ]
+}

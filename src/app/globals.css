@@ -1,1 +1,9 @@
 @layer reset, base, tokens, recipes, utilities;
+
+[data-line] span {
+  color: var(--shiki-light);
+}
+
+.dark [data-line] span {
+  color: var(--shiki-dark) !important;
+}

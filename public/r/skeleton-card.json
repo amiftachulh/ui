@@ -1,0 +1,14 @@
+{
+  "name": "skeleton-card",
+  "type": "registry:example",
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/skeleton-card.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Skeleton } from \"@/registry/default/ui/skeleton\";\n\nexport default function SkeletonCard() {\n  return (\n    <styled.div css={{ display: \"flex\", flexDir: \"column\", spaceY: \"3\" }}>\n      <Skeleton css={{ w: \"250px\", h: \"125px\", rounded: \"xl\" }} />\n      <styled.div css={{ spaceY: \"2\" }}>\n        <Skeleton css={{ w: \"250px\", h: \"4\" }} />\n        <Skeleton css={{ w: \"200px\", h: \"4\" }} />\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

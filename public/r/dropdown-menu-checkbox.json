@@ -1,0 +1,15 @@
+{
+  "name": "dropdown-menu-checkbox",
+  "type": "registry:example",
+  "registryDependencies": [
+    "dropdown-menu",
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/dropdown-menu-checkbox.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { type DropdownMenuCheckboxItemProps } from \"@radix-ui/react-dropdown-menu\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  DropdownMenu,\n  DropdownMenuCheckboxItem,\n  DropdownMenuContent,\n  DropdownMenuLabel,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from \"@/registry/default/ui/dropdown-menu\";\n\ntype Checked = DropdownMenuCheckboxItemProps[\"checked\"];\n\nexport default function DropdownMenuCheckboxes() {\n  const [showStatusBar, setShowStatusBar] = useState<Checked>(true);\n  const [showActivityBar, setShowActivityBar] = useState<Checked>(false);\n  const [showPanel, setShowPanel] = useState<Checked>(false);\n\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\">Open</Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent css={{ w: \"56\" }}>\n        <DropdownMenuLabel>Appearance</DropdownMenuLabel>\n        <DropdownMenuSeparator />\n        <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>\n          Status Bar\n        </DropdownMenuCheckboxItem>\n        <DropdownMenuCheckboxItem\n          checked={showActivityBar}\n          onCheckedChange={setShowActivityBar}\n          disabled\n        >\n          Activity Bar\n        </DropdownMenuCheckboxItem>\n        <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>\n          Panel\n        </DropdownMenuCheckboxItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  );\n}\n"
+    }
+  ]
+}

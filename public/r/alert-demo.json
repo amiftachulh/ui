@@ -1,0 +1,14 @@
+{
+  "name": "alert-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert-demo.tsx",
+      "type": "registry:example",
+      "content": "import { LuTerminal } from \"react-icons/lu\";\nimport {\n  Alert,\n  AlertContent,\n  AlertDescription,\n  AlertIcon,\n  AlertTitle,\n} from \"@/registry/default/ui/alert\";\n\nexport default function AlertDemo() {\n  return (\n    <Alert css={{ w: \"2/3\" }}>\n      <AlertIcon>\n        <LuTerminal />\n      </AlertIcon>\n      <AlertContent>\n        <AlertTitle>Heads up!</AlertTitle>\n        <AlertDescription>Hey there! This is a simple alert.</AlertDescription>\n      </AlertContent>\n    </Alert>\n  );\n}\n"
+    }
+  ]
+}

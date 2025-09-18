@@ -1,0 +1,14 @@
+{
+  "name": "button-variant",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-variant.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\n\nexport default function ButtonVariant() {\n  return (\n    <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"4\" }}>\n      <Button variant=\"primary\">Button</Button>\n      <Button variant=\"secondary\">Button</Button>\n      <Button variant=\"outline\">Button</Button>\n      <Button variant=\"ghost\">Button</Button>\n      <Button variant=\"input\">Button</Button>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

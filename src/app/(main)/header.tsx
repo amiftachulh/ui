@@ -5,6 +5,7 @@ import { container } from "styled-system/patterns";
 import CommandMenu from "@/components/command-menu";
 import MobileNav from "@/components/mobile-nav";
 import ThemeToggle from "@/components/theme-toggle";
+import { docsConfig } from "@/config/docs";
 
 export default function Header() {
   return (
@@ -12,7 +13,7 @@ export default function Header() {
       css={{
         pos: "fixed",
         top: "0",
-        zIndex: "1",
+        zIndex: "100",
         w: "full",
         bg: "bg",
         borderBottomWidth: "1px",
@@ -46,19 +47,22 @@ export default function Header() {
           </Link>
           <MobileNav />
           <styled.nav css={{ display: "none", md: { display: "flex", gap: "4" } }}>
-            <Link
-              className={css({
-                color: "fg/80",
-                textStyle: "sm",
-                fontWeight: "medium",
-                _hover: {
-                  color: "fg",
-                },
-              })}
-              href="/docs/overview/introduction"
-            >
-              Documentation
-            </Link>
+            {docsConfig.mainNav.map((item) => (
+              <Link
+                key={item.href}
+                className={css({
+                  color: "fg/80",
+                  textStyle: "sm",
+                  fontWeight: "medium",
+                  _hover: {
+                    color: "fg",
+                  },
+                })}
+                href={item.href}
+              >
+                {item.title}
+              </Link>
+            ))}
           </styled.nav>
         </styled.div>
 

@@ -1,0 +1,19 @@
+{
+  "name": "date-picker-with-range",
+  "type": "registry:example",
+  "dependencies": [
+    "dayjs"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/date-picker-with-range.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { DateRange } from \"react-day-picker\";\nimport { LuCalendar } from \"react-icons/lu\";\nimport dayjs from \"dayjs\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/registry/default/ui/popover\";\n\nexport default function DatePickerWithRange() {\n  const [date, setDate] = useState<DateRange | undefined>({\n    from: new Date(2022, 0, 20),\n    to: dayjs(\"2022-01-20\").add(7, \"day\").toDate(),\n  });\n\n  return (\n    <styled.div css={{ display: \"grid\", gap: \"2\" }}>\n      <Popover>\n        <PopoverTrigger asChild>\n          <Button\n            id=\"date\"\n            variant=\"outline\"\n            css={{\n              w: \"280px\",\n              justifyContent: \"flex-start\",\n              textAlign: \"left\",\n              fontWeight: \"normal\",\n              color: !date ? \"muted.fg\" : \"fg\",\n            }}\n          >\n            <LuCalendar />\n            {date?.from ? (\n              date.to ? (\n                <>\n                  {dayjs(date.from).format(\"DD MMM YYYY\")} - {dayjs(date.to).format(\"DD MMM YYYY\")}\n                </>\n              ) : (\n                dayjs(date.from).format(\"DD MMM YYYY\")\n              )\n            ) : (\n              <span>Pick a date</span>\n            )}\n          </Button>\n        </PopoverTrigger>\n        <PopoverContent css={{ w: \"auto\", p: \"0\" }} align=\"start\">\n          <Calendar\n            autoFocus\n            mode=\"range\"\n            defaultMonth={date?.from}\n            selected={date}\n            onSelect={setDate}\n            numberOfMonths={2}\n          />\n        </PopoverContent>\n      </Popover>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

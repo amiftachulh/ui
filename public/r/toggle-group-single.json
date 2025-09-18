@@ -1,0 +1,14 @@
+{
+  "name": "toggle-group-single",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toggle-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/toggle-group-single.tsx",
+      "type": "registry:example",
+      "content": "import { LuAlignCenter, LuAlignJustify, LuAlignLeft, LuAlignRight } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { ToggleGroup, ToggleGroupItem } from \"@/registry/default/ui/toggle-group\";\n\nexport default function ToggleGroupSingle() {\n  return (\n    <ToggleGroup type=\"single\">\n      <ToggleGroupItem value=\"left\" aria-label=\"Align left\">\n        <LuAlignLeft className={css({ w: \"4\", h: \"4\" })} />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"center\" aria-label=\"Align center\">\n        <LuAlignCenter className={css({ w: \"4\", h: \"4\" })} />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"right\" aria-label=\"Align right\">\n        <LuAlignRight className={css({ w: \"4\", h: \"4\" })} />\n      </ToggleGroupItem>\n      <ToggleGroupItem value=\"justify\" aria-label=\"Align justify\">\n        <LuAlignJustify className={css({ w: \"4\", h: \"4\" })} />\n      </ToggleGroupItem>\n    </ToggleGroup>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "collapsible-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/collapsible-demo.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { LuChevronsUpDown } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/registry/default/ui/collapsible\";\n\nexport default function CollapsibleDemo() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <Collapsible open={isOpen} onOpenChange={setIsOpen} css={{ w: \"350px\", spaceY: \"2\" }}>\n      <styled.div\n        css={{\n          display: \"flex\",\n          alignItems: \"center\",\n          justifyContent: \"space-between\",\n          gap: \"4\",\n          px: \"4\",\n        }}\n      >\n        <styled.h4 css={{ textStyle: \"sm\", fontWeight: \"semibold\" }}>\n          @peduarte starred 3 repositories\n        </styled.h4>\n        <CollapsibleTrigger asChild>\n          <Button variant=\"ghost\" size=\"sm\" css={{ w: \"9\", p: \"0\" }}>\n            <LuChevronsUpDown className={css({ w: \"4\", h: \"4\" })} />\n            <span className={css({ srOnly: true })}>Toggle</span>\n          </Button>\n        </CollapsibleTrigger>\n      </styled.div>\n      <styled.div\n        css={{\n          rounded: \"md\",\n          borderWidth: \"1px\",\n          px: \"4\",\n          py: \"3\",\n          fontFamily: \"mono\",\n          textStyle: \"sm\",\n        }}\n      >\n        @radix-ui/primitives\n      </styled.div>\n      <CollapsibleContent css={{ spaceY: \"2\" }}>\n        <styled.div\n          css={{\n            rounded: \"md\",\n            borderWidth: \"1px\",\n            px: \"4\",\n            py: \"3\",\n            fontFamily: \"mono\",\n            textStyle: \"sm\",\n          }}\n        >\n          @radix-ui/colors\n        </styled.div>\n        <styled.div\n          css={{\n            rounded: \"md\",\n            borderWidth: \"1px\",\n            px: \"4\",\n            py: \"3\",\n            fontFamily: \"mono\",\n            textStyle: \"sm\",\n          }}\n        >\n          @stitches/react\n        </styled.div>\n      </CollapsibleContent>\n    </Collapsible>\n  );\n}\n"
+    }
+  ]
+}

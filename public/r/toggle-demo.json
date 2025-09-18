@@ -1,0 +1,14 @@
+{
+  "name": "toggle-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/toggle-demo.tsx",
+      "type": "registry:example",
+      "content": "import { LuBold } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { Toggle } from \"@/registry/default/ui/toggle\";\n\nexport default function ToggleDemo() {\n  return (\n    <Toggle aria-label=\"Toggle bold\">\n      <LuBold className={css({ w: \"4\", h: \"4\" })} />\n    </Toggle>\n  );\n}\n"
+    }
+  ]
+}

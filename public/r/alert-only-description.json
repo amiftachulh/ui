@@ -1,0 +1,14 @@
+{
+  "name": "alert-only-description",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert-only-description.tsx",
+      "type": "registry:example",
+      "content": "import { Alert, AlertDescription } from \"@/registry/default/ui/alert\";\n\nexport default function AlertOnlyDescription() {\n  return (\n    <Alert variant=\"warning\" css={{ w: \"2/3\" }}>\n      <AlertDescription>This is a minimal alert with just description.</AlertDescription>\n    </Alert>\n  );\n}\n"
+    }
+  ]
+}

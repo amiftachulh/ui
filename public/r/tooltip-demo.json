@@ -1,0 +1,14 @@
+{
+  "name": "tooltip-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/tooltip-demo.tsx",
+      "type": "registry:example",
+      "content": "import { LuInfo } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"@/registry/default/ui/tooltip\";\n\nexport default function TooltipDemo() {\n  return (\n    <styled.div css={{ display: \"flex\", flexWrap: \"wrap\", alignItems: \"start\", gap: \"4\" }}>\n      <Tooltip>\n        <TooltipTrigger asChild>\n          <Button variant=\"outline\">Hover</Button>\n        </TooltipTrigger>\n        <TooltipContent>\n          <p>Add to library</p>\n        </TooltipContent>\n      </Tooltip>\n      <styled.div css={{ display: \"flex\", gap: \"2\" }}>\n        {[\"top\", \"right\", \"bottom\", \"left\"].map((side) => (\n          <Tooltip key={side}>\n            <TooltipTrigger asChild>\n              <Button variant=\"outline\" css={{ textTransform: \"capitalize\" }}>\n                {side}\n              </Button>\n            </TooltipTrigger>\n            <TooltipContent side={side as \"top\" | \"right\" | \"bottom\" | \"left\"}>\n              <p>Add to library</p>\n            </TooltipContent>\n          </Tooltip>\n        ))}\n      </styled.div>\n      <Tooltip>\n        <TooltipTrigger asChild>\n          <Button variant=\"ghost\" size=\"icon\">\n            <LuInfo />\n            <styled.span css={{ srOnly: true }}>Info</styled.span>\n          </Button>\n        </TooltipTrigger>\n        <TooltipContent>\n          To learn more about how this works, check out the docs. If you have any questions, please\n          reach out to us.\n        </TooltipContent>\n      </Tooltip>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

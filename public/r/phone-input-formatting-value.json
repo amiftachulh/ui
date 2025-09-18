@@ -1,0 +1,14 @@
+{
+  "name": "phone-input-formatting-value",
+  "type": "registry:example",
+  "registryDependencies": [
+    "phone-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/phone-input-formatting-value.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport {\n  Country,\n  formatPhoneNumber,\n  formatPhoneNumberIntl,\n  getCountryCallingCode,\n} from \"react-phone-number-input\";\nimport { styled } from \"styled-system/jsx\";\nimport { PhoneInput } from \"@/registry/default/ui/phone-input\";\n\nexport default function PhoneInputFormattingValue() {\n  const [country, setCountry] = useState<Country>();\n  const [phoneNumber, setPhoneNumber] = useState(\"\");\n\n  return (\n    <div>\n      <PhoneInput\n        value={phoneNumber}\n        onChange={setPhoneNumber}\n        onCountryChange={setCountry}\n        placeholder=\"Enter a phone number\"\n      />\n      <styled.div css={{ mt: \"4\", spaceY: \"2\", textStyle: \"sm\" }}>\n        <div>National: {phoneNumber && formatPhoneNumber(phoneNumber)}</div>\n        <div>International: {phoneNumber && formatPhoneNumberIntl(phoneNumber)}</div>\n        <div>Country code: {country && getCountryCallingCode(country)}</div>\n      </styled.div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

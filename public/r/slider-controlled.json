@@ -1,0 +1,14 @@
+{
+  "name": "slider-controlled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "slider"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/slider-controlled.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { styled } from \"styled-system/jsx\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport { Slider } from \"@/registry/default/ui/slider\";\n\nexport default function SliderControlled() {\n  const [value, setValue] = React.useState([0.3, 0.7]);\n\n  return (\n    <styled.div css={{ display: \"grid\", w: \"full\", gap: \"3\" }}>\n      <styled.div\n        css={{ display: \"flex\", alignItems: \"center\", justifyContent: \"space-between\", gap: \"2\" }}\n      >\n        <Label htmlFor=\"slider-demo-temperature\">Temperature</Label>\n        <styled.span css={{ color: \"muted.fg\", textStyle: \"sm\" }}>{value.join(\", \")}</styled.span>\n      </styled.div>\n      <Slider\n        id=\"slider-demo-temperature\"\n        value={value}\n        onValueChange={setValue}\n        min={0}\n        max={1}\n        step={0.1}\n      />\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

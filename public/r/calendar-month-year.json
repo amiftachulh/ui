@@ -1,0 +1,16 @@
+{
+  "name": "calendar-month-year",
+  "type": "registry:example",
+  "registryDependencies": [
+    "calendar",
+    "form",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/calendar-month-year.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { styled } from \"styled-system/jsx\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/default/ui/select\";\n\nexport default function CalendarMonthYear() {\n  const [dropdown, setDropdown] =\n    React.useState<React.ComponentProps<typeof Calendar>[\"captionLayout\"]>(\"dropdown\");\n  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));\n\n  return (\n    <styled.div css={{ display: \"flex\", flexDir: \"column\", gap: \"4\" }}>\n      <Calendar\n        mode=\"single\"\n        defaultMonth={date}\n        selected={date}\n        onSelect={setDate}\n        captionLayout={dropdown}\n        className=\"rounded-lg border shadow-sm\"\n      />\n      <styled.div css={{ display: \"flex\", flexDir: \"column\", gap: \"3\" }}>\n        <Label htmlFor=\"dropdown\" css={{ px: \"1\" }}>\n          Dropdown\n        </Label>\n        <Select\n          value={dropdown}\n          onValueChange={(value) =>\n            setDropdown(value as React.ComponentProps<typeof Calendar>[\"captionLayout\"])\n          }\n        >\n          <SelectTrigger id=\"dropdown\" css={{ bg: \"bg\", w: \"full\" }}>\n            <SelectValue placeholder=\"Dropdown\" />\n          </SelectTrigger>\n          <SelectContent align=\"center\">\n            <SelectItem value=\"dropdown\">Month and Year</SelectItem>\n            <SelectItem value=\"dropdown-months\">Month Only</SelectItem>\n            <SelectItem value=\"dropdown-years\">Year Only</SelectItem>\n          </SelectContent>\n        </Select>\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

@@ -132,6 +132,9 @@ export const buttonRecipe = defineRecipe({
           borderColor: "danger",
           outlineColor: "danger/20",
         },
+        _focusVisible: {
+          borderColor: "ring",
+        },
         _dark: {
           bg: "input/30",
           borderColor: "input",

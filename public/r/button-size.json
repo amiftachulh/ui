@@ -1,0 +1,14 @@
+{
+  "name": "button-size",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-size.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\n\nexport default function ButtonSize() {\n  return (\n    <styled.div css={{ display: \"flex\", alignItems: \"center\", flexWrap: \"wrap\", gap: \"4\" }}>\n      <Button size=\"sm\">Small</Button>\n      <Button size=\"md\">Medium</Button>\n      <Button size=\"lg\">Large</Button>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

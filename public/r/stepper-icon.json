@@ -1,0 +1,14 @@
+{
+  "name": "stepper-icon",
+  "type": "registry:example",
+  "registryDependencies": [
+    "stepper"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/stepper-icon.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuHouse, LuSettings, LuUser } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { defineStepper } from \"@/registry/default/ui/stepper\";\n\nconst {\n  StepperProvider,\n  StepperControls,\n  StepperNavigation,\n  StepperPanel,\n  StepperStep,\n  StepperTitle,\n} = defineStepper(\n  {\n    id: \"step-1\",\n    title: \"Step 1\",\n    icon: <LuHouse />,\n  },\n  {\n    id: \"step-2\",\n    title: \"Step 2\",\n    icon: <LuSettings />,\n  },\n  {\n    id: \"step-3\",\n    title: \"Step 3\",\n    icon: <LuUser />,\n  }\n);\n\nexport default function StepperDemo() {\n  return (\n    <StepperProvider variant=\"horizontal\" css={{ spaceY: \"4\" }}>\n      {({ methods }) => (\n        <React.Fragment>\n          <StepperNavigation>\n            {methods.all.map((step) => (\n              <StepperStep\n                key={step.id}\n                of={step.id}\n                onClick={() => methods.goTo(step.id)}\n                icon={step.icon}\n              >\n                <StepperTitle>{step.title}</StepperTitle>\n              </StepperStep>\n            ))}\n          </StepperNavigation>\n          {methods.switch({\n            \"step-1\": (step) => <Content id={step.id} />,\n            \"step-2\": (step) => <Content id={step.id} />,\n            \"step-3\": (step) => <Content id={step.id} />,\n          })}\n          <StepperControls>\n            {!methods.isLast && (\n              <Button variant=\"secondary\" onClick={methods.prev} disabled={methods.isFirst}>\n                Previous\n              </Button>\n            )}\n            <Button onClick={methods.isLast ? methods.reset : methods.next}>\n              {methods.isLast ? \"Reset\" : \"Next\"}\n            </Button>\n          </StepperControls>\n        </React.Fragment>\n      )}\n    </StepperProvider>\n  );\n}\n\nconst Content = ({ id }: { id: string }) => {\n  return (\n    <StepperPanel\n      css={{\n        h: \"200px\",\n        alignContent: \"center\",\n        rounded: \"md\",\n        borderWidth: \"1px\",\n        bg: \"slate.50\",\n        p: \"8\",\n        _dark: { bg: \"slate.950\" },\n      }}\n    >\n      <styled.p css={{ textStyle: \"xl\", fontWeight: \"normal\" }}>Content for {id}</styled.p>\n    </StepperPanel>\n  );\n};\n"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "slider-vertical",
+  "type": "registry:example",
+  "registryDependencies": [
+    "slider"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/slider-vertical.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Slider } from \"@/registry/default/ui/slider\";\n\nexport default function SliderVertical() {\n  return (\n    <styled.div\n      css={{ display: \"flex\", w: \"full\", alignItems: \"center\", justifyContent: \"center\", gap: \"6\" }}\n    >\n      <Slider defaultValue={[50]} max={100} step={1} orientation=\"vertical\" />\n      <Slider defaultValue={[25]} max={100} step={1} orientation=\"vertical\" />\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

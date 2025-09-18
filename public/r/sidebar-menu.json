@@ -1,0 +1,15 @@
+{
+  "name": "sidebar-menu",
+  "type": "registry:block",
+  "description": "",
+  "registryDependencies": [
+    "sidebar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/sidebar-menu.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { LuChartPie, LuFrame, LuLifeBuoy, LuMap, LuSend } from \"react-icons/lu\";\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarGroupLabel,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n} from \"@/registry/default/ui/sidebar\";\n\nconst projects = [\n  {\n    name: \"Design Engineering\",\n    url: \"#\",\n    icon: LuFrame,\n  },\n  {\n    name: \"Sales & Marketing\",\n    url: \"#\",\n    icon: LuChartPie,\n  },\n  {\n    name: \"Travel\",\n    url: \"#\",\n    icon: LuMap,\n  },\n  {\n    name: \"Support\",\n    url: \"#\",\n    icon: LuLifeBuoy,\n  },\n  {\n    name: \"Feedback\",\n    url: \"#\",\n    icon: LuSend,\n  },\n];\n\nexport default function AppSidebar() {\n  return (\n    <SidebarProvider>\n      <Sidebar>\n        <SidebarContent>\n          <SidebarGroup>\n            <SidebarGroupLabel>Projects</SidebarGroupLabel>\n            <SidebarGroupContent>\n              <SidebarMenu>\n                {projects.map((project) => (\n                  <SidebarMenuItem key={project.name}>\n                    <SidebarMenuButton asChild>\n                      <a href={project.url}>\n                        <project.icon />\n                        <span>{project.name}</span>\n                      </a>\n                    </SidebarMenuButton>\n                  </SidebarMenuItem>\n                ))}\n              </SidebarMenu>\n            </SidebarGroupContent>\n          </SidebarGroup>\n        </SidebarContent>\n      </Sidebar>\n    </SidebarProvider>\n  );\n}\n"
+    }
+  ]
+}

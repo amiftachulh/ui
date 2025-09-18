@@ -1,0 +1,14 @@
+{
+  "name": "radio-group-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "radio-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/radio-group-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport { RadioGroup, RadioGroupItem } from \"@/registry/default/ui/radio-group\";\n\nexport default function RadioGroupDemo() {\n  return (\n    <RadioGroup defaultValue=\"comfortable\">\n      <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"2\" }}>\n        <RadioGroupItem value=\"default\" id=\"r1\" />\n        <Label htmlFor=\"r1\">Default</Label>\n      </styled.div>\n      <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"2\" }}>\n        <RadioGroupItem value=\"comfortable\" id=\"r2\" />\n        <Label htmlFor=\"r2\">Comfortable</Label>\n      </styled.div>\n      <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"2\" }}>\n        <RadioGroupItem value=\"compact\" id=\"r3\" />\n        <Label htmlFor=\"r3\">Compact</Label>\n      </styled.div>\n    </RadioGroup>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
+import { getAllBlocks } from "@/lib/blocks";
 import { registry } from "@/registry";
 import { registryItemSchema, registrySchema } from "@/registry/schema";
 
@@ -45,6 +46,8 @@ export const Index: Record<string, any> = {`;
     })`
         : "null"
     },
+    categories: ${JSON.stringify(item.categories)},
+    meta: ${JSON.stringify(item.meta)},
   },`;
   }
 
@@ -119,9 +122,27 @@ async function buildRegistry() {
   await fs.copyFile(registryPath, path.join(process.cwd(), "public/r/registry.json"));
 }
 
+async function buildBlocksIndex() {
+  const blocks = await getAllBlocks(["registry:block"]);
+
+  const payload = blocks.map((block) => ({
+    name: block.name,
+    description: block.description,
+    categories: block.categories,
+  }));
+
+  const targetPath = path.join(process.cwd(), "src/registry/__blocks__.json");
+
+  await fs.rm(targetPath, { force: true });
+  await fs.writeFile(targetPath, JSON.stringify(payload, null, 2));
+}
+
 async function main() {
   console.log("🗂️ Building registry/__index__.tsx...");
   await buildRegistryIndex();
+
+  console.log("🗂️ Building registry/__blocks__.json...");
+  await buildBlocksIndex();
 
   console.log("💅 Building registry.json...");
   await buildRegistryJsonFile();

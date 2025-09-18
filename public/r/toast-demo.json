@@ -1,0 +1,14 @@
+{
+  "name": "toast-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toast"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/toast-demo.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useToast } from \"@/registry/default/hooks/use-toast\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { ToastAction } from \"@/registry/default/ui/toast\";\n\nexport default function ToastDemo() {\n  const { toast } = useToast();\n\n  return (\n    <Button\n      variant=\"outline\"\n      onClick={() => {\n        toast({\n          title: \"Scheduled: Catch up\",\n          description: \"Friday, February 10, 2023 at 5:57 PM\",\n          action: <ToastAction altText=\"Goto schedule to undo\">Undo</ToastAction>,\n        });\n      }}\n    >\n      Add to calendar\n    </Button>\n  );\n}\n"
+    }
+  ]
+}

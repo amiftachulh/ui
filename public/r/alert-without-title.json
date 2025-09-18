@@ -1,0 +1,14 @@
+{
+  "name": "alert-without-title",
+  "type": "registry:example",
+  "registryDependencies": [
+    "alert"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/alert-without-title.tsx",
+      "type": "registry:example",
+      "content": "import { LuCircleCheckBig } from \"react-icons/lu\";\nimport { Alert, AlertContent, AlertDescription, AlertIcon } from \"@/registry/default/ui/alert\";\n\nexport default function AlertWithoutTitle() {\n  return (\n    <Alert variant=\"success\" css={{ w: \"2/3\" }}>\n      <AlertIcon>\n        <LuCircleCheckBig />\n      </AlertIcon>\n      <AlertContent>\n        <AlertDescription>This alert doesn&apos;t have a title.</AlertDescription>\n      </AlertContent>\n    </Alert>\n  );\n}\n"
+    }
+  ]
+}

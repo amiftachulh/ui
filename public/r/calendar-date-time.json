@@ -1,0 +1,14 @@
+{
+  "name": "calendar-date-time",
+  "type": "registry:example",
+  "registryDependencies": [
+    "calendar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/calendar-date-time.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuChevronDown } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport { Input } from \"@/registry/default/ui/input\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/registry/default/ui/popover\";\n\nexport default function Calendar24() {\n  const [open, setOpen] = React.useState(false);\n  const [date, setDate] = React.useState<Date | undefined>(undefined);\n\n  return (\n    <styled.div css={{ display: \"flex\", gap: \"4\" }}>\n      <styled.div css={{ display: \"flex\", flexDir: \"column\", gap: \"3\" }}>\n        <Label htmlFor=\"date-picker\" css={{ px: \"1\" }}>\n          Date\n        </Label>\n        <Popover open={open} onOpenChange={setOpen}>\n          <PopoverTrigger asChild>\n            <Button\n              variant=\"outline\"\n              id=\"date-picker\"\n              css={{ w: \"32\", justifyContent: \"space-between\", fontWeight: \"normal\" }}\n            >\n              {date ? date.toLocaleDateString() : \"Select date\"}\n              <LuChevronDown />\n            </Button>\n          </PopoverTrigger>\n          <PopoverContent css={{ w: \"auto\", overflow: \"hidden\", p: \"0\" }} align=\"start\">\n            <Calendar\n              mode=\"single\"\n              selected={date}\n              captionLayout=\"dropdown\"\n              onSelect={(date) => {\n                setDate(date);\n                setOpen(false);\n              }}\n            />\n          </PopoverContent>\n        </Popover>\n      </styled.div>\n      <styled.div css={{ display: \"flex\", flexDir: \"column\", gap: \"3\" }}>\n        <Label htmlFor=\"time-picker\" css={{ px: \"1\" }}>\n          Time\n        </Label>\n        <Input\n          type=\"time\"\n          id=\"time-picker\"\n          step=\"1\"\n          defaultValue=\"10:30:00\"\n          css={{\n            bg: \"bg\",\n            appearance: \"none\",\n            \"&::-webkit-calendar-picker-indicator\": {\n              display: \"none\",\n              appearance: \"none\",\n            },\n          }}\n        />\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

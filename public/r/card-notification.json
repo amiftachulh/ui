@@ -1,0 +1,18 @@
+{
+  "name": "card-notification",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/card-notification.tsx",
+      "type": "registry:example",
+      "content": "import { LuBellRing, LuCheck } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport { Switch } from \"@/registry/default/ui/switch\";\n\nconst notifications = [\n  {\n    title: \"Your call has been confirmed.\",\n    description: \"1 hour ago\",\n  },\n  {\n    title: \"You have a new message!\",\n    description: \"1 hour ago\",\n  },\n  {\n    title: \"Your subscription is expiring soon!\",\n    description: \"2 hours ago\",\n  },\n];\n\nexport default function CardNotification() {\n  return (\n    <Card css={{ w: \"380px\" }}>\n      <CardHeader>\n        <CardTitle>Notifications</CardTitle>\n        <CardDescription>You have 3 unread messages.</CardDescription>\n      </CardHeader>\n      <CardContent css={{ display: \"grid\", gap: \"4\" }}>\n        <styled.div\n          css={{ display: \"flex\", alignItems: \"center\", gap: \"4\", borderWidth: \"1px\", p: \"4\" }}\n        >\n          <LuBellRing />\n          <styled.div css={{ flex: 1, spaceY: \"1\" }}>\n            <styled.p css={{ textStyle: \"sm\", fontWeight: \"medium\", lineHeight: \"none\" }}>\n              Push Notifications\n            </styled.p>\n            <styled.p css={{ textStyle: \"sm\", color: \"muted.fg\" }}>\n              Send notifications to device.\n            </styled.p>\n          </styled.div>\n          <Switch />\n        </styled.div>\n        <div>\n          {notifications.map((notification, index) => (\n            <styled.div\n              key={index}\n              css={{\n                mb: \"4\",\n                display: \"grid\",\n                gridTemplateColumns: \"25px 1fr\",\n                alignItems: \"flex-start\",\n                pb: \"4\",\n                _last: { mb: \"0\", pb: \"0\" },\n              }}\n            >\n              <styled.span\n                css={{\n                  display: \"flex\",\n                  w: \"2\",\n                  h: \"2\",\n                  transform: \"translateY(0.25rem)\",\n                  rounded: \"full\",\n                  bg: \"sky.500\",\n                }}\n              />\n              <styled.div css={{ spaceY: \"1\" }}>\n                <styled.p css={{ textStyle: \"sm\", fontWeight: \"medium\", lineHeight: \"none\" }}>\n                  {notification.title}\n                </styled.p>\n                <styled.p css={{ textStyle: \"sm\", color: \"muted.fg\" }}>\n                  {notification.description}\n                </styled.p>\n              </styled.div>\n            </styled.div>\n          ))}\n        </div>\n      </CardContent>\n      <CardFooter>\n        <Button css={{ w: \"full\" }}>\n          <LuCheck /> Mark all as read\n        </Button>\n      </CardFooter>\n    </Card>\n  );\n}\n"
+    }
+  ]
+}

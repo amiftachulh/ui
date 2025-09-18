@@ -1,0 +1,14 @@
+{
+  "name": "skeleton-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/skeleton-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Skeleton } from \"@/registry/default/ui/skeleton\";\n\nexport default function SkeletonDemo() {\n  return (\n    <styled.div css={{ display: \"flex\", alignItems: \"center\", spaceX: \"4\" }}>\n      <Skeleton css={{ w: \"12\", h: \"12\", rounded: \"full\" }} />\n      <styled.div css={{ spaceY: \"2\" }} className=\"space-y-2\">\n        <Skeleton css={{ w: \"250px\", h: \"4\" }} />\n        <Skeleton css={{ w: \"250px\", h: \"4\" }} />\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

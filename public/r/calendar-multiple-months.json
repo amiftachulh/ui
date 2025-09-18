@@ -1,0 +1,16 @@
+{
+  "name": "calendar-multiple-months",
+  "type": "registry:example",
+  "registryDependencies": [
+    "calendar",
+    "form",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/calendar-multiple-months.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\n\nexport default function Calendar02() {\n  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));\n\n  return (\n    <Calendar\n      mode=\"single\"\n      defaultMonth={date}\n      numberOfMonths={2}\n      selected={date}\n      onSelect={setDate}\n      css={{ rounded: \"lg\", borderWidth: \"1px\", shadow: \"sm\" }}\n    />\n  );\n}\n"
+    }
+  ]
+}

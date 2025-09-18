@@ -1,0 +1,14 @@
+{
+  "name": "carousel-spacing",
+  "type": "registry:example",
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/carousel-spacing.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Card, CardContent } from \"@/registry/default/ui/card\";\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n} from \"@/registry/default/ui/carousel\";\n\nexport default function CarouselSpacing() {\n  return (\n    <Carousel css={{ w: \"full\", maxW: \"sm\" }}>\n      <CarouselContent css={{ ml: \"-1\" }}>\n        {Array.from({ length: 5 }).map((_, index) => (\n          <CarouselItem\n            key={index}\n            css={{ pl: \"1\", md: { flexBasis: \"1/2\" }, lg: { flexBasis: \"1/3\" } }}\n          >\n            <styled.div css={{ p: \"1\" }}>\n              <Card>\n                <CardContent\n                  css={{\n                    display: \"flex\",\n                    aspectRatio: \"square\",\n                    alignItems: \"center\",\n                    justifyContent: \"center\",\n                    p: \"6\",\n                  }}\n                >\n                  <styled.span css={{ textStyle: \"2xl\", fontWeight: \"semibold\" }}>\n                    {index + 1}\n                  </styled.span>\n                </CardContent>\n              </Card>\n            </styled.div>\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <CarouselPrevious />\n      <CarouselNext />\n    </Carousel>\n  );\n}\n"
+    }
+  ]
+}

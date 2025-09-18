@@ -1,0 +1,14 @@
+{
+  "name": "button-loading",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-loading.tsx",
+      "type": "registry:example",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\n\nexport default function ButtonLoading() {\n  return <Button loading>Submit</Button>;\n}\n"
+    }
+  ]
+}

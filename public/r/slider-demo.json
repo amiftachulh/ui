@@ -1,0 +1,14 @@
+{
+  "name": "slider-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "slider"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/slider-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Slider } from \"@/registry/default/ui/slider\";\n\nexport default function SliderDemo() {\n  return (\n    <styled.div\n      css={{\n        display: \"flex\",\n        w: \"full\",\n        maxW: \"sm\",\n        flexDir: \"column\",\n        flexWrap: \"wrap\",\n        gap: \"6\",\n        md: { flexDir: \"row\" },\n      }}\n    >\n      <Slider defaultValue={[50]} max={100} step={1} />\n      <Slider defaultValue={[25, 50]} max={100} step={1} />\n      <Slider defaultValue={[10, 20]} max={100} step={10} />\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

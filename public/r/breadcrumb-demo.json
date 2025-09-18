@@ -1,0 +1,14 @@
+{
+  "name": "breadcrumb-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "breadcrumb"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/breadcrumb-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/registry/default/ui/breadcrumb\";\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from \"@/registry/default/ui/dropdown-menu\";\n\nexport default function BreadcrumbDemo() {\n  return (\n    <Breadcrumb>\n      <BreadcrumbList>\n        <BreadcrumbItem>\n          <BreadcrumbLink href=\"/\">Home</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <DropdownMenu>\n            <DropdownMenuTrigger\n              css={{ display: \"flex\", alignItems: \"center\", gap: \"1\", cursor: \"pointer\" }}\n            >\n              <BreadcrumbEllipsis css={{ w: \"4\", h: \"4\" }} />\n              <styled.span css={{ srOnly: true }}>Toggle menu</styled.span>\n            </DropdownMenuTrigger>\n            <DropdownMenuContent align=\"start\">\n              <DropdownMenuItem>Documentation</DropdownMenuItem>\n              <DropdownMenuItem>Themes</DropdownMenuItem>\n              <DropdownMenuItem>GitHub</DropdownMenuItem>\n            </DropdownMenuContent>\n          </DropdownMenu>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  );\n}\n"
+    }
+  ]
+}

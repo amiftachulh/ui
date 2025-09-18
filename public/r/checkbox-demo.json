@@ -1,0 +1,14 @@
+{
+  "name": "checkbox-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/checkbox-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Checkbox } from \"@/registry/default/ui/checkbox\";\nimport { Label } from \"@/registry/default/ui/label\";\n\nexport default function CheckboxDemo() {\n  return (\n    <styled.div css={{ display: \"flex\", flexDir: \"column\", gap: \"6\" }}>\n      <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"3\" }}>\n        <Checkbox id=\"terms\" />\n        <Label htmlFor=\"terms\">Accept terms and conditions</Label>\n      </styled.div>\n      <styled.div css={{ display: \"flex\", alignItems: \"flex-start\", gap: \"3\" }}>\n        <Checkbox id=\"terms-2\" defaultChecked />\n        <styled.div css={{ display: \"grid\", gap: \"2\" }}>\n          <Label htmlFor=\"terms-2\">Accept terms and conditions</Label>\n          <styled.p css={{ color: \"muted.fg\", textStyle: \"sm\" }}>\n            By clicking this checkbox, you agree to the terms and conditions.\n          </styled.p>\n        </styled.div>\n      </styled.div>\n      <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"3\" }}>\n        <Checkbox id=\"toggle\" disabled />\n        <Label htmlFor=\"toggle\">Enable notifications</Label>\n      </styled.div>\n      <Label\n        css={{\n          display: \"flex\",\n          alignItems: \"flex-start\",\n          gap: \"3\",\n          rounded: \"lg\",\n          borderWidth: \"1px\",\n          p: \"3\",\n          _hover: {\n            bg: \"accent/50\",\n          },\n          \"&:has([aria-checked='true'])\": {\n            bg: \"blue.50\",\n            borderColor: \"blue.600\",\n            _dark: {\n              borderColor: \"blue.900\",\n              bg: \"blue.950\",\n            },\n          },\n        }}\n      >\n        <Checkbox\n          id=\"toggle-2\"\n          defaultChecked\n          css={{\n            _checked: {\n              bg: \"blue.600\",\n              color: \"white\",\n              borderColor: \"blue.600\",\n              _dark: {\n                bg: \"blue.700\",\n                borderColor: \"blue.700\",\n              },\n            },\n          }}\n        />\n        <styled.div css={{ display: \"grid\", gap: \"1.5\", fontWeight: \"normal\" }}>\n          <styled.p css={{ textStyle: \"sm\", lineHeight: \"none\", fontWeight: \"medium\" }}>\n            Enable notifications\n          </styled.p>\n          <styled.p css={{ color: \"muted.fg\", textStyle: \"sm\" }}>\n            You can enable or disable notifications at any time.\n          </styled.p>\n        </styled.div>\n      </Label>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}
