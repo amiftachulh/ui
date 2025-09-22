@@ -54,14 +54,14 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       transitionDuration: "normal",
       transitionTimingFunction: "default",
       md: { display: "flex" },
-      ".group[data-side=left] &": {
+      ".group[data-side=left]:not(:is([data-variant=floating], [data-variant=inset])) &": {
         left: "0",
         borderRightWidth: "1px",
       },
       ".group[data-side=left][data-collapsible=offcanvas] &": {
         left: "calc(var(--sidebar-width) * -1)",
       },
-      ".group[data-side=right] &": {
+      ".group[data-side=right]:not(:is([data-variant=floating], [data-variant=inset])) &": {
         right: "0",
         borderLeftWidth: "1px",
       },

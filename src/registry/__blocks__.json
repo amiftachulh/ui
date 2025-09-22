@@ -7,6 +7,46 @@
     ]
   },
   {
+    "name": "sidebar-01",
+    "description": "A simple sidebar with navigation grouped by section.",
+    "categories": [
+      "sidebar",
+      "dashboard"
+    ]
+  },
+  {
+    "name": "sidebar-02",
+    "description": "A sidebar with collapsible sections.",
+    "categories": [
+      "sidebar",
+      "dashboard"
+    ]
+  },
+  {
+    "name": "sidebar-03",
+    "description": "A sidebar with submenus.",
+    "categories": [
+      "sidebar",
+      "dashboard"
+    ]
+  },
+  {
+    "name": "sidebar-04",
+    "description": "A floating sidebar with submenus.",
+    "categories": [
+      "sidebar",
+      "dashboard"
+    ]
+  },
+  {
+    "name": "sidebar-05",
+    "description": "A sidebar with collapsible submenus.",
+    "categories": [
+      "sidebar",
+      "dashboard"
+    ]
+  },
+  {
     "name": "login-01",
     "description": "A simple login form.",
     "categories": [

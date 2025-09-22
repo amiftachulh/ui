@@ -1095,6 +1095,136 @@ export const Index: Record<string, any> = {
     categories: ["dashboard"],
     meta: {"iframeHeight":"1000px"},
   },
+  "sidebar-01": {
+    name: "sidebar-01",
+    description: "A simple sidebar with navigation grouped by section.",
+    type: "registry:block",
+    registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+    files: [{
+      path: "src/registry/default/blocks/sidebar-01/page.tsx",
+      type: "registry:page",
+      target: "app/dashboard/page.tsx"
+    },{
+      path: "src/registry/default/blocks/sidebar-01/components/app-sidebar.tsx",
+      type: "registry:component",
+      target: ""
+    },{
+      path: "src/registry/default/blocks/sidebar-01/components/search-form.tsx",
+      type: "registry:component",
+      target: ""
+    },{
+      path: "src/registry/default/blocks/sidebar-01/components/version-switcher.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/sidebar-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["sidebar","dashboard"],
+    meta: undefined,
+  },
+  "sidebar-02": {
+    name: "sidebar-02",
+    description: "A sidebar with collapsible sections.",
+    type: "registry:block",
+    registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+    files: [{
+      path: "src/registry/default/blocks/sidebar-02/page.tsx",
+      type: "registry:page",
+      target: "app/dashboard/page.tsx"
+    },{
+      path: "src/registry/default/blocks/sidebar-02/components/app-sidebar.tsx",
+      type: "registry:component",
+      target: ""
+    },{
+      path: "src/registry/default/blocks/sidebar-02/components/search-form.tsx",
+      type: "registry:component",
+      target: ""
+    },{
+      path: "src/registry/default/blocks/sidebar-02/components/version-switcher.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/sidebar-02/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["sidebar","dashboard"],
+    meta: undefined,
+  },
+  "sidebar-03": {
+    name: "sidebar-03",
+    description: "A sidebar with submenus.",
+    type: "registry:block",
+    registryDependencies: ["sidebar","breadcrumb"],
+    files: [{
+      path: "src/registry/default/blocks/sidebar-03/page.tsx",
+      type: "registry:page",
+      target: "app/dashboard/page.tsx"
+    },{
+      path: "src/registry/default/blocks/sidebar-03/components/app-sidebar.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/sidebar-03/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["sidebar","dashboard"],
+    meta: undefined,
+  },
+  "sidebar-04": {
+    name: "sidebar-04",
+    description: "A floating sidebar with submenus.",
+    type: "registry:block",
+    registryDependencies: ["sidebar","breadcrumb","separator"],
+    files: [{
+      path: "src/registry/default/blocks/sidebar-04/page.tsx",
+      type: "registry:page",
+      target: "app/dashboard/page.tsx"
+    },{
+      path: "src/registry/default/blocks/sidebar-04/components/app-sidebar.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/sidebar-04/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["sidebar","dashboard"],
+    meta: undefined,
+  },
+  "sidebar-05": {
+    name: "sidebar-05",
+    description: "A sidebar with collapsible submenus.",
+    type: "registry:block",
+    registryDependencies: ["sidebar","breadcrumb","separator","label","collapsible"],
+    files: [{
+      path: "src/registry/default/blocks/sidebar-05/page.tsx",
+      type: "registry:page",
+      target: "app/dashboard/page.tsx"
+    },{
+      path: "src/registry/default/blocks/sidebar-05/components/app-sidebar.tsx",
+      type: "registry:component",
+      target: ""
+    },{
+      path: "src/registry/default/blocks/sidebar-05/components/search-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/sidebar-05/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["sidebar","dashboard"],
+    meta: undefined,
+  },
   "login-01": {
     name: "login-01",
     description: "A simple login form.",
