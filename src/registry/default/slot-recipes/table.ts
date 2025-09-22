@@ -48,7 +48,7 @@ export const tableSlotRecipe = defineSlotRecipe({
       textAlign: "left",
       verticalAlign: "middle",
       fontWeight: "medium",
-      color: "muted.fg",
+      color: "fg",
       whiteSpace: "nowrap",
       "&:has([role=checkbox])": {
         pr: "0",

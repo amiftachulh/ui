@@ -17,15 +17,23 @@ function Content({
   sideOffset = 4,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
-  return <DropdownMenuPrimitive.Content sideOffset={sideOffset} {...props} />;
+  return (
+    <DropdownMenuPortal>
+      <DropdownMenuPrimitive.Content sideOffset={sideOffset} {...props} />
+    </DropdownMenuPortal>
+  );
 }
 const DropdownMenuContent = withContext(Content, "content");
 
 function Item({
   inset,
+  variant = "default",
   ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & { inset?: boolean }) {
-  return <DropdownMenuPrimitive.Item data-inset={inset} {...props} />;
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {
+  inset?: boolean;
+  variant?: "default" | "danger";
+}) {
+  return <DropdownMenuPrimitive.Item data-inset={inset} data-variant={variant} {...props} />;
 }
 const DropdownMenuItem = withContext(Item, "item");
 

@@ -3,7 +3,7 @@
 import * as React from "react";
 import { LuCheck, LuChevronDown, LuChevronUp } from "react-icons/lu";
 import * as SelectPrimitive from "@radix-ui/react-select";
-import { css } from "styled-system/css";
+import { css, cx } from "styled-system/css";
 import { select } from "styled-system/recipes";
 import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
@@ -11,17 +11,33 @@ const { withRootProvider, withContext } = createStyleContext(select);
 
 const Select = withRootProvider(SelectPrimitive.Root);
 const SelectGroup = withContext(SelectPrimitive.Group, "group");
-const SelectValue = withContext(SelectPrimitive.Value, "value");
 
-const Trigger = ({ children, ...props }: React.ComponentProps<typeof SelectPrimitive.Trigger>) => (
-  <SelectPrimitive.Trigger {...props}>
-    {children}
-    <SelectPrimitive.Icon asChild>
-      <LuChevronDown className={css({ w: "4", h: "4", opacity: "0.5" })} />
-    </SelectPrimitive.Icon>
-  </SelectPrimitive.Trigger>
-);
+function Trigger({
+  children,
+  size = "default",
+  ...props
+}: React.ComponentProps<typeof SelectPrimitive.Trigger> & { size?: "default" | "sm" }) {
+  return (
+    <SelectPrimitive.Trigger data-size={size} {...props}>
+      {children}
+      <SelectPrimitive.Icon asChild>
+        <LuChevronDown className={css({ w: "4", h: "4", opacity: "0.5" })} />
+      </SelectPrimitive.Icon>
+    </SelectPrimitive.Trigger>
+  );
+}
 const SelectTrigger = withContext(Trigger, "trigger");
+
+function Value({ className, ...props }: React.ComponentProps<typeof SelectPrimitive.Value>) {
+  return (
+    <SelectPrimitive.Value
+      data-slot="select-value"
+      className={cx("select__value", className)}
+      {...props}
+    />
+  );
+}
+const SelectValue = withContext(Value, "value");
 
 function ScrollUpButton(props: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
   return (

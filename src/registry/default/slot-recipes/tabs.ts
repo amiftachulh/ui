@@ -26,6 +26,9 @@ export const tabsSlotRecipe = defineSlotRecipe({
 
     trigger: {
       display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "1.5",
       whiteSpace: "nowrap",
       px: "3",
       py: "1.5",

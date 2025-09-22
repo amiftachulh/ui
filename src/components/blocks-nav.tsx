@@ -15,16 +15,18 @@ export function BlocksNav() {
       <ScrollArea css={{ maxW: "none" }}>
         <styled.div css={{ display: "flex", alignItems: "center" }}>
           <BlocksNavLink
-            category={{ name: "Featured", slug: "" }}
+            category={{ name: "Featured", slug: "", hidden: false }}
             isActive={pathname === "/blocks"}
           />
-          {registryCategories.map((category) => (
-            <BlocksNavLink
-              key={category.slug}
-              category={category}
-              isActive={pathname === `/blocks/${category.slug}`}
-            />
-          ))}
+          {registryCategories
+            .filter((category) => !category.hidden)
+            .map((category) => (
+              <BlocksNavLink
+                key={category.slug}
+                category={category}
+                isActive={pathname === `/blocks/${category.slug}`}
+              />
+            ))}
         </styled.div>
         <Scrollbar orientation="horizontal" css={{ visibility: "hidden" }} />
       </ScrollArea>

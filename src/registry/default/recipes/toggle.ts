@@ -24,7 +24,6 @@ export const toggleRecipe = defineRecipe({
       outlineStyle: "solid",
       outlineColor: "ring/50",
     },
-
     "&[aria-invalid=true]": {
       borderColor: "danger",
       outlineColor: "danger/20",
@@ -46,11 +45,9 @@ export const toggleRecipe = defineRecipe({
         bg: "transparent",
         _hover: {
           bg: "muted",
-          color: "muted.fg",
         },
         "&[data-state=on]": {
           bg: "accent",
-          color: "accent.fg",
         },
       },
       outline: {
@@ -60,11 +57,9 @@ export const toggleRecipe = defineRecipe({
         shadow: "xs",
         _hover: {
           bg: "muted",
-          color: "muted.fg",
         },
         "&[data-state=on]": {
           bg: "accent",
-          color: "accent.fg",
         },
       },
     },

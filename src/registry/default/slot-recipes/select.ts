@@ -26,8 +26,8 @@ export const selectSlotRecipe = defineSlotRecipe({
       py: "2",
       bg: "transparent",
       borderWidth: "1px",
-      rounded: "md",
       borderColor: "input",
+      rounded: "md",
       shadow: "xs",
       outlineColor: "transparent",
       textStyle: "sm",
@@ -72,13 +72,15 @@ export const selectSlotRecipe = defineSlotRecipe({
           bg: "input/50",
         },
       },
-      "& .select__value": {
+      "& > [data-slot=select-value]": {
         display: "flex",
         alignItems: "center",
         gap: "2",
         lineClamp: "1",
       },
     },
+
+    value: {},
 
     content: {
       pos: "relative",

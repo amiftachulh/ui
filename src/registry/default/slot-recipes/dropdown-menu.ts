@@ -82,7 +82,7 @@ export const dropdownMenuSlotRecipe = defineSlotRecipe({
         pl: "8",
       },
       "&[data-variant=danger]": {
-        bg: "danger",
+        color: "danger",
         _focus: {
           bg: "danger/10",
           color: "danger",
