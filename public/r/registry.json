@@ -2195,6 +2195,19 @@
       ]
     },
     {
+      "name": "kbd-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/kbd-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "label-demo",
       "type": "registry:example",
       "registryDependencies": [
