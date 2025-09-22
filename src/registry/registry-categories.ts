@@ -2,7 +2,7 @@ export const registryCategories = [
   {
     name: "Sidebar",
     slug: "sidebar",
-    hidden: false,
+    hidden: true,
   },
   {
     name: "Dashboard",
@@ -17,6 +17,6 @@ export const registryCategories = [
   {
     name: "Calendar",
     slug: "calendar",
-    hidden: false,
+    hidden: true,
   },
 ];
