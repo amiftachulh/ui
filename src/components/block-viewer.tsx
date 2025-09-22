@@ -146,7 +146,19 @@ function BlockViewerToolbar() {
       }}
     >
       <Tabs value={view} onValueChange={(value) => setView(value as "preview" | "code")}>
-        <TabsList>
+        <TabsList
+          css={{
+            borderBottomWidth: "0",
+            "& > .tabs__trigger": {
+              borderBottomWidth: "0",
+              "&[data-state=active]": {
+                bg: "primary",
+                color: "primary.fg",
+                rounded: "md",
+              },
+            },
+          }}
+        >
           <TabsTrigger value="preview">Preview</TabsTrigger>
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
