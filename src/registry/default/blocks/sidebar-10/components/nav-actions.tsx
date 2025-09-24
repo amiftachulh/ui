@@ -121,7 +121,7 @@ export function NavActions() {
           <Button
             variant="ghost"
             size="icon"
-            css={{ "&[data-state=open]": { bg: "accent", w: "7", h: "7" } }}
+            css={{ w: "7", h: "7", "&[data-state=open]": { bg: "accent" } }}
           >
             <LuEllipsis />
           </Button>
