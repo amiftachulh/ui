@@ -20,6 +20,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
     "groupContent",
     "menu",
     "menuItem",
+    "menuButton",
     "menuAction",
     "menuBadge",
     "menuSkeleton",
@@ -40,6 +41,7 @@ export const sidebarSlotRecipe = defineSlotRecipe({
       color: "sidebar.fg",
       w: "var(--sidebar-width)",
       h: "full",
+      display: "flex",
       flexDir: "column",
     },
 
@@ -265,6 +267,90 @@ export const sidebarSlotRecipe = defineSlotRecipe({
 
     menuItem: {
       pos: "relative",
+    },
+
+    menuButton: {
+      display: "flex",
+      w: "full",
+      alignItems: "center",
+      gap: "2",
+      overflow: "hidden",
+      rounded: "md",
+      p: "2",
+      textStyle: "sm",
+      textAlign: "left",
+      outlineColor: "transparent",
+      transition: "all",
+      _hover: {
+        bg: "sidebar.accent",
+        color: "sidebar.accent.fg",
+      },
+      _focusVisible: {
+        outlineWidth: "2px",
+        outlineStyle: "solid",
+        outlineColor: "ring/50",
+      },
+      _disabled: {
+        pointerEvents: "none",
+        opacity: "0.5",
+      },
+      ".group-menu-item:has([data-sidebar=menu-action]) &": {
+        pr: "8",
+      },
+      "&[data-active=true]": {
+        bg: "sidebar.accent",
+        color: "sidebar.accent.fg",
+        fontWeight: "medium",
+      },
+      _open: {
+        _hover: {
+          bg: "sidebar.accent",
+          color: "sidebar.accent.fg",
+        },
+      },
+      ".group[data-collapsible=icon] &": {
+        w: "8!",
+        h: "8!",
+        p: "2!",
+      },
+      "& > span:last-child": {
+        truncate: true,
+      },
+      "& > svg": {
+        w: "4",
+        h: "4",
+        flexShrink: "0",
+      },
+      "&[data-variant=default]": {
+        _hover: {
+          bg: "sidebar.accent",
+          color: "sidebar.accent.fg",
+        },
+      },
+      "&[data-variant=outline]": {
+        bg: "bg",
+        shadow: "0 0 0 1px hsl(var(--colors-sidebar-border))",
+        _hover: {
+          bg: "sidebar.accent",
+          color: "sidebar.accent.fg",
+          shadow: "0 0 0 1px hsl(var(--colors-sidebar-accent))",
+        },
+      },
+      "&[data-size=sm]": {
+        h: "7",
+        textStyle: "xs",
+      },
+      "&[data-size=md]": {
+        h: "8",
+        textStyle: "sm",
+      },
+      "&[data-size=lg]": {
+        h: "12",
+        textStyle: "sm",
+        ".group[data-collapsible=icon] &": {
+          p: "0!",
+        },
+      },
     },
 
     menuAction: {
