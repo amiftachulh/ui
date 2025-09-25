@@ -1,0 +1,23 @@
+{
+  "name": "calendar-11",
+  "type": "registry:block",
+  "description": "Start and end of month",
+  "registryDependencies": [
+    "calendar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/calendar-11.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { type DateRange } from \"react-day-picker\";\nimport { styled } from \"styled-system/jsx\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\n\nexport default function Calendar11() {\n  const [dateRange, setDateRange] = React.useState<DateRange | undefined>({\n    from: new Date(2025, 5, 17),\n    to: new Date(2025, 5, 20),\n  });\n\n  return (\n    <styled.div\n      css={{\n        w: \"full\",\n        bg: \"surface\",\n        minW: \"0\",\n        minH: \"svh\",\n        display: \"flex\",\n        px: \"4\",\n        py: \"12\",\n        alignItems: \"flex-start\",\n        justifyContent: \"center\",\n        md: { py: \"20\" },\n      }}\n    >\n      <styled.div css={{ display: \"flex\", minW: \"0\", flexDir: \"column\", gap: \"2\" }}>\n        <Calendar\n          mode=\"range\"\n          selected={dateRange}\n          onSelect={setDateRange}\n          numberOfMonths={2}\n          startMonth={new Date(2025, 5, 1)}\n          endMonth={new Date(2025, 6, 31)}\n          disableNavigation\n          css={{ rounded: \"lg\", borderWidth: \"1px\", shadow: \"sm\" }}\n        />\n        <styled.div css={{ color: \"muted.fg\", textAlign: \"center\", textStyle: \"xs\" }}>\n          We are open in June and July only.\n        </styled.div>\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "calendar",
+    "date"
+  ]
+}

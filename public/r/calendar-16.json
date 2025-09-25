@@ -1,0 +1,26 @@
+{
+  "name": "calendar-16",
+  "type": "registry:block",
+  "description": "With time picker",
+  "registryDependencies": [
+    "calendar",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/calendar-16.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuClock2 } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport { Card, CardContent, CardFooter } from \"@/registry/default/ui/card\";\nimport { Input } from \"@/registry/default/ui/input\";\nimport { Label } from \"@/registry/default/ui/label\";\n\nexport default function Calendar16() {\n  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));\n\n  return (\n    <styled.div\n      css={{\n        w: \"full\",\n        bg: \"surface\",\n        minW: \"0\",\n        minH: \"svh\",\n        display: \"flex\",\n        px: \"6\",\n        py: \"12\",\n        alignItems: \"flex-start\",\n        justifyContent: \"center\",\n      }}\n    >\n      <Card css={{ w: \"fit\", py: \"4\" }}>\n        <CardContent css={{ px: \"4\" }}>\n          <Calendar\n            mode=\"single\"\n            selected={date}\n            onSelect={setDate}\n            css={{ bg: \"transparent\", p: \"0\" }}\n          />\n        </CardContent>\n        <CardFooter\n          css={{\n            display: \"flex\",\n            flexDir: \"column\",\n            gap: \"6\",\n            borderTopWidth: \"1px\",\n            px: \"4\",\n            pt: \"4!\",\n          }}\n        >\n          <styled.div css={{ display: \"flex\", w: \"full\", flexDir: \"column\", gap: \"3\" }}>\n            <Label htmlFor=\"time-from\">Start Time</Label>\n            <styled.div\n              css={{ pos: \"relative\", display: \"flex\", w: \"full\", alignItems: \"center\", gap: \"2\" }}\n            >\n              <LuClock2\n                className={css({\n                  color: \"muted.fg\",\n                  pointerEvents: \"none\",\n                  pos: \"absolute\",\n                  left: \"2.5\",\n                  w: \"4\",\n                  h: \"4\",\n                  userSelect: \"none\",\n                })}\n              />\n              <Input\n                id=\"time-from\"\n                type=\"time\"\n                step=\"1\"\n                defaultValue=\"10:30:00\"\n                css={{\n                  appearance: \"none\",\n                  pl: \"8\",\n                  \"&::-webkit-calendar-picker-indicator\": { appearance: \"none\", display: \"none\" },\n                }}\n              />\n            </styled.div>\n          </styled.div>\n          <styled.div css={{ display: \"flex\", w: \"full\", flexDir: \"column\", gap: \"3\" }}>\n            <Label htmlFor=\"time-to\">End Time</Label>\n            <styled.div\n              css={{ pos: \"relative\", display: \"flex\", w: \"full\", alignItems: \"center\", gap: \"2\" }}\n            >\n              <LuClock2\n                className={css({\n                  color: \"muted.fg\",\n                  pointerEvents: \"none\",\n                  pos: \"absolute\",\n                  left: \"2.5\",\n                  w: \"4\",\n                  h: \"4\",\n                  userSelect: \"none\",\n                })}\n              />\n              <Input\n                id=\"time-to\"\n                type=\"time\"\n                step=\"1\"\n                defaultValue=\"12:30:00\"\n                css={{\n                  appearance: \"none\",\n                  pl: \"8\",\n                  \"&::-webkit-calendar-picker-indicator\": { appearance: \"none\", display: \"none\" },\n                }}\n              />\n            </styled.div>\n          </styled.div>\n        </CardFooter>\n      </Card>\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "calendar",
+    "date"
+  ]
+}

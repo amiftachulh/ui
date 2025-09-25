@@ -1,0 +1,29 @@
+{
+  "name": "calendar-19",
+  "type": "registry:block",
+  "description": "With presets",
+  "dependencies": [
+    "date-fns"
+  ],
+  "registryDependencies": [
+    "calendar",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/calendar-19.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { addDays } from \"date-fns\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport { Card, CardContent, CardFooter } from \"@/registry/default/ui/card\";\n\nexport default function Calendar19() {\n  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));\n\n  return (\n    <styled.div\n      css={{\n        w: \"full\",\n        bg: \"surface\",\n        minW: \"0\",\n        minH: \"svh\",\n        display: \"flex\",\n        px: \"4\",\n        py: \"12\",\n        alignItems: \"flex-start\",\n        justifyContent: \"center\",\n        md: { py: \"20\" },\n      }}\n    >\n      <Card css={{ maxW: \"325px\", py: \"4\" }}>\n        <CardContent css={{ px: \"4\" }}>\n          <Calendar\n            mode=\"single\"\n            selected={date}\n            onSelect={setDate}\n            defaultMonth={date}\n            css={{ bg: \"transparent\", p: \"0\", \"--cell-size\": \"2.375rem\" }}\n          />\n        </CardContent>\n        <CardFooter\n          css={{\n            display: \"flex\",\n            flexWrap: \"wrap\",\n            gap: \"2\",\n            borderTopWidth: \"1px\",\n            px: \"4\",\n            pt: \"4!\",\n          }}\n        >\n          {[\n            { label: \"Today\", value: 0 },\n            { label: \"Tomorrow\", value: 1 },\n            { label: \"In 3 days\", value: 3 },\n            { label: \"In a week\", value: 7 },\n            { label: \"In 2 weeks\", value: 14 },\n          ].map((preset) => (\n            <Button\n              key={preset.value}\n              variant=\"outline\"\n              size=\"sm\"\n              css={{ flex: \"1\" }}\n              onClick={() => {\n                const newDate = addDays(new Date(), preset.value);\n                setDate(newDate);\n              }}\n            >\n              {preset.label}\n            </Button>\n          ))}\n        </CardFooter>\n      </Card>\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "calendar",
+    "date"
+  ]
+}

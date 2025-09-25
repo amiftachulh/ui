@@ -1,0 +1,25 @@
+{
+  "name": "calendar-32",
+  "type": "registry:block",
+  "description": "Date picker in a drawer",
+  "registryDependencies": [
+    "calendar",
+    "button",
+    "drawer"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/calendar-32.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuCalendarPlus } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport {\n  Drawer,\n  DrawerContent,\n  DrawerDescription,\n  DrawerHeader,\n  DrawerTitle,\n  DrawerTrigger,\n} from \"@/registry/default/ui/drawer\";\nimport { Label } from \"@/registry/default/ui/label\";\n\nexport default function Calendar32() {\n  const [open, setOpen] = React.useState(false);\n  const [date, setDate] = React.useState<Date | undefined>(undefined);\n\n  return (\n    <styled.div\n      css={{\n        w: \"full\",\n        bg: \"surface\",\n        minW: \"0\",\n        minH: \"svh\",\n        display: \"flex\",\n        px: \"4\",\n        py: \"12\",\n        alignItems: \"flex-start\",\n        justifyContent: \"center\",\n        md: { py: \"20\" },\n      }}\n    >\n      <styled.div css={{ display: \"flex\", flexDir: \"column\", gap: \"3\" }}>\n        <Label htmlFor=\"date\" css={{ px: \"1\" }}>\n          Date of birth\n        </Label>\n        <Drawer open={open} onOpenChange={setOpen}>\n          <DrawerTrigger asChild>\n            <Button\n              variant=\"outline\"\n              id=\"date\"\n              css={{ w: \"48\", justifyContent: \"space-between\", fontWeight: \"normal\" }}\n            >\n              {date ? date.toLocaleDateString() : \"Select date\"}\n              <LuCalendarPlus />\n            </Button>\n          </DrawerTrigger>\n          <DrawerContent css={{ w: \"auto\", overflow: \"hidden\", p: \"0\" }}>\n            <DrawerHeader css={{ srOnly: true }}>\n              <DrawerTitle>Select date</DrawerTitle>\n              <DrawerDescription>Set your date of birth</DrawerDescription>\n            </DrawerHeader>\n            <Calendar\n              mode=\"single\"\n              selected={date}\n              captionLayout=\"dropdown\"\n              onSelect={(date) => {\n                setDate(date);\n                setOpen(false);\n              }}\n              css={{ mx: \"auto\", \"--cell-size\": \"clamp(0px, calc(100vw / 7.5), 52px)\" }}\n            />\n          </DrawerContent>\n        </Drawer>\n        <styled.div css={{ color: \"muted.fg\", px: \"1\", textStyle: \"sm\" }}>\n          This example works best on mobile.\n        </styled.div>\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "calendar",
+    "date"
+  ]
+}

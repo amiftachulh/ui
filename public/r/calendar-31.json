@@ -1,0 +1,25 @@
+{
+  "name": "calendar-31",
+  "type": "registry:block",
+  "description": "With event slots",
+  "registryDependencies": [
+    "calendar",
+    "card",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/calendar-31.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuPlus } from \"react-icons/lu\";\nimport { formatDateRange } from \"little-date\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport { Card, CardContent, CardFooter } from \"@/registry/default/ui/card\";\n\nconst events = [\n  {\n    title: \"Team Sync Meeting\",\n    from: \"2025-06-12T09:00:00\",\n    to: \"2025-06-12T10:00:00\",\n  },\n  {\n    title: \"Design Review\",\n    from: \"2025-06-12T11:30:00\",\n    to: \"2025-06-12T12:30:00\",\n  },\n  {\n    title: \"Client Presentation\",\n    from: \"2025-06-12T14:00:00\",\n    to: \"2025-06-12T15:00:00\",\n  },\n];\n\nexport default function Calendar31() {\n  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));\n\n  return (\n    <styled.div\n      css={{\n        w: \"full\",\n        bg: \"surface\",\n        minW: \"0\",\n        minH: \"svh\",\n        display: \"flex\",\n        px: \"4\",\n        py: \"12\",\n        alignItems: \"flex-start\",\n        justifyContent: \"center\",\n        md: { py: \"20\" },\n      }}\n    >\n      <Card css={{ w: \"fit\", py: \"4\" }}>\n        <CardContent css={{ px: \"4\" }}>\n          <Calendar\n            mode=\"single\"\n            selected={date}\n            onSelect={setDate}\n            css={{ bg: \"transparent\", p: \"0\" }}\n            required\n          />\n        </CardContent>\n        <CardFooter\n          css={{\n            display: \"flex\",\n            flexDir: \"column\",\n            alignItems: \"flex-start\",\n            gap: \"3\",\n            borderTopWidth: \"1px\",\n            px: \"4\",\n            pt: \"4!\",\n          }}\n        >\n          <styled.div\n            css={{\n              display: \"flex\",\n              w: \"full\",\n              alignItems: \"center\",\n              justifyContent: \"space-between\",\n              px: \"1\",\n            }}\n          >\n            <styled.div css={{ textStyle: \"sm\", fontWeight: \"medium\" }}>\n              {date?.toLocaleDateString(\"en-US\", {\n                day: \"numeric\",\n                month: \"long\",\n                year: \"numeric\",\n              })}\n            </styled.div>\n            <Button variant=\"ghost\" size=\"icon\" css={{ w: \"6\", h: \"6\" }} title=\"Add Event\">\n              <LuPlus />\n              <styled.span css={{ srOnly: true }}>Add Event</styled.span>\n            </Button>\n          </styled.div>\n          <styled.div css={{ display: \"flex\", w: \"full\", flexDir: \"column\", gap: \"2\" }}>\n            {events.map((event) => (\n              <styled.div\n                key={event.title}\n                css={{\n                  bg: \"muted\",\n                  pos: \"relative\",\n                  rounded: \"md\",\n                  p: \"2\",\n                  pl: \"6\",\n                  textStyle: \"sm\",\n                  _after: {\n                    content: '\"\"',\n                    pos: \"absolute\",\n                    insetY: \"2\",\n                    left: \"2\",\n                    bg: \"primary/70\",\n                    w: \"1\",\n                    rounded: \"full\",\n                  },\n                }}\n              >\n                <styled.div css={{ fontWeight: \"medium\" }}>{event.title}</styled.div>\n                <styled.div css={{ color: \"muted.fg\", textStyle: \"xs\" }}>\n                  {formatDateRange(new Date(event.from), new Date(event.to))}\n                </styled.div>\n              </styled.div>\n            ))}\n          </styled.div>\n        </CardFooter>\n      </Card>\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "700px",
+    "mobile": "component"
+  },
+  "categories": [
+    "calendar",
+    "date"
+  ]
+}

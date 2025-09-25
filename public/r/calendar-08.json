@@ -1,0 +1,23 @@
+{
+  "name": "calendar-08",
+  "type": "registry:block",
+  "description": "Calendar with disabled days",
+  "registryDependencies": [
+    "calendar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/calendar-08.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { styled } from \"styled-system/jsx\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\n\nexport default function Calendar08() {\n  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));\n\n  return (\n    <styled.div\n      css={{\n        w: \"full\",\n        bg: \"surface\",\n        minW: \"0\",\n        minH: \"svh\",\n        display: \"flex\",\n        px: \"4\",\n        py: \"12\",\n        alignItems: \"flex-start\",\n        justifyContent: \"center\",\n        md: { py: \"20\" },\n      }}\n    >\n      <Calendar\n        mode=\"single\"\n        defaultMonth={date}\n        selected={date}\n        onSelect={setDate}\n        disabled={{\n          before: new Date(2025, 5, 12),\n        }}\n        css={{ rounded: \"lg\", borderWidth: \"1px\", shadow: \"sm\" }}\n      />\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "calendar",
+    "date"
+  ]
+}

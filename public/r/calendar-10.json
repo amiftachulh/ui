@@ -1,0 +1,25 @@
+{
+  "name": "calendar-10",
+  "type": "registry:block",
+  "description": "Today button",
+  "registryDependencies": [
+    "calendar",
+    "card",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/calendar-10.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport {\n  Card,\n  CardAction,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\n\nexport default function Calendar10() {\n  const [date, setDate] = React.useState<Date | undefined>(new Date(2025, 5, 12));\n  const [month, setMonth] = React.useState<Date | undefined>(new Date());\n\n  return (\n    <styled.div\n      css={{\n        w: \"full\",\n        bg: \"surface\",\n        minW: \"0\",\n        minH: \"svh\",\n        display: \"flex\",\n        px: \"4\",\n        py: \"12\",\n        alignItems: \"flex-start\",\n        justifyContent: \"center\",\n        md: { py: \"20\" },\n      }}\n    >\n      <Card>\n        <CardHeader>\n          <CardTitle>Appointment</CardTitle>\n          <CardDescription>Find a date</CardDescription>\n          <CardAction>\n            <Button\n              size=\"sm\"\n              variant=\"outline\"\n              onClick={() => {\n                setMonth(new Date());\n                setDate(new Date());\n              }}\n            >\n              Today\n            </Button>\n          </CardAction>\n        </CardHeader>\n        <CardContent>\n          <Calendar\n            mode=\"single\"\n            month={month}\n            onMonthChange={setMonth}\n            selected={date}\n            onSelect={setDate}\n            css={{ bg: \"transparent\", p: \"0\" }}\n          />\n        </CardContent>\n      </Card>\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "600px",
+    "mobile": "component"
+  },
+  "categories": [
+    "calendar",
+    "date"
+  ]
+}

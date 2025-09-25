@@ -65,7 +65,7 @@ export default async function BlockPage({
   }
 
   return (
-    <styled.div css={{ bg: "bg" }}>
+    <styled.div css={{ bg: "bg" }} className={item.meta?.container}>
       <Component />
     </styled.div>
   );
