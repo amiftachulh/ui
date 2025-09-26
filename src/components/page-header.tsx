@@ -27,6 +27,7 @@ export default function PageHeader({ title, description }: PageHeaderProps) {
           maxW: "2xl",
           fontWeight: "semibold",
           letterSpacing: "tight",
+          textStyle: "4xl",
           textWrap: "balance",
           w: "full",
           lg: {

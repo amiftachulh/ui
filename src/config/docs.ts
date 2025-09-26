@@ -30,10 +30,10 @@ export const docsConfig: DocsConfig = {
       title: "Blocks",
       href: "/blocks",
     },
-    // {
-    //   title: "Charts",
-    //   href: "/charts",
-    // },
+    {
+      title: "Charts",
+      href: "/charts/area",
+    },
     // {
     //   title: "Themes",
     //   href: "/themes",

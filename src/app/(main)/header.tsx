@@ -13,7 +13,7 @@ export default function Header() {
       css={{
         pos: "fixed",
         top: "0",
-        zIndex: "100",
+        zIndex: "50",
         w: "full",
         bg: "bg",
         borderBottomWidth: "1px",

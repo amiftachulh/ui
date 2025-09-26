@@ -2509,6 +2509,186 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "chart-area-axes": {
+    name: "chart-area-axes",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-axes.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-axes.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-default": {
+    name: "chart-area-default",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-default.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-default.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-gradient": {
+    name: "chart-area-gradient",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-gradient.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-gradient.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-icons": {
+    name: "chart-area-icons",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-icons.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-icons.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-interactive": {
+    name: "chart-area-interactive",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart","select"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-interactive.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-interactive.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-legend": {
+    name: "chart-area-legend",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-legend.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-legend.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-linear": {
+    name: "chart-area-linear",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-linear.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-linear.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-stacked-expand": {
+    name: "chart-area-stacked-expand",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-stacked-expand.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-stacked-expand.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-stacked": {
+    name: "chart-area-stacked",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-stacked.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-stacked.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-area-step": {
+    name: "chart-area-step",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-area-step.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-area-step.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-area"],
+    meta: undefined,
+  },
   "use-media-query": {
     name: "use-media-query",
     description: "",
