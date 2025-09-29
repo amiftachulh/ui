@@ -29,18 +29,18 @@ import { ChartLineLabelCustom } from "@/registry/default/charts/chart-line-label
 import { ChartLineLinear } from "@/registry/default/charts/chart-line-linear";
 import { ChartLineMultiple } from "@/registry/default/charts/chart-line-multiple";
 import { ChartLineStep } from "@/registry/default/charts/chart-line-step";
+import { ChartPieDonut } from "@/registry/default/charts/chart-pie-donut";
+import { ChartPieDonutActive } from "@/registry/default/charts/chart-pie-donut-active";
+import { ChartPieDonutText } from "@/registry/default/charts/chart-pie-donut-text";
+import { ChartPieInteractive } from "@/registry/default/charts/chart-pie-interactive";
+import { ChartPieLabel } from "@/registry/default/charts/chart-pie-label";
+import { ChartPieLabelCustom } from "@/registry/default/charts/chart-pie-label-custom";
+import { ChartPieLabelList } from "@/registry/default/charts/chart-pie-label-list";
+import { ChartPieLegend } from "@/registry/default/charts/chart-pie-legend";
+import { ChartPieSeparatorNone } from "@/registry/default/charts/chart-pie-separator-none";
+import { ChartPieSimple } from "@/registry/default/charts/chart-pie-simple";
+import { ChartPieStacked } from "@/registry/default/charts/chart-pie-stacked";
 
-// import { ChartPieDonut } from "@/registry/default/charts/chart-pie-donut"
-// import { ChartPieDonutActive } from "@/registry/default/charts/chart-pie-donut-active"
-// import { ChartPieDonutText } from "@/registry/default/charts/chart-pie-donut-text"
-// import { ChartPieInteractive } from "@/registry/default/charts/chart-pie-interactive"
-// import { ChartPieLabel } from "@/registry/default/charts/chart-pie-label"
-// import { ChartPieLabelCustom } from "@/registry/default/charts/chart-pie-label-custom"
-// import { ChartPieLabelList } from "@/registry/default/charts/chart-pie-label-list"
-// import { ChartPieLegend } from "@/registry/default/charts/chart-pie-legend"
-// import { ChartPieSeparatorNone } from "@/registry/default/charts/chart-pie-separator-none"
-// import { ChartPieSimple } from "@/registry/default/charts/chart-pie-simple"
-// import { ChartPieStacked } from "@/registry/default/charts/chart-pie-stacked"
 // import { ChartRadarDefault } from "@/registry/default/charts/chart-radar-default"
 // import { ChartRadarDots } from "@/registry/default/charts/chart-radar-dots"
 // import { ChartRadarGridCircle } from "@/registry/default/charts/chart-radar-grid-circle"
@@ -83,7 +83,7 @@ interface ChartGroups {
   area: ChartItem[];
   bar: ChartItem[];
   line: ChartItem[];
-  // pie: ChartItem[];
+  pie: ChartItem[];
   // radar: ChartItem[];
   // radial: ChartItem[];
   // tooltip: ChartItem[];
@@ -138,19 +138,19 @@ export const charts: ChartGroups = {
     { id: "chart-line-label", component: ChartLineLabel },
     { id: "chart-line-label-custom", component: ChartLineLabelCustom },
   ],
-  // pie: [
-  //   { id: "chart-pie-simple", component: ChartPieSimple },
-  //   { id: "chart-pie-separator-none", component: ChartPieSeparatorNone },
-  //   { id: "chart-pie-label", component: ChartPieLabel },
-  //   { id: "chart-pie-label-custom", component: ChartPieLabelCustom },
-  //   { id: "chart-pie-label-list", component: ChartPieLabelList },
-  //   { id: "chart-pie-legend", component: ChartPieLegend },
-  //   { id: "chart-pie-donut", component: ChartPieDonut },
-  //   { id: "chart-pie-donut-active", component: ChartPieDonutActive },
-  //   { id: "chart-pie-donut-text", component: ChartPieDonutText },
-  //   { id: "chart-pie-stacked", component: ChartPieStacked },
-  //   { id: "chart-pie-interactive", component: ChartPieInteractive },
-  // ],
+  pie: [
+    { id: "chart-pie-simple", component: ChartPieSimple },
+    { id: "chart-pie-separator-none", component: ChartPieSeparatorNone },
+    { id: "chart-pie-label", component: ChartPieLabel },
+    { id: "chart-pie-label-custom", component: ChartPieLabelCustom },
+    { id: "chart-pie-label-list", component: ChartPieLabelList },
+    { id: "chart-pie-legend", component: ChartPieLegend },
+    { id: "chart-pie-donut", component: ChartPieDonut },
+    { id: "chart-pie-donut-active", component: ChartPieDonutActive },
+    { id: "chart-pie-donut-text", component: ChartPieDonutText },
+    { id: "chart-pie-stacked", component: ChartPieStacked },
+    { id: "chart-pie-interactive", component: ChartPieInteractive },
+  ],
   // radar: [
   //   { id: "chart-radar-default", component: ChartRadarDefault },
   //   { id: "chart-radar-dots", component: ChartRadarDots },
@@ -232,16 +232,16 @@ export {
   ChartLineLabel,
   ChartLineLabelCustom,
   ChartLineInteractive,
-  // ChartPieSimple,
-  // ChartPieSeparatorNone,
-  // ChartPieLabel,
-  // ChartPieLabelCustom,
-  // ChartPieLabelList,
-  // ChartPieLegend,
-  // ChartPieDonut,
-  // ChartPieDonutActive,
-  // ChartPieDonutText,
-  // ChartPieStacked,
+  ChartPieSimple,
+  ChartPieSeparatorNone,
+  ChartPieLabel,
+  ChartPieLabelCustom,
+  ChartPieLabelList,
+  ChartPieLegend,
+  ChartPieDonut,
+  ChartPieDonutActive,
+  ChartPieDonutText,
+  ChartPieStacked,
   // ChartPieInteractive,
   // ChartRadarDefault,
   // ChartRadarDots,

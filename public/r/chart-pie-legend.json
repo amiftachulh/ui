@@ -1,0 +1,19 @@
+{
+  "name": "chart-pie-legend",
+  "type": "registry:block",
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "files": [
+    {
+      "path": "registry/default/charts/chart-pie-legend.tsx",
+      "type": "registry:block",
+      "content": "\"use client\";\n\nimport { Pie, PieChart } from \"recharts\";\nimport { css } from \"styled-system/css\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  ChartConfig,\n  ChartContainer,\n  ChartLegend,\n  ChartLegendContent,\n} from \"@/registry/default/ui/chart\";\n\nexport const description = \"A pie chart with a legend\";\n\nconst chartData = [\n  { browser: \"chrome\", visitors: 275, fill: \"var(--color-chrome)\" },\n  { browser: \"safari\", visitors: 200, fill: \"var(--color-safari)\" },\n  { browser: \"firefox\", visitors: 187, fill: \"var(--color-firefox)\" },\n  { browser: \"edge\", visitors: 173, fill: \"var(--color-edge)\" },\n  { browser: \"other\", visitors: 90, fill: \"var(--color-other)\" },\n];\n\nconst chartConfig = {\n  visitors: {\n    label: \"Visitors\",\n  },\n  chrome: {\n    label: \"Chrome\",\n    color: \"var(--colors-chart-1)\",\n  },\n  safari: {\n    label: \"Safari\",\n    color: \"var(--colors-chart-2)\",\n  },\n  firefox: {\n    label: \"Firefox\",\n    color: \"var(--colors-chart-3)\",\n  },\n  edge: {\n    label: \"Edge\",\n    color: \"var(--colors-chart-4)\",\n  },\n  other: {\n    label: \"Other\",\n    color: \"var(--colors-chart-5)\",\n  },\n} satisfies ChartConfig;\n\nexport function ChartPieLegend() {\n  return (\n    <Card css={{ display: \"flex\", flexDir: \"column\" }}>\n      <CardHeader css={{ alignItems: \"center\", pb: \"0\" }}>\n        <CardTitle>Pie Chart - Legend</CardTitle>\n        <CardDescription>January - June 2024</CardDescription>\n      </CardHeader>\n      <CardContent css={{ flex: \"1\", pb: \"0\" }}>\n        <ChartContainer\n          config={chartConfig}\n          css={{\n            mx: \"auto\",\n            aspectRatio: \"square\",\n            maxH: \"300px\",\n          }}\n        >\n          <PieChart>\n            <Pie data={chartData} dataKey=\"visitors\" />\n            <ChartLegend\n              content={<ChartLegendContent nameKey=\"browser\" />}\n              className={css({\n                transform: \"translateY(-0.5rem)\",\n                flexWrap: \"wrap\",\n                gap: \"2\",\n                \"& > *\": { flexBasis: \"25%\", justifyContent: \"center\" },\n              })}\n            />\n          </PieChart>\n        </ChartContainer>\n      </CardContent>\n    </Card>\n  );\n}\n"
+    }
+  ],
+  "categories": [
+    "charts",
+    "charts-pie"
+  ]
+}

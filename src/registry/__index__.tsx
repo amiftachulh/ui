@@ -3053,6 +3053,204 @@ export const Index: Record<string, any> = {
     categories: ["charts","charts-line"],
     meta: undefined,
   },
+  "chart-pie-donut-active": {
+    name: "chart-pie-donut-active",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-donut-active.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-donut-active.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-donut-text": {
+    name: "chart-pie-donut-text",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-donut-text.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-donut-text.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-donut": {
+    name: "chart-pie-donut",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-donut.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-donut.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-interactive": {
+    name: "chart-pie-interactive",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-interactive.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-interactive.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-label-custom": {
+    name: "chart-pie-label-custom",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-label-custom.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-label-custom.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-label-list": {
+    name: "chart-pie-label-list",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-label-list.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-label-list.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-label": {
+    name: "chart-pie-label",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-label.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-label.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-legend": {
+    name: "chart-pie-legend",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-legend.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-legend.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-separator-none": {
+    name: "chart-pie-separator-none",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-separator-none.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-separator-none.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-simple": {
+    name: "chart-pie-simple",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-simple.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-simple.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
+  "chart-pie-stacked": {
+    name: "chart-pie-stacked",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-pie-stacked.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-pie-stacked.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-pie"],
+    meta: undefined,
+  },
   "use-media-query": {
     name: "use-media-query",
     description: "",

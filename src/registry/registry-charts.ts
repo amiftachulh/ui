@@ -366,4 +366,138 @@ export const charts: Registry["items"] = [
     ],
     categories: ["charts", "charts-line"],
   },
+
+  // Pie Charts
+  {
+    name: "chart-pie-donut-active",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-donut-active.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-donut-text",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-donut-text.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-donut",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-donut.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-interactive",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-interactive.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-label-custom",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-label-custom.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-label-list",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-label-list.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-label",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-label.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-legend",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-legend.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-separator-none",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-separator-none.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-simple",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-simple.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
+  {
+    name: "chart-pie-stacked",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-pie-stacked.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-pie"],
+  },
 ];
