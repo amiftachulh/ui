@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { styled } from "styled-system/jsx";
 import { BlocksNav } from "@/components/blocks-nav";
 import PageHeader from "@/components/page-header";
@@ -5,6 +6,11 @@ import PageHeader from "@/components/page-header";
 const title = "Building Blocks for the Web";
 const description =
   "Clean, modern building blocks. Copy and paste into your apps. Works with all React frameworks. Open Source. Free forever.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+};
 
 export default function BlocksLayout({ children }: { children: React.ReactNode }) {
   return (
