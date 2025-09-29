@@ -19,17 +19,17 @@ import { ChartBarMixed } from "@/registry/default/charts/chart-bar-mixed";
 import { ChartBarMultiple } from "@/registry/default/charts/chart-bar-multiple";
 import { ChartBarNegative } from "@/registry/default/charts/chart-bar-negative";
 import { ChartBarStacked } from "@/registry/default/charts/chart-bar-stacked";
+import { ChartLineDefault } from "@/registry/default/charts/chart-line-default";
+import { ChartLineDots } from "@/registry/default/charts/chart-line-dots";
+import { ChartLineDotsColors } from "@/registry/default/charts/chart-line-dots-colors";
+import { ChartLineDotsCustom } from "@/registry/default/charts/chart-line-dots-custom";
+import { ChartLineInteractive } from "@/registry/default/charts/chart-line-interactive";
+import { ChartLineLabel } from "@/registry/default/charts/chart-line-label";
+import { ChartLineLabelCustom } from "@/registry/default/charts/chart-line-label-custom";
+import { ChartLineLinear } from "@/registry/default/charts/chart-line-linear";
+import { ChartLineMultiple } from "@/registry/default/charts/chart-line-multiple";
+import { ChartLineStep } from "@/registry/default/charts/chart-line-step";
 
-// import { ChartLineDefault } from "@/registry/default/charts/chart-line-default"
-// import { ChartLineDots } from "@/registry/default/charts/chart-line-dots"
-// import { ChartLineDotsColors } from "@/registry/default/charts/chart-line-dots-colors"
-// import { ChartLineDotsCustom } from "@/registry/default/charts/chart-line-dots-custom"
-// import { ChartLineInteractive } from "@/registry/default/charts/chart-line-interactive"
-// import { ChartLineLabel } from "@/registry/default/charts/chart-line-label"
-// import { ChartLineLabelCustom } from "@/registry/default/charts/chart-line-label-custom"
-// import { ChartLineLinear } from "@/registry/default/charts/chart-line-linear"
-// import { ChartLineMultiple } from "@/registry/default/charts/chart-line-multiple"
-// import { ChartLineStep } from "@/registry/default/charts/chart-line-step"
 // import { ChartPieDonut } from "@/registry/default/charts/chart-pie-donut"
 // import { ChartPieDonutActive } from "@/registry/default/charts/chart-pie-donut-active"
 // import { ChartPieDonutText } from "@/registry/default/charts/chart-pie-donut-text"
@@ -82,7 +82,7 @@ interface ChartItem {
 interface ChartGroups {
   area: ChartItem[];
   bar: ChartItem[];
-  // line: ChartItem[];
+  line: ChartItem[];
   // pie: ChartItem[];
   // radar: ChartItem[];
   // radial: ChartItem[];
@@ -122,22 +122,22 @@ export const charts: ChartGroups = {
     { id: "chart-bar-active", component: ChartBarActive },
     { id: "chart-bar-negative", component: ChartBarNegative },
   ],
-  // line: [
-  //   {
-  //     id: "chart-line-interactive",
-  //     component: ChartLineInteractive,
-  //     fullWidth: true,
-  //   },
-  //   { id: "chart-line-default", component: ChartLineDefault },
-  //   { id: "chart-line-linear", component: ChartLineLinear },
-  //   { id: "chart-line-step", component: ChartLineStep },
-  //   { id: "chart-line-multiple", component: ChartLineMultiple },
-  //   { id: "chart-line-dots", component: ChartLineDots },
-  //   { id: "chart-line-dots-custom", component: ChartLineDotsCustom },
-  //   { id: "chart-line-dots-colors", component: ChartLineDotsColors },
-  //   { id: "chart-line-label", component: ChartLineLabel },
-  //   { id: "chart-line-label-custom", component: ChartLineLabelCustom },
-  // ],
+  line: [
+    {
+      id: "chart-line-interactive",
+      component: ChartLineInteractive,
+      fullWidth: true,
+    },
+    { id: "chart-line-default", component: ChartLineDefault },
+    { id: "chart-line-linear", component: ChartLineLinear },
+    { id: "chart-line-step", component: ChartLineStep },
+    { id: "chart-line-multiple", component: ChartLineMultiple },
+    { id: "chart-line-dots", component: ChartLineDots },
+    { id: "chart-line-dots-custom", component: ChartLineDotsCustom },
+    { id: "chart-line-dots-colors", component: ChartLineDotsColors },
+    { id: "chart-line-label", component: ChartLineLabel },
+    { id: "chart-line-label-custom", component: ChartLineLabelCustom },
+  ],
   // pie: [
   //   { id: "chart-pie-simple", component: ChartPieSimple },
   //   { id: "chart-pie-separator-none", component: ChartPieSeparatorNone },
@@ -222,16 +222,16 @@ export {
   ChartBarActive,
   ChartBarNegative,
   ChartBarInteractive,
-  // ChartLineDefault,
-  // ChartLineLinear,
-  // ChartLineStep,
-  // ChartLineMultiple,
-  // ChartLineDots,
-  // ChartLineDotsCustom,
-  // ChartLineDotsColors,
-  // ChartLineLabel,
-  // ChartLineLabelCustom,
-  // ChartLineInteractive,
+  ChartLineDefault,
+  ChartLineLinear,
+  ChartLineStep,
+  ChartLineMultiple,
+  ChartLineDots,
+  ChartLineDotsCustom,
+  ChartLineDotsColors,
+  ChartLineLabel,
+  ChartLineLabelCustom,
+  ChartLineInteractive,
   // ChartPieSimple,
   // ChartPieSeparatorNone,
   // ChartPieLabel,

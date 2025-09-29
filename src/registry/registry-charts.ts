@@ -244,4 +244,126 @@ export const charts: Registry["items"] = [
     ],
     categories: ["charts", "charts-bar"],
   },
+
+  // Line Charts
+  {
+    name: "chart-line-default",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-default.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-dots-colors",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-dots-colors.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-dots-custom",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-dots-custom.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-dots",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-dots.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-interactive",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-interactive.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-label-custom",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-label-custom.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-label",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-label.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-linear",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-linear.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-multiple",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-multiple.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
+  {
+    name: "chart-line-step",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-line-step.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-line"],
+  },
 ];

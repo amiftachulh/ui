@@ -1,0 +1,119 @@
+"use client";
+
+import { LuTrendingUp } from "react-icons/lu";
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { css } from "styled-system/css";
+import { styled } from "styled-system/jsx";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/registry/default/ui/card";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/registry/default/ui/chart";
+
+export const description = "A multiple line chart";
+
+const chartData = [
+  { month: "January", desktop: 186, mobile: 80 },
+  { month: "February", desktop: 305, mobile: 200 },
+  { month: "March", desktop: 237, mobile: 120 },
+  { month: "April", desktop: 73, mobile: 190 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "June", desktop: 214, mobile: 140 },
+];
+
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "var(--colors-chart-1)",
+  },
+  mobile: {
+    label: "Mobile",
+    color: "var(--colors-chart-2)",
+  },
+} satisfies ChartConfig;
+
+export function ChartLineMultiple() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Line Chart - Multiple</CardTitle>
+        <CardDescription>January - June 2024</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ChartContainer config={chartConfig}>
+          <LineChart
+            accessibilityLayer
+            data={chartData}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              tickFormatter={(value) => value.slice(0, 3)}
+            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <Line
+              dataKey="desktop"
+              type="monotone"
+              stroke="var(--color-desktop)"
+              strokeWidth={2}
+              dot={false}
+            />
+            <Line
+              dataKey="mobile"
+              type="monotone"
+              stroke="var(--color-mobile)"
+              strokeWidth={2}
+              dot={false}
+            />
+          </LineChart>
+        </ChartContainer>
+      </CardContent>
+      <CardFooter>
+        <styled.div
+          css={{ display: "flex", w: "full", alignItems: "flex-start", gap: "2", textStyle: "sm" }}
+        >
+          <styled.div css={{ display: "grid", gap: "2" }}>
+            <styled.div
+              css={{
+                display: "flex",
+                alignItems: "center",
+                gap: "2",
+                lineHeight: "none",
+                fontWeight: "medium",
+              }}
+            >
+              Trending up by 5.2% this month <LuTrendingUp className={css({ w: "4", h: "4" })} />
+            </styled.div>
+            <styled.div
+              css={{
+                color: "muted.fg",
+                display: "flex",
+                alignItems: "center",
+                gap: "2",
+                lineHeight: "none",
+              }}
+            >
+              Showing total visitors for the last 6 months
+            </styled.div>
+          </styled.div>
+        </styled.div>
+      </CardFooter>
+    </Card>
+  );
+}
