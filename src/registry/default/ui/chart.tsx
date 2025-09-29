@@ -4,6 +4,7 @@ import * as React from "react";
 import * as RechartsPrimitive from "recharts";
 import { css, cx } from "styled-system/css";
 import { styled } from "styled-system/jsx";
+import { chart } from "styled-system/recipes";
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const;
@@ -34,6 +35,8 @@ function useChart() {
   return context;
 }
 
+const classes = chart();
+
 function Container({
   id,
   className,
@@ -49,55 +52,7 @@ function Container({
 
   return (
     <ChartContext value={{ config }}>
-      <div
-        data-chart={chartId}
-        className={cx(
-          css({
-            "& .recharts-cartesian-axis-tick text": {
-              fill: "muted.fg",
-            },
-            "& .recharts-cartesian-grid line[stroke='#ccc']": {
-              stroke: "border/50",
-            },
-            "& .recharts-curve.recharts-tooltip-cursor": {
-              stroke: "border",
-            },
-            "& .recharts-polar-grid [stroke='#ccc']": {
-              stroke: "border",
-            },
-            "& .recharts-radial-bar-background-sector": {
-              fill: "muted",
-            },
-            "& .recharts-rectangle.recharts-tooltip-cursor": {
-              fill: "muted/50",
-            },
-            "& .recharts-reference-line [stroke='#ccc']": {
-              stroke: "border",
-            },
-            display: "flex",
-            aspectRatio: "16 / 9",
-            justifyContent: "center",
-            textStyle: "xs",
-            "& .recharts-dot[stroke='#fff']": {
-              stroke: "transparent",
-            },
-            "& .recharts-layer": {
-              outline: "none",
-            },
-            "& .recharts-sector": {
-              outline: "none",
-            },
-            "& .recharts-sector[stroke='#fff']": {
-              stroke: "transparent",
-            },
-            "& .recharts-surface": {
-              outline: "none",
-            },
-          }),
-          className
-        )}
-        {...props}
-      >
+      <div data-chart={chartId} className={cx(classes.container, className)} {...props}>
         <ChartStyle id={chartId} config={config} />
         <RechartsPrimitive.ResponsiveContainer>{children}</RechartsPrimitive.ResponsiveContainer>
       </div>
@@ -177,7 +132,7 @@ function ChartTooltipContent({
 
     if (labelFormatter) {
       return (
-        <div className={cx(css({ fontWeight: "medium" }), labelClassName)}>
+        <div className={cx(classes.tooltipLabel, labelClassName)}>
           {labelFormatter(value, payload)}
         </div>
       );
@@ -187,7 +142,7 @@ function ChartTooltipContent({
       return null;
     }
 
-    return <div className={cx(css({ fontWeight: "medium" }), labelClassName)}>{value}</div>;
+    return <div className={cx(classes.tooltipLabel, labelClassName)}>{value}</div>;
   }, [label, labelFormatter, payload, hideLabel, labelClassName, config, labelKey]);
 
   if (!active || !payload?.length) {
@@ -197,25 +152,7 @@ function ChartTooltipContent({
   const nestLabel = payload.length === 1 && indicator !== "dot";
 
   return (
-    <div
-      className={cx(
-        css({
-          borderColor: "border/50",
-          bg: "bg",
-          display: "grid",
-          minW: "8rem",
-          alignItems: "start",
-          gap: "1.5",
-          rounded: "lg",
-          borderWidth: "1px",
-          px: "2.5",
-          py: "1.5",
-          textStyle: "xs",
-          shadow: "xl",
-        }),
-        className
-      )}
-    >
+    <div className={cx(classes.tooltipContent, className)}>
       {!nestLabel ? tooltipLabel : null}
       <div className={css({ display: "grid", gap: "1.5" })}>
         {payload.map((item, index) => {
@@ -226,6 +163,7 @@ function ChartTooltipContent({
           return (
             <div
               key={item.dataKey}
+              data-indicator={indicator}
               className={cx(
                 css({
                   display: "flex",
@@ -233,13 +171,13 @@ function ChartTooltipContent({
                   flexWrap: "wrap",
                   alignItems: "stretch",
                   gap: "2",
+                  "&[data-indicator=dot]": { alignItems: "center" },
                   "& > svg": {
                     color: "muted.fg",
                     w: "2.5",
                     h: "2.5",
                   },
-                }),
-                indicator === "dot" && css({ alignItems: "center!" })
+                })
               )}
             >
               {formatter && item?.value !== undefined && item.name ? (
@@ -251,23 +189,29 @@ function ChartTooltipContent({
                   ) : (
                     !hideIndicator && (
                       <div
+                        data-indicator={indicator}
+                        data-nest-label={nestLabel}
                         className={cx(
                           css({
                             flexShrink: "0",
                             rounded: "2px",
                             borderColor: "var(--color-border)",
                             bg: "var(--color-bg)",
-                          }),
-                          indicator === "dot" && css({ w: "2.5!", h: "2.5!" }),
-                          indicator === "line" && css({ w: "1!" }),
-                          indicator === "dashed" &&
-                            css({
-                              w: "0!",
-                              borderWidth: "1.5px!",
-                              borderStyle: "dashed!",
-                              bg: "transparent!",
-                            }),
-                          nestLabel && indicator === "dashed" && css({ my: "0.5" })
+                            "&[data-indicator=dot]": {
+                              w: "2.5",
+                              h: "2.5",
+                            },
+                            "&[data-indicator=line]": {
+                              w: "1",
+                            },
+                            "&[data-indicator=dashed]": {
+                              w: "0",
+                              borderWidth: "1.5px",
+                              borderStyle: "dashed",
+                              bg: "transparent",
+                            },
+                            "&[data-nest-label=true][data-indicator=dashed]": { my: "0.5" },
+                          })
                         )}
                         style={
                           {
@@ -279,14 +223,16 @@ function ChartTooltipContent({
                     )
                   )}
                   <div
+                    data-nest-label={nestLabel}
                     className={cx(
                       css({
                         display: "flex",
                         flex: "1",
                         justifyContent: "space-between",
                         lineHeight: "none",
-                      }),
-                      nestLabel ? css({ alignItems: "flex-end!" }) : css({ alignItems: "center!" })
+                        textAlign: "center",
+                        "&[data-nest-label=true]": { alignItems: "flex-end" },
+                      })
                     )}
                   >
                     <div className={css({ display: "grid", gap: "1.5" })}>
@@ -338,13 +284,7 @@ function ChartLegendContent({
   }
 
   return (
-    <div
-      className={cx(
-        css({ display: "flex", alignItems: "center", justifyContent: "center", gap: "4" }),
-        verticalAlign === "top" ? css({ pb: "3!" }) : css({ pt: "3!" }),
-        className
-      )}
-    >
+    <div data-vertical-align={verticalAlign} className={cx(classes.legendContent, className)}>
       {payload.map((item) => {
         const key = `${nameKey || item.dataKey || "value"}`;
         const itemConfig = getPayloadConfigFromPayload(config, item, key);

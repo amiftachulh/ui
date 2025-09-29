@@ -9,17 +9,17 @@ import { ChartAreaLinear } from "@/registry/default/charts/chart-area-linear";
 import { ChartAreaStacked } from "@/registry/default/charts/chart-area-stacked";
 import { ChartAreaStackedExpand } from "@/registry/default/charts/chart-area-stacked-expand";
 import { ChartAreaStep } from "@/registry/default/charts/chart-area-step";
+import { ChartBarActive } from "@/registry/default/charts/chart-bar-active";
+import { ChartBarDefault } from "@/registry/default/charts/chart-bar-default";
+import { ChartBarHorizontal } from "@/registry/default/charts/chart-bar-horizontal";
+import { ChartBarInteractive } from "@/registry/default/charts/chart-bar-interactive";
+import { ChartBarLabel } from "@/registry/default/charts/chart-bar-label";
+import { ChartBarLabelCustom } from "@/registry/default/charts/chart-bar-label-custom";
+import { ChartBarMixed } from "@/registry/default/charts/chart-bar-mixed";
+import { ChartBarMultiple } from "@/registry/default/charts/chart-bar-multiple";
+import { ChartBarNegative } from "@/registry/default/charts/chart-bar-negative";
+import { ChartBarStacked } from "@/registry/default/charts/chart-bar-stacked";
 
-// import { ChartBarActive } from "@/registry/default/charts/chart-bar-active"
-// import { ChartBarDefault } from "@/registry/default/charts/chart-bar-default"
-// import { ChartBarHorizontal } from "@/registry/default/charts/chart-bar-horizontal"
-// import { ChartBarInteractive } from "@/registry/default/charts/chart-bar-interactive"
-// import { ChartBarLabel } from "@/registry/default/charts/chart-bar-label"
-// import { ChartBarLabelCustom } from "@/registry/default/charts/chart-bar-label-custom"
-// import { ChartBarMixed } from "@/registry/default/charts/chart-bar-mixed"
-// import { ChartBarMultiple } from "@/registry/default/charts/chart-bar-multiple"
-// import { ChartBarNegative } from "@/registry/default/charts/chart-bar-negative"
-// import { ChartBarStacked } from "@/registry/default/charts/chart-bar-stacked"
 // import { ChartLineDefault } from "@/registry/default/charts/chart-line-default"
 // import { ChartLineDots } from "@/registry/default/charts/chart-line-dots"
 // import { ChartLineDotsColors } from "@/registry/default/charts/chart-line-dots-colors"
@@ -81,7 +81,7 @@ interface ChartItem {
 
 interface ChartGroups {
   area: ChartItem[];
-  // bar: ChartItem[];
+  bar: ChartItem[];
   // line: ChartItem[];
   // pie: ChartItem[];
   // radar: ChartItem[];
@@ -106,22 +106,22 @@ export const charts: ChartGroups = {
     { id: "chart-area-gradient", component: ChartAreaGradient },
     { id: "chart-area-axes", component: ChartAreaAxes },
   ],
-  // bar: [
-  //   {
-  //     id: "chart-bar-interactive",
-  //     component: ChartBarInteractive,
-  //     fullWidth: true,
-  //   },
-  //   { id: "chart-bar-default", component: ChartBarDefault },
-  //   { id: "chart-bar-horizontal", component: ChartBarHorizontal },
-  //   { id: "chart-bar-multiple", component: ChartBarMultiple },
-  //   { id: "chart-bar-stacked", component: ChartBarStacked },
-  //   { id: "chart-bar-label", component: ChartBarLabel },
-  //   { id: "chart-bar-label-custom", component: ChartBarLabelCustom },
-  //   { id: "chart-bar-mixed", component: ChartBarMixed },
-  //   { id: "chart-bar-active", component: ChartBarActive },
-  //   { id: "chart-bar-negative", component: ChartBarNegative },
-  // ],
+  bar: [
+    {
+      id: "chart-bar-interactive",
+      component: ChartBarInteractive,
+      fullWidth: true,
+    },
+    { id: "chart-bar-default", component: ChartBarDefault },
+    { id: "chart-bar-horizontal", component: ChartBarHorizontal },
+    { id: "chart-bar-multiple", component: ChartBarMultiple },
+    { id: "chart-bar-stacked", component: ChartBarStacked },
+    { id: "chart-bar-label", component: ChartBarLabel },
+    { id: "chart-bar-label-custom", component: ChartBarLabelCustom },
+    { id: "chart-bar-mixed", component: ChartBarMixed },
+    { id: "chart-bar-active", component: ChartBarActive },
+    { id: "chart-bar-negative", component: ChartBarNegative },
+  ],
   // line: [
   //   {
   //     id: "chart-line-interactive",
@@ -212,16 +212,16 @@ export {
   ChartAreaGradient,
   ChartAreaAxes,
   ChartAreaInteractive,
-  // ChartBarDefault,
-  // ChartBarHorizontal,
-  // ChartBarMultiple,
-  // ChartBarStacked,
-  // ChartBarLabel,
-  // ChartBarLabelCustom,
-  // ChartBarMixed,
-  // ChartBarActive,
-  // ChartBarNegative,
-  // ChartBarInteractive,
+  ChartBarDefault,
+  ChartBarHorizontal,
+  ChartBarMultiple,
+  ChartBarStacked,
+  ChartBarLabel,
+  ChartBarLabelCustom,
+  ChartBarMixed,
+  ChartBarActive,
+  ChartBarNegative,
+  ChartBarInteractive,
   // ChartLineDefault,
   // ChartLineLinear,
   // ChartLineStep,

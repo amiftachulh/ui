@@ -181,6 +181,10 @@
         {
           "path": "registry/default/ui/chart.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/slot-recipes/chart.ts",
+          "type": "registry:slot-recipe"
         }
       ]
     },
@@ -2726,6 +2730,186 @@
       "categories": [
         "charts",
         "charts-area"
+      ]
+    },
+    {
+      "name": "chart-bar-active",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-active.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-default",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-default.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-horizontal",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-horizontal.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-interactive",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-interactive.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-label-custom",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-label-custom.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-label",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-label.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-mixed",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-mixed.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-multiple",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-multiple.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-negative",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-negative.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
+      ]
+    },
+    {
+      "name": "chart-bar-stacked",
+      "type": "registry:block",
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "registry/default/charts/chart-bar-stacked.tsx",
+          "type": "registry:block"
+        }
+      ],
+      "categories": [
+        "charts",
+        "charts-bar"
       ]
     },
     {

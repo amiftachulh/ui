@@ -122,4 +122,126 @@ export const charts: Registry["items"] = [
     ],
     categories: ["charts", "charts-area"],
   },
+
+  // Bar Charts
+  {
+    name: "chart-bar-active",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-active.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-default",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-default.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-horizontal",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-horizontal.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-interactive",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-interactive.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-label-custom",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-label-custom.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-label",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-label.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-mixed",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-mixed.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-multiple",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-multiple.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-negative",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-negative.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
+  {
+    name: "chart-bar-stacked",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-bar-stacked.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-bar"],
+  },
 ];

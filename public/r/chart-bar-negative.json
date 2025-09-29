@@ -1,0 +1,19 @@
+{
+  "name": "chart-bar-negative",
+  "type": "registry:block",
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "files": [
+    {
+      "path": "registry/default/charts/chart-bar-negative.tsx",
+      "type": "registry:block",
+      "content": "\"use client\";\n\nimport { LuTrendingUp } from \"react-icons/lu\";\nimport { Bar, BarChart, CartesianGrid, Cell, LabelList } from \"recharts\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nexport const description = \"A bar chart with negative values\";\n\nconst chartData = [\n  { month: \"January\", visitors: 186 },\n  { month: \"February\", visitors: 205 },\n  { month: \"March\", visitors: -207 },\n  { month: \"April\", visitors: 173 },\n  { month: \"May\", visitors: -209 },\n  { month: \"June\", visitors: 214 },\n];\n\nconst chartConfig = {\n  visitors: {\n    label: \"Visitors\",\n  },\n} satisfies ChartConfig;\n\nexport function ChartBarNegative() {\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Bar Chart - Negative</CardTitle>\n        <CardDescription>January - June 2024</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ChartContainer config={chartConfig}>\n          <BarChart accessibilityLayer data={chartData}>\n            <CartesianGrid vertical={false} />\n            <ChartTooltip\n              cursor={false}\n              content={<ChartTooltipContent hideLabel hideIndicator />}\n            />\n            <Bar dataKey=\"visitors\">\n              <LabelList position=\"top\" dataKey=\"month\" fillOpacity={1} />\n              {chartData.map((item) => (\n                <Cell\n                  key={item.month}\n                  fill={item.visitors > 0 ? \"var(--colors-chart-1)\" : \"var(--colors-chart-2)\"}\n                />\n              ))}\n            </Bar>\n          </BarChart>\n        </ChartContainer>\n      </CardContent>\n      <CardFooter css={{ flexDir: \"column\", alignItems: \"flex-start\", gap: \"2\", textStyle: \"sm\" }}>\n        <styled.div css={{ display: \"flex\", gap: \"2\", lineHeight: \"none\", fontWeight: \"medium\" }}>\n          Trending up by 5.2% this month <LuTrendingUp className={css({ w: \"4\", h: \"4\" })} />\n        </styled.div>\n        <styled.div css={{ color: \"muted.fg\", lineHeight: \"none\" }}>\n          Showing total visitors for the last 6 months\n        </styled.div>\n      </CardFooter>\n    </Card>\n  );\n}\n"
+    }
+  ],
+  "categories": [
+    "charts",
+    "charts-bar"
+  ]
+}

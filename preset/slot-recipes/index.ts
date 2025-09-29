@@ -5,6 +5,7 @@ import { avatarSlotRecipe } from "@/registry/default/slot-recipes/avatar";
 import { breadcrumbSlotRecipe } from "@/registry/default/slot-recipes/breadcrumb";
 import { cardSlotRecipe } from "@/registry/default/slot-recipes/card";
 import { carouselSlotRecipe } from "@/registry/default/slot-recipes/carousel";
+import { chartSlotRecipe } from "@/registry/default/slot-recipes/chart";
 import { checkboxSlotRecipe } from "@/registry/default/slot-recipes/checkbox";
 import { commandSlotRecipe } from "@/registry/default/slot-recipes/command";
 import { contextMenuSlotRecipe } from "@/registry/default/slot-recipes/context-menu";
@@ -42,6 +43,7 @@ export const slotRecipes = {
   breadcrumb: breadcrumbSlotRecipe,
   card: cardSlotRecipe,
   carousel: carouselSlotRecipe,
+  chart: chartSlotRecipe,
   checkbox: checkboxSlotRecipe,
   command: commandSlotRecipe,
   contextMenu: contextMenuSlotRecipe,

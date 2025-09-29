@@ -1,0 +1,19 @@
+{
+  "name": "chart-bar-active",
+  "type": "registry:block",
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "files": [
+    {
+      "path": "registry/default/charts/chart-bar-active.tsx",
+      "type": "registry:block",
+      "content": "\"use client\";\n\nimport { LuTrendingUp } from \"react-icons/lu\";\nimport { Bar, BarChart, CartesianGrid, Rectangle, XAxis } from \"recharts\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nexport const description = \"A bar chart with an active bar\";\n\nconst chartData = [\n  { browser: \"chrome\", visitors: 187, fill: \"var(--color-chrome)\" },\n  { browser: \"safari\", visitors: 200, fill: \"var(--color-safari)\" },\n  { browser: \"firefox\", visitors: 275, fill: \"var(--color-firefox)\" },\n  { browser: \"edge\", visitors: 173, fill: \"var(--color-edge)\" },\n  { browser: \"other\", visitors: 90, fill: \"var(--color-other)\" },\n];\n\nconst chartConfig = {\n  visitors: {\n    label: \"Visitors\",\n  },\n  chrome: {\n    label: \"Chrome\",\n    color: \"var(--colors-chart-1)\",\n  },\n  safari: {\n    label: \"Safari\",\n    color: \"var(--colors-chart-2)\",\n  },\n  firefox: {\n    label: \"Firefox\",\n    color: \"var(--colors-chart-3)\",\n  },\n  edge: {\n    label: \"Edge\",\n    color: \"var(--colors-chart-4)\",\n  },\n  other: {\n    label: \"Other\",\n    color: \"var(--colors-chart-5)\",\n  },\n} satisfies ChartConfig;\n\nexport function ChartBarActive() {\n  return (\n    <Card>\n      <CardHeader>\n        <CardTitle>Bar Chart - Active</CardTitle>\n        <CardDescription>January - June 2024</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ChartContainer config={chartConfig}>\n          <BarChart accessibilityLayer data={chartData}>\n            <CartesianGrid vertical={false} />\n            <XAxis\n              dataKey=\"browser\"\n              tickLine={false}\n              tickMargin={10}\n              axisLine={false}\n              tickFormatter={(value) => chartConfig[value as keyof typeof chartConfig]?.label}\n            />\n            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />\n            <Bar\n              dataKey=\"visitors\"\n              strokeWidth={2}\n              radius={8}\n              activeIndex={2}\n              activeBar={({ ...props }) => {\n                return (\n                  <Rectangle\n                    {...props}\n                    fillOpacity={0.8}\n                    stroke={props.payload.fill}\n                    strokeDasharray={4}\n                    strokeDashoffset={4}\n                  />\n                );\n              }}\n            />\n          </BarChart>\n        </ChartContainer>\n      </CardContent>\n      <CardFooter css={{ flexDir: \"column\", alignItems: \"flex-start\", gap: \"2\", textStyle: \"sm\" }}>\n        <styled.div css={{ display: \"flex\", gap: \"2\", lineHeight: \"none\", fontWeight: \"medium\" }}>\n          Trending up by 5.2% this month <LuTrendingUp className={css({ w: \"4\", h: \"4\" })} />\n        </styled.div>\n        <styled.div css={{ color: \"muted.fg\", lineHeight: \"none\" }}>\n          Showing total visitors for the last 6 months\n        </styled.div>\n      </CardFooter>\n    </Card>\n  );\n}\n"
+    }
+  ],
+  "categories": [
+    "charts",
+    "charts-bar"
+  ]
+}

@@ -154,6 +154,10 @@ export const ui: Registry["items"] = [
         path: "ui/chart.tsx",
         type: "registry:ui",
       },
+      {
+        path: "slot-recipes/chart.ts",
+        type: "registry:slot-recipe",
+      },
     ],
   },
   {

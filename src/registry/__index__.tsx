@@ -226,6 +226,10 @@ export const Index: Record<string, any> = {
       path: "src/registry/default/ui/chart.tsx",
       type: "registry:ui",
       target: ""
+    },{
+      path: "src/registry/default/slot-recipes/chart.ts",
+      type: "registry:slot-recipe",
+      target: ""
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/ui/chart.tsx")
@@ -2687,6 +2691,186 @@ export const Index: Record<string, any> = {
       return { default: mod.default || mod[exportName] }
     }),
     categories: ["charts","charts-area"],
+    meta: undefined,
+  },
+  "chart-bar-active": {
+    name: "chart-bar-active",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-active.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-active.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-default": {
+    name: "chart-bar-default",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-default.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-default.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-horizontal": {
+    name: "chart-bar-horizontal",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-horizontal.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-horizontal.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-interactive": {
+    name: "chart-bar-interactive",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-interactive.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-interactive.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-label-custom": {
+    name: "chart-bar-label-custom",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-label-custom.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-label-custom.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-label": {
+    name: "chart-bar-label",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-label.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-label.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-mixed": {
+    name: "chart-bar-mixed",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-mixed.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-mixed.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-multiple": {
+    name: "chart-bar-multiple",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-multiple.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-multiple.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-negative": {
+    name: "chart-bar-negative",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-negative.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-negative.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
+    meta: undefined,
+  },
+  "chart-bar-stacked": {
+    name: "chart-bar-stacked",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-bar-stacked.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-bar-stacked.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-bar"],
     meta: undefined,
   },
   "use-media-query": {
