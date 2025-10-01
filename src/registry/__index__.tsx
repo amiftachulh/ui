@@ -3251,6 +3251,258 @@ export const Index: Record<string, any> = {
     categories: ["charts","charts-pie"],
     meta: undefined,
   },
+  "chart-radar-default": {
+    name: "chart-radar-default",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-default.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-default.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-dots": {
+    name: "chart-radar-dots",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-dots.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-dots.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-grid-circle-fill": {
+    name: "chart-radar-grid-circle-fill",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-grid-circle-fill.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-grid-circle-fill.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-grid-circle-no-lines": {
+    name: "chart-radar-grid-circle-no-lines",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-grid-circle-no-lines.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-grid-circle-no-lines.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-grid-circle": {
+    name: "chart-radar-grid-circle",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-grid-circle.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-grid-circle.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-grid-custom": {
+    name: "chart-radar-grid-custom",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-grid-custom.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-grid-custom.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-grid-fill": {
+    name: "chart-radar-grid-fill",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-grid-fill.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-grid-fill.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-grid-none": {
+    name: "chart-radar-grid-none",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-grid-none.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-grid-none.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-icons": {
+    name: "chart-radar-icons",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-icons.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-icons.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-label-custom": {
+    name: "chart-radar-label-custom",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-label-custom.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-label-custom.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-legend": {
+    name: "chart-radar-legend",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-legend.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-legend.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-lines-only": {
+    name: "chart-radar-lines-only",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-lines-only.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-lines-only.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-multiple": {
+    name: "chart-radar-multiple",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-multiple.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-multiple.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
+  "chart-radar-radius": {
+    name: "chart-radar-radius",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-radar-radius.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-radar-radius.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-radar"],
+    meta: undefined,
+  },
   "use-media-query": {
     name: "use-media-query",
     description: "",

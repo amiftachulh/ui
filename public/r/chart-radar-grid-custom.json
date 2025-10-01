@@ -1,0 +1,19 @@
+{
+  "name": "chart-radar-grid-custom",
+  "type": "registry:block",
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "files": [
+    {
+      "path": "registry/default/charts/chart-radar-grid-custom.tsx",
+      "type": "registry:block",
+      "content": "\"use client\";\n\nimport { LuTrendingUp } from \"react-icons/lu\";\nimport { PolarAngleAxis, PolarGrid, Radar, RadarChart } from \"recharts\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/registry/default/ui/chart\";\n\nexport const description = \"A radar chart with a custom grid\";\n\nconst chartData = [\n  { month: \"January\", desktop: 186 },\n  { month: \"February\", desktop: 305 },\n  { month: \"March\", desktop: 237 },\n  { month: \"April\", desktop: 273 },\n  { month: \"May\", desktop: 209 },\n  { month: \"June\", desktop: 214 },\n];\n\nconst chartConfig = {\n  desktop: {\n    label: \"Desktop\",\n    color: \"var(--colors-chart-1)\",\n  },\n} satisfies ChartConfig;\n\nexport function ChartRadarGridCustom() {\n  return (\n    <Card>\n      <CardHeader css={{ alignItems: \"center\", pb: \"4\" }}>\n        <CardTitle>Radar Chart - Grid Custom</CardTitle>\n        <CardDescription>Showing total visitors for the last 6 months</CardDescription>\n      </CardHeader>\n      <CardContent css={{ pb: \"0\" }}>\n        <ChartContainer\n          config={chartConfig}\n          css={{ mx: \"auto\", aspectRatio: \"square\", maxH: \"250px\" }}\n        >\n          <RadarChart data={chartData}>\n            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />\n            <PolarGrid radialLines={false} polarRadius={[90]} strokeWidth={1} />\n            <PolarAngleAxis dataKey=\"month\" />\n            <Radar dataKey=\"desktop\" fill=\"var(--color-desktop)\" fillOpacity={0.6} />\n          </RadarChart>\n        </ChartContainer>\n      </CardContent>\n      <CardFooter css={{ flexDir: \"column\", gap: \"2\", textStyle: \"sm\" }}>\n        <styled.div\n          css={{\n            display: \"flex\",\n            alignItems: \"center\",\n            gap: \"2\",\n            lineHeight: \"none\",\n            fontWeight: \"medium\",\n          }}\n        >\n          Trending up by 5.2% this month <LuTrendingUp className={css({ w: \"4\", h: \"4\" })} />\n        </styled.div>\n        <styled.div\n          css={{\n            color: \"muted.fg\",\n            display: \"flex\",\n            alignItems: \"center\",\n            gap: \"2\",\n            lineHeight: \"none\",\n          }}\n        >\n          January - June 2024\n        </styled.div>\n      </CardFooter>\n    </Card>\n  );\n}\n"
+    }
+  ],
+  "categories": [
+    "charts",
+    "charts-radar"
+  ]
+}

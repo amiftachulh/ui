@@ -500,4 +500,174 @@ export const charts: Registry["items"] = [
     ],
     categories: ["charts", "charts-pie"],
   },
+
+  // Radar Charts
+  {
+    name: "chart-radar-default",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-default.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-dots",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-dots.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-grid-circle-fill",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-grid-circle-fill.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-grid-circle-no-lines",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-grid-circle-no-lines.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-grid-circle",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-grid-circle.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-grid-custom",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-grid-custom.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-grid-fill",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-grid-fill.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-grid-none",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-grid-none.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-icons",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-icons.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-label-custom",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-label-custom.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-legend",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-legend.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-lines-only",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-lines-only.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-multiple",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-multiple.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
+  {
+    name: "chart-radar-radius",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radar-radius.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radar"],
+  },
 ];

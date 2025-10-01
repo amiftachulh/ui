@@ -40,21 +40,21 @@ import { ChartPieLegend } from "@/registry/default/charts/chart-pie-legend";
 import { ChartPieSeparatorNone } from "@/registry/default/charts/chart-pie-separator-none";
 import { ChartPieSimple } from "@/registry/default/charts/chart-pie-simple";
 import { ChartPieStacked } from "@/registry/default/charts/chart-pie-stacked";
+import { ChartRadarDefault } from "@/registry/default/charts/chart-radar-default";
+import { ChartRadarDots } from "@/registry/default/charts/chart-radar-dots";
+import { ChartRadarGridCircle } from "@/registry/default/charts/chart-radar-grid-circle";
+import { ChartRadarGridCircleFill } from "@/registry/default/charts/chart-radar-grid-circle-fill";
+import { ChartRadarGridCircleNoLines } from "@/registry/default/charts/chart-radar-grid-circle-no-lines";
+import { ChartRadarGridCustom } from "@/registry/default/charts/chart-radar-grid-custom";
+import { ChartRadarGridFill } from "@/registry/default/charts/chart-radar-grid-fill";
+import { ChartRadarGridNone } from "@/registry/default/charts/chart-radar-grid-none";
+import { ChartRadarIcons } from "@/registry/default/charts/chart-radar-icons";
+import { ChartRadarLabelCustom } from "@/registry/default/charts/chart-radar-label-custom";
+import { ChartRadarLegend } from "@/registry/default/charts/chart-radar-legend";
+import { ChartRadarLinesOnly } from "@/registry/default/charts/chart-radar-lines-only";
+import { ChartRadarMultiple } from "@/registry/default/charts/chart-radar-multiple";
+import { ChartRadarRadius } from "@/registry/default/charts/chart-radar-radius";
 
-// import { ChartRadarDefault } from "@/registry/default/charts/chart-radar-default"
-// import { ChartRadarDots } from "@/registry/default/charts/chart-radar-dots"
-// import { ChartRadarGridCircle } from "@/registry/default/charts/chart-radar-grid-circle"
-// import { ChartRadarGridCircleFill } from "@/registry/default/charts/chart-radar-grid-circle-fill"
-// import { ChartRadarGridCircleNoLines } from "@/registry/default/charts/chart-radar-grid-circle-no-lines"
-// import { ChartRadarGridCustom } from "@/registry/default/charts/chart-radar-grid-custom"
-// import { ChartRadarGridFill } from "@/registry/default/charts/chart-radar-grid-fill"
-// import { ChartRadarGridNone } from "@/registry/default/charts/chart-radar-grid-none"
-// import { ChartRadarIcons } from "@/registry/default/charts/chart-radar-icons"
-// import { ChartRadarLabelCustom } from "@/registry/default/charts/chart-radar-label-custom"
-// import { ChartRadarLegend } from "@/registry/default/charts/chart-radar-legend"
-// import { ChartRadarLinesOnly } from "@/registry/default/charts/chart-radar-lines-only"
-// import { ChartRadarMultiple } from "@/registry/default/charts/chart-radar-multiple"
-// import { ChartRadarRadius } from "@/registry/default/charts/chart-radar-radius"
 // import { ChartRadialGrid } from "@/registry/default/charts/chart-radial-grid"
 // import { ChartRadialLabel } from "@/registry/default/charts/chart-radial-label"
 // import { ChartRadialShape } from "@/registry/default/charts/chart-radial-shape"
@@ -84,7 +84,7 @@ interface ChartGroups {
   bar: ChartItem[];
   line: ChartItem[];
   pie: ChartItem[];
-  // radar: ChartItem[];
+  radar: ChartItem[];
   // radial: ChartItem[];
   // tooltip: ChartItem[];
 }
@@ -151,25 +151,25 @@ export const charts: ChartGroups = {
     { id: "chart-pie-stacked", component: ChartPieStacked },
     { id: "chart-pie-interactive", component: ChartPieInteractive },
   ],
-  // radar: [
-  //   { id: "chart-radar-default", component: ChartRadarDefault },
-  //   { id: "chart-radar-dots", component: ChartRadarDots },
-  //   { id: "chart-radar-lines-only", component: ChartRadarLinesOnly },
-  //   { id: "chart-radar-label-custom", component: ChartRadarLabelCustom },
-  //   { id: "chart-radar-grid-custom", component: ChartRadarGridCustom },
-  //   { id: "chart-radar-grid-none", component: ChartRadarGridNone },
-  //   { id: "chart-radar-grid-circle", component: ChartRadarGridCircle },
-  //   {
-  //     id: "chart-radar-grid-circle-no-lines",
-  //     component: ChartRadarGridCircleNoLines,
-  //   },
-  //   { id: "chart-radar-grid-circle-fill", component: ChartRadarGridCircleFill },
-  //   { id: "chart-radar-grid-fill", component: ChartRadarGridFill },
-  //   { id: "chart-radar-multiple", component: ChartRadarMultiple },
-  //   { id: "chart-radar-legend", component: ChartRadarLegend },
-  //   { id: "chart-radar-icons", component: ChartRadarIcons },
-  //   { id: "chart-radar-radius", component: ChartRadarRadius },
-  // ],
+  radar: [
+    { id: "chart-radar-default", component: ChartRadarDefault },
+    { id: "chart-radar-dots", component: ChartRadarDots },
+    { id: "chart-radar-lines-only", component: ChartRadarLinesOnly },
+    { id: "chart-radar-label-custom", component: ChartRadarLabelCustom },
+    { id: "chart-radar-grid-custom", component: ChartRadarGridCustom },
+    { id: "chart-radar-grid-none", component: ChartRadarGridNone },
+    { id: "chart-radar-grid-circle", component: ChartRadarGridCircle },
+    {
+      id: "chart-radar-grid-circle-no-lines",
+      component: ChartRadarGridCircleNoLines,
+    },
+    { id: "chart-radar-grid-circle-fill", component: ChartRadarGridCircleFill },
+    { id: "chart-radar-grid-fill", component: ChartRadarGridFill },
+    { id: "chart-radar-multiple", component: ChartRadarMultiple },
+    { id: "chart-radar-legend", component: ChartRadarLegend },
+    { id: "chart-radar-icons", component: ChartRadarIcons },
+    { id: "chart-radar-radius", component: ChartRadarRadius },
+  ],
   // radial: [
   //   { id: "chart-radial-simple", component: ChartRadialSimple },
   //   { id: "chart-radial-label", component: ChartRadialLabel },
@@ -242,21 +242,21 @@ export {
   ChartPieDonutActive,
   ChartPieDonutText,
   ChartPieStacked,
-  // ChartPieInteractive,
-  // ChartRadarDefault,
-  // ChartRadarDots,
-  // ChartRadarLinesOnly,
-  // ChartRadarLabelCustom,
-  // ChartRadarGridCustom,
-  // ChartRadarGridNone,
-  // ChartRadarGridCircle,
-  // ChartRadarGridCircleNoLines,
-  // ChartRadarGridCircleFill,
-  // ChartRadarGridFill,
-  // ChartRadarMultiple,
-  // ChartRadarLegend,
-  // ChartRadarIcons,
-  // ChartRadarRadius,
+  ChartPieInteractive,
+  ChartRadarDefault,
+  ChartRadarDots,
+  ChartRadarLinesOnly,
+  ChartRadarLabelCustom,
+  ChartRadarGridCustom,
+  ChartRadarGridNone,
+  ChartRadarGridCircle,
+  ChartRadarGridCircleNoLines,
+  ChartRadarGridCircleFill,
+  ChartRadarGridFill,
+  ChartRadarMultiple,
+  ChartRadarLegend,
+  ChartRadarIcons,
+  ChartRadarRadius,
   // ChartRadialSimple,
   // ChartRadialLabel,
   // ChartRadialGrid,
