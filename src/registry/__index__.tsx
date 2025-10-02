@@ -3611,6 +3611,168 @@ export const Index: Record<string, any> = {
     categories: ["charts","charts-radial"],
     meta: undefined,
   },
+  "chart-tooltip-default": {
+    name: "chart-tooltip-default",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-default.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-default.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
+  "chart-tooltip-indicator-line": {
+    name: "chart-tooltip-indicator-line",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-indicator-line.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-indicator-line.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
+  "chart-tooltip-indicator-none": {
+    name: "chart-tooltip-indicator-none",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-indicator-none.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-indicator-none.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
+  "chart-tooltip-label-none": {
+    name: "chart-tooltip-label-none",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-label-none.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-label-none.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
+  "chart-tooltip-label-custom": {
+    name: "chart-tooltip-label-custom",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-label-custom.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-label-custom.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
+  "chart-tooltip-label-formatter": {
+    name: "chart-tooltip-label-formatter",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-label-formatter.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-label-formatter.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
+  "chart-tooltip-formatter": {
+    name: "chart-tooltip-formatter",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-formatter.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-formatter.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
+  "chart-tooltip-icons": {
+    name: "chart-tooltip-icons",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-icons.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-icons.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
+  "chart-tooltip-advanced": {
+    name: "chart-tooltip-advanced",
+    description: "",
+    type: "registry:block",
+    registryDependencies: ["card","chart"],
+    files: [{
+      path: "src/registry/default/charts/chart-tooltip-advanced.tsx",
+      type: "registry:block",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/charts/chart-tooltip-advanced.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["charts","charts-tooltip"],
+    meta: undefined,
+  },
   "use-media-query": {
     name: "use-media-query",
     description: "",

@@ -60,16 +60,15 @@ import { ChartRadialShape } from "@/registry/default/charts/chart-radial-shape";
 import { ChartRadialSimple } from "@/registry/default/charts/chart-radial-simple";
 import { ChartRadialStacked } from "@/registry/default/charts/chart-radial-stacked";
 import { ChartRadialText } from "@/registry/default/charts/chart-radial-text";
-
-// import { ChartTooltipAdvanced } from "@/registry/default/charts/chart-tooltip-advanced"
-// import { ChartTooltipDefault } from "@/registry/default/charts/chart-tooltip-default"
-// import { ChartTooltipFormatter } from "@/registry/default/charts/chart-tooltip-formatter"
-// import { ChartTooltipIcons } from "@/registry/default/charts/chart-tooltip-icons"
-// import { ChartTooltipIndicatorLine } from "@/registry/default/charts/chart-tooltip-indicator-line"
-// import { ChartTooltipIndicatorNone } from "@/registry/default/charts/chart-tooltip-indicator-none"
-// import { ChartTooltipLabelCustom } from "@/registry/default/charts/chart-tooltip-label-custom"
-// import { ChartTooltipLabelFormatter } from "@/registry/default/charts/chart-tooltip-label-formatter"
-// import { ChartTooltipLabelNone } from "@/registry/default/charts/chart-tooltip-label-none"
+import { ChartTooltipAdvanced } from "@/registry/default/charts/chart-tooltip-advanced";
+import { ChartTooltipDefault } from "@/registry/default/charts/chart-tooltip-default";
+import { ChartTooltipFormatter } from "@/registry/default/charts/chart-tooltip-formatter";
+import { ChartTooltipIcons } from "@/registry/default/charts/chart-tooltip-icons";
+import { ChartTooltipIndicatorLine } from "@/registry/default/charts/chart-tooltip-indicator-line";
+import { ChartTooltipIndicatorNone } from "@/registry/default/charts/chart-tooltip-indicator-none";
+import { ChartTooltipLabelCustom } from "@/registry/default/charts/chart-tooltip-label-custom";
+import { ChartTooltipLabelFormatter } from "@/registry/default/charts/chart-tooltip-label-formatter";
+import { ChartTooltipLabelNone } from "@/registry/default/charts/chart-tooltip-label-none";
 
 type ChartComponent = React.ComponentType;
 
@@ -86,7 +85,7 @@ interface ChartGroups {
   pie: ChartItem[];
   radar: ChartItem[];
   radial: ChartItem[];
-  // tooltip: ChartItem[];
+  tooltip: ChartItem[];
 }
 
 export const charts: ChartGroups = {
@@ -178,26 +177,26 @@ export const charts: ChartGroups = {
     { id: "chart-radial-shape", component: ChartRadialShape },
     { id: "chart-radial-stacked", component: ChartRadialStacked },
   ],
-  // tooltip: [
-  //   { id: "chart-tooltip-default", component: ChartTooltipDefault },
-  //   {
-  //     id: "chart-tooltip-indicator-line",
-  //     component: ChartTooltipIndicatorLine,
-  //   },
-  //   {
-  //     id: "chart-tooltip-indicator-none",
-  //     component: ChartTooltipIndicatorNone,
-  //   },
-  //   { id: "chart-tooltip-label-custom", component: ChartTooltipLabelCustom },
-  //   {
-  //     id: "chart-tooltip-label-formatter",
-  //     component: ChartTooltipLabelFormatter,
-  //   },
-  //   { id: "chart-tooltip-label-none", component: ChartTooltipLabelNone },
-  //   { id: "chart-tooltip-formatter", component: ChartTooltipFormatter },
-  //   { id: "chart-tooltip-icons", component: ChartTooltipIcons },
-  //   { id: "chart-tooltip-advanced", component: ChartTooltipAdvanced },
-  // ],
+  tooltip: [
+    { id: "chart-tooltip-default", component: ChartTooltipDefault },
+    {
+      id: "chart-tooltip-indicator-line",
+      component: ChartTooltipIndicatorLine,
+    },
+    {
+      id: "chart-tooltip-indicator-none",
+      component: ChartTooltipIndicatorNone,
+    },
+    { id: "chart-tooltip-label-custom", component: ChartTooltipLabelCustom },
+    {
+      id: "chart-tooltip-label-formatter",
+      component: ChartTooltipLabelFormatter,
+    },
+    { id: "chart-tooltip-label-none", component: ChartTooltipLabelNone },
+    { id: "chart-tooltip-formatter", component: ChartTooltipFormatter },
+    { id: "chart-tooltip-icons", component: ChartTooltipIcons },
+    { id: "chart-tooltip-advanced", component: ChartTooltipAdvanced },
+  ],
 };
 
 // Export individual components for backward compatibility
@@ -263,13 +262,13 @@ export {
   ChartRadialText,
   ChartRadialShape,
   ChartRadialStacked,
-  // ChartTooltipDefault,
-  // ChartTooltipIndicatorLine,
-  // ChartTooltipIndicatorNone,
-  // ChartTooltipLabelCustom,
-  // ChartTooltipLabelFormatter,
-  // ChartTooltipLabelNone,
-  // ChartTooltipFormatter,
-  // ChartTooltipIcons,
-  // ChartTooltipAdvanced,
+  ChartTooltipDefault,
+  ChartTooltipIndicatorLine,
+  ChartTooltipIndicatorNone,
+  ChartTooltipLabelCustom,
+  ChartTooltipLabelFormatter,
+  ChartTooltipLabelNone,
+  ChartTooltipFormatter,
+  ChartTooltipIcons,
+  ChartTooltipAdvanced,
 };

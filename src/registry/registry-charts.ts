@@ -744,4 +744,114 @@ export const charts: Registry["items"] = [
     ],
     categories: ["charts", "charts-radial"],
   },
+
+  // Chart Tooltips
+  {
+    name: "chart-tooltip-default",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-default.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
+  {
+    name: "chart-tooltip-indicator-line",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-indicator-line.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
+  {
+    name: "chart-tooltip-indicator-none",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-indicator-none.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
+  {
+    name: "chart-tooltip-label-none",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-label-none.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
+  {
+    name: "chart-tooltip-label-custom",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-label-custom.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
+  {
+    name: "chart-tooltip-label-formatter",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-label-formatter.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
+  {
+    name: "chart-tooltip-formatter",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-formatter.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
+  {
+    name: "chart-tooltip-icons",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-icons.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
+  {
+    name: "chart-tooltip-advanced",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-tooltip-advanced.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-tooltip"],
+  },
 ];
