@@ -670,4 +670,78 @@ export const charts: Registry["items"] = [
     ],
     categories: ["charts", "charts-radar"],
   },
+
+  // Radial Charts
+  {
+    name: "chart-radial-grid",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radial-grid.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radial"],
+  },
+  {
+    name: "chart-radial-label",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radial-label.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radial"],
+  },
+  {
+    name: "chart-radial-shape",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radial-shape.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radial"],
+  },
+  {
+    name: "chart-radial-simple",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radial-simple.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radial"],
+  },
+  {
+    name: "chart-radial-stacked",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radial-stacked.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radial"],
+  },
+  {
+    name: "chart-radial-text",
+    type: "registry:block",
+    registryDependencies: ["card", "chart"],
+    files: [
+      {
+        path: "charts/chart-radial-text.tsx",
+        type: "registry:block",
+      },
+    ],
+    categories: ["charts", "charts-radial"],
+  },
 ];

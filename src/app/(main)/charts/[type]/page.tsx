@@ -8,7 +8,7 @@ interface ChartPageProps {
   params: Promise<{ type: string }>;
 }
 
-const chartTypes = ["area", "bar", "line", "pie", "radar"] as const;
+const chartTypes = ["area", "bar", "line", "pie", "radar", "radial"] as const;
 
 type ChartType = (typeof chartTypes)[number];
 

@@ -54,13 +54,13 @@ import { ChartRadarLegend } from "@/registry/default/charts/chart-radar-legend";
 import { ChartRadarLinesOnly } from "@/registry/default/charts/chart-radar-lines-only";
 import { ChartRadarMultiple } from "@/registry/default/charts/chart-radar-multiple";
 import { ChartRadarRadius } from "@/registry/default/charts/chart-radar-radius";
+import { ChartRadialGrid } from "@/registry/default/charts/chart-radial-grid";
+import { ChartRadialLabel } from "@/registry/default/charts/chart-radial-label";
+import { ChartRadialShape } from "@/registry/default/charts/chart-radial-shape";
+import { ChartRadialSimple } from "@/registry/default/charts/chart-radial-simple";
+import { ChartRadialStacked } from "@/registry/default/charts/chart-radial-stacked";
+import { ChartRadialText } from "@/registry/default/charts/chart-radial-text";
 
-// import { ChartRadialGrid } from "@/registry/default/charts/chart-radial-grid"
-// import { ChartRadialLabel } from "@/registry/default/charts/chart-radial-label"
-// import { ChartRadialShape } from "@/registry/default/charts/chart-radial-shape"
-// import { ChartRadialSimple } from "@/registry/default/charts/chart-radial-simple"
-// import { ChartRadialStacked } from "@/registry/default/charts/chart-radial-stacked"
-// import { ChartRadialText } from "@/registry/default/charts/chart-radial-text"
 // import { ChartTooltipAdvanced } from "@/registry/default/charts/chart-tooltip-advanced"
 // import { ChartTooltipDefault } from "@/registry/default/charts/chart-tooltip-default"
 // import { ChartTooltipFormatter } from "@/registry/default/charts/chart-tooltip-formatter"
@@ -85,7 +85,7 @@ interface ChartGroups {
   line: ChartItem[];
   pie: ChartItem[];
   radar: ChartItem[];
-  // radial: ChartItem[];
+  radial: ChartItem[];
   // tooltip: ChartItem[];
 }
 
@@ -170,14 +170,14 @@ export const charts: ChartGroups = {
     { id: "chart-radar-icons", component: ChartRadarIcons },
     { id: "chart-radar-radius", component: ChartRadarRadius },
   ],
-  // radial: [
-  //   { id: "chart-radial-simple", component: ChartRadialSimple },
-  //   { id: "chart-radial-label", component: ChartRadialLabel },
-  //   { id: "chart-radial-grid", component: ChartRadialGrid },
-  //   { id: "chart-radial-text", component: ChartRadialText },
-  //   { id: "chart-radial-shape", component: ChartRadialShape },
-  //   { id: "chart-radial-stacked", component: ChartRadialStacked },
-  // ],
+  radial: [
+    { id: "chart-radial-simple", component: ChartRadialSimple },
+    { id: "chart-radial-label", component: ChartRadialLabel },
+    { id: "chart-radial-grid", component: ChartRadialGrid },
+    { id: "chart-radial-text", component: ChartRadialText },
+    { id: "chart-radial-shape", component: ChartRadialShape },
+    { id: "chart-radial-stacked", component: ChartRadialStacked },
+  ],
   // tooltip: [
   //   { id: "chart-tooltip-default", component: ChartTooltipDefault },
   //   {
@@ -257,12 +257,12 @@ export {
   ChartRadarLegend,
   ChartRadarIcons,
   ChartRadarRadius,
-  // ChartRadialSimple,
-  // ChartRadialLabel,
-  // ChartRadialGrid,
-  // ChartRadialText,
-  // ChartRadialShape,
-  // ChartRadialStacked,
+  ChartRadialSimple,
+  ChartRadialLabel,
+  ChartRadialGrid,
+  ChartRadialText,
+  ChartRadialShape,
+  ChartRadialStacked,
   // ChartTooltipDefault,
   // ChartTooltipIndicatorLine,
   // ChartTooltipIndicatorNone,
