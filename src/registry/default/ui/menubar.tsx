@@ -4,8 +4,8 @@ import * as React from "react";
 import { LuCheck, LuChevronRight, LuCircle } from "react-icons/lu";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { css } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { menubar } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withProvider, withContext } = createStyleContext(menubar);
 

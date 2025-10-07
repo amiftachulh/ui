@@ -4,8 +4,8 @@ import * as React from "react";
 import { LuChevronDown } from "react-icons/lu";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { css } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { accordion } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withProvider, withContext } = createStyleContext(accordion);
 

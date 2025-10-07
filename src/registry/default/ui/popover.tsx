@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { createStyleContext } from "styled-system/jsx";
 import { popover } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withRootProvider, withContext } = createStyleContext(popover);
 

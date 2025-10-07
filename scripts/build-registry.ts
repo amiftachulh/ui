@@ -83,10 +83,14 @@ async function buildRegistryJsonFile() {
 
   // Write the content of the registry to `registry.json`
   const targetPath = path.join(process.cwd(), "registry.json");
+  await fs.rm(targetPath, { force: true });
   await fs.writeFile(targetPath, JSON.stringify(fixedRegistry, null, 2));
 
-  // Copy the registry.json to the `public/r/` directory
-  await fs.cp(targetPath, path.join(process.cwd(), "public/r/registry.json"), {
+  // Clean up and copy the registry.json to the `public/r/` directory
+  const publicRPath = path.join(process.cwd(), "public/r");
+  await fs.rm(publicRPath, { recursive: true, force: true });
+  await fs.mkdir(publicRPath, { recursive: true });
+  await fs.cp(targetPath, path.join(publicRPath, "registry.json"), {
     recursive: true,
   });
 }

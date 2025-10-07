@@ -4,9 +4,8 @@ import * as React from "react";
 import { LuSearch } from "react-icons/lu";
 import { Command as CommandPrimitive } from "cmdk";
 import { css } from "styled-system/css";
-import { styled } from "styled-system/jsx";
+import { createStyleContext, styled } from "styled-system/jsx";
 import { command } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 import {
   Dialog,
   DialogContent,

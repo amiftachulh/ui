@@ -4,8 +4,8 @@ import * as React from "react";
 import { LuCircle } from "react-icons/lu";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { css } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { radioGroup } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withProvider, withContext } = createStyleContext(radioGroup);
 

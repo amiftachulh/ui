@@ -3,8 +3,8 @@
 import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { css } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { tooltip } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withRootProvider, withContext } = createStyleContext(tooltip);
 

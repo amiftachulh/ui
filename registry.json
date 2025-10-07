@@ -3876,16 +3876,6 @@
       ]
     },
     {
-      "name": "create-style-context",
-      "type": "registry:lib",
-      "files": [
-        {
-          "path": "registry/default/lib/create-style-context.tsx",
-          "type": "registry:lib"
-        }
-      ]
-    },
-    {
       "name": "accordion-demo",
       "type": "registry:example",
       "registryDependencies": [

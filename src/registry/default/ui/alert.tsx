@@ -1,7 +1,7 @@
 "use client";
 
+import { createStyleContext } from "styled-system/jsx";
 import { alert } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withProvider, withContext } = createStyleContext(alert);
 

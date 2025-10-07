@@ -4,8 +4,8 @@ import * as React from "react";
 import { LuChevronRight, LuEllipsis } from "react-icons/lu";
 import { Slot } from "@radix-ui/react-slot";
 import { css } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { breadcrumb } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withProvider, withContext } = createStyleContext(breadcrumb);
 

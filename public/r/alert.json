@@ -8,7 +8,7 @@
     {
       "path": "registry/default/ui/alert.tsx",
       "type": "registry:ui",
-      "content": "\"use client\";\n\nimport { alert } from \"styled-system/recipes\";\nimport { createStyleContext } from \"@/registry/default/lib/create-style-context\";\n\nconst { withProvider, withContext } = createStyleContext(alert);\n\nconst Alert = withProvider(\"div\", \"root\");\nconst AlertIcon = withContext(\"span\", \"icon\");\nconst AlertContent = withContext(\"div\", \"content\");\nconst AlertTitle = withContext(\"div\", \"title\");\nconst AlertDescription = withContext(\"div\", \"description\");\n\nexport { Alert, AlertContent, AlertDescription, AlertIcon, AlertTitle };\n"
+      "content": "\"use client\";\n\nimport { createStyleContext } from \"styled-system/jsx\";\nimport { alert } from \"styled-system/recipes\";\n\nconst { withProvider, withContext } = createStyleContext(alert);\n\nconst Alert = withProvider(\"div\", \"root\");\nconst AlertIcon = withContext(\"span\", \"icon\");\nconst AlertContent = withContext(\"div\", \"content\");\nconst AlertTitle = withContext(\"div\", \"title\");\nconst AlertDescription = withContext(\"div\", \"description\");\n\nexport { Alert, AlertContent, AlertDescription, AlertIcon, AlertTitle };\n"
     },
     {
       "path": "registry/default/slot-recipes/alert.ts",

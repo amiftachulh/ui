@@ -5,7 +5,7 @@
     {
       "path": "registry/default/ui/card.tsx",
       "type": "registry:ui",
-      "content": "\"use client\";\n\nimport { card } from \"styled-system/recipes\";\nimport { createStyleContext } from \"@/registry/default/lib/create-style-context\";\n\nconst { withProvider, withContext } = createStyleContext(card);\n\nconst Card = withProvider(\"div\", \"root\");\nconst CardHeader = withContext(\"div\", \"header\");\nconst CardTitle = withContext(\"div\", \"title\");\nconst CardDescription = withContext(\"div\", \"description\");\nconst CardAction = withContext(\"div\", \"action\");\nconst CardContent = withContext(\"div\", \"content\");\nconst CardFooter = withContext(\"div\", \"footer\");\n\nexport { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter };\n"
+      "content": "\"use client\";\n\nimport { createStyleContext } from \"styled-system/jsx\";\nimport { card } from \"styled-system/recipes\";\n\nconst { withProvider, withContext } = createStyleContext(card);\n\nconst Card = withProvider(\"div\", \"root\");\nconst CardHeader = withContext(\"div\", \"header\");\nconst CardTitle = withContext(\"div\", \"title\");\nconst CardDescription = withContext(\"div\", \"description\");\nconst CardAction = withContext(\"div\", \"action\");\nconst CardContent = withContext(\"div\", \"content\");\nconst CardFooter = withContext(\"div\", \"footer\");\n\nexport { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter };\n"
     },
     {
       "path": "registry/default/slot-recipes/card.ts",

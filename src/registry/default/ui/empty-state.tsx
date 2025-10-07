@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
+import { createStyleContext } from "styled-system/jsx";
 import { emptyState } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withProvider, withContext } = createStyleContext(emptyState);
 

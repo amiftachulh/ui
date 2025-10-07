@@ -3,8 +3,8 @@
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { cx } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { alertDialog, button } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withRootProvider, withContext } = createStyleContext(alertDialog);
 

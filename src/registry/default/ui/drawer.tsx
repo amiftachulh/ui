@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import { css } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { drawer } from "styled-system/recipes";
 import { Drawer as DrawerPrimitive } from "vaul";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withRootProvider, withContext } = createStyleContext(drawer);
 

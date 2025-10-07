@@ -4,8 +4,8 @@ import * as React from "react";
 import { LuCheck, LuChevronRight, LuCircle } from "react-icons/lu";
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 import { css } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { contextMenu } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withRootProvider, withContext } = createStyleContext(contextMenu);
 

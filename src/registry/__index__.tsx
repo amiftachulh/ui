@@ -3867,24 +3867,6 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
-  "create-style-context": {
-    name: "create-style-context",
-    description: "",
-    type: "registry:lib",
-    registryDependencies: undefined,
-    files: [{
-      path: "src/registry/default/lib/create-style-context.tsx",
-      type: "registry:lib",
-      target: ""
-    }],
-    component: React.lazy(async () => {
-      const mod = await import("@/registry/default/lib/create-style-context.tsx")
-      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
-      return { default: mod.default || mod[exportName] }
-    }),
-    categories: undefined,
-    meta: undefined,
-  },
   "accordion-demo": {
     name: "accordion-demo",
     description: "",

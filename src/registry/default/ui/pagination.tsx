@@ -3,8 +3,8 @@
 import * as React from "react";
 import { LuChevronLeft, LuChevronRight, LuEllipsis } from "react-icons/lu";
 import { css, cx } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { button, ButtonVariantProps, pagination } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withProvider, withContext } = createStyleContext(pagination);
 

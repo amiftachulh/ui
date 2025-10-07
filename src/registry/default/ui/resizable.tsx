@@ -4,8 +4,8 @@ import * as React from "react";
 import { LuGripVertical } from "react-icons/lu";
 import * as ResizablePrimitive from "react-resizable-panels";
 import { css } from "styled-system/css";
+import { createStyleContext } from "styled-system/jsx";
 import { resizable } from "styled-system/recipes";
-import { createStyleContext } from "@/registry/default/lib/create-style-context";
 
 const { withProvider, withContext } = createStyleContext(resizable);
 
