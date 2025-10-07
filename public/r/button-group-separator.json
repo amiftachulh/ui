@@ -1,0 +1,14 @@
+{
+  "name": "button-group-separator",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-group-separator.tsx",
+      "type": "registry:example",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\nimport { ButtonGroup, ButtonGroupSeparator } from \"@/registry/default/ui/button-group\";\n\nexport default function ButtonGroupSeparatorDemo() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"secondary\" size=\"sm\">\n        Copy\n      </Button>\n      <ButtonGroupSeparator />\n      <Button variant=\"secondary\" size=\"sm\">\n        Paste\n      </Button>\n    </ButtonGroup>\n  );\n}\n"
+    }
+  ]
+}

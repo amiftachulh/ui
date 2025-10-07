@@ -1,0 +1,14 @@
+{
+  "name": "input-group-icon",
+  "type": "registry:example",
+  "registryDependencies": [
+    "input-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/input-group-icon.tsx",
+      "type": "registry:example",
+      "content": "import { LuCheck, LuCreditCard, LuInfo, LuMail, LuSearch, LuStar } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { InputGroup, InputGroupAddon, InputGroupInput } from \"@/registry/default/ui/input-group\";\n\nexport default function InputGroupIcon() {\n  return (\n    <styled.div css={{ display: \"grid\", w: \"full\", maxW: \"sm\", gap: \"6\" }}>\n      <InputGroup>\n        <InputGroupInput placeholder=\"Search...\" />\n        <InputGroupAddon>\n          <LuSearch />\n        </InputGroupAddon>\n      </InputGroup>\n      <InputGroup>\n        <InputGroupInput type=\"email\" placeholder=\"Enter your email\" />\n        <InputGroupAddon>\n          <LuMail />\n        </InputGroupAddon>\n      </InputGroup>\n      <InputGroup>\n        <InputGroupInput placeholder=\"Card number\" />\n        <InputGroupAddon>\n          <LuCreditCard />\n        </InputGroupAddon>\n        <InputGroupAddon align=\"inline-end\">\n          <LuCheck />\n        </InputGroupAddon>\n      </InputGroup>\n      <InputGroup>\n        <InputGroupInput placeholder=\"Card number\" />\n        <InputGroupAddon align=\"inline-end\">\n          <LuStar />\n          <LuInfo />\n        </InputGroupAddon>\n      </InputGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

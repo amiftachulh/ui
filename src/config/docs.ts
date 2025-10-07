@@ -211,6 +211,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Button Group",
+          href: "/docs/components/button-group",
+          items: [],
+        },
+        {
           title: "Calendar",
           href: "/docs/components/calendar",
           items: [],
@@ -298,6 +303,11 @@ export const docsConfig: DocsConfig = {
         {
           title: "Input",
           href: "/docs/components/input",
+          items: [],
+        },
+        {
+          title: "Input Group",
+          href: "/docs/components/input-group",
           items: [],
         },
         // {

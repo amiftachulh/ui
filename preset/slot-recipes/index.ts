@@ -3,6 +3,7 @@ import { alertSlotRecipe } from "@/registry/default/slot-recipes/alert";
 import { alertDialogSlotRecipe } from "@/registry/default/slot-recipes/alert-dialog";
 import { avatarSlotRecipe } from "@/registry/default/slot-recipes/avatar";
 import { breadcrumbSlotRecipe } from "@/registry/default/slot-recipes/breadcrumb";
+import { buttonGroupSlotRecipe } from "@/registry/default/slot-recipes/button-group";
 import { cardSlotRecipe } from "@/registry/default/slot-recipes/card";
 import { carouselSlotRecipe } from "@/registry/default/slot-recipes/carousel";
 import { chartSlotRecipe } from "@/registry/default/slot-recipes/chart";
@@ -15,6 +16,7 @@ import { dropdownMenuSlotRecipe } from "@/registry/default/slot-recipes/dropdown
 import { emptyStateSlotRecipe } from "@/registry/default/slot-recipes/empty-state";
 import { fieldSlotRecipe } from "@/registry/default/slot-recipes/field";
 import { hoverCardSlotRecipe } from "@/registry/default/slot-recipes/hover-card";
+import { inputGroupSlotRecipes } from "@/registry/default/slot-recipes/input-group";
 import { menubarSlotRecipe } from "@/registry/default/slot-recipes/menubar";
 import { navigationMenuSlotRecipe } from "@/registry/default/slot-recipes/navigation-menu";
 import { paginationSlotRecipe } from "@/registry/default/slot-recipes/pagination";
@@ -41,6 +43,7 @@ export const slotRecipes = {
   alertDialog: alertDialogSlotRecipe,
   avatar: avatarSlotRecipe,
   breadcrumb: breadcrumbSlotRecipe,
+  buttonGroup: buttonGroupSlotRecipe,
   card: cardSlotRecipe,
   carousel: carouselSlotRecipe,
   chart: chartSlotRecipe,
@@ -52,6 +55,7 @@ export const slotRecipes = {
   dialog: dialogSlotRecipe,
   emptyState: emptyStateSlotRecipe,
   field: fieldSlotRecipe,
+  inputGroup: inputGroupSlotRecipes,
   hoverCard: hoverCardSlotRecipe,
   menubar: menubarSlotRecipe,
   navigationMenu: navigationMenuSlotRecipe,

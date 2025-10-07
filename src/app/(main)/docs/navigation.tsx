@@ -6,6 +6,7 @@ import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { scroll } from "styled-system/recipes";
 import { docsConfig } from "@/config/docs";
+import { NEW_PAGES } from "@/lib/docs";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -50,9 +51,13 @@ export default function Navigation() {
               <li key={item.href}>
                 <Link
                   href={item.href as string}
+                  data-active={pathname === item.href}
                   className={css({
-                    display: "block",
-                    bg: pathname === item.href ? "primary/10!" : "transparent",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1",
+                    w: "full",
+                    bg: "transparent",
                     color: "fg",
                     px: "2",
                     py: "1",
@@ -61,9 +66,27 @@ export default function Navigation() {
                     _hover: {
                       bg: "zinc.500/20",
                     },
+                    "&[data-active=true]": {
+                      bg: "primary/10",
+                    },
                   })}
                 >
                   {item.title}
+                  {NEW_PAGES.includes(item.href as string) && (
+                    <styled.span
+                      css={{
+                        ml: "2",
+                        px: "1.5",
+                        py: "0.5",
+                        textStyle: "xs",
+                        rounded: "full",
+                        bg: "blue.700",
+                        color: "blue.100",
+                      }}
+                    >
+                      New
+                    </styled.span>
+                  )}
                 </Link>
               </li>
             ))}

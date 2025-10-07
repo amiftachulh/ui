@@ -1,0 +1,14 @@
+{
+  "name": "button-group-select",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-group-select.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuArrowRight } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\";\nimport { Input } from \"@/registry/default/ui/input\";\nimport { Select, SelectContent, SelectItem, SelectTrigger } from \"@/registry/default/ui/select\";\n\nconst CURRENCIES = [\n  {\n    value: \"$\",\n    label: \"US Dollar\",\n  },\n  {\n    value: \"€\",\n    label: \"Euro\",\n  },\n  {\n    value: \"£\",\n    label: \"British Pound\",\n  },\n];\n\nexport default function ButtonGroupSelect() {\n  const [currency, setCurrency] = React.useState(\"$\");\n\n  return (\n    <ButtonGroup>\n      <ButtonGroup>\n        <Select value={currency} onValueChange={setCurrency}>\n          <SelectTrigger css={{ fontFamily: \"mono\" }}>{currency}</SelectTrigger>\n          <SelectContent css={{ minW: \"24\" }}>\n            {CURRENCIES.map((currency) => (\n              <SelectItem key={currency.value} value={currency.value}>\n                {currency.value}{\" \"}\n                <styled.span css={{ color: \"muted.fg\" }}>{currency.label}</styled.span>\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n        <Input placeholder=\"10.00\" pattern=\"[0-9]*\" />\n      </ButtonGroup>\n      <ButtonGroup>\n        <Button aria-label=\"Send\" size=\"icon\" variant=\"outline\">\n          <LuArrowRight />\n        </Button>\n      </ButtonGroup>\n    </ButtonGroup>\n  );\n}\n"
+    }
+  ]
+}

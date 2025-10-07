@@ -125,6 +125,24 @@
       ]
     },
     {
+      "name": "button-group",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "button",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/button-group.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/slot-recipes/button-group.ts",
+          "type": "registry:slot-recipe"
+        }
+      ]
+    },
+    {
       "name": "calendar",
       "type": "registry:ui",
       "dependencies": [
@@ -344,6 +362,21 @@
         {
           "path": "registry/default/recipes/input.ts",
           "type": "registry:recipe"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "button",
+        "input",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/input-group.tsx",
+          "type": "registry:ui"
         }
       ]
     },
@@ -653,6 +686,16 @@
       "files": [
         {
           "path": "registry/default/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/spinner.tsx",
           "type": "registry:ui"
         }
       ]
@@ -4130,6 +4173,149 @@
       ]
     },
     {
+      "name": "button-group-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-nested",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-nested.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-size",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-size.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-separator",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-separator.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-split",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-split.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-input",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-input.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-dropdown",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-dropdown.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-select",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-select.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-popover",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-popover.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-input-group",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-input-group.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "button-group-orientation",
+      "type": "registry:example",
+      "registryDependencies": [
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/button-group-orientation.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "calendar-date-time",
       "type": "registry:example",
       "registryDependencies": [
@@ -4800,6 +4986,160 @@
       "files": [
         {
           "path": "registry/default/examples/input-left-and-right.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-label",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-label.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-text",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-text.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-tooltip",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-tooltip.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-button",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-button.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-button-group",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group",
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-button-group.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-dropdown",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group",
+        "dropdown-menu",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-dropdown.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-spinner",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-spinner.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-textarea",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-textarea.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-icon",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-icon.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-group-custom",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-group",
+        "badge",
+        "progress",
+        "dropdown-menu",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-group-custom.tsx",
           "type": "registry:example"
         }
       ]

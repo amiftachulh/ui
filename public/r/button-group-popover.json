@@ -1,0 +1,14 @@
+{
+  "name": "button-group-popover",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-group-popover.tsx",
+      "type": "registry:example",
+      "content": "import { LuBot, LuChevronDown } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\";\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/registry/default/ui/popover\";\nimport { Separator } from \"@/registry/default/ui/separator\";\nimport { Textarea } from \"@/registry/default/ui/textarea\";\n\nexport default function ButtonGroupPopover() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"outline\">\n        <LuBot /> Copilot\n      </Button>\n      <Popover>\n        <PopoverTrigger asChild>\n          <Button variant=\"outline\" size=\"icon\" aria-label=\"Open Popover\">\n            <LuChevronDown />\n          </Button>\n        </PopoverTrigger>\n        <PopoverContent align=\"end\" css={{ rounded: \"xl\", p: \"0\", textStyle: \"sm\" }}>\n          <styled.div css={{ px: \"4\", py: \"3\" }}>\n            <styled.div css={{ textStyle: \"sm\", fontWeight: \"medium\" }}>Agent Tasks</styled.div>\n          </styled.div>\n          <Separator />\n          <styled.div css={{ p: \"4\", textStyle: \"sm\", \"& > p:not(:last-child)\": { mb: \"2\" } }}>\n            <Textarea\n              placeholder=\"Describe your task in natural language.\"\n              css={{ mb: \"4\", resize: \"none\" }}\n            />\n            <styled.p css={{ fontWeight: \"medium\" }}>Start a new task with Copilot</styled.p>\n            <styled.p css={{ color: \"muted.fg\" }}>\n              Describe your task in natural language. Copilot will work in the background and open a\n              pull request for your review.\n            </styled.p>\n          </styled.div>\n        </PopoverContent>\n      </Popover>\n    </ButtonGroup>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "spinner",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/default/ui/spinner.tsx",
+      "type": "registry:ui",
+      "content": "import { LuLoaderCircle } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\n\nconst Spinner = styled(\n  LuLoaderCircle,\n  {\n    base: {\n      w: \"4\",\n      h: \"4\",\n      animation: \"spin\",\n    },\n  },\n  {\n    defaultProps: {\n      role: \"status\",\n      \"aria-label\": \"Loading\",\n    },\n  }\n);\n\nexport { Spinner };\n"
+    }
+  ]
+}

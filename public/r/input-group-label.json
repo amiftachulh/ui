@@ -1,0 +1,15 @@
+{
+  "name": "input-group-label",
+  "type": "registry:example",
+  "registryDependencies": [
+    "input-group",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/input-group-label.tsx",
+      "type": "registry:example",
+      "content": "import { LuInfo } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupInput,\n} from \"@/registry/default/ui/input-group\";\nimport { Label } from \"@/registry/default/ui/label\";\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"@/registry/default/ui/tooltip\";\n\nexport default function InputGroupLabel() {\n  return (\n    <styled.div css={{ display: \"grid\", w: \"full\", maxW: \"sm\", gap: \"4\" }}>\n      <InputGroup>\n        <InputGroupInput id=\"email\" placeholder=\"shadcn\" />\n        <InputGroupAddon>\n          <Label htmlFor=\"email\">@</Label>\n        </InputGroupAddon>\n      </InputGroup>\n      <InputGroup>\n        <InputGroupInput id=\"email-2\" placeholder=\"shadcn@vercel.com\" />\n        <InputGroupAddon align=\"block-start\">\n          <Label htmlFor=\"email-2\" css={{ color: \"fg\" }}>\n            Email\n          </Label>\n          <Tooltip>\n            <TooltipTrigger asChild>\n              <InputGroupButton\n                variant=\"ghost\"\n                aria-label=\"Help\"\n                css={{ ml: \"auto\", rounded: \"full\" }}\n                size=\"icon-xs\"\n              >\n                <LuInfo />\n              </InputGroupButton>\n            </TooltipTrigger>\n            <TooltipContent>\n              <p>We&apos;ll use this to send you notifications</p>\n            </TooltipContent>\n          </Tooltip>\n        </InputGroupAddon>\n      </InputGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

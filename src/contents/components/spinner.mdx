@@ -1,0 +1,107 @@
+---
+title: Spinner
+description: An indicator that can be used to show a loading state.
+---
+
+<ComponentPreview name="spinner-demo" />
+
+## Installation
+
+<InstallationTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+  <PackageRunner command="nore-ui-cli@latest add spinner" />
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="spinner.tsx" type="component" />
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</InstallationTabs>
+
+## Usage
+
+```tsx
+import { Spinner } from "@/components/ui/spinner";
+```
+
+```tsx
+<Spinner />
+```
+
+## Customization
+
+You can replace the default spinner icon with any other icon by editing the `Spinner` component.
+
+<ComponentPreview name="spinner-custom" />
+
+```tsx
+import { LuLoader } from "react-icons/lu";
+import { styled } from "styled-system/jsx";
+
+const Spinner = styled(
+  LuLoader,
+  {
+    base: {
+      w: "4",
+      h: "4",
+      animation: "spin",
+    },
+  },
+  {
+    defaultProps: {
+      role: "status",
+      "aria-label": "Loading",
+    },
+  }
+);
+
+export { Spinner };
+```
+
+## Examples
+
+### Size
+
+Use `width` and `height` to change the size of the spinner.
+
+<ComponentPreview name="spinner-size" />
+
+### Color
+
+Use `color` to change the color of the spinner.
+
+<ComponentPreview name="spinner-color" />
+
+### Button
+
+Add a spinner to a button to indicate a loading state. The `<Button />` will handle the spacing between the spinner and the text.
+
+<ComponentPreview name="spinner-button" />
+
+### Badge
+
+You can also use a spinner inside a badge.
+
+<ComponentPreview name="spinner-badge" />
+
+### Input Group
+
+Input Group can have spinners inside `<InputGroupAddon>`.
+
+<ComponentPreview name="spinner-input-group" />

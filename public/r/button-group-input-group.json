@@ -1,0 +1,14 @@
+{
+  "name": "button-group-input-group",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-group-input-group.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { LuAudioLines, LuPlus } from \"react-icons/lu\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupInput,\n} from \"@/registry/default/ui/input-group\";\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"@/registry/default/ui/tooltip\";\n\nexport default function ButtonGroupInputGroup() {\n  const [voiceEnabled, setVoiceEnabled] = React.useState(false);\n\n  return (\n    <ButtonGroup>\n      <ButtonGroup>\n        <Button variant=\"outline\" size=\"icon\" css={{ rounded: \"full\" }}>\n          <LuPlus />\n        </Button>\n      </ButtonGroup>\n      <ButtonGroup>\n        <InputGroup css={{ rounded: \"full\" }}>\n          <InputGroupInput\n            placeholder={voiceEnabled ? \"Record and send audio...\" : \"Send a message...\"}\n            disabled={voiceEnabled}\n          />\n          <InputGroupAddon align=\"inline-end\">\n            <Tooltip>\n              <TooltipTrigger asChild>\n                <InputGroupButton\n                  onClick={() => setVoiceEnabled(!voiceEnabled)}\n                  size=\"icon-xs\"\n                  data-active={voiceEnabled}\n                  css={{\n                    rounded: \"full\",\n                    \"&[data-active=true]\": {\n                      bg: \"orange.100\",\n                      color: \"orange.700\",\n                      _dark: {\n                        bg: \"orange.800\",\n                        color: \"orange.100\",\n                      },\n                    },\n                  }}\n                  aria-pressed={voiceEnabled}\n                >\n                  <LuAudioLines />\n                </InputGroupButton>\n              </TooltipTrigger>\n              <TooltipContent>Voice Mode</TooltipContent>\n            </Tooltip>\n          </InputGroupAddon>\n        </InputGroup>\n      </ButtonGroup>\n    </ButtonGroup>\n  );\n}\n"
+    }
+  ]
+}

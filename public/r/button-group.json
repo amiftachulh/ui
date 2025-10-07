@@ -1,0 +1,20 @@
+{
+  "name": "button-group",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/button-group.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Slot } from \"@radix-ui/react-slot\";\nimport { createStyleContext } from \"styled-system/jsx\";\nimport { buttonGroup } from \"styled-system/recipes\";\nimport { Separator } from \"@/registry/default/ui/separator\";\n\nconst { withProvider, withContext } = createStyleContext(buttonGroup);\n\nfunction Root({\n  orientation = \"horizontal\",\n  ...props\n}: React.ComponentProps<\"div\"> & { orientation?: \"horizontal\" | \"vertical\" }) {\n  return <div role=\"group\" data-orientation={orientation} {...props} />;\n}\nconst ButtonGroup = withProvider(Root, \"root\");\n\nfunction Text({ asChild = false, ...props }: React.ComponentProps<\"div\"> & { asChild?: boolean }) {\n  const Comp = asChild ? Slot : \"div\";\n\n  return <Comp {...props} />;\n}\nconst ButtonGroupText = withContext(Text, \"text\");\n\nfunction SeparatorBase({\n  orientation = \"vertical\",\n  ...props\n}: React.ComponentProps<typeof Separator>) {\n  return <Separator orientation={orientation} {...props} />;\n}\nconst ButtonGroupSeparator = withContext(SeparatorBase, \"separator\");\n\nexport { ButtonGroup, ButtonGroupText, ButtonGroupSeparator };\n"
+    },
+    {
+      "path": "registry/default/slot-recipes/button-group.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const buttonGroupSlotRecipe = defineSlotRecipe({\n  className: \"button-group\",\n  slots: [\"root\", \"separator\", \"text\"],\n  base: {\n    root: {\n      display: \"flex\",\n      w: \"fit\",\n      alignItems: \"stretch\",\n      \"& > *\": {\n        _focusVisible: {\n          pos: \"relative\",\n          zIndex: \"10\",\n        },\n      },\n      \"& > .select__trigger\": {\n        w: \"fit\",\n        _lastOfType: {\n          \"&:has(select[aria-hidden=true]:last-child)\": {\n            roundedRight: \"md\",\n          },\n        },\n      },\n      \"& > input\": {\n        flex: \"1\",\n      },\n      \"&:has(> .button-group__root)\": {\n        gap: \"2\",\n      },\n      _horizontal: {\n        \"& > *:not(:first-child)\": {\n          roundedLeft: \"0!\",\n          borderLeftWidth: \"0!\",\n        },\n        \"& > *:not(:last-child)\": {\n          roundedRight: \"0!\",\n        },\n      },\n      _vertical: {\n        flexDir: \"column\",\n        \"& > *:not(:first-child)\": {\n          roundedTop: \"0!\",\n          borderTopWidth: \"0!\",\n        },\n        \"& > *:not(:last-child)\": {\n          roundedBottom: \"0!\",\n        },\n      },\n    },\n\n    text: {\n      bg: \"muted\",\n      display: \"flex\",\n      alignItems: \"center\",\n      gap: \"2\",\n      rounded: \"md\",\n      borderWidth: \"1px\",\n      px: \"4\",\n      textStyle: \"sm\",\n      fontWeight: \"medium\",\n      shadow: \"xs\",\n      \"& svg\": {\n        pointerEvents: \"none\",\n        w: \"4\",\n        h: \"4\",\n      },\n    },\n\n    separator: {\n      bg: \"input\",\n      pos: \"relative\",\n      m: \"0!\",\n      alignSelf: \"stretch\",\n      _vertical: {\n        h: \"auto\",\n      },\n    },\n  },\n});\n"
+    }
+  ]
+}

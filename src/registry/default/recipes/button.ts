@@ -20,7 +20,7 @@ export const buttonRecipe = defineRecipe({
     outlineColor: "transparent",
     _focusVisible: {
       borderColor: "ring",
-      outlineWidth: "2px",
+      outlineWidth: "3px",
       outlineStyle: "solid",
       outlineColor: "ring/50",
     },
@@ -174,6 +174,14 @@ export const buttonRecipe = defineRecipe({
       icon: {
         w: "9",
         h: "9",
+      },
+      "icon-sm": {
+        w: "8",
+        h: "8",
+      },
+      "icon-lg": {
+        w: "10",
+        h: "10",
       },
     },
   },

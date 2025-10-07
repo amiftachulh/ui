@@ -1,0 +1,15 @@
+{
+  "name": "input-group-textarea",
+  "type": "registry:example",
+  "registryDependencies": [
+    "input-group",
+    "textarea"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/input-group-textarea.tsx",
+      "type": "registry:example",
+      "content": "import { TbBrandJavascript, TbCopy, TbCornerDownLeft, TbRefresh } from \"react-icons/tb\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupText,\n  InputGroupTextarea,\n} from \"@/registry/default/ui/input-group\";\n\nexport default function InputGroupTextareaExample() {\n  return (\n    <styled.div css={{ display: \"grid\", w: \"full\", maxW: \"md\", gap: \"4\" }}>\n      <InputGroup>\n        <InputGroupTextarea\n          id=\"textarea-code-32\"\n          placeholder=\"console.log('Hello, world!');\"\n          css={{ minH: \"200px\" }}\n        />\n        <InputGroupAddon align=\"block-end\" css={{ borderTopWidth: \"1px\" }}>\n          <InputGroupText>Line 1, Column 1</InputGroupText>\n          <InputGroupButton size=\"sm\" css={{ ml: \"auto\" }}>\n            Run <TbCornerDownLeft />\n          </InputGroupButton>\n        </InputGroupAddon>\n        <InputGroupAddon align=\"block-start\" css={{ borderBottomWidth: \"1px\" }}>\n          <InputGroupText css={{ fontFamily: \"mono\", fontWeight: \"medium\" }}>\n            <TbBrandJavascript />\n            script.js\n          </InputGroupText>\n          <InputGroupButton css={{ ml: \"auto\" }} size=\"icon-xs\">\n            <TbRefresh />\n          </InputGroupButton>\n          <InputGroupButton variant=\"ghost\" size=\"icon-xs\">\n            <TbCopy />\n          </InputGroupButton>\n        </InputGroupAddon>\n      </InputGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

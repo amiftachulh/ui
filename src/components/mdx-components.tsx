@@ -6,6 +6,7 @@ import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { badge } from "styled-system/recipes";
 import { Alert, AlertContent, AlertDescription, AlertIcon } from "@/registry/default/ui/alert";
+import { Kbd } from "@/registry/default/ui/kbd";
 import {
   Table,
   TableBody,
@@ -138,12 +139,14 @@ const components: MDXComponents = {
   },
   code: ({ children }) => (
     <styled.code
-      className={badge({ variant: "secondary", size: "md" })}
+      className={badge({ variant: "secondary", size: "sm" })}
       css={{
         px: "0.5",
         rounded: "sm",
         color: "secondary.fg",
         userSelect: "auto",
+        fontSize: "0.8rem",
+        fontWeight: "normal",
       }}
     >
       {children}
@@ -169,10 +172,10 @@ const components: MDXComponents = {
   ),
   table: (props) => (
     <styled.div css={{ my: "4", rounded: "md", borderWidth: "1px" }}>
-      <Table {...props} />
+      <Table css={{ overflow: "hidden" }} {...props} />
     </styled.div>
   ),
-  thead: (props) => <TableHeader css={{ bg: "muted" }} {...props} />,
+  thead: (props) => <TableHeader {...props} />,
   tbody: TableBody,
   tr: TableRow,
   th: (props) => <TableHead css={{ color: "fg" }} {...props} />,
@@ -277,6 +280,7 @@ const components: MDXComponents = {
   TabsTrigger,
   TabsContent,
   InstallationTabs,
+  Kbd,
 };
 
 export default components;

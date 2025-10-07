@@ -1,0 +1,14 @@
+{
+  "name": "button-group-split",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/button-group-split.tsx",
+      "type": "registry:example",
+      "content": "import { TbPlus } from \"react-icons/tb\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { ButtonGroup, ButtonGroupSeparator } from \"@/registry/default/ui/button-group\";\n\nexport default function ButtonGroupSplit() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"secondary\">Button</Button>\n      <ButtonGroupSeparator />\n      <Button size=\"icon\" variant=\"secondary\">\n        <TbPlus />\n      </Button>\n    </ButtonGroup>\n  );\n}\n"
+    }
+  ]
+}

@@ -108,6 +108,21 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "button-group",
+    type: "registry:ui",
+    registryDependencies: ["button", "separator"],
+    files: [
+      {
+        path: "ui/button-group.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "slot-recipes/button-group.ts",
+        type: "registry:slot-recipe",
+      },
+    ],
+  },
+  {
     name: "calendar",
     type: "registry:ui",
     dependencies: ["react-day-picker", "dayjs"],
@@ -295,6 +310,17 @@ export const ui: Registry["items"] = [
       {
         path: "recipes/input.ts",
         type: "registry:recipe",
+      },
+    ],
+  },
+  {
+    name: "input-group",
+    type: "registry:ui",
+    registryDependencies: ["button", "input", "textarea"],
+    files: [
+      {
+        path: "ui/input-group.tsx",
+        type: "registry:ui",
       },
     ],
   },
@@ -567,6 +593,16 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/sonner.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "spinner",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/spinner.tsx",
         type: "registry:ui",
       },
     ],

@@ -1,0 +1,15 @@
+{
+  "name": "input-group-button-group",
+  "type": "registry:example",
+  "registryDependencies": [
+    "input-group",
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/input-group-button-group.tsx",
+      "type": "registry:example",
+      "content": "import { LuLink2 } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { ButtonGroup, ButtonGroupText } from \"@/registry/default/ui/button-group\";\nimport { InputGroup, InputGroupAddon, InputGroupInput } from \"@/registry/default/ui/input-group\";\nimport { Label } from \"@/registry/default/ui/label\";\n\nexport default function InputGroupButtonGroup() {\n  return (\n    <styled.div css={{ display: \"grid\", w: \"full\", maxW: \"sm\", gap: \"6\" }}>\n      <ButtonGroup>\n        <ButtonGroupText asChild>\n          <Label htmlFor=\"url\">https://</Label>\n        </ButtonGroupText>\n        <InputGroup>\n          <InputGroupInput id=\"url\" />\n          <InputGroupAddon align=\"inline-end\">\n            <LuLink2 />\n          </InputGroupAddon>\n        </InputGroup>\n        <ButtonGroupText>.com</ButtonGroupText>\n      </ButtonGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}
