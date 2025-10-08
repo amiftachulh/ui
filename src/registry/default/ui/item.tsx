@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { createStyleContext } from "styled-system/jsx";
 import { item } from "styled-system/recipes";
@@ -9,14 +10,9 @@ const { withProvider, withContext } = createStyleContext(item);
 
 const ItemGroup = withProvider("div", "group", { defaultProps: { role: "list" } });
 
-const ItemSeparator = withContext(Separator, "separator", {
-  defaultProps: {
-    orientation: "horizontal",
-    css: {
-      my: "0",
-    },
-  },
-});
+function ItemSeparator({ css, ...props }: React.ComponentProps<typeof Separator>) {
+  return <Separator orientation="horizontal" css={{ my: "0", ...css }} {...props} />;
+}
 
 function Root({
   variant = "default",

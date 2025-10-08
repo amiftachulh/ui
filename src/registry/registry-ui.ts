@@ -322,6 +322,10 @@ export const ui: Registry["items"] = [
         path: "ui/input-group.tsx",
         type: "registry:ui",
       },
+      {
+        path: "slot-recipes/input-group.ts",
+        type: "registry:slot-recipe",
+      },
     ],
   },
   {
@@ -333,6 +337,10 @@ export const ui: Registry["items"] = [
       {
         path: "ui/item.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "slot-recipes/item.ts",
+        type: "registry:slot-recipe",
       },
     ],
   },

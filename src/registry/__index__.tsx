@@ -478,6 +478,10 @@ export const Index: Record<string, any> = {
       path: "src/registry/default/ui/input-group.tsx",
       type: "registry:ui",
       target: ""
+    },{
+      path: "src/registry/default/slot-recipes/input-group.ts",
+      type: "registry:slot-recipe",
+      target: ""
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/ui/input-group.tsx")
@@ -495,6 +499,10 @@ export const Index: Record<string, any> = {
     files: [{
       path: "src/registry/default/ui/item.tsx",
       type: "registry:ui",
+      target: ""
+    },{
+      path: "src/registry/default/slot-recipes/item.ts",
+      type: "registry:slot-recipe",
       target: ""
     }],
     component: React.lazy(async () => {
