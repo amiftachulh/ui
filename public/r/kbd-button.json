@@ -1,0 +1,15 @@
+{
+  "name": "kbd-button",
+  "type": "registry:example",
+  "registryDependencies": [
+    "kbd",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/kbd-button.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Kbd } from \"@/registry/default/ui/kbd\";\n\nexport default function KbdButton() {\n  return (\n    <styled.div css={{ display: \"flex\", flexWrap: \"wrap\", alignItems: \"center\", gap: \"4\" }}>\n      <Button variant=\"outline\" size=\"sm\" css={{ pr: \"2\" }}>\n        Accept <Kbd>⏎</Kbd>\n      </Button>\n      <Button variant=\"outline\" size=\"sm\" css={{ pr: \"2\" }}>\n        Cancel <Kbd>Esc</Kbd>\n      </Button>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

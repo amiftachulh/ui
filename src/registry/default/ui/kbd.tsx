@@ -1,7 +1,7 @@
 import { styled } from "styled-system/jsx";
-import { kbd } from "styled-system/recipes";
+import { kbd, kbdGroup } from "styled-system/recipes";
 
 const Kbd = styled("kbd", kbd);
-Kbd.displayName = "Kbd";
+const KbdGroup = styled("kbd", kbdGroup);
 
-export { Kbd };
+export { Kbd, KbdGroup };

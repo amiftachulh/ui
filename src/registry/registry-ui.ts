@@ -370,6 +370,10 @@ export const ui: Registry["items"] = [
         path: "recipes/kbd.ts",
         type: "registry:recipe",
       },
+      {
+        path: "recipes/kbd-group.ts",
+        type: "registry:recipe",
+      },
     ],
   },
   {

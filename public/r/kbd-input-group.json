@@ -1,0 +1,17 @@
+{
+  "name": "kbd-input-group",
+  "type": "registry:example",
+  "registryDependencies": [
+    "kbd",
+    "input",
+    "button",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/kbd-input-group.tsx",
+      "type": "registry:example",
+      "content": "import { LuSearch } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { InputGroup, InputGroupAddon, InputGroupInput } from \"@/registry/default/ui/input-group\";\nimport { Kbd } from \"@/registry/default/ui/kbd\";\n\nexport default function KbdInputGroup() {\n  return (\n    <styled.div css={{ display: \"flex\", w: \"full\", maxW: \"xs\", flexDir: \"column\", gap: \"6\" }}>\n      <InputGroup>\n        <InputGroupInput placeholder=\"Search...\" />\n        <InputGroupAddon>\n          <LuSearch />\n        </InputGroupAddon>\n        <InputGroupAddon align=\"inline-end\">\n          <Kbd>⌘</Kbd>\n          <Kbd>K</Kbd>\n        </InputGroupAddon>\n      </InputGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

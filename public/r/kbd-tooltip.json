@@ -1,0 +1,16 @@
+{
+  "name": "kbd-tooltip",
+  "type": "registry:example",
+  "registryDependencies": [
+    "kbd",
+    "tooltip",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/kbd-tooltip.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { ButtonGroup } from \"@/registry/default/ui/button-group\";\nimport { Kbd, KbdGroup } from \"@/registry/default/ui/kbd\";\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"@/registry/default/ui/tooltip\";\n\nexport default function KbdTooltip() {\n  return (\n    <styled.div css={{ display: \"flex\", flexWrap: \"wrap\", gap: \"4\" }}>\n      <ButtonGroup>\n        <Tooltip>\n          <TooltipTrigger asChild>\n            <Button size=\"sm\" variant=\"outline\">\n              Save\n            </Button>\n          </TooltipTrigger>\n          <TooltipContent>\n            <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"2\" }}>\n              Save Changes <Kbd>S</Kbd>\n            </styled.div>\n          </TooltipContent>\n        </Tooltip>\n        <Tooltip>\n          <TooltipTrigger asChild>\n            <Button size=\"sm\" variant=\"outline\">\n              Print\n            </Button>\n          </TooltipTrigger>\n          <TooltipContent>\n            <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"2\" }}>\n              Print Document{\" \"}\n              <KbdGroup>\n                <Kbd>Ctrl</Kbd>\n                <Kbd>P</Kbd>\n              </KbdGroup>\n            </styled.div>\n          </TooltipContent>\n        </Tooltip>\n      </ButtonGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

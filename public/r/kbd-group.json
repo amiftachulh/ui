@@ -1,0 +1,14 @@
+{
+  "name": "kbd-group",
+  "type": "registry:example",
+  "registryDependencies": [
+    "kbd"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/kbd-group.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Kbd, KbdGroup } from \"@/registry/default/ui/kbd\";\n\nexport default function KbdGroupExample() {\n  return (\n    <styled.div css={{ display: \"flex\", flexDir: \"column\", alignItems: \"center\", gap: \"4\" }}>\n      <styled.p css={{ color: \"muted.fg\", textStyle: \"sm\" }}>\n        Use{\" \"}\n        <KbdGroup>\n          <Kbd>Ctrl + B</Kbd>\n          <Kbd>Ctrl + K</Kbd>\n        </KbdGroup>{\" \"}\n        to open the command palette\n      </styled.p>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}
