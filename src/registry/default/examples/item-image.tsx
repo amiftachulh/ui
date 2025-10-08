@@ -51,7 +51,7 @@ export default function ItemImage() {
                   alt={song.title}
                   width={32}
                   height={32}
-                  className={css({ objectFit: "cover", filter: "grayscale" })}
+                  className={css({ objectFit: "cover", filter: "grayscale(1)" })}
                 />
               </ItemMedia>
               <ItemContent>

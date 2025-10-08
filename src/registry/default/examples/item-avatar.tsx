@@ -40,7 +40,7 @@ export default function ItemAvatar() {
               "& > .avatar__root": {
                 outlineWidth: "2px",
                 outlineColor: "bg",
-                filter: "grayscale",
+                filter: "grayscale(1)",
               },
             }}
           >

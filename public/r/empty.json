@@ -1,0 +1,16 @@
+{
+  "name": "empty",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/default/ui/empty.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createStyleContext } from \"styled-system/jsx\";\nimport { empty } from \"styled-system/recipes\";\n\nconst { withProvider, withContext } = createStyleContext(empty);\n\nconst Empty = withProvider(\"div\", \"root\");\nconst EmptyHeader = withContext(\"div\", \"header\");\n\nfunction Media({\n  variant = \"default\",\n  ...props\n}: React.ComponentProps<\"div\"> & { variant?: \"default\" | \"icon\" }) {\n  return <div data-variant={variant} {...props} />;\n}\nconst EmptyMedia = withContext(Media, \"media\");\n\nconst EmptyTitle = withContext(\"div\", \"title\");\nconst EmptyDescription = withContext(\"div\", \"description\");\nconst EmptyContent = withContext(\"div\", \"content\");\n\nexport { Empty, EmptyHeader, EmptyTitle, EmptyDescription, EmptyContent, EmptyMedia };\n"
+    },
+    {
+      "path": "registry/default/slot-recipes/empty.ts",
+      "type": "registry:slot-recipe",
+      "content": "import { defineSlotRecipe } from \"@pandacss/dev\";\n\nexport const emptySlotRecipe = defineSlotRecipe({\n  className: \"empty\",\n  slots: [\"root\", \"header\", \"media\", \"title\", \"description\", \"content\"],\n  base: {\n    root: {\n      display: \"flex\",\n      minW: \"0\",\n      flex: \"1\",\n      flexDir: \"column\",\n      alignItems: \"center\",\n      justifyContent: \"center\",\n      gap: \"6\",\n      rounded: \"lg\",\n      borderStyle: \"dashed\",\n      p: \"6\",\n      textAlign: \"center\",\n      textWrap: \"balance\",\n      md: {\n        p: \"12\",\n      },\n    },\n\n    header: {\n      display: \"flex\",\n      maxW: \"sm\",\n      flexDir: \"column\",\n      alignItems: \"center\",\n      gap: \"2\",\n      textAlign: \"center\",\n    },\n\n    media: {\n      display: \"flex\",\n      flexShrink: \"0\",\n      alignItems: \"center\",\n      justifyContent: \"center\",\n      mb: \"2\",\n      \"& svg\": {\n        pointerEvents: \"none\",\n        flexShrink: \"0\",\n      },\n      \"&[data-variant=default]\": {\n        bg: \"transparent\",\n      },\n      \"&[data-variant=icon]\": {\n        bg: \"muted\",\n        color: \"fg\",\n        display: \"flex\",\n        w: \"10\",\n        h: \"10\",\n        flexShrink: \"0\",\n        alignItems: \"center\",\n        justifyContent: \"center\",\n        rounded: \"lg\",\n        \"& svg\": {\n          w: \"6\",\n          h: \"6\",\n        },\n      },\n    },\n\n    title: {\n      textStyle: \"lg\",\n      fontWeight: \"medium\",\n      letterSpacing: \"tight\",\n    },\n\n    description: {\n      color: \"fg\",\n      textStyle: \"sm\",\n      lineHeight: \"relaxed\",\n      \"& > a\": {\n        textDecoration: \"underline\",\n        textUnderlineOffset: \"4px\",\n        _hover: {\n          color: \"primary\",\n        },\n      },\n    },\n\n    content: {\n      display: \"flex\",\n      w: \"full\",\n      minW: \"0\",\n      maxW: \"sm\",\n      flexDir: \"column\",\n      alignItems: \"center\",\n      gap: \"4\",\n      textStyle: \"sm\",\n      textWrap: \"balance\",\n    },\n  },\n});\n"
+    }
+  ]
+}

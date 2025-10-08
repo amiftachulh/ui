@@ -1,0 +1,15 @@
+{
+  "name": "empty-outline",
+  "type": "registry:example",
+  "registryDependencies": [
+    "empty",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/empty-outline.tsx",
+      "type": "registry:example",
+      "content": "import { TbCloud } from \"react-icons/tb\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/default/ui/empty\";\n\nexport default function EmptyOutline() {\n  return (\n    <Empty css={{ borderWidth: \"1px\", borderStyle: \"dashed\" }}>\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <TbCloud />\n        </EmptyMedia>\n        <EmptyTitle>Cloud Storage Empty</EmptyTitle>\n        <EmptyDescription>\n          Upload files to your cloud storage to access them anywhere.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button variant=\"outline\" size=\"sm\">\n          Upload Files\n        </Button>\n      </EmptyContent>\n    </Empty>\n  );\n}\n"
+    }
+  ]
+}

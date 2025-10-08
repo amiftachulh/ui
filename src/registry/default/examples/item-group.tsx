@@ -41,7 +41,7 @@ export default function ItemGroupExample() {
             <Item>
               <ItemMedia>
                 <Avatar>
-                  <AvatarImage src={person.avatar} css={{ filter: "grayscale" }} />
+                  <AvatarImage src={person.avatar} css={{ filter: "grayscale(1)" }} />
                   <AvatarFallback>{person.username.charAt(0)}</AvatarFallback>
                 </Avatar>
               </ItemMedia>

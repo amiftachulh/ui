@@ -1,0 +1,16 @@
+{
+  "name": "empty-avatar",
+  "type": "registry:example",
+  "registryDependencies": [
+    "empty",
+    "button",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/empty-avatar.tsx",
+      "type": "registry:example",
+      "content": "import { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/default/ui/empty\";\n\nexport default function EmptyAvatar() {\n  return (\n    <Empty>\n      <EmptyHeader>\n        <EmptyMedia variant=\"default\">\n          <Avatar css={{ w: \"12\", h: \"12\" }}>\n            <AvatarImage src=\"https://github.com/shadcn.png\" css={{ filter: \"grayscale(1)\" }} />\n            <AvatarFallback>LR</AvatarFallback>\n          </Avatar>\n        </EmptyMedia>\n        <EmptyTitle>User Offline</EmptyTitle>\n        <EmptyDescription>\n          This user is currently offline. You can leave a message to notify them or try again later.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button size=\"sm\">Leave Message</Button>\n      </EmptyContent>\n    </Empty>\n  );\n}\n"
+    }
+  ]
+}

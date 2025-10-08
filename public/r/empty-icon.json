@@ -1,0 +1,14 @@
+{
+  "name": "empty-icon",
+  "type": "registry:example",
+  "registryDependencies": [
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/empty-icon.tsx",
+      "type": "registry:example",
+      "content": "import { TbBookmark, TbHeart, TbInbox, TbStar } from \"react-icons/tb\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  Empty,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/default/ui/empty\";\n\nexport default function EmptyIcon() {\n  return (\n    <styled.div\n      css={{ display: \"grid\", gap: \"8\", md: { gridTemplateColumns: \"repeat(2, minmax(0, 1fr))\" } }}\n    >\n      <Empty>\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <TbInbox />\n          </EmptyMedia>\n          <EmptyTitle>No messages</EmptyTitle>\n          <EmptyDescription>Your inbox is empty. New messages will appear here.</EmptyDescription>\n        </EmptyHeader>\n      </Empty>\n\n      <Empty>\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <TbStar />\n          </EmptyMedia>\n          <EmptyTitle>No favorites</EmptyTitle>\n          <EmptyDescription>Items you mark as favorites will appear here.</EmptyDescription>\n        </EmptyHeader>\n      </Empty>\n\n      <Empty>\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <TbHeart />\n          </EmptyMedia>\n          <EmptyTitle>No likes yet</EmptyTitle>\n          <EmptyDescription>Content you like will be saved here for easy access.</EmptyDescription>\n        </EmptyHeader>\n      </Empty>\n\n      <Empty>\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <TbBookmark />\n          </EmptyMedia>\n          <EmptyTitle>No bookmarks</EmptyTitle>\n          <EmptyDescription>Save interesting content by bookmarking it.</EmptyDescription>\n        </EmptyHeader>\n      </Empty>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

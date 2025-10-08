@@ -13,7 +13,7 @@ import { contextMenuSlotRecipe } from "@/registry/default/slot-recipes/context-m
 import { dialogSlotRecipe } from "@/registry/default/slot-recipes/dialog";
 import { drawerSlotRecipe } from "@/registry/default/slot-recipes/drawer";
 import { dropdownMenuSlotRecipe } from "@/registry/default/slot-recipes/dropdown-menu";
-import { emptyStateSlotRecipe } from "@/registry/default/slot-recipes/empty-state";
+import { emptySlotRecipe } from "@/registry/default/slot-recipes/empty";
 import { fieldSlotRecipe } from "@/registry/default/slot-recipes/field";
 import { hoverCardSlotRecipe } from "@/registry/default/slot-recipes/hover-card";
 import { inputGroupSlotRecipes } from "@/registry/default/slot-recipes/input-group";
@@ -54,7 +54,7 @@ export const slotRecipes = {
   drawer: drawerSlotRecipe,
   dropdownMenu: dropdownMenuSlotRecipe,
   dialog: dialogSlotRecipe,
-  emptyState: emptyStateSlotRecipe,
+  empty: emptySlotRecipe,
   field: fieldSlotRecipe,
   hoverCard: hoverCardSlotRecipe,
   inputGroup: inputGroupSlotRecipes,

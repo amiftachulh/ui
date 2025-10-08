@@ -1,0 +1,14 @@
+{
+  "name": "empty-background",
+  "type": "registry:example",
+  "registryDependencies": [
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/empty-background.tsx",
+      "type": "registry:example",
+      "content": "import { LuRefreshCcw } from \"react-icons/lu\";\nimport { TbBell } from \"react-icons/tb\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/default/ui/empty\";\n\nexport default function EmptyMuted() {\n  return (\n    <Empty\n      css={{\n        bgGradient: \"to-b\",\n        gradientFrom: \"muted/50\",\n        gradientFromPosition: \"30%\",\n        gradientTo: \"bg\",\n        h: \"full\",\n      }}\n    >\n      <EmptyHeader>\n        <EmptyMedia variant=\"icon\">\n          <TbBell />\n        </EmptyMedia>\n        <EmptyTitle>No Notifications</EmptyTitle>\n        <EmptyDescription>\n          You&apos;re all caught up. New notifications will appear here.\n        </EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button variant=\"outline\" size=\"sm\">\n          <LuRefreshCcw />\n          Refresh\n        </Button>\n      </EmptyContent>\n    </Empty>\n  );\n}\n"
+    }
+  ]
+}

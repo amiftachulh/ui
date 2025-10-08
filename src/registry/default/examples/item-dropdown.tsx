@@ -61,7 +61,7 @@ export default function ItemDropdown() {
               <Item size="sm" css={{ w: "full", p: "2" }}>
                 <ItemMedia>
                   <Avatar css={{ w: "8", h: "8" }}>
-                    <AvatarImage src={person.avatar} css={{ filter: "grayscale" }} />
+                    <AvatarImage src={person.avatar} css={{ filter: "grayscale(1)" }} />
                     <AvatarFallback>{person.username.charAt(0)}</AvatarFallback>
                   </Avatar>
                 </ItemMedia>

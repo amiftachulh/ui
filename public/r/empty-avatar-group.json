@@ -1,0 +1,16 @@
+{
+  "name": "empty-avatar-group",
+  "type": "registry:example",
+  "registryDependencies": [
+    "empty",
+    "button",
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/empty-avatar-group.tsx",
+      "type": "registry:example",
+      "content": "import { LuPlus } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/registry/default/ui/empty\";\n\nexport default function EmptyAvatarGroup() {\n  return (\n    <Empty>\n      <EmptyHeader>\n        <EmptyMedia>\n          <styled.div\n            css={{\n              display: \"flex\",\n              spaceX: \"-2\",\n              \"& > .avatar\": {\n                w: \"12\",\n                h: \"12\",\n                outlineWidth: \"2px\",\n                outlineColor: \"bg\",\n                filter: \"grayscale(1)\",\n              },\n            }}\n          >\n            <Avatar>\n              <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n              <AvatarFallback>CN</AvatarFallback>\n            </Avatar>\n            <Avatar>\n              <AvatarImage src=\"https://github.com/maxleiter.png\" alt=\"@maxleiter\" />\n              <AvatarFallback>LR</AvatarFallback>\n            </Avatar>\n            <Avatar>\n              <AvatarImage src=\"https://github.com/evilrabbit.png\" alt=\"@evilrabbit\" />\n              <AvatarFallback>ER</AvatarFallback>\n            </Avatar>\n          </styled.div>\n        </EmptyMedia>\n        <EmptyTitle>No Team Members</EmptyTitle>\n        <EmptyDescription>Invite your team to collaborate on this project.</EmptyDescription>\n      </EmptyHeader>\n      <EmptyContent>\n        <Button size=\"sm\">\n          <LuPlus />\n          Invite Members\n        </Button>\n      </EmptyContent>\n    </Empty>\n  );\n}\n"
+    }
+  ]
+}
