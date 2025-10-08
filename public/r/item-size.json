@@ -1,0 +1,14 @@
+{
+  "name": "item-size",
+  "type": "registry:example",
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/item-size.tsx",
+      "type": "registry:example",
+      "content": "import { LuBadgeCheck, LuChevronRight } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from \"@/registry/default/ui/item\";\n\nexport default function ItemSizeDemo() {\n  return (\n    <styled.div css={{ display: \"flex\", w: \"full\", maxW: \"md\", flexDir: \"column\", gap: \"6\" }}>\n      <Item variant=\"outline\">\n        <ItemContent>\n          <ItemTitle>Basic Item</ItemTitle>\n          <ItemDescription>A simple item with title and description.</ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <Button variant=\"outline\" size=\"sm\">\n            Action\n          </Button>\n        </ItemActions>\n      </Item>\n      <Item variant=\"outline\" size=\"sm\" asChild>\n        <a href=\"#\">\n          <ItemMedia>\n            <LuBadgeCheck className={css({ w: \"5\", h: \"5\" })} />\n          </ItemMedia>\n          <ItemContent>\n            <ItemTitle>Your profile has been verified.</ItemTitle>\n          </ItemContent>\n          <ItemActions>\n            <LuChevronRight className={css({ w: \"4\", h: \"4\" })} />\n          </ItemActions>\n        </a>\n      </Item>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

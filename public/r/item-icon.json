@@ -1,0 +1,14 @@
+{
+  "name": "item-icon",
+  "type": "registry:example",
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/item-icon.tsx",
+      "type": "registry:example",
+      "content": "import { LuShieldAlert } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from \"@/registry/default/ui/item\";\n\nexport default function ItemIcon() {\n  return (\n    <styled.div css={{ display: \"flex\", w: \"full\", maxW: \"lg\", flexDir: \"column\", gap: \"6\" }}>\n      <Item variant=\"outline\">\n        <ItemMedia variant=\"icon\">\n          <LuShieldAlert />\n        </ItemMedia>\n        <ItemContent>\n          <ItemTitle>Security Alert</ItemTitle>\n          <ItemDescription>New login detected from unknown device.</ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <Button size=\"sm\" variant=\"outline\">\n            Review\n          </Button>\n        </ItemActions>\n      </Item>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

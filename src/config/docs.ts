@@ -316,6 +316,11 @@ export const docsConfig: DocsConfig = {
         //   items: [],
         // },
         {
+          title: "Item",
+          href: "/docs/components/item",
+          items: [],
+        },
+        {
           title: "Kbd",
           href: "/docs/components/kbd",
           items: [],

@@ -1,0 +1,14 @@
+{
+  "name": "item-header",
+  "type": "registry:example",
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/item-header.tsx",
+      "type": "registry:example",
+      "content": "import Image from \"next/image\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemHeader,\n  ItemTitle,\n} from \"@/registry/default/ui/item\";\n\nconst models = [\n  {\n    name: \"v0-1.5-sm\",\n    description: \"Everyday tasks and UI generation.\",\n    image:\n      \"https://images.unsplash.com/photo-1650804068570-7fb2e3dbf888?q=80&w=640&auto=format&fit=crop\",\n    credit: \"Valeria Reverdo on Unsplash\",\n  },\n  {\n    name: \"v0-1.5-lg\",\n    description: \"Advanced thinking or reasoning.\",\n    image:\n      \"https://images.unsplash.com/photo-1610280777472-54133d004c8c?q=80&w=640&auto=format&fit=crop\",\n    credit: \"Michael Oeser on Unsplash\",\n  },\n  {\n    name: \"v0-2.0-mini\",\n    description: \"Open Source model for everyone.\",\n    image:\n      \"https://images.unsplash.com/photo-1602146057681-08560aee8cde?q=80&w=640&auto=format&fit=crop\",\n    credit: \"Cherry Laithang on Unsplash\",\n  },\n];\n\nexport default function ItemHeaderDemo() {\n  return (\n    <styled.div css={{ display: \"flex\", w: \"full\", maxW: \"xl\", flexDir: \"column\", gap: \"6\" }}>\n      <ItemGroup\n        css={{ display: \"grid\", gridTemplateColumns: \"repeat(3, minmax(0, 1fr))\", gap: \"4\" }}\n      >\n        {models.map((model) => (\n          <Item key={model.name} variant=\"outline\">\n            <ItemHeader>\n              <Image\n                src={model.image}\n                alt={model.name}\n                width={128}\n                height={128}\n                className={css({\n                  aspectRatio: \"square\",\n                  w: \"full\",\n                  rounded: \"sm\",\n                  objectFit: \"cover\",\n                })}\n              />\n            </ItemHeader>\n            <ItemContent>\n              <ItemTitle>{model.name}</ItemTitle>\n              <ItemDescription>{model.description}</ItemDescription>\n            </ItemContent>\n          </Item>\n        ))}\n      </ItemGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

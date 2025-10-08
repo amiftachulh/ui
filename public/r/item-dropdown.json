@@ -1,0 +1,14 @@
+{
+  "name": "item-dropdown",
+  "type": "registry:example",
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/item-dropdown.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { LuChevronDown } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from \"@/registry/default/ui/dropdown-menu\";\nimport {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from \"@/registry/default/ui/item\";\n\nconst people = [\n  {\n    username: \"shadcn\",\n    avatar: \"https://github.com/shadcn.png\",\n    email: \"shadcn@vercel.com\",\n  },\n  {\n    username: \"maxleiter\",\n    avatar: \"https://github.com/maxleiter.png\",\n    email: \"maxleiter@vercel.com\",\n  },\n  {\n    username: \"evilrabbit\",\n    avatar: \"https://github.com/evilrabbit.png\",\n    email: \"evilrabbit@vercel.com\",\n  },\n];\n\nexport default function ItemDropdown() {\n  return (\n    <styled.div\n      css={{\n        display: \"flex\",\n        minH: \"64\",\n        w: \"full\",\n        maxW: \"md\",\n        flexDir: \"column\",\n        alignItems: \"center\",\n        gap: \"6\",\n      }}\n    >\n      <DropdownMenu>\n        <DropdownMenuTrigger asChild>\n          <Button variant=\"outline\" size=\"sm\" css={{ w: \"fit\" }}>\n            Select <LuChevronDown />\n          </Button>\n        </DropdownMenuTrigger>\n        <DropdownMenuContent css={{ w: \"72\" }} align=\"end\">\n          {people.map((person) => (\n            <DropdownMenuItem key={person.username} css={{ p: \"0\" }}>\n              <Item size=\"sm\" css={{ w: \"full\", p: \"2\" }}>\n                <ItemMedia>\n                  <Avatar css={{ w: \"8\", h: \"8\" }}>\n                    <AvatarImage src={person.avatar} css={{ filter: \"grayscale\" }} />\n                    <AvatarFallback>{person.username.charAt(0)}</AvatarFallback>\n                  </Avatar>\n                </ItemMedia>\n                <ItemContent css={{ gap: \"0.5\" }}>\n                  <ItemTitle>{person.username}</ItemTitle>\n                  <ItemDescription>{person.email}</ItemDescription>\n                </ItemContent>\n              </Item>\n            </DropdownMenuItem>\n          ))}\n        </DropdownMenuContent>\n      </DropdownMenu>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

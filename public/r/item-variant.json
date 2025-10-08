@@ -1,0 +1,14 @@
+{
+  "name": "item-variant",
+  "type": "registry:example",
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/item-variant.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemTitle,\n} from \"@/registry/default/ui/item\";\n\nexport default function ItemVariant() {\n  return (\n    <styled.div css={{ display: \"flex\", flexDir: \"column\", gap: \"6\" }}>\n      <Item>\n        <ItemContent>\n          <ItemTitle>Default Variant</ItemTitle>\n          <ItemDescription>Standard styling with subtle background and borders.</ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <Button variant=\"outline\" size=\"sm\">\n            Open\n          </Button>\n        </ItemActions>\n      </Item>\n      <Item variant=\"outline\">\n        <ItemContent>\n          <ItemTitle>Outline Variant</ItemTitle>\n          <ItemDescription>\n            Outlined style with clear borders and transparent background.\n          </ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <Button variant=\"outline\" size=\"sm\">\n            Open\n          </Button>\n        </ItemActions>\n      </Item>\n      <Item variant=\"muted\">\n        <ItemContent>\n          <ItemTitle>Muted Variant</ItemTitle>\n          <ItemDescription>\n            Subdued appearance with muted colors for secondary content.\n          </ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <Button variant=\"outline\" size=\"sm\">\n            Open\n          </Button>\n        </ItemActions>\n      </Item>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

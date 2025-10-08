@@ -1,0 +1,14 @@
+{
+  "name": "item-avatar",
+  "type": "registry:example",
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/item-avatar.tsx",
+      "type": "registry:example",
+      "content": "import { LuPlus } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Avatar, AvatarFallback, AvatarImage } from \"@/registry/default/ui/avatar\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Item,\n  ItemActions,\n  ItemContent,\n  ItemDescription,\n  ItemMedia,\n  ItemTitle,\n} from \"@/registry/default/ui/item\";\n\nexport default function ItemAvatar() {\n  return (\n    <styled.div css={{ display: \"flex\", w: \"full\", maxW: \"lg\", flexDir: \"column\", gap: \"6\" }}>\n      <Item variant=\"outline\">\n        <ItemMedia>\n          <Avatar css={{ w: \"10\", h: \"10\" }}>\n            <AvatarImage src=\"https://github.com/evilrabbit.png\" />\n            <AvatarFallback>ER</AvatarFallback>\n          </Avatar>\n        </ItemMedia>\n        <ItemContent>\n          <ItemTitle>Evil Rabbit</ItemTitle>\n          <ItemDescription>Last seen 5 months ago</ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <Button size=\"icon-sm\" variant=\"outline\" css={{ rounded: \"full\" }} aria-label=\"Invite\">\n            <LuPlus />\n          </Button>\n        </ItemActions>\n      </Item>\n      <Item variant=\"outline\">\n        <ItemMedia>\n          <styled.div\n            css={{\n              display: \"flex\",\n              spaceX: \"-2\",\n              \"& > .avatar__root\": {\n                outlineWidth: \"2px\",\n                outlineColor: \"bg\",\n                filter: \"grayscale\",\n              },\n            }}\n          >\n            <Avatar css={{ display: \"none\", sm: { display: \"flex\" } }}>\n              <AvatarImage src=\"https://github.com/shadcn.png\" alt=\"@shadcn\" />\n              <AvatarFallback>CN</AvatarFallback>\n            </Avatar>\n            <Avatar css={{ display: \"none\", sm: { display: \"flex\" } }}>\n              <AvatarImage src=\"https://github.com/maxleiter.png\" alt=\"@maxleiter\" />\n              <AvatarFallback>LR</AvatarFallback>\n            </Avatar>\n            <Avatar>\n              <AvatarImage src=\"https://github.com/evilrabbit.png\" alt=\"@evilrabbit\" />\n              <AvatarFallback>ER</AvatarFallback>\n            </Avatar>\n          </styled.div>\n        </ItemMedia>\n        <ItemContent>\n          <ItemTitle>No Team Members</ItemTitle>\n          <ItemDescription>Invite your team to collaborate on this project.</ItemDescription>\n        </ItemContent>\n        <ItemActions>\n          <Button size=\"sm\" variant=\"outline\">\n            Invite\n          </Button>\n        </ItemActions>\n      </Item>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

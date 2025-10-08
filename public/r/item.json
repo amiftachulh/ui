@@ -1,0 +1,17 @@
+{
+  "name": "item",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "registryDependencies": [
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/item.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Slot } from \"@radix-ui/react-slot\";\nimport { createStyleContext } from \"styled-system/jsx\";\nimport { item } from \"styled-system/recipes\";\nimport { Separator } from \"@/registry/default/ui/separator\";\n\nconst { withProvider, withContext } = createStyleContext(item);\n\nconst ItemGroup = withProvider(\"div\", \"group\", { defaultProps: { role: \"list\" } });\n\nconst ItemSeparator = withContext(Separator, \"separator\", {\n  defaultProps: {\n    orientation: \"horizontal\",\n    css: {\n      my: \"0\",\n    },\n  },\n});\n\nfunction Root({\n  variant = \"default\",\n  size = \"default\",\n  asChild = false,\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  variant?: \"default\" | \"outline\" | \"muted\";\n  size?: \"default\" | \"sm\";\n  asChild?: boolean;\n}) {\n  const Comp = asChild ? Slot : \"div\";\n  return <Comp data-variant={variant} data-size={size} {...props} />;\n}\nconst Item = withProvider(Root, \"root\");\n\nfunction Media({\n  variant = \"default\",\n  ...props\n}: React.ComponentProps<\"div\"> & { variant?: \"default\" | \"icon\" | \"image\" }) {\n  return <div data-variant={variant} {...props} />;\n}\nconst ItemMedia = withContext(Media, \"media\");\n\nconst ItemContent = withContext(\"div\", \"content\");\nconst ItemTitle = withContext(\"div\", \"title\");\nconst ItemDescription = withContext(\"p\", \"description\");\nconst ItemActions = withContext(\"div\", \"actions\");\nconst ItemHeader = withContext(\"div\", \"header\");\nconst ItemFooter = withContext(\"div\", \"footer\");\n\nexport {\n  Item,\n  ItemMedia,\n  ItemContent,\n  ItemActions,\n  ItemGroup,\n  ItemSeparator,\n  ItemTitle,\n  ItemDescription,\n  ItemHeader,\n  ItemFooter,\n};\n"
+    }
+  ]
+}

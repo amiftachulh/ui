@@ -381,6 +381,22 @@
       ]
     },
     {
+      "name": "item",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "kbd",
       "type": "registry:ui",
       "files": [
@@ -5130,6 +5146,136 @@
       "files": [
         {
           "path": "registry/default/examples/input-group-custom.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-size",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-size.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-variant",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-variant.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-icon",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-icon.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-image",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-image.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-avatar",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-avatar.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-group",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-group.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-header",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-header.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-dropdown",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-dropdown.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "item-link",
+      "type": "registry:example",
+      "registryDependencies": [
+        "item"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/item-link.tsx",
           "type": "registry:example"
         }
       ]

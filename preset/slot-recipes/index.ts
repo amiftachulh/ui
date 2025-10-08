@@ -17,6 +17,7 @@ import { emptyStateSlotRecipe } from "@/registry/default/slot-recipes/empty-stat
 import { fieldSlotRecipe } from "@/registry/default/slot-recipes/field";
 import { hoverCardSlotRecipe } from "@/registry/default/slot-recipes/hover-card";
 import { inputGroupSlotRecipes } from "@/registry/default/slot-recipes/input-group";
+import { itemSlotRecipes } from "@/registry/default/slot-recipes/item";
 import { menubarSlotRecipe } from "@/registry/default/slot-recipes/menubar";
 import { navigationMenuSlotRecipe } from "@/registry/default/slot-recipes/navigation-menu";
 import { paginationSlotRecipe } from "@/registry/default/slot-recipes/pagination";
@@ -55,8 +56,9 @@ export const slotRecipes = {
   dialog: dialogSlotRecipe,
   emptyState: emptyStateSlotRecipe,
   field: fieldSlotRecipe,
-  inputGroup: inputGroupSlotRecipes,
   hoverCard: hoverCardSlotRecipe,
+  inputGroup: inputGroupSlotRecipes,
+  item: itemSlotRecipes,
   menubar: menubarSlotRecipe,
   navigationMenu: navigationMenuSlotRecipe,
   pagination: paginationSlotRecipe,

@@ -325,6 +325,18 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "item",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-slot"],
+    registryDependencies: ["separator"],
+    files: [
+      {
+        path: "ui/item.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "kbd",
     type: "registry:ui",
     files: [

@@ -1,0 +1,14 @@
+{
+  "name": "item-image",
+  "type": "registry:example",
+  "registryDependencies": [
+    "item"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/item-image.tsx",
+      "type": "registry:example",
+      "content": "import Image from \"next/image\";\nimport { css } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  Item,\n  ItemContent,\n  ItemDescription,\n  ItemGroup,\n  ItemMedia,\n  ItemTitle,\n} from \"@/registry/default/ui/item\";\n\nconst music = [\n  {\n    title: \"Midnight City Lights\",\n    artist: \"Neon Dreams\",\n    album: \"Electric Nights\",\n    duration: \"3:45\",\n  },\n  {\n    title: \"Coffee Shop Conversations\",\n    artist: \"The Morning Brew\",\n    album: \"Urban Stories\",\n    duration: \"4:05\",\n  },\n  {\n    title: \"Digital Rain\",\n    artist: \"Cyber Symphony\",\n    album: \"Binary Beats\",\n    duration: \"3:30\",\n  },\n];\n\nconst generateSvgUrl = (text: string) => {\n  const hash = text.split(\"\").reduce((acc, char) => acc + char.charCodeAt(0), 0);\n  const hue = hash % 360;\n  const svg = `<svg width=\"32\" height=\"32\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"32\" height=\"32\" fill=\"hsl(${hue}, 70%, 50%)\"/></svg>`;\n  return `data:image/svg+xml,${encodeURIComponent(svg)}`;\n};\n\nexport default function ItemImage() {\n  return (\n    <styled.div css={{ display: \"flex\", w: \"full\", maxW: \"md\", flexDir: \"column\", gap: \"6\" }}>\n      <ItemGroup css={{ gap: \"4\" }}>\n        {music.map((song) => (\n          <Item key={song.title} variant=\"outline\" asChild role=\"listitem\">\n            <a href=\"#\">\n              <ItemMedia variant=\"image\">\n                <Image\n                  src={generateSvgUrl(song.title)}\n                  alt={song.title}\n                  width={32}\n                  height={32}\n                  className={css({ objectFit: \"cover\", filter: \"grayscale\" })}\n                />\n              </ItemMedia>\n              <ItemContent>\n                <ItemTitle css={{ lineClamp: \"1\" }}>\n                  {song.title} - <styled.span css={{ color: \"muted.fg\" }}>{song.album}</styled.span>\n                </ItemTitle>\n                <ItemDescription>{song.artist}</ItemDescription>\n              </ItemContent>\n              <ItemContent css={{ flex: \"none\", textAlign: \"center\" }}>\n                <ItemDescription>{song.duration}</ItemDescription>\n              </ItemContent>\n            </a>\n          </Item>\n        ))}\n      </ItemGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}
