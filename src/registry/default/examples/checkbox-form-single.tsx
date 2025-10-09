@@ -8,7 +8,7 @@ import { z } from "zod";
 import { toast } from "@/registry/default/hooks/use-toast";
 import { Button } from "@/registry/default/ui/button";
 import { Checkbox } from "@/registry/default/ui/checkbox";
-import { Field, FieldControl, FieldDescription, FieldLabel } from "@/registry/default/ui/field";
+import { Field, FieldDescription, FieldLabel } from "@/registry/default/ui/field";
 
 const formSchema = z.object({
   mobile: z.boolean().default(false).optional(),
@@ -55,9 +55,7 @@ export default function CheckboxFormSingle() {
               p: "4",
             }}
           >
-            <FieldControl>
-              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-            </FieldControl>
+            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
             <styled.div css={{ spaceY: "1", lineHeight: "none" }}>
               <FieldLabel>Use different settings for my mobile devices</FieldLabel>
               <FieldDescription>

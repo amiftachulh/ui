@@ -1,0 +1,14 @@
+{
+  "name": "field-select",
+  "type": "registry:example",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/field-select.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Field, FieldDescription, FieldLabel } from \"@/registry/default/ui/field\";\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/default/ui/select\";\n\nexport default function FieldSelect() {\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"md\" }}>\n      <Field>\n        <FieldLabel>Department</FieldLabel>\n        <Select>\n          <SelectTrigger>\n            <SelectValue placeholder=\"Choose department\" />\n          </SelectTrigger>\n          <SelectContent>\n            <SelectItem value=\"engineering\">Engineering</SelectItem>\n            <SelectItem value=\"design\">Design</SelectItem>\n            <SelectItem value=\"marketing\">Marketing</SelectItem>\n            <SelectItem value=\"sales\">Sales</SelectItem>\n            <SelectItem value=\"support\">Customer Support</SelectItem>\n            <SelectItem value=\"hr\">Human Resources</SelectItem>\n            <SelectItem value=\"finance\">Finance</SelectItem>\n            <SelectItem value=\"operations\">Operations</SelectItem>\n          </SelectContent>\n        </Select>\n        <FieldDescription>Select your department or area of work.</FieldDescription>\n      </Field>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

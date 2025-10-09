@@ -1,0 +1,14 @@
+{
+  "name": "field-input",
+  "type": "registry:example",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/field-input.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldSet,\n} from \"@/registry/default/ui/field\";\nimport { Input } from \"@/registry/default/ui/input\";\n\nexport default function FieldInput() {\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"md\" }}>\n      <FieldSet>\n        <FieldGroup>\n          <Field>\n            <FieldLabel htmlFor=\"username\">Username</FieldLabel>\n            <Input id=\"username\" type=\"text\" placeholder=\"Max Leiter\" />\n            <FieldDescription>Choose a unique username for your account.</FieldDescription>\n          </Field>\n          <Field>\n            <FieldLabel htmlFor=\"password\">Password</FieldLabel>\n            <FieldDescription>Must be at least 8 characters long.</FieldDescription>\n            <Input id=\"password\" type=\"password\" placeholder=\"********\" />\n          </Field>\n        </FieldGroup>\n      </FieldSet>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "field-switch",
+  "type": "registry:example",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/field-switch.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Field, FieldContent, FieldDescription, FieldLabel } from \"@/registry/default/ui/field\";\nimport { Switch } from \"@/registry/default/ui/switch\";\n\nexport default function FieldSwitch() {\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"md\" }}>\n      <Field orientation=\"horizontal\">\n        <FieldContent>\n          <FieldLabel htmlFor=\"2fa\">Multi-factor authentication</FieldLabel>\n          <FieldDescription>\n            Enable multi-factor authentication. If you do not have a two-factor device, you can use\n            a one-time code sent to your email.\n          </FieldDescription>\n        </FieldContent>\n        <Switch id=\"2fa\" />\n      </Field>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

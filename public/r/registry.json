@@ -338,13 +338,14 @@
     {
       "name": "field",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
       "files": [
         {
           "path": "registry/default/ui/field.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/slot-recipes/field.ts",
+          "type": "registry:slot-recipe"
         }
       ]
     },
@@ -5057,14 +5058,144 @@
       ]
     },
     {
-      "name": "field-form",
+      "name": "field-input",
       "type": "registry:example",
       "registryDependencies": [
         "field"
       ],
       "files": [
         {
-          "path": "registry/default/examples/field-form.tsx",
+          "path": "registry/default/examples/field-input.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-textarea",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-textarea.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-fieldset",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-fieldset.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-radio",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-radio.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-checkbox",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-checkbox.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-switch",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-switch.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-slider",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-slider.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-select",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-select.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-choice-card",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-choice-card.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-group",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-group.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "field-responsive",
+      "type": "registry:example",
+      "registryDependencies": [
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/field-responsive.tsx",
           "type": "registry:example"
         }
       ]

@@ -7,13 +7,7 @@ import { z } from "zod";
 import { toast } from "@/registry/default/hooks/use-toast";
 import { Button } from "@/registry/default/ui/button";
 import { Checkbox } from "@/registry/default/ui/checkbox";
-import {
-  Field,
-  FieldControl,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/registry/default/ui/field";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/registry/default/ui/field";
 
 const items = [
   {
@@ -77,7 +71,7 @@ export default function CheckboxFormMultiple() {
         control={form.control}
         name="items"
         render={({ field, fieldState }) => (
-          <Field invalid={fieldState.invalid}>
+          <Field data-invalid={fieldState.invalid}>
             <styled.div css={{ mb: "4" }}>
               <FieldLabel css={{ textStyle: "md" }}>Sidebar</FieldLabel>
               <FieldDescription>
@@ -94,16 +88,14 @@ export default function CheckboxFormMultiple() {
                   gap: "2",
                 }}
               >
-                <FieldControl>
-                  <Checkbox
-                    checked={field.value?.includes(item.id)}
-                    onCheckedChange={(checked) => {
-                      return checked
-                        ? field.onChange([...field.value, item.id])
-                        : field.onChange(field.value?.filter((value: string) => value !== item.id));
-                    }}
-                  />
-                </FieldControl>
+                <Checkbox
+                  checked={field.value?.includes(item.id)}
+                  onCheckedChange={(checked) => {
+                    return checked
+                      ? field.onChange([...field.value, item.id])
+                      : field.onChange(field.value?.filter((value: string) => value !== item.id));
+                  }}
+                />
                 <FieldLabel css={{ fontWeight: "normal" }}>{item.label}</FieldLabel>
               </styled.div>
             ))}

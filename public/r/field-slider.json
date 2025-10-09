@@ -1,0 +1,14 @@
+{
+  "name": "field-slider",
+  "type": "registry:example",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/field-slider.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { styled } from \"styled-system/jsx\";\nimport { Field, FieldDescription, FieldTitle } from \"@/registry/default/ui/field\";\nimport { Slider } from \"@/registry/default/ui/slider\";\n\nexport default function FieldSlider() {\n  const [value, setValue] = useState([200, 800]);\n\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"md\" }}>\n      <Field>\n        <FieldTitle>Price Range</FieldTitle>\n        <FieldDescription>\n          Set your budget range ($\n          <styled.span css={{ fontWeight: \"medium\", fontVariantNumeric: \"tabular-nums\" }}>\n            {value[0]}\n          </styled.span>{\" \"}\n          -{\" \"}\n          <styled.span css={{ fontWeight: \"medium\", fontVariantNumeric: \"tabular-nums\" }}>\n            {value[1]}\n          </styled.span>\n          ).\n        </FieldDescription>\n        <Slider\n          value={value}\n          onValueChange={setValue}\n          max={1000}\n          min={0}\n          step={10}\n          css={{ mt: \"2\", w: \"full\" }}\n          aria-label=\"Price Range\"\n        />\n      </Field>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

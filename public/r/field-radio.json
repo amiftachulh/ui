@@ -1,0 +1,14 @@
+{
+  "name": "field-radio",
+  "type": "registry:example",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/field-radio.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Field, FieldDescription, FieldLabel, FieldSet } from \"@/registry/default/ui/field\";\nimport { RadioGroup, RadioGroupItem } from \"@/registry/default/ui/radio-group\";\n\nexport default function FieldRadio() {\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"md\" }}>\n      <FieldSet>\n        <FieldLabel>Subscription Plan</FieldLabel>\n        <FieldDescription>Yearly and lifetime plans offer significant savings.</FieldDescription>\n        <RadioGroup defaultValue=\"monthly\">\n          <Field orientation=\"horizontal\">\n            <RadioGroupItem value=\"monthly\" id=\"plan-monthly\" />\n            <FieldLabel htmlFor=\"plan-monthly\" css={{ fontWeight: \"normal\" }}>\n              Monthly ($9.99/month)\n            </FieldLabel>\n          </Field>\n          <Field orientation=\"horizontal\">\n            <RadioGroupItem value=\"yearly\" id=\"plan-yearly\" />\n            <FieldLabel htmlFor=\"plan-yearly\" css={{ fontWeight: \"normal\" }}>\n              Yearly ($99.99/year)\n            </FieldLabel>\n          </Field>\n          <Field orientation=\"horizontal\">\n            <RadioGroupItem value=\"lifetime\" id=\"plan-lifetime\" />\n            <FieldLabel htmlFor=\"plan-lifetime\" css={{ fontWeight: \"normal\" }}>\n              Lifetime ($299.99)\n            </FieldLabel>\n          </Field>\n        </RadioGroup>\n      </FieldSet>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

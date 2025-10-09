@@ -1,0 +1,14 @@
+{
+  "name": "field-textarea",
+  "type": "registry:example",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/field-textarea.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldSet,\n} from \"@/registry/default/ui/field\";\nimport { Textarea } from \"@/registry/default/ui/textarea\";\n\nexport default function FieldTextarea() {\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"md\" }}>\n      <FieldSet>\n        <FieldGroup>\n          <Field>\n            <FieldLabel htmlFor=\"feedback\">Feedback</FieldLabel>\n            <Textarea id=\"feedback\" placeholder=\"Your feedback helps us improve...\" rows={4} />\n            <FieldDescription>Share your thoughts about our service.</FieldDescription>\n          </Field>\n        </FieldGroup>\n      </FieldSet>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

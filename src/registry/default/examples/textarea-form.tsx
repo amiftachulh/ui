@@ -6,13 +6,7 @@ import { styled } from "styled-system/jsx";
 import { z } from "zod";
 import { toast } from "@/registry/default/hooks/use-toast";
 import { Button } from "@/registry/default/ui/button";
-import {
-  Field,
-  FieldControl,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/registry/default/ui/field";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/registry/default/ui/field";
 import { Textarea } from "@/registry/default/ui/textarea";
 
 const formSchema = z.object({
@@ -52,15 +46,13 @@ export default function TextareaForm() {
         control={form.control}
         name="bio"
         render={({ field, fieldState }) => (
-          <Field invalid={fieldState.invalid}>
+          <Field data-invalid={fieldState.invalid}>
             <FieldLabel>Bio</FieldLabel>
-            <FieldControl>
-              <Textarea
-                placeholder="Tell us a little bit about yourself"
-                css={{ resize: "none" }}
-                {...field}
-              />
-            </FieldControl>
+            <Textarea
+              placeholder="Tell us a little bit about yourself"
+              css={{ resize: "none" }}
+              {...field}
+            />
             <FieldDescription>
               You can <span>@mention</span> other users and organizations.
             </FieldDescription>

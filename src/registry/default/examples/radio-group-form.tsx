@@ -6,7 +6,7 @@ import { styled } from "styled-system/jsx";
 import { z } from "zod";
 import { toast } from "@/registry/default/hooks/use-toast";
 import { Button } from "@/registry/default/ui/button";
-import { Field, FieldControl, FieldError, FieldLabel } from "@/registry/default/ui/field";
+import { Field, FieldError, FieldLabel } from "@/registry/default/ui/field";
 import { RadioGroup, RadioGroupItem } from "@/registry/default/ui/radio-group";
 
 const formSchema = z.object({
@@ -41,45 +41,26 @@ export default function RadioGroupForm() {
         control={form.control}
         name="type"
         render={({ field, fieldState }) => (
-          <Field invalid={fieldState.invalid} css={{ spaceY: "3" }}>
+          <Field data-invalid={fieldState.invalid} css={{ spaceY: "3" }}>
             <FieldLabel>Notify me about...</FieldLabel>
-            <FieldControl>
-              <RadioGroup
-                onValueChange={field.onChange}
-                defaultValue={field.value}
-                css={{ display: "flex", flexDir: "column", spaceY: "1" }}
-              >
-                <Field
-                  invalid={fieldState.invalid}
-                  css={{ display: "flex", alignItems: "center", gap: "3", spaceY: "0" }}
-                >
-                  <FieldControl>
-                    <RadioGroupItem value="all" />
-                  </FieldControl>
-                  <FieldLabel css={{ fontWeight: "normal" }}>All new messages</FieldLabel>
-                </Field>
-                <Field
-                  invalid={fieldState.invalid}
-                  css={{ display: "flex", alignItems: "center", gap: "3", spaceY: "0" }}
-                >
-                  <FieldControl>
-                    <RadioGroupItem value="mentions" />
-                  </FieldControl>
-                  <FieldLabel css={{ fontWeight: "normal" }}>
-                    Direct messages and mentions
-                  </FieldLabel>
-                </Field>
-                <Field
-                  invalid={fieldState.invalid}
-                  css={{ display: "flex", alignItems: "center", gap: "3", spaceY: "0" }}
-                >
-                  <FieldControl>
-                    <RadioGroupItem value="none" />
-                  </FieldControl>
-                  <FieldLabel css={{ fontWeight: "normal" }}>Nothing</FieldLabel>
-                </Field>
-              </RadioGroup>
-            </FieldControl>
+            <RadioGroup
+              onValueChange={field.onChange}
+              defaultValue={field.value}
+              css={{ display: "flex", flexDir: "column", spaceY: "1" }}
+            >
+              <Field css={{ display: "flex", alignItems: "center", gap: "3", spaceY: "0" }}>
+                <RadioGroupItem value="all" />
+                <FieldLabel css={{ fontWeight: "normal" }}>All new messages</FieldLabel>
+              </Field>
+              <Field css={{ display: "flex", alignItems: "center", gap: "3", spaceY: "0" }}>
+                <RadioGroupItem value="mentions" />
+                <FieldLabel css={{ fontWeight: "normal" }}>Direct messages and mentions</FieldLabel>
+              </Field>
+              <Field css={{ display: "flex", alignItems: "center", gap: "3", spaceY: "0" }}>
+                <RadioGroupItem value="none" />
+                <FieldLabel css={{ fontWeight: "normal" }}>Nothing</FieldLabel>
+              </Field>
+            </RadioGroup>
             <FieldError>{fieldState.error?.message}</FieldError>
           </Field>
         )}

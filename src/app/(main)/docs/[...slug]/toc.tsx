@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { scroll } from "styled-system/recipes";
-import type { Heading } from "@/lib/mdx";
+import type { HeadingData } from "@/lib/mdx";
 
 const headingVariants = cva({
   variants: {
@@ -17,7 +17,7 @@ const headingVariants = cva({
   },
 });
 
-export default function TableOfContents({ headings }: { headings: Heading[] }) {
+export default function TableOfContents({ headings }: { headings: HeadingData[] }) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {

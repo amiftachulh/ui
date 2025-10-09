@@ -7,13 +7,7 @@ import { styled } from "styled-system/jsx";
 import { z } from "zod";
 import { toast } from "@/registry/default/hooks/use-toast";
 import { Button } from "@/registry/default/ui/button";
-import {
-  Field,
-  FieldControl,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/registry/default/ui/field";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/registry/default/ui/field";
 import { PhoneInput } from "@/registry/default/ui/phone-input";
 
 const formSchema = z.object({
@@ -51,13 +45,11 @@ export default function PhoneInputDemo() {
         name="phone"
         render={({ field, fieldState }) => (
           <Field
-            invalid={fieldState.invalid}
+            data-invalid={fieldState.invalid}
             css={{ display: "flex", flexDir: "column", alignItems: "flex-start" }}
           >
             <FieldLabel css={{ textAlign: "left" }}>Phone Number</FieldLabel>
-            <FieldControl css={{ w: "full" }}>
-              <PhoneInput placeholder="Enter a phone number" {...field} />
-            </FieldControl>
+            <PhoneInput placeholder="Enter a phone number" {...field} />
             <FieldDescription css={{ textAlign: "left" }}>Enter a phone number</FieldDescription>
             <FieldError>{fieldState.error?.message}</FieldError>
           </Field>

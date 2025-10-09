@@ -10,13 +10,7 @@ import { z } from "zod";
 import { toast } from "@/registry/default/hooks/use-toast";
 import { Button } from "@/registry/default/ui/button";
 import { Calendar } from "@/registry/default/ui/calendar";
-import {
-  Field,
-  FieldControl,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/registry/default/ui/field";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/registry/default/ui/field";
 import { Popover, PopoverContent, PopoverTrigger } from "@/registry/default/ui/popover";
 
 const formSchema = z.object({
@@ -51,29 +45,23 @@ export default function DatePickerForm() {
         control={form.control}
         name="dob"
         render={({ field, fieldState }) => (
-          <Field invalid={fieldState.invalid}>
+          <Field data-invalid={fieldState.invalid}>
             <FieldLabel>Date of birth</FieldLabel>
             <Popover>
               <PopoverTrigger asChild>
-                <FieldControl>
-                  <Button
-                    variant="outline"
-                    css={{
-                      w: "240px",
-                      pl: "3",
-                      textAlign: "left",
-                      fontWeight: "normal",
-                      color: !field.value ? "muted.fg" : undefined,
-                    }}
-                  >
-                    {field.value ? (
-                      dayjs(field.value).format("YYYY-MM-DD")
-                    ) : (
-                      <span>Pick a date</span>
-                    )}
-                    <LuCalendar className={css({ ml: "auto", h: "4", w: "4", opacity: "0.5" })} />
-                  </Button>
-                </FieldControl>
+                <Button
+                  variant="outline"
+                  css={{
+                    w: "240px",
+                    pl: "3",
+                    textAlign: "left",
+                    fontWeight: "normal",
+                    color: !field.value ? "muted.fg" : undefined,
+                  }}
+                >
+                  {field.value ? dayjs(field.value).format("YYYY-MM-DD") : <span>Pick a date</span>}
+                  <LuCalendar className={css({ ml: "auto", h: "4", w: "4", opacity: "0.5" })} />
+                </Button>
               </PopoverTrigger>
               <PopoverContent css={{ w: "auto", p: "0" }} align="start">
                 <Calendar

@@ -290,11 +290,14 @@ export const ui: Registry["items"] = [
   {
     name: "field",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-slot"],
     files: [
       {
         path: "ui/field.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "slot-recipes/field.ts",
+        type: "registry:slot-recipe",
       },
     ],
   },

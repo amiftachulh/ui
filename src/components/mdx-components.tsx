@@ -34,22 +34,19 @@ const alertIconMap = {
 } as const;
 
 const components: MDXComponents = {
-  h1: ({ children }) => (
+  h1: (props: any) => (
     <styled.h1
-      id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
       css={{
         color: "fg",
         lineHeight: "tight",
         fontWeight: "semibold",
         fontSize: "3xl",
       }}
-    >
-      {children}
-    </styled.h1>
+      {...props}
+    />
   ),
-  h2: ({ children }) => (
+  h2: (props: any) => (
     <styled.h2
-      id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
       css={{
         color: "fg",
         lineHeight: "tight",
@@ -60,13 +57,11 @@ const components: MDXComponents = {
         pb: "2",
         borderBottomWidth: "1px",
       }}
-    >
-      {children}
-    </styled.h2>
+      {...props}
+    />
   ),
-  h3: ({ children }) => (
+  h3: (props: any) => (
     <styled.h3
-      id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
       css={{
         color: "fg",
         lineHeight: "tight",
@@ -74,13 +69,11 @@ const components: MDXComponents = {
         fontSize: "xl",
         mt: "8",
       }}
-    >
-      {children}
-    </styled.h3>
+      {...props}
+    />
   ),
-  h4: ({ children }) => (
+  h4: (props: any) => (
     <styled.h4
-      id={children?.toString().toLowerCase().replace(/\s+/g, "-")}
       css={{
         color: "fg",
         lineHeight: "tight",
@@ -88,9 +81,8 @@ const components: MDXComponents = {
         fontSize: "lg",
         mt: "6",
       }}
-    >
-      {children}
-    </styled.h4>
+      {...props}
+    />
   ),
   p: ({ children }) => <styled.p css={{ my: "4", lineHeight: "relaxed" }}>{children}</styled.p>,
   a: ({ href, ...props }) => {
@@ -145,7 +137,7 @@ const components: MDXComponents = {
         rounded: "sm",
         color: "secondary.fg",
         userSelect: "auto",
-        fontSize: "0.8rem",
+        fontSize: "xs",
         fontWeight: "normal",
       }}
     >

@@ -1,0 +1,14 @@
+{
+  "name": "field-fieldset",
+  "type": "registry:example",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/field-fieldset.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldLegend,\n  FieldSet,\n} from \"@/registry/default/ui/field\";\nimport { Input } from \"@/registry/default/ui/input\";\n\nexport default function FieldFieldset() {\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"md\", spaceY: \"6\" }}>\n      <FieldSet>\n        <FieldLegend>Address Information</FieldLegend>\n        <FieldDescription>We need your address to deliver your order.</FieldDescription>\n        <FieldGroup>\n          <Field>\n            <FieldLabel htmlFor=\"street\">Street Address</FieldLabel>\n            <Input id=\"street\" type=\"text\" placeholder=\"123 Main St\" />\n          </Field>\n          <styled.div\n            css={{ display: \"grid\", gridTemplateColumns: \"repeat(2, minmax(0, 1fr))\", gap: \"4\" }}\n          >\n            <Field>\n              <FieldLabel htmlFor=\"city\">City</FieldLabel>\n              <Input id=\"city\" type=\"text\" placeholder=\"New York\" />\n            </Field>\n            <Field>\n              <FieldLabel htmlFor=\"zip\">Postal Code</FieldLabel>\n              <Input id=\"zip\" type=\"text\" placeholder=\"90502\" />\n            </Field>\n          </styled.div>\n        </FieldGroup>\n      </FieldSet>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

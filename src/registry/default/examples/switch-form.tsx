@@ -6,7 +6,7 @@ import { styled } from "styled-system/jsx";
 import { z } from "zod";
 import { toast } from "@/registry/default/hooks/use-toast";
 import { Button } from "@/registry/default/ui/button";
-import { Field, FieldControl, FieldDescription, FieldLabel } from "@/registry/default/ui/field";
+import { Field, FieldDescription, FieldLabel } from "@/registry/default/ui/field";
 import { Switch } from "@/registry/default/ui/switch";
 
 const formSchema = z.object({
@@ -65,9 +65,7 @@ export default function SwitchForm() {
                     Receive emails about new products, features, and more.
                   </FieldDescription>
                 </styled.div>
-                <FieldControl>
-                  <Switch checked={field.value} onCheckedChange={field.onChange} />
-                </FieldControl>
+                <Switch checked={field.value} onCheckedChange={field.onChange} />
               </Field>
             )}
           />
@@ -90,14 +88,12 @@ export default function SwitchForm() {
                   <FieldLabel css={{ textStyle: "md" }}>Security emails</FieldLabel>
                   <FieldDescription>Receive emails about your account security.</FieldDescription>
                 </styled.div>
-                <FieldControl>
-                  <Switch
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                    disabled
-                    aria-readonly
-                  />
-                </FieldControl>
+                <Switch
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                  disabled
+                  aria-readonly
+                />
               </Field>
             )}
           />

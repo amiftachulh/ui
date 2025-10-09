@@ -3,12 +3,11 @@ import fs from "fs";
 import path from "path";
 import { compile, run } from "@mdx-js/mdx";
 import matter from "gray-matter";
+import type { Heading, InlineCode, Root, Text } from "mdast";
 import recmaMdxEscapeMissingComponents from "recma-mdx-escape-missing-components";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import remarkGfm from "remark-gfm";
-import remarkMdx from "remark-mdx";
-import remarkParse from "remark-parse";
-import { unified } from "unified";
+import { visit } from "unist-util-visit";
 import components from "@/components/mdx-components";
 
 const contentDir = path.join(process.cwd(), "src/contents");
@@ -16,7 +15,7 @@ const contentDir = path.join(process.cwd(), "src/contents");
 export type Doc = {
   meta: Record<string, any>;
   content: React.ReactNode;
-  headings: Heading[];
+  headings: HeadingData[];
 };
 
 export async function getDocBySlug(slug: string): Promise<Doc> {
@@ -34,16 +33,16 @@ export async function getDocBySlug(slug: string): Promise<Doc> {
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { content, data: frontmatter } = matter(fileContent);
 
+  const headings: HeadingData[] = [];
+
   const compiledMdx = await compile(content, {
     outputFormat: "function-body",
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, () => remarkHeadingsCollector(headings)],
     rehypePlugins: [rehypeMdxCodeProps],
     recmaPlugins: [recmaMdxEscapeMissingComponents],
   });
 
   const { default: MDXContent } = await run(compiledMdx, { ...runtime });
-
-  const headings = extractHeadings(fileContent);
 
   return {
     meta: {
@@ -76,41 +75,50 @@ export async function getAllDocs() {
   return allDocs;
 }
 
-export type Heading = {
+export type HeadingData = {
   level: number;
   text: string;
   id: string;
 };
 
-export function extractHeadings(content: string) {
-  content = content.replace(/^---[\s\S]*?---\s*/, "");
+function remarkHeadingsCollector(headings: HeadingData[]) {
+  const idCounts = new Map<string, number>();
 
-  const tree = unified().use(remarkParse).use(remarkMdx).parse(content);
-
-  const headings: Heading[] = [];
-
-  function visit(node: any) {
-    if (node.type === "heading") {
+  return (tree: Root) => {
+    visit(tree, "heading", (node: Heading) => {
       const text = node.children
-        .filter((child: any) => child.type === "text" || child.type === "inlineCode")
-        .map((child: any) => child.value)
-        .join("");
+        .map((child) => {
+          if (child.type === "text" || child.type === "inlineCode") {
+            return (child as Text | InlineCode).value;
+          }
+          return "";
+        })
+        .join(" ")
+        .trim();
 
-      const id = text.toLowerCase().replace(/\s+/g, "-");
+      if (!text) return;
 
+      const baseId = text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-");
+
+      const count = idCounts.get(baseId) || 0;
+      const id = count === 0 ? baseId : `${baseId}-${count + 1}`;
+      idCounts.set(baseId, count + 1);
+
+      // Assign ID to heading node
+      node.data = node.data || {};
+      node.data.hProperties = node.data.hProperties || {};
+      node.data.hProperties.id = id;
+
+      // Store heading for table of contents
       headings.push({
         level: node.depth,
-        text: text.trim(),
+        text,
         id,
       });
-    }
-
-    if (node.children) {
-      node.children.forEach((child: any) => visit(child));
-    }
-  }
-
-  visit(tree);
-
-  return headings;
+    });
+  };
 }

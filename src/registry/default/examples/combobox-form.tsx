@@ -16,13 +16,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/registry/default/ui/command";
-import {
-  Field,
-  FieldControl,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/registry/default/ui/field";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/registry/default/ui/field";
 import { Popover, PopoverContent, PopoverTrigger } from "@/registry/default/ui/popover";
 
 const languages = [
@@ -69,34 +63,32 @@ export default function ComboboxForm() {
         control={form.control}
         name="language"
         render={({ field, fieldState }) => (
-          <Field invalid={fieldState.invalid} css={{ display: "flex", flexDir: "column" }}>
+          <Field data-invalid={fieldState.invalid} css={{ display: "flex", flexDir: "column" }}>
             <FieldLabel>Language</FieldLabel>
             <Popover>
               <PopoverTrigger asChild>
-                <FieldControl>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    css={{
-                      w: "200px",
-                      justifyContent: "space-between",
-                      color: !field.value ? "muted.fg" : undefined,
-                    }}
-                  >
-                    {field.value
-                      ? languages.find((language) => language.value === field.value)?.label
-                      : "Select language"}
-                    <LuChevronsUpDown
-                      className={css({
-                        ml: "2",
-                        w: "4",
-                        h: "4",
-                        flexShrink: "0",
-                        opacity: "0.5",
-                      })}
-                    />
-                  </Button>
-                </FieldControl>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  css={{
+                    w: "200px",
+                    justifyContent: "space-between",
+                    color: !field.value ? "muted.fg" : undefined,
+                  }}
+                >
+                  {field.value
+                    ? languages.find((language) => language.value === field.value)?.label
+                    : "Select language"}
+                  <LuChevronsUpDown
+                    className={css({
+                      ml: "2",
+                      w: "4",
+                      h: "4",
+                      flexShrink: "0",
+                      opacity: "0.5",
+                    })}
+                  />
+                </Button>
               </PopoverTrigger>
               <PopoverContent css={{ w: "200px", p: "0" }}>
                 <Command>

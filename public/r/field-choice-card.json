@@ -1,0 +1,14 @@
+{
+  "name": "field-choice-card",
+  "type": "registry:example",
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/field-choice-card.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldSet,\n  FieldTitle,\n} from \"@/registry/default/ui/field\";\nimport { RadioGroup, RadioGroupItem } from \"@/registry/default/ui/radio-group\";\n\nexport default function FieldChoiceCard() {\n  return (\n    <styled.div css={{ w: \"full\", maxW: \"md\" }}>\n      <FieldGroup>\n        <FieldSet>\n          <FieldLabel htmlFor=\"compute-environment-p8w\">Compute Environment</FieldLabel>\n          <FieldDescription>Select the compute environment for your cluster.</FieldDescription>\n          <RadioGroup defaultValue=\"kubernetes\">\n            <FieldLabel htmlFor=\"kubernetes-r2h\">\n              <Field orientation=\"horizontal\">\n                <FieldContent>\n                  <FieldTitle>Kubernetes</FieldTitle>\n                  <FieldDescription>\n                    Run GPU workloads on a K8s configured cluster.\n                  </FieldDescription>\n                </FieldContent>\n                <RadioGroupItem value=\"kubernetes\" id=\"kubernetes-r2h\" />\n              </Field>\n            </FieldLabel>\n            <FieldLabel htmlFor=\"vm-z4k\">\n              <Field orientation=\"horizontal\">\n                <FieldContent>\n                  <FieldTitle>Virtual Machine</FieldTitle>\n                  <FieldDescription>\n                    Access a VM configured cluster to run GPU workloads.\n                  </FieldDescription>\n                </FieldContent>\n                <RadioGroupItem value=\"vm\" id=\"vm-z4k\" />\n              </Field>\n            </FieldLabel>\n          </RadioGroup>\n        </FieldSet>\n      </FieldGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}
