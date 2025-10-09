@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { addDays } from "date-fns";
+import dayjs from "dayjs";
 import { styled } from "styled-system/jsx";
 import { Button } from "@/registry/default/ui/button";
 import { Calendar } from "@/registry/default/ui/calendar";
@@ -58,7 +58,7 @@ export default function Calendar19() {
               size="sm"
               css={{ flex: "1" }}
               onClick={() => {
-                const newDate = addDays(new Date(), preset.value);
+                const newDate = dayjs().add(preset.value, "days").toDate();
                 setDate(newDate);
               }}
             >
