@@ -26,17 +26,17 @@ description: Used to display textual user input from keyboard.
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="kbd.ts" type="recipe" />
+<ComponentSource name="kbd.ts" type="slot-recipe" />
 
 <ComponentSource name="kbd.tsx" type="component" />
 
 <Step>Import the recipe into the respective `index.ts` file.</Step>
 
 ```tsx
-import { kbdRecipe } from "./kbd";
+import { kbdSlotRecipe } from "./kbd";
 
-export the recipes = {
-  kbd: kbdRecipe,
+export the slotRecipes = {
+  kbd: kbdSlotRecipe,
 };
 ```
 

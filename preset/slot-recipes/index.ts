@@ -18,6 +18,7 @@ import { fieldSlotRecipe } from "@/registry/default/slot-recipes/field";
 import { hoverCardSlotRecipe } from "@/registry/default/slot-recipes/hover-card";
 import { inputGroupSlotRecipes } from "@/registry/default/slot-recipes/input-group";
 import { itemSlotRecipes } from "@/registry/default/slot-recipes/item";
+import { kbdSlotRecipe } from "@/registry/default/slot-recipes/kbd";
 import { menubarSlotRecipe } from "@/registry/default/slot-recipes/menubar";
 import { navigationMenuSlotRecipe } from "@/registry/default/slot-recipes/navigation-menu";
 import { paginationSlotRecipe } from "@/registry/default/slot-recipes/pagination";
@@ -59,6 +60,7 @@ export const slotRecipes = {
   hoverCard: hoverCardSlotRecipe,
   inputGroup: inputGroupSlotRecipes,
   item: itemSlotRecipes,
+  kbd: kbdSlotRecipe,
   menubar: menubarSlotRecipe,
   navigationMenu: navigationMenuSlotRecipe,
   pagination: paginationSlotRecipe,
