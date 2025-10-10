@@ -1,48 +1,85 @@
-"use client";
-
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { createStyleContext } from "styled-system/jsx";
+import { styled } from "styled-system/jsx";
 import { item } from "styled-system/recipes";
 import { Separator } from "@/registry/default/ui/separator";
 
-const { withProvider, withContext } = createStyleContext(item);
+const classes = item();
 
-const ItemGroup = withProvider("div", "group", { defaultProps: { role: "list" } });
-
-function ItemSeparator({ css, ...props }: React.ComponentProps<typeof Separator>) {
-  return <Separator orientation="horizontal" css={{ my: "0", ...css }} {...props} />;
+function ItemGroup(props: React.ComponentProps<typeof styled.div>) {
+  return <styled.div role="list" data-slot="item-group" className={classes.group} {...props} />;
 }
 
-function Root({
+function ItemSeparator({ css, ...props }: React.ComponentProps<typeof Separator>) {
+  return (
+    <Separator
+      data-slot="item-separator"
+      orientation="horizontal"
+      css={{ my: "0", ...css }}
+      {...props}
+    />
+  );
+}
+
+function Item({
   variant = "default",
   size = "default",
   asChild = false,
   ...props
-}: React.ComponentProps<"div"> & {
+}: React.ComponentProps<typeof styled.div> & {
   variant?: "default" | "outline" | "muted";
   size?: "default" | "sm";
   asChild?: boolean;
 }) {
-  const Comp = asChild ? Slot : "div";
-  return <Comp data-variant={variant} data-size={size} {...props} />;
+  const Comp = asChild ? Slot : styled.div;
+  return (
+    <Comp
+      data-slot="item"
+      data-variant={variant}
+      data-size={size}
+      className={classes.root}
+      {...props}
+    />
+  );
 }
-const Item = withProvider(Root, "root");
 
-function Media({
+function ItemMedia({
   variant = "default",
   ...props
-}: React.ComponentProps<"div"> & { variant?: "default" | "icon" | "image" }) {
-  return <div data-variant={variant} {...props} />;
+}: React.ComponentProps<typeof styled.div> & { variant?: "default" | "icon" | "image" }) {
+  return (
+    <styled.div
+      data-slot="item-media"
+      data-variant={variant}
+      className={classes.media}
+      {...props}
+    />
+  );
 }
-const ItemMedia = withContext(Media, "media");
 
-const ItemContent = withContext("div", "content");
-const ItemTitle = withContext("div", "title");
-const ItemDescription = withContext("p", "description");
-const ItemActions = withContext("div", "actions");
-const ItemHeader = withContext("div", "header");
-const ItemFooter = withContext("div", "footer");
+function ItemContent(props: React.ComponentProps<typeof styled.div>) {
+  return <styled.div data-slot="item-content" className={classes.content} {...props} />;
+}
+
+function ItemTitle(props: React.ComponentProps<typeof styled.div>) {
+  return <styled.div data-slot="item-title" className={classes.title} {...props} />;
+}
+
+function ItemDescription(props: React.ComponentProps<typeof styled.p>) {
+  return <styled.p data-slot="item-description" className={classes.description} {...props} />;
+}
+
+function ItemActions(props: React.ComponentProps<typeof styled.div>) {
+  return <styled.div data-slot="item-actions" className={classes.actions} {...props} />;
+}
+
+function ItemHeader(props: React.ComponentProps<typeof styled.div>) {
+  return <styled.div data-slot="item-header" className={classes.header} {...props} />;
+}
+
+function ItemFooter(props: React.ComponentProps<typeof styled.div>) {
+  return <styled.div data-slot="item-footer" className={classes.footer} {...props} />;
+}
 
 export {
   Item,
