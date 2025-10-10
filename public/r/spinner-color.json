@@ -1,0 +1,14 @@
+{
+  "name": "spinner-color",
+  "type": "registry:example",
+  "registryDependencies": [
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/spinner-color.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Spinner } from \"@/registry/default/ui/spinner\";\n\nexport default function SpinnerColor() {\n  return (\n    <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"6\" }}>\n      <Spinner css={{ w: \"6\", h: \"6\", color: \"red.500\" }} />\n      <Spinner css={{ w: \"6\", h: \"6\", color: \"green.500\" }} />\n      <Spinner css={{ w: \"6\", h: \"6\", color: \"blue.500\" }} />\n      <Spinner css={{ w: \"6\", h: \"6\", color: \"yellow.500\" }} />\n      <Spinner css={{ w: \"6\", h: \"6\", color: \"purple.500\" }} />\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

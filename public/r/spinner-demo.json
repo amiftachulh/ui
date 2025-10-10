@@ -1,0 +1,14 @@
+{
+  "name": "spinner-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/spinner-demo.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Item, ItemContent, ItemMedia, ItemTitle } from \"@/registry/default/ui/item\";\nimport { Spinner } from \"@/registry/default/ui/spinner\";\n\nexport default function SpinnerDemo() {\n  return (\n    <styled.div\n      css={{ display: \"flex\", w: \"full\", maxW: \"xs\", flexDir: \"column\", gap: \"4\", rounded: \"1rem\" }}\n    >\n      <Item variant=\"muted\">\n        <ItemMedia>\n          <Spinner />\n        </ItemMedia>\n        <ItemContent>\n          <ItemTitle css={{ lineClamp: \"1\" }}>Processing payment...</ItemTitle>\n        </ItemContent>\n        <ItemContent css={{ flex: \"none\", justifyContent: \"flex-end\" }}>\n          <styled.span css={{ textStyle: \"sm\", fontVariantNumeric: \"tabular-nums\" }}>\n            $100.00\n          </styled.span>\n        </ItemContent>\n      </Item>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

@@ -657,6 +657,10 @@ export const ui: Registry["items"] = [
         path: "ui/spinner.tsx",
         type: "registry:ui",
       },
+      {
+        path: "recipes/spinner.ts",
+        type: "registry:recipe",
+      },
     ],
   },
   {

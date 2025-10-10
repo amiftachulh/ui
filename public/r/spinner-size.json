@@ -1,0 +1,14 @@
+{
+  "name": "spinner-size",
+  "type": "registry:example",
+  "registryDependencies": [
+    "spinner"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/spinner-size.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Spinner } from \"@/registry/default/ui/spinner\";\n\nexport default function SpinnerSize() {\n  return (\n    <styled.div css={{ display: \"flex\", alignItems: \"center\", gap: \"6\" }}>\n      <Spinner css={{ w: \"3\", h: \"3\" }} />\n      <Spinner css={{ w: \"4\", h: \"4\" }} />\n      <Spinner css={{ w: \"6\", h: \"6\" }} />\n      <Spinner css={{ w: \"8\", h: \"8\" }} />\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

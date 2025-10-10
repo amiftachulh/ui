@@ -1,0 +1,15 @@
+{
+  "name": "spinner-button",
+  "type": "registry:example",
+  "registryDependencies": [
+    "spinner",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/spinner-button.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Spinner } from \"@/registry/default/ui/spinner\";\n\nexport default function SpinnerButton() {\n  return (\n    <styled.div css={{ display: \"flex\", flexDir: \"column\", alignItems: \"center\", gap: \"4\" }}>\n      <Button disabled size=\"sm\">\n        <Spinner />\n        Loading...\n      </Button>\n      <Button variant=\"outline\" disabled size=\"sm\">\n        <Spinner />\n        Please wait\n      </Button>\n      <Button variant=\"secondary\" disabled size=\"sm\">\n        <Spinner />\n        Processing\n      </Button>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

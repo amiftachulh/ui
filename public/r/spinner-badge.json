@@ -1,0 +1,15 @@
+{
+  "name": "spinner-badge",
+  "type": "registry:example",
+  "registryDependencies": [
+    "spinner",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/spinner-badge.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Badge } from \"@/registry/default/ui/badge\";\nimport { Spinner } from \"@/registry/default/ui/spinner\";\n\nexport default function SpinnerBadge() {\n  return (\n    <styled.div\n      css={{\n        display: \"flex\",\n        alignItems: \"center\",\n        gap: \"4\",\n        \"& > .badge\": {\n          rounded: \"1.2rem\",\n        },\n      }}\n    >\n      <Badge>\n        <Spinner />\n        Syncing\n      </Badge>\n      <Badge variant=\"secondary\">\n        <Spinner />\n        Updating\n      </Badge>\n      <Badge variant=\"outline\">\n        <Spinner />\n        Processing\n      </Badge>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

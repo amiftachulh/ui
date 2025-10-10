@@ -24,6 +24,8 @@ description: An indicator that can be used to show a loading state.
 
 <Step>Copy and paste the following code into your project.</Step>
 
+<ComponentSource name="spinner.ts" type="recipe" />
+
 <ComponentSource name="spinner.tsx" type="component" />
 
 <Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
@@ -53,23 +55,14 @@ You can replace the default spinner icon with any other icon by editing the `Spi
 ```tsx
 import { LuLoader } from "react-icons/lu";
 import { styled } from "styled-system/jsx";
+import { spinner } from "styled-system/recipes";
 
-const Spinner = styled(
-  LuLoader,
-  {
-    base: {
-      w: "4",
-      h: "4",
-      animation: "spin",
-    },
+const Spinner = styled(LuLoader, spinner, {
+  defaultProps: {
+    role: "status",
+    "aria-label": "Loading",
   },
-  {
-    defaultProps: {
-      role: "status",
-      "aria-label": "Loading",
-    },
-  }
-);
+});
 
 export { Spinner };
 ```
@@ -105,3 +98,27 @@ You can also use a spinner inside a badge.
 Input Group can have spinners inside `<InputGroupAddon>`.
 
 <ComponentPreview name="spinner-input-group" />
+
+### Empty
+
+<ComponentPreview name="spinner-empty" />
+
+### Item
+
+Use the spinner inside `<ItemMedia>` to indicate a loading state.
+
+<ComponentPreview name="spinner-item" />
+
+## API Reference
+
+### Spinner
+
+Use the `Spinner` component to display a spinner.
+
+| Prop  | Type                | Default |
+| ----- | ------------------- | ------- |
+| `css` | `SystemStyleObject` |         |
+
+```tsx
+<Spinner />
+```

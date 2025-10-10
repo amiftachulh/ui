@@ -1,0 +1,15 @@
+{
+  "name": "spinner-basic",
+  "type": "registry:example",
+  "registryDependencies": [
+    "spinner",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/spinner-basic.tsx",
+      "type": "registry:example",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Spinner } from \"@/registry/default/ui/spinner\";\n\nexport default function SpinnerBasic() {\n  return (\n    <styled.div\n      css={{\n        display: \"flex\",\n        flexDir: \"column\",\n        alignItems: \"center\",\n        justifyContent: \"center\",\n        gap: \"8\",\n      }}\n    >\n      <Spinner />\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

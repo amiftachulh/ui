@@ -1,0 +1,16 @@
+{
+  "name": "spinner-input-group",
+  "type": "registry:example",
+  "registryDependencies": [
+    "spinner",
+    "button",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/spinner-input-group.tsx",
+      "type": "registry:example",
+      "content": "import { LuArrowUp } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupInput,\n  InputGroupTextarea,\n} from \"@/registry/default/ui/input-group\";\nimport { Spinner } from \"@/registry/default/ui/spinner\";\n\nexport default function SpinnerInputGroup() {\n  return (\n    <styled.div css={{ display: \"flex\", w: \"full\", maxW: \"md\", flexDir: \"column\", gap: \"4\" }}>\n      <InputGroup>\n        <InputGroupInput placeholder=\"Send a message...\" disabled />\n        <InputGroupAddon align=\"inline-end\">\n          <Spinner />\n        </InputGroupAddon>\n      </InputGroup>\n      <InputGroup>\n        <InputGroupTextarea placeholder=\"Send a message...\" disabled />\n        <InputGroupAddon align=\"block-end\">\n          <Spinner /> Validating...\n          <InputGroupButton css={{ ml: \"auto\" }} variant=\"primary\">\n            <LuArrowUp />\n            <styled.span css={{ srOnly: true }}>Send</styled.span>\n          </InputGroupButton>\n        </InputGroupAddon>\n      </InputGroup>\n    </styled.div>\n  );\n}\n"
+    }
+  ]
+}

@@ -5,7 +5,12 @@
     {
       "path": "registry/default/ui/spinner.tsx",
       "type": "registry:ui",
-      "content": "import { LuLoaderCircle } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\n\nconst Spinner = styled(\n  LuLoaderCircle,\n  {\n    base: {\n      w: \"4\",\n      h: \"4\",\n      animation: \"spin\",\n    },\n  },\n  {\n    defaultProps: {\n      role: \"status\",\n      \"aria-label\": \"Loading\",\n    },\n  }\n);\n\nexport { Spinner };\n"
+      "content": "import { LuLoaderCircle } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { spinner } from \"styled-system/recipes\";\n\nconst Spinner = styled(LuLoaderCircle, spinner, {\n  defaultProps: {\n    role: \"status\",\n    \"aria-label\": \"Loading\",\n  },\n});\n\nexport { Spinner };\n"
+    },
+    {
+      "path": "registry/default/recipes/spinner.ts",
+      "type": "registry:recipe",
+      "content": "import { defineRecipe } from \"@pandacss/dev\";\n\nexport const spinnerRecipe = defineRecipe({\n  className: \"spinner\",\n  base: {\n    w: \"4\",\n    h: \"4\",\n    animation: \"spin\",\n  },\n});\n"
     }
   ]
 }

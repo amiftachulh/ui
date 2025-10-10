@@ -962,6 +962,10 @@ export const Index: Record<string, any> = {
       path: "src/registry/default/ui/spinner.tsx",
       type: "registry:ui",
       target: ""
+    },{
+      path: "src/registry/default/recipes/spinner.ts",
+      type: "registry:recipe",
+      target: ""
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/ui/spinner.tsx")
@@ -6815,6 +6819,186 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/examples/sonner-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-demo": {
+    name: "spinner-demo",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner"],
+    files: [{
+      path: "src/registry/default/examples/spinner-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-basic": {
+    name: "spinner-basic",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner","button"],
+    files: [{
+      path: "src/registry/default/examples/spinner-basic.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-basic.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-button": {
+    name: "spinner-button",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner","button"],
+    files: [{
+      path: "src/registry/default/examples/spinner-button.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-button.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-badge": {
+    name: "spinner-badge",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner","badge"],
+    files: [{
+      path: "src/registry/default/examples/spinner-badge.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-badge.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-input-group": {
+    name: "spinner-input-group",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner","button","input"],
+    files: [{
+      path: "src/registry/default/examples/spinner-input-group.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-input-group.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-empty": {
+    name: "spinner-empty",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner"],
+    files: [{
+      path: "src/registry/default/examples/spinner-empty.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-empty.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-color": {
+    name: "spinner-color",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner"],
+    files: [{
+      path: "src/registry/default/examples/spinner-color.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-color.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-custom": {
+    name: "spinner-custom",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner"],
+    files: [{
+      path: "src/registry/default/examples/spinner-custom.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-custom.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-size": {
+    name: "spinner-size",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner"],
+    files: [{
+      path: "src/registry/default/examples/spinner-size.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-size.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "spinner-item": {
+    name: "spinner-item",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["spinner"],
+    files: [{
+      path: "src/registry/default/examples/spinner-item.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/spinner-item.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
