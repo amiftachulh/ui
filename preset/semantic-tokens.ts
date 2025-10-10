@@ -63,5 +63,6 @@ export const semanticTokens = defineSemanticTokens({
     "accordion-down": { value: "accordion-down {durations.normal} {easings.out}" },
     "accordion-left": { value: "accordion-left {durations.normal} {easings.out}" },
     "accordion-right": { value: "accordion-right {durations.normal} {easings.out}" },
+    "caret-blink": { value: "caret-blink 1s ease-out infinite" },
   },
 });

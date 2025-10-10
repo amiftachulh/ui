@@ -517,6 +517,28 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "input-otp": {
+    name: "input-otp",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "src/registry/default/ui/input-otp.tsx",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "src/registry/default/slot-recipes/input-otp.ts",
+      type: "registry:slot-recipe",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/input-otp.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "item": {
     name: "item",
     description: "",
@@ -549,11 +571,7 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       target: ""
     },{
-      path: "src/registry/default/recipes/kbd.ts",
-      type: "registry:recipe",
-      target: ""
-    },{
-      path: "src/registry/default/recipes/kbd-group.ts",
+      path: "src/registry/default/slot-recipes/kbd.ts",
       type: "registry:recipe",
       target: ""
     }],
@@ -5879,6 +5897,96 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/examples/input-group-custom.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "input-otp-demo": {
+    name: "input-otp-demo",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["input-otp"],
+    files: [{
+      path: "src/registry/default/examples/input-otp-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/input-otp-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "input-otp-pattern": {
+    name: "input-otp-pattern",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["input-otp"],
+    files: [{
+      path: "src/registry/default/examples/input-otp-pattern.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/input-otp-pattern.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "input-otp-separator": {
+    name: "input-otp-separator",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["input-otp"],
+    files: [{
+      path: "src/registry/default/examples/input-otp-separator.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/input-otp-separator.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "input-otp-controlled": {
+    name: "input-otp-controlled",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["input-otp"],
+    files: [{
+      path: "src/registry/default/examples/input-otp-controlled.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/input-otp-controlled.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "input-otp-form": {
+    name: "input-otp-form",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["input-otp","form"],
+    files: [{
+      path: "src/registry/default/examples/input-otp-form.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/input-otp-form.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

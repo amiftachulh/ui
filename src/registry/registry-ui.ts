@@ -346,6 +346,21 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "input-otp",
+    type: "registry:ui",
+    dependencies: ["input-otp"],
+    files: [
+      {
+        path: "ui/input-otp.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "slot-recipes/input-otp.ts",
+        type: "registry:slot-recipe",
+      },
+    ],
+  },
+  {
     name: "item",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-slot"],
@@ -370,11 +385,7 @@ export const ui: Registry["items"] = [
         type: "registry:ui",
       },
       {
-        path: "recipes/kbd.ts",
-        type: "registry:recipe",
-      },
-      {
-        path: "recipes/kbd-group.ts",
+        path: "slot-recipes/kbd.ts",
         type: "registry:recipe",
       },
     ],

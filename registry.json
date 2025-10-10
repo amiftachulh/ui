@@ -400,6 +400,23 @@
       ]
     },
     {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "dependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/default/ui/input-otp.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/slot-recipes/input-otp.ts",
+          "type": "registry:slot-recipe"
+        }
+      ]
+    },
+    {
       "name": "item",
       "type": "registry:ui",
       "dependencies": [
@@ -428,11 +445,7 @@
           "type": "registry:ui"
         },
         {
-          "path": "registry/default/recipes/kbd.ts",
-          "type": "registry:recipe"
-        },
-        {
-          "path": "registry/default/recipes/kbd-group.ts",
+          "path": "registry/default/slot-recipes/kbd.ts",
           "type": "registry:recipe"
         }
       ]
@@ -5389,6 +5402,72 @@
       "files": [
         {
           "path": "registry/default/examples/input-group-custom.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-otp-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-otp-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-otp-pattern",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-otp-pattern.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-otp-separator",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-otp-separator.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-otp-controlled",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-otp-controlled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "input-otp-form",
+      "type": "registry:example",
+      "registryDependencies": [
+        "input-otp",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/input-otp-form.tsx",
           "type": "registry:example"
         }
       ]
