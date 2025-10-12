@@ -16,7 +16,6 @@ import {
   TableRow,
 } from "@/registry/default/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/default/ui/tabs";
-import BlockPreview from "./block-preview";
 import CodeBlock from "./code-block";
 import { InstallationTabs } from "./code-tabs";
 import ComponentPreview from "./component-preview";
@@ -187,7 +186,6 @@ const components: MDXComponents = {
   ),
   ComponentPreview,
   ComponentSource,
-  BlockPreview,
   PackageInstaller,
   PackageRunner,
   CodeBlock,
