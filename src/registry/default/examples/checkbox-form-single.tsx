@@ -8,7 +8,7 @@ import { z } from "zod";
 import { toast } from "@/registry/default/hooks/use-toast";
 import { Button } from "@/registry/default/ui/button";
 import { Checkbox } from "@/registry/default/ui/checkbox";
-import { Field, FieldDescription, FieldLabel } from "@/registry/default/ui/field";
+import { Field, FieldContent, FieldDescription, FieldLabel } from "@/registry/default/ui/field";
 
 const formSchema = z.object({
   mobile: z.boolean().default(false).optional(),
@@ -42,27 +42,20 @@ export default function CheckboxFormSingle() {
       <Controller
         control={form.control}
         name="mobile"
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <Field
-            css={{
-              display: "flex!",
-              flexDir: "row",
-              alignItems: "flex-start",
-              spaceX: "3",
-              spaceY: "0",
-              rounded: "md",
-              borderWidth: "1px",
-              p: "4",
-            }}
+            data-invalid={fieldState.invalid}
+            orientation="horizontal"
+            css={{ p: "4", borderWidth: "1px", rounded: "md" }}
           >
             <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-            <styled.div css={{ spaceY: "1", lineHeight: "none" }}>
+            <FieldContent>
               <FieldLabel>Use different settings for my mobile devices</FieldLabel>
               <FieldDescription>
                 You can manage your mobile notifications in the{" "}
                 <Link href="/examples/forms">mobile settings</Link> page.
               </FieldDescription>
-            </styled.div>
+            </FieldContent>
           </Field>
         )}
       />
