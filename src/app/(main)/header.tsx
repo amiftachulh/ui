@@ -4,7 +4,7 @@ import { styled } from "styled-system/jsx";
 import { container } from "styled-system/patterns";
 import CommandMenu from "@/components/command-menu";
 import MobileNav from "@/components/mobile-nav";
-import ThemeToggle from "@/components/theme-toggle";
+import ThemeSheet from "@/components/theme-sheet";
 import { docsConfig } from "@/config/docs";
 
 export default function Header() {
@@ -76,7 +76,7 @@ export default function Header() {
           }}
         >
           <CommandMenu />
-          <ThemeToggle />
+          <ThemeSheet />
         </styled.div>
       </styled.div>
     </styled.header>

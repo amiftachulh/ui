@@ -23,7 +23,6 @@ import ComponentSource from "./component-source";
 import { FileTree } from "./file-tree";
 import PackageInstaller from "./package-installer";
 import PackageRunner from "./package-runner";
-import PropsTable from "./props-table";
 
 const alertIconMap = {
   info: LuInfo,
@@ -264,7 +263,6 @@ const components: MDXComponents = {
       {children}
     </styled.div>
   ),
-  PropsTable,
   Tabs,
   TabsList,
   TabsTrigger,

@@ -64,10 +64,10 @@ export default function Navigation() {
                     textStyle: "sm",
                     rounded: "md",
                     _hover: {
-                      bg: "zinc.500/20",
+                      bg: "primary/20",
                     },
                     "&[data-active=true]": {
-                      bg: "primary/10",
+                      bg: "primary/20",
                     },
                   })}
                 >
@@ -80,8 +80,8 @@ export default function Navigation() {
                         py: "0.5",
                         textStyle: "xs",
                         rounded: "full",
-                        bg: "blue.700",
-                        color: "blue.100",
+                        bg: "primary",
+                        color: "primary.fg",
                       }}
                     >
                       New

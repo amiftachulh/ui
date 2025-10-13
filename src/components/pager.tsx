@@ -27,7 +27,15 @@ export function DocsPager({ doc }: DocsPagerProps) {
       }}
     >
       {pager?.prev?.href && (
-        <Button variant="ghost" asChild>
+        <Button
+          variant="ghost"
+          asChild
+          css={{
+            _hover: {
+              bg: "primary/20",
+            },
+          }}
+        >
           <Link href={pager.prev.href}>
             <LuChevronLeft />
             {pager.prev.title}
@@ -35,7 +43,7 @@ export function DocsPager({ doc }: DocsPagerProps) {
         </Button>
       )}
       {pager?.next?.href && (
-        <Button variant="ghost" css={{ ml: "auto" }} asChild>
+        <Button variant="ghost" css={{ ml: "auto", _hover: { bg: "primary/20" } }} asChild>
           <Link href={pager.next.href}>
             {pager.next.title}
             <LuChevronRight />

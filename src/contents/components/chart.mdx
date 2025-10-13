@@ -486,42 +486,17 @@ import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 <ChartTooltip content={<ChartTooltipContent />} />
 ```
 
-**Props**
+### Props
 
-<PropsTable
-  data={[
-    {
-      name: "labelKey",
-      type: "string",
-      default: "-",
-      description: "The config or data key to use for the label.",
-    },
-    {
-      name: "nameKey",
-      type: "string",
-      default: "-",
-      description: "The config or data key to use for the name.",
-    },
-    {
-      name: "indicator",
-      type: "dot | line | dashed",
-      default: "-",
-      description: "The indicator style for the tooltip.",
-    },
-    {
-      name: "hideLabel",
-      type: "boolean",
-      default: "false",
-      description: "Whether to hide the label.",
-    },
-    {
-      name: "hideIndicator",
-      type: "boolean",
-      default: "false",
-      description: "Whether to hide the indicator.",
-    },
-  ]}
-/>
+Use the following props to customize the tooltip.
+
+| Prop            | Type                     | Description                                  |
+| :-------------- | :----------------------- | :------------------------------------------- |
+| `labelKey`      | string                   | The config or data key to use for the label. |
+| `nameKey`       | string                   | The config or data key to use for the name.  |
+| `indicator`     | `dot` `line` or `dashed` | The indicator style for the tooltip.         |
+| `hideLabel`     | boolean                  | Whether to hide the label.                   |
+| `hideIndicator` | boolean                  | Whether to hide the indicator.               |
 
 ### Colors
 
@@ -543,11 +518,11 @@ const chartConfig = {
   },
   chrome: {
     label: "Chrome",
-    color: "hsl(var(--chart-1))",
+    color: "var(--chart-1)",
   },
   safari: {
     label: "Safari",
-    color: "hsl(var(--chart-2))",
+    color: "var(--chart-2)",
   },
 } satisfies ChartConfig;
 ```
@@ -588,11 +563,11 @@ const chartData = [
 const chartConfig = {
   chrome: {
     label: "Chrome",
-    color: "hsl(var(--chart-1))",
+    color: "var(--chart-1)",
   },
   safari: {
     label: "Safari",
-    color: "hsl(var(--chart-2))",
+    color: "var(--chart-2)",
   },
 } satisfies ChartConfig;
 ```

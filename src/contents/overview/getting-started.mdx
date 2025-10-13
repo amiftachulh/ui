@@ -16,7 +16,7 @@ Before you begin, ensure you have the following dependencies installed:
 
 ## Installation
 
-<Tabs>
+<InstallationTabs>
 
 <TabsList>
   <TabsTrigger value="cli">CLI</TabsTrigger>
@@ -331,39 +331,57 @@ import { defineSemanticTokens } from "@pandacss/dev";
 
 export const semanticTokens = defineSemanticTokens({
   colors: {
-    bg: { value: { base: "oklch(1 0 0)", _dark: "oklch(0.145 0 0)" } },
-    fg: { value: { base: "oklch(0.145 0 0)", _dark: "oklch(0.985 0 0)" } },
+    bg: { value: "var(--bg)" },
+    fg: { value: "var(--fg)" },
     primary: {
-      DEFAULT: { value: { base: "oklch(0.205 0 0)", _dark: "oklch(0.922 0 0)" } },
-      fg: { value: { base: "oklch(0.985 0 0)", _dark: "oklch(0.205 0 0)" } },
+      DEFAULT: { value: "var(--primary)" },
+      fg: { value: "var(--primary-fg)" },
     },
     secondary: {
-      DEFAULT: { value: { base: "oklch(0.97 0 0)", _dark: "oklch(0.269 0 0)" } },
-      fg: { value: { base: "oklch(0.205 0 0)", _dark: "oklch(0.985 0 0)" } },
+      DEFAULT: { value: "var(--secondary)" },
+      fg: { value: "var(--secondary-fg)" },
     },
     accent: {
-      DEFAULT: { value: { base: "oklch(0.97 0 0)", _dark: "oklch(0.269 0 0)" } },
-      fg: { value: { base: "oklch(0.205 0 0)", _dark: "oklch(0.985 0 0)" } },
+      DEFAULT: { value: "var(--accent)" },
+      fg: { value: "var(--accent-fg)" },
     },
     muted: {
-      DEFAULT: { value: { base: "oklch(0.97 0 0)", _dark: "oklch(0.269 0 0)" } },
-      fg: { value: { base: "oklch(0.556 0 0)", _dark: "oklch(0.708 0 0)" } },
+      DEFAULT: { value: "var(--muted)" },
+      fg: { value: "var(--muted-fg)" },
     },
-    danger: {
-      DEFAULT: { value: { base: "oklch(0.577 0.245 27.325)", _dark: "oklch(0.704 0.191 22.216)" } },
-      fg: { value: { base: "oklch(0.985 0 0)", _dark: "oklch(0.205 0 0)" } },
-    },
+    danger: { value: "var(--danger)" },
     card: {
-      DEFAULT: { value: { base: "oklch(1 0 0)", _dark: "oklch(0.205 0 0)" } },
-      fg: { value: { base: "oklch(0.145 0 0)", _dark: "oklch(0.985 0 0)" } },
+      DEFAULT: { value: "var(--card)" },
+      fg: { value: "var(--card-fg)" },
     },
     popover: {
-      DEFAULT: { value: { base: "oklch(1 0 0)", _dark: "oklch(0.205 0 0)" } },
-      fg: { value: { base: "oklch(0.145 0 0)", _dark: "oklch(0.985 0 0)" } },
+      DEFAULT: { value: "var(--popover)" },
+      fg: { value: "var(--popover-fg)" },
     },
-    border: { value: { base: "oklch(0.922 0 0)", _dark: "oklch(1 0 0 / 10%)" } },
-    input: { value: { base: "oklch(0.922 0 0)", _dark: "oklch(1 0 0 / 15%)" } },
-    ring: { value: { base: "oklch(0.708 0 0)", _dark: "oklch(0.556 0 0)" } },
+    border: { value: "var(--border)" },
+    input: { value: "var(--input)" },
+    ring: { value: "var(--ring)" },
+    chart: {
+      1: { value: "var(--chart-1)" },
+      2: { value: "var(--chart-2)" },
+      3: { value: "var(--chart-3)" },
+      4: { value: "var(--chart-4)" },
+      5: { value: "var(--chart-5)" },
+    },
+    sidebar: {
+      DEFAULT: { value: "var(--sidebar)" },
+      fg: { value: "var(--sidebar-fg)" },
+      primary: {
+        DEFAULT: { value: "var(--sidebar-primary)" },
+        fg: { value: "var(--sidebar-primary-fg)" },
+      },
+      accent: {
+        DEFAULT: { value: "var(--sidebar-accent)" },
+        fg: { value: "var(--sidebar-accent-fg)" },
+      },
+      border: { value: "var(--sidebar-border)" },
+      ring: { value: "var(--sidebar-ring)" },
+    },
   },
 });
 ```
@@ -491,4 +509,4 @@ You can now start adding components to your project.
 
 </TabsContent>
 
-</Tabs>
+</InstallationTabs>
