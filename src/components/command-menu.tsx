@@ -8,6 +8,7 @@ import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { scroll } from "styled-system/recipes";
 import { docsConfig } from "@/config/docs";
+import { useIsMac } from "@/hooks/use-is-mac";
 import { Button } from "@/registry/default/ui/button";
 import {
   CommandDialog,
@@ -18,12 +19,13 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/registry/default/ui/command";
-import { Kbd } from "@/registry/default/ui/kbd";
+import { Kbd, KbdGroup } from "@/registry/default/ui/kbd";
 
 export default function CommandMenu(props: React.ComponentProps<typeof Button>) {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const { setTheme } = useTheme();
+  const isMac = useIsMac();
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -65,9 +67,9 @@ export default function CommandMenu(props: React.ComponentProps<typeof Button>) 
           textStyle: "sm",
           fontWeight: "normal",
           shadow: "none",
-          md: { w: 40 },
-          lg: { w: 56 },
-          xl: { w: 64 },
+          md: { w: "52" },
+          lg: { w: "60" },
+          xl: { w: "64" },
         }}
         onClick={() => setOpen(true)}
         {...props}
@@ -78,9 +80,10 @@ export default function CommandMenu(props: React.ComponentProps<typeof Button>) 
         <styled.span css={{ display: "inline-flex", lg: { display: "none" } }}>
           Search...
         </styled.span>
-        <Kbd>
-          <styled.span css={{ textStyle: "xs" }}>⌘</styled.span>K
-        </Kbd>
+        <KbdGroup>
+          <Kbd css={{ borderWidth: "1px" }}>{isMac ? "⌘" : "Ctrl"}</Kbd>
+          <Kbd css={{ borderWidth: "1px" }}>K</Kbd>
+        </KbdGroup>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
