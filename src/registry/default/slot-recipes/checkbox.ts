@@ -46,10 +46,10 @@ export const checkboxSlotRecipe = defineSlotRecipe({
     },
 
     indicator: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      display: "grid",
+      placeContent: "center",
       color: "currentColor",
+      transition: "none"
     },
   },
 });
