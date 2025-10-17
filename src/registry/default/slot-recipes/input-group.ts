@@ -50,10 +50,10 @@ export const inputGroupSlotRecipes = defineSlotRecipe({
         outlineColor: "ring/50",
       },
       "&:has([data-slot][aria-invalid=true])": {
-        borderColor: "danger",
-        outlineColor: "danger/20",
+        borderColor: "danger!",
+        outlineColor: "danger/20!",
         _dark: {
-          outlineColor: "danger/40",
+          outlineColor: "danger/40!",
         },
       },
     },

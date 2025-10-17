@@ -1,0 +1,21 @@
+{
+  "name": "form-tanstack-switch",
+  "type": "registry:example",
+  "dependencies": [
+    "@tanstack/react-form",
+    "zod"
+  ],
+  "registryDependencies": [
+    "field",
+    "switch",
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/form-tanstack-switch.tsx",
+      "type": "registry:example",
+      "content": "/* eslint-disable react/no-children-prop */\n\"use client\";\n\nimport { useForm } from \"@tanstack/react-form\";\nimport { toast } from \"sonner\";\nimport { styled } from \"styled-system/jsx\";\nimport * as z from \"zod\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from \"@/registry/default/ui/field\";\nimport { Switch } from \"@/registry/default/ui/switch\";\n\nconst formSchema = z.object({\n  twoFactor: z.boolean().refine((val) => val === true, {\n    message: \"It is highly recommended to enable two-factor authentication.\",\n  }),\n});\n\nexport default function FormTanstackSwitch() {\n  const form = useForm({\n    defaultValues: {\n      twoFactor: false,\n    },\n    validators: {\n      onSubmit: formSchema,\n    },\n    onSubmit: async ({ value }) => {\n      toast(\"You submitted the following values:\", {\n        description: (\n          <styled.pre\n            css={{\n              mt: \"2\",\n              w: \"320px\",\n              overflowX: \"auto\",\n              rounded: \"md\",\n              bg: \"slate.950\",\n              p: \"4\",\n              borderWidth: \"1px\",\n            }}\n          >\n            <code>{JSON.stringify(value, null, 2)}</code>\n          </styled.pre>\n        ),\n      });\n    },\n  });\n\n  return (\n    <Card css={{ w: \"full\", sm: { maxW: \"md\" } }}>\n      <CardHeader>\n        <CardTitle>Security Settings</CardTitle>\n        <CardDescription>Manage your account security preferences.</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form\n          id=\"form-tanstack-switch\"\n          onSubmit={(e) => {\n            e.preventDefault();\n            form.handleSubmit();\n          }}\n        >\n          <FieldGroup>\n            <form.Field\n              name=\"twoFactor\"\n              children={(field) => {\n                const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;\n                return (\n                  <Field orientation=\"horizontal\" data-invalid={isInvalid}>\n                    <FieldContent>\n                      <FieldLabel htmlFor=\"form-tanstack-switch-twoFactor\">\n                        Multi-factor authentication\n                      </FieldLabel>\n                      <FieldDescription>\n                        Enable multi-factor authentication to secure your account.\n                      </FieldDescription>\n                      {isInvalid && <FieldError errors={field.state.meta.errors} />}\n                    </FieldContent>\n                    <Switch\n                      id=\"form-tanstack-switch-twoFactor\"\n                      name={field.name}\n                      checked={field.state.value}\n                      onCheckedChange={field.handleChange}\n                      aria-invalid={isInvalid}\n                    />\n                  </Field>\n                );\n              }}\n            />\n          </FieldGroup>\n        </form>\n      </CardContent>\n      <CardFooter>\n        <Field orientation=\"horizontal\">\n          <Button type=\"button\" variant=\"outline\" onClick={() => form.reset()}>\n            Reset\n          </Button>\n          <Button type=\"submit\" form=\"form-tanstack-switch\">\n            Save\n          </Button>\n        </Field>\n      </CardFooter>\n    </Card>\n  );\n}\n"
+    }
+  ]
+}

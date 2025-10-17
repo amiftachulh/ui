@@ -6,7 +6,7 @@ import { cx } from "styled-system/css";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
-const Toaster = ({ className, ...props }: ToasterProps) => {
+const Toaster = ({ className, style, ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme();
 
   return (
@@ -15,9 +15,10 @@ const Toaster = ({ className, ...props }: ToasterProps) => {
       className={cx("toaster group", className)}
       style={
         {
-          "--normal-bg": "var(--colors-popover)",
-          "--normal-text": "var(--colors-popover-fg)",
-          "--normal-border": "var(--colors-border)",
+          "--normal-bg": "var(--popover)",
+          "--normal-text": "var(--popover-fg)",
+          "--normal-border": "var(--border)",
+          ...style,
         } as React.CSSProperties
       }
       {...props}

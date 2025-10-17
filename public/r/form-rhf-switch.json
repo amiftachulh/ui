@@ -1,0 +1,22 @@
+{
+  "name": "form-rhf-switch",
+  "type": "registry:example",
+  "dependencies": [
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod"
+  ],
+  "registryDependencies": [
+    "field",
+    "switch",
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/form-rhf-switch.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Controller, useForm } from \"react-hook-form\";\nimport { zodResolver } from \"@hookform/resolvers/zod\";\nimport { toast } from \"sonner\";\nimport { styled } from \"styled-system/jsx\";\nimport * as z from \"zod\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  Field,\n  FieldContent,\n  FieldDescription,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from \"@/registry/default/ui/field\";\nimport { Switch } from \"@/registry/default/ui/switch\";\n\nconst formSchema = z.object({\n  twoFactor: z.boolean().refine((val) => val === true, {\n    message: \"It is highly recommended to enable two-factor authentication.\",\n  }),\n});\n\nexport default function FormRhfSwitch() {\n  const form = useForm<z.infer<typeof formSchema>>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      twoFactor: false,\n    },\n  });\n\n  function onSubmit(data: z.infer<typeof formSchema>) {\n    toast(\"You submitted the following values:\", {\n      description: (\n        <styled.pre\n          css={{\n            mt: \"2\",\n            overflowX: \"auto\",\n            w: \"320px\",\n            rounded: \"md\",\n            bg: \"slate.950\",\n            p: \"4\",\n            borderWidth: \"1px\",\n          }}\n        >\n          <code>{JSON.stringify(data, null, 2)}</code>\n        </styled.pre>\n      ),\n    });\n  }\n\n  return (\n    <Card css={{ w: \"full\", sm: { maxW: \"md\" } }}>\n      <CardHeader>\n        <CardTitle>Security Settings</CardTitle>\n        <CardDescription>Manage your account security preferences.</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form id=\"form-rhf-switch\" onSubmit={form.handleSubmit(onSubmit)}>\n          <FieldGroup>\n            <Controller\n              name=\"twoFactor\"\n              control={form.control}\n              render={({ field, fieldState }) => (\n                <Field orientation=\"horizontal\" data-invalid={fieldState.invalid}>\n                  <FieldContent>\n                    <FieldLabel htmlFor=\"form-rhf-switch-twoFactor\">\n                      Multi-factor authentication\n                    </FieldLabel>\n                    <FieldDescription>\n                      Enable multi-factor authentication to secure your account.\n                    </FieldDescription>\n                    {fieldState.invalid && <FieldError errors={[fieldState.error]} />}\n                  </FieldContent>\n                  <Switch\n                    id=\"form-rhf-switch-twoFactor\"\n                    name={field.name}\n                    checked={field.value}\n                    onCheckedChange={field.onChange}\n                    aria-invalid={fieldState.invalid}\n                  />\n                </Field>\n              )}\n            />\n          </FieldGroup>\n        </form>\n      </CardContent>\n      <CardFooter>\n        <Field orientation=\"horizontal\">\n          <Button type=\"button\" variant=\"outline\" onClick={() => form.reset()}>\n            Reset\n          </Button>\n          <Button type=\"submit\" form=\"form-rhf-switch\">\n            Save\n          </Button>\n        </Field>\n      </CardFooter>\n    </Card>\n  );\n}\n"
+    }
+  ]
+}

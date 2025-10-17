@@ -29,9 +29,9 @@ export const checkboxSlotRecipe = defineSlotRecipe({
         color: "primary.fg",
         borderColor: "primary",
       },
-      "&[aria-invalid='true']": {
-        borderColor: "danger",
-        outlineColor: "danger/20",
+      "&[aria-invalid=true]": {
+        borderColor: "danger!",
+        outlineColor: "danger/20!",
       },
       _dark: {
         bg: "input/30",
@@ -39,8 +39,8 @@ export const checkboxSlotRecipe = defineSlotRecipe({
           bg: "primary",
           borderColor: "primary",
         },
-        "&[aria-invalid='true']": {
-          outlineColor: "danger/40",
+        "&[aria-invalid=true]": {
+          outlineColor: "danger/40!",
         },
       },
     },
@@ -49,7 +49,7 @@ export const checkboxSlotRecipe = defineSlotRecipe({
       display: "grid",
       placeContent: "center",
       color: "currentColor",
-      transition: "none"
+      transition: "none",
     },
   },
 });

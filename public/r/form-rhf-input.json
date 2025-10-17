@@ -1,0 +1,22 @@
+{
+  "name": "form-rhf-input",
+  "type": "registry:example",
+  "dependencies": [
+    "react-hook-form",
+    "@hookform/resolvers",
+    "zod"
+  ],
+  "registryDependencies": [
+    "field",
+    "input",
+    "button",
+    "card"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/form-rhf-input.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { Controller, useForm } from \"react-hook-form\";\nimport { zodResolver } from \"@hookform/resolvers/zod\";\nimport { toast } from \"sonner\";\nimport { styled } from \"styled-system/jsx\";\nimport * as z from \"zod\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldGroup,\n  FieldLabel,\n} from \"@/registry/default/ui/field\";\nimport { Input } from \"@/registry/default/ui/input\";\n\nconst formSchema = z.object({\n  username: z\n    .string()\n    .min(3, \"Username must be at least 3 characters.\")\n    .max(10, \"Username must be at most 10 characters.\")\n    .regex(/^[a-zA-Z0-9_]+$/, \"Username can only contain letters, numbers, and underscores.\"),\n});\n\nexport default function FormRhfInput() {\n  const form = useForm<z.infer<typeof formSchema>>({\n    resolver: zodResolver(formSchema),\n    defaultValues: {\n      username: \"\",\n    },\n  });\n\n  function onSubmit(data: z.infer<typeof formSchema>) {\n    toast(\"You submitted the following values:\", {\n      description: (\n        <styled.pre\n          css={{\n            mt: \"2\",\n            overflowX: \"auto\",\n            w: \"320px\",\n            rounded: \"md\",\n            bg: \"slate.950\",\n            p: \"4\",\n            borderWidth: \"1px\",\n          }}\n        >\n          <code>{JSON.stringify(data, null, 2)}</code>\n        </styled.pre>\n      ),\n    });\n  }\n\n  return (\n    <Card css={{ w: \"full\", sm: { maxW: \"md\" } }}>\n      <CardHeader>\n        <CardTitle>Profile Settings</CardTitle>\n        <CardDescription>Update your profile information below.</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <form id=\"form-rhf-input\" onSubmit={form.handleSubmit(onSubmit)}>\n          <FieldGroup>\n            <Controller\n              name=\"username\"\n              control={form.control}\n              render={({ field, fieldState }) => (\n                <Field data-invalid={fieldState.invalid}>\n                  <FieldLabel htmlFor=\"form-rhf-input-username\">Username</FieldLabel>\n                  <Input\n                    {...field}\n                    id=\"form-rhf-input-username\"\n                    aria-invalid={fieldState.invalid}\n                    placeholder=\"shadcn\"\n                    autoComplete=\"username\"\n                  />\n                  <FieldDescription>\n                    This is your public display name. Must be between 3 and 10 characters. Must only\n                    contain letters, numbers, and underscores.\n                  </FieldDescription>\n                  {fieldState.invalid && <FieldError errors={[fieldState.error]} />}\n                </Field>\n              )}\n            />\n          </FieldGroup>\n        </form>\n      </CardContent>\n      <CardFooter>\n        <Field orientation=\"horizontal\">\n          <Button type=\"button\" variant=\"outline\" onClick={() => form.reset()}>\n            Reset\n          </Button>\n          <Button type=\"submit\" form=\"form-rhf-input\">\n            Save\n          </Button>\n        </Field>\n      </CardFooter>\n    </Card>\n  );\n}\n"
+    }
+  ]
+}

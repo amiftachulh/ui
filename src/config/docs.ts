@@ -57,6 +57,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/overview/getting-started",
           items: [],
         },
+        {
+          title: "Forms",
+          href: "/docs/overview/forms",
+          items: [],
+        },
         // {
         //   title: "components.json",
         //   href: "/docs/components-json",
@@ -463,6 +468,21 @@ export const docsConfig: DocsConfig = {
         {
           title: "Tooltip",
           href: "/docs/components/tooltip",
+          items: [],
+        },
+      ],
+    },
+    {
+      title: "Forms",
+      items: [
+        {
+          title: "React Hook Form",
+          href: "/docs/forms/react-hook-form",
+          items: [],
+        },
+        {
+          title: "TanStack Form",
+          href: "/docs/forms/tanstack-form",
           items: [],
         },
       ],

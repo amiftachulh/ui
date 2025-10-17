@@ -128,7 +128,7 @@ function FieldError({
   errors,
   ...props
 }: React.ComponentProps<typeof styled.div> & {
-  errors?: Array<{ message?: string }>;
+  errors?: Array<{ message?: string } | undefined>;
 }) {
   const content = React.useMemo(() => {
     if (children) {

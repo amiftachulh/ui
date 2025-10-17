@@ -42,11 +42,11 @@ export const inputRecipe = defineRecipe({
       cursor: "not-allowed",
       opacity: "0.5",
     },
-    "&[aria-invalid='true']": {
-      borderColor: "danger",
-      outlineColor: "danger/20",
+    "&[aria-invalid=true]": {
+      borderColor: "danger!",
+      outlineColor: "danger/20!",
       _dark: {
-        outlineColor: "danger/40",
+        outlineColor: "danger/40!",
       },
     },
     md: {
