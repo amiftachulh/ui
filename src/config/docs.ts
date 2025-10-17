@@ -401,11 +401,6 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Spinner",
-          href: "/docs/components/spinner",
-          items: [],
-        },
-        {
           title: "Skeleton",
           href: "/docs/components/skeleton",
           items: [],
@@ -418,6 +413,11 @@ export const docsConfig: DocsConfig = {
         {
           title: "Sonner",
           href: "/docs/components/sonner",
+          items: [],
+        },
+        {
+          title: "Spinner",
+          href: "/docs/components/spinner",
           items: [],
         },
         {
