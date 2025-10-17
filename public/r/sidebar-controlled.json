@@ -1,13 +1,9 @@
 {
   "name": "sidebar-controlled",
-  "type": "registry:block",
-  "description": "",
-  "registryDependencies": [
-    "sidebar"
-  ],
+  "type": "registry:internal",
   "files": [
     {
-      "path": "registry/default/blocks/sidebar-controlled.tsx",
+      "path": "registry/default/internal/sidebar-controlled.tsx",
       "type": "registry:component",
       "content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n  LuChartPie,\n  LuFrame,\n  LuLifeBuoy,\n  LuMap,\n  LuPanelLeftClose,\n  LuPanelLeftOpen,\n  LuSend,\n} from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarGroupLabel,\n  SidebarInset,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n} from \"@/registry/default/ui/sidebar\";\n\nconst projects = [\n  {\n    name: \"Design Engineering\",\n    url: \"#\",\n    icon: LuFrame,\n  },\n  {\n    name: \"Sales & Marketing\",\n    url: \"#\",\n    icon: LuChartPie,\n  },\n  {\n    name: \"Travel\",\n    url: \"#\",\n    icon: LuMap,\n  },\n  {\n    name: \"Support\",\n    url: \"#\",\n    icon: LuLifeBuoy,\n  },\n  {\n    name: \"Feedback\",\n    url: \"#\",\n    icon: LuSend,\n  },\n];\n\nexport default function AppSidebar() {\n  const [open, setOpen] = React.useState(true);\n\n  return (\n    <SidebarProvider open={open} onOpenChange={setOpen}>\n      <Sidebar>\n        <SidebarContent>\n          <SidebarGroup>\n            <SidebarGroupLabel>Projects</SidebarGroupLabel>\n            <SidebarGroupContent>\n              <SidebarMenu>\n                {projects.map((project) => (\n                  <SidebarMenuItem key={project.name}>\n                    <SidebarMenuButton asChild>\n                      <a href={project.url}>\n                        <project.icon />\n                        <span>{project.name}</span>\n                      </a>\n                    </SidebarMenuButton>\n                  </SidebarMenuItem>\n                ))}\n              </SidebarMenu>\n            </SidebarGroupContent>\n          </SidebarGroup>\n        </SidebarContent>\n      </Sidebar>\n      <SidebarInset>\n        <styled.header\n          css={{\n            display: \"flex\",\n            alignItems: \"center\",\n            justifyContent: \"space-between\",\n            h: \"12\",\n            px: \"4\",\n          }}\n        >\n          <Button onClick={() => setOpen((open) => !open)} size=\"sm\" variant=\"ghost\">\n            {open ? <LuPanelLeftClose /> : <LuPanelLeftOpen />}\n            <span>{open ? \"Close\" : \"Open\"} Sidebar</span>\n          </Button>\n        </styled.header>\n      </SidebarInset>\n    </SidebarProvider>\n  );\n}\n"
     }

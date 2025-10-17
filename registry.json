@@ -2623,174 +2623,6 @@
       ]
     },
     {
-      "name": "sidebar-controlled",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-controlled.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-demo",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-demo.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-footer",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-footer.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-group-action",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-group-action.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-group-collapsible",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-group-collapsible.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-group",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-group.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-header",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-header.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-menu-action",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-menu-action.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-menu-badge",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-menu-badge.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-menu-collapsible",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-menu-collapsible.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-menu-sub",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-menu-sub.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "sidebar-menu",
-      "type": "registry:block",
-      "description": "",
-      "registryDependencies": [
-        "sidebar"
-      ],
-      "files": [
-        {
-          "path": "registry/default/blocks/sidebar-menu.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
       "name": "chart-area-axes",
       "type": "registry:block",
       "registryDependencies": [
@@ -7210,6 +7042,126 @@
         {
           "path": "registry/default/examples/tooltip-demo.tsx",
           "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-demo",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-demo.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-header",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-footer",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-footer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-group",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-group-collapsible",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-group-collapsible.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-group-action",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-group-action.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-menu.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu-action",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-menu-action.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu-sub",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-menu-sub.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu-collapsible",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-menu-collapsible.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu-badge",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-menu-badge.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-controlled",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/default/internal/sidebar-controlled.tsx",
+          "type": "registry:component"
         }
       ]
     }

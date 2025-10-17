@@ -17,6 +17,7 @@ export default async function ComponentPreview({ name, type }: ComponentPreviewP
         css={{
           pos: "relative",
           aspectRatio: "4/2.5",
+          my: "2",
           w: "full",
           overflow: "hidden",
           rounded: "md",

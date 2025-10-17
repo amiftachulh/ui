@@ -1,13 +1,9 @@
 {
   "name": "sidebar-group-collapsible",
-  "type": "registry:block",
-  "description": "",
-  "registryDependencies": [
-    "sidebar"
-  ],
+  "type": "registry:internal",
   "files": [
     {
-      "path": "registry/default/blocks/sidebar-group-collapsible.tsx",
+      "path": "registry/default/internal/sidebar-group-collapsible.tsx",
       "type": "registry:component",
       "content": "\"use client\";\n\nimport { LuChevronDown, LuLifeBuoy, LuSend } from \"react-icons/lu\";\nimport { css } from \"styled-system/css\";\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/registry/default/ui/collapsible\";\nimport {\n  Sidebar,\n  SidebarContent,\n  SidebarGroup,\n  SidebarGroupContent,\n  SidebarGroupLabel,\n  SidebarMenu,\n  SidebarMenuButton,\n  SidebarMenuItem,\n  SidebarProvider,\n} from \"@/registry/default/ui/sidebar\";\n\nexport default function AppSidebar() {\n  return (\n    <SidebarProvider>\n      <Sidebar>\n        <SidebarContent>\n          <Collapsible defaultOpen className=\"group/collapsible\">\n            <SidebarGroup>\n              <SidebarGroupLabel\n                asChild\n                css={{\n                  textStyle: \"sm\",\n                  _hover: {\n                    bg: \"sidebar.accent\",\n                    color: \"sidebar.accent.fg\",\n                  },\n                }}\n              >\n                <CollapsibleTrigger>\n                  Help\n                  <LuChevronDown\n                    className={css({\n                      ml: \"auto\",\n                      transition: \"transform\",\n                      \".group[data-state=open] &\": { transform: \"rotate(180deg)\" },\n                    })}\n                  />\n                </CollapsibleTrigger>\n              </SidebarGroupLabel>\n              <CollapsibleContent>\n                <SidebarGroupContent>\n                  <SidebarMenu>\n                    <SidebarMenuItem>\n                      <SidebarMenuButton>\n                        <LuLifeBuoy />\n                        Support\n                      </SidebarMenuButton>\n                    </SidebarMenuItem>\n                    <SidebarMenuItem>\n                      <SidebarMenuButton>\n                        <LuSend />\n                        Feedback\n                      </SidebarMenuButton>\n                    </SidebarMenuItem>\n                  </SidebarMenu>\n                </SidebarGroupContent>\n              </CollapsibleContent>\n            </SidebarGroup>\n          </Collapsible>\n        </SidebarContent>\n      </Sidebar>\n    </SidebarProvider>\n  );\n}\n"
     }
