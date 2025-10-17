@@ -1,0 +1,27 @@
+{
+  "name": "signup-05",
+  "type": "registry:block",
+  "description": "A simple signup form with social providers.",
+  "registryDependencies": [
+    "button",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/signup-05/page.tsx",
+      "type": "registry:page",
+      "target": "app/signup/page.tsx",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { SignupForm } from \"@/registry/default/blocks/signup-05/components/signup-form\";\n\nexport default function SignupPage() {\n  return (\n    <styled.div\n      css={{\n        bg: \"bg\",\n        display: \"flex\",\n        minH: \"svh\",\n        flexDir: \"column\",\n        alignItems: \"center\",\n        justifyContent: \"center\",\n        gap: \"6\",\n        p: \"6\",\n        md: { p: \"10\" },\n      }}\n    >\n      <styled.div css={{ w: \"full\", maxW: \"sm\" }}>\n        <SignupForm />\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    },
+    {
+      "path": "registry/default/blocks/signup-05/components/signup-form.tsx",
+      "type": "registry:component",
+      "content": "import { LuGalleryVerticalEnd } from \"react-icons/lu\";\nimport { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  Field,\n  FieldDescription,\n  FieldGroup,\n  FieldLabel,\n  FieldSeparator,\n} from \"@/registry/default/ui/field\";\nimport { Input } from \"@/registry/default/ui/input\";\n\nexport function SignupForm({ css, ...props }: React.ComponentProps<typeof styled.div>) {\n  return (\n    <styled.div css={{ display: \"flex\", flexDir: \"column\", gap: \"6\", ...css }} {...props}>\n      <form>\n        <FieldGroup>\n          <styled.div\n            css={{\n              display: \"flex\",\n              flexDir: \"column\",\n              alignItems: \"center\",\n              gap: \"2\",\n              textAlign: \"center\",\n            }}\n          >\n            <styled.a\n              href=\"#\"\n              css={{\n                display: \"flex\",\n                flexDir: \"column\",\n                alignItems: \"center\",\n                gap: \"2\",\n                fontWeight: \"medium\",\n              }}\n            >\n              <styled.div\n                css={{\n                  display: \"flex\",\n                  w: \"8\",\n                  h: \"8\",\n                  alignItems: \"center\",\n                  justifyContent: \"center\",\n                  rounded: \"md\",\n                }}\n              >\n                <LuGalleryVerticalEnd size={24} />\n              </styled.div>\n              <styled.span css={{ srOnly: true }}>Acme Inc.</styled.span>\n            </styled.a>\n            <styled.h1 css={{ textStyle: \"xl\", fontWeight: \"bold\" }}>\n              Welcome to Acme Inc.\n            </styled.h1>\n            <FieldDescription>\n              Already have an account? <a href=\"#\">Sign in</a>\n            </FieldDescription>\n          </styled.div>\n          <Field>\n            <FieldLabel htmlFor=\"email\">Email</FieldLabel>\n            <Input id=\"email\" type=\"email\" placeholder=\"m@example.com\" required />\n          </Field>\n          <Field>\n            <Button type=\"submit\">Create Account</Button>\n          </Field>\n          <FieldSeparator>Or</FieldSeparator>\n          <Field css={{ display: \"grid\", gap: \"4\", sm: { gridTemplateColumns: \"repeat(2, 1fr)\" } }}>\n            <Button variant=\"outline\" type=\"button\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n                <path\n                  d=\"M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701\"\n                  fill=\"currentColor\"\n                />\n              </svg>\n              Continue with Apple\n            </Button>\n            <Button variant=\"outline\" type=\"button\">\n              <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">\n                <path\n                  d=\"M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z\"\n                  fill=\"currentColor\"\n                />\n              </svg>\n              Continue with Google\n            </Button>\n          </Field>\n        </FieldGroup>\n      </form>\n      <FieldDescription css={{ px: \"6\", textAlign: \"center\" }}>\n        By clicking continue, you agree to our <a href=\"#\">Terms of Service</a> and{\" \"}\n        <a href=\"#\">Privacy Policy</a>.\n      </FieldDescription>\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "categories": [
+    "authentication",
+    "signup"
+  ]
+}

@@ -1620,7 +1620,8 @@
         }
       ],
       "categories": [
-        "authentication"
+        "authentication",
+        "login"
       ]
     },
     {
@@ -1645,7 +1646,8 @@
         }
       ],
       "categories": [
-        "authentication"
+        "authentication",
+        "login"
       ]
     },
     {
@@ -1670,7 +1672,8 @@
         }
       ],
       "categories": [
-        "authentication"
+        "authentication",
+        "login"
       ]
     },
     {
@@ -1695,7 +1698,8 @@
         }
       ],
       "categories": [
-        "authentication"
+        "authentication",
+        "login"
       ]
     },
     {
@@ -1720,7 +1724,8 @@
         }
       ],
       "categories": [
-        "authentication"
+        "authentication",
+        "login"
       ]
     },
     {
@@ -2484,6 +2489,137 @@
       "categories": [
         "calendar",
         "date"
+      ]
+    },
+    {
+      "name": "signup-01",
+      "type": "registry:block",
+      "description": "A simple signup form.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/signup-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/signup/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/signup-01/components/signup-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication",
+        "signup"
+      ]
+    },
+    {
+      "name": "signup-02",
+      "type": "registry:block",
+      "description": "A two column signup page with a cover image.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/signup-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/signup/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/signup-02/components/signup-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication",
+        "signup"
+      ]
+    },
+    {
+      "name": "signup-03",
+      "type": "registry:block",
+      "description": "A signup page with a muted background color.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/signup-03/page.tsx",
+          "type": "registry:page",
+          "target": "app/signup/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/signup-03/components/signup-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication",
+        "signup"
+      ]
+    },
+    {
+      "name": "signup-04",
+      "type": "registry:block",
+      "description": "A signup page with form and image.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/signup-04/page.tsx",
+          "type": "registry:page",
+          "target": "app/signup/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/signup-04/components/signup-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication",
+        "signup"
+      ]
+    },
+    {
+      "name": "signup-05",
+      "type": "registry:block",
+      "description": "A simple signup form with social providers.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/signup-05/page.tsx",
+          "type": "registry:page",
+          "target": "app/signup/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/signup-05/components/signup-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "authentication",
+        "signup"
       ]
     },
     {

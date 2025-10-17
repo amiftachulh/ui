@@ -1766,7 +1766,7 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "login-02": {
@@ -1788,7 +1788,7 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "login-03": {
@@ -1810,7 +1810,7 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "login-04": {
@@ -1832,7 +1832,7 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "login-05": {
@@ -1854,7 +1854,7 @@ export const Index: Record<string, any> = {
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
-    categories: ["authentication"],
+    categories: ["authentication","login"],
     meta: undefined,
   },
   "calendar-01": {
@@ -2432,6 +2432,116 @@ export const Index: Record<string, any> = {
     }),
     categories: ["calendar","date"],
     meta: {"iframeHeight":"600px","mobile":"component"},
+  },
+  "signup-01": {
+    name: "signup-01",
+    description: "A simple signup form.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/signup-01/page.tsx",
+      type: "registry:page",
+      target: "app/signup/page.tsx"
+    },{
+      path: "src/registry/default/blocks/signup-01/components/signup-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/signup-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","signup"],
+    meta: undefined,
+  },
+  "signup-02": {
+    name: "signup-02",
+    description: "A two column signup page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button","input","label","field"],
+    files: [{
+      path: "src/registry/default/blocks/signup-02/page.tsx",
+      type: "registry:page",
+      target: "app/signup/page.tsx"
+    },{
+      path: "src/registry/default/blocks/signup-02/components/signup-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/signup-02/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","signup"],
+    meta: undefined,
+  },
+  "signup-03": {
+    name: "signup-03",
+    description: "A signup page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label","field"],
+    files: [{
+      path: "src/registry/default/blocks/signup-03/page.tsx",
+      type: "registry:page",
+      target: "app/signup/page.tsx"
+    },{
+      path: "src/registry/default/blocks/signup-03/components/signup-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/signup-03/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","signup"],
+    meta: undefined,
+  },
+  "signup-04": {
+    name: "signup-04",
+    description: "A signup page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label","field"],
+    files: [{
+      path: "src/registry/default/blocks/signup-04/page.tsx",
+      type: "registry:page",
+      target: "app/signup/page.tsx"
+    },{
+      path: "src/registry/default/blocks/signup-04/components/signup-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/signup-04/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","signup"],
+    meta: undefined,
+  },
+  "signup-05": {
+    name: "signup-05",
+    description: "A simple signup form with social providers.",
+    type: "registry:block",
+    registryDependencies: ["button","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/signup-05/page.tsx",
+      type: "registry:page",
+      target: "app/signup/page.tsx"
+    },{
+      path: "src/registry/default/blocks/signup-05/components/signup-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/signup-05/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","signup"],
+    meta: undefined,
   },
   "sidebar-controlled": {
     name: "sidebar-controlled",

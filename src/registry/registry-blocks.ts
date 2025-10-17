@@ -607,7 +607,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["authentication"],
+    categories: ["authentication", "login"],
   },
   {
     name: "login-02",
@@ -625,7 +625,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["authentication"],
+    categories: ["authentication", "login"],
   },
   {
     name: "login-03",
@@ -643,7 +643,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["authentication"],
+    categories: ["authentication", "login"],
   },
   {
     name: "login-04",
@@ -661,7 +661,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["authentication"],
+    categories: ["authentication", "login"],
   },
   {
     name: "login-05",
@@ -679,7 +679,7 @@ export const blocks: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    categories: ["authentication"],
+    categories: ["authentication", "login"],
   },
   {
     name: "calendar-01",
@@ -1226,6 +1226,96 @@ export const blocks: Registry["items"] = [
       iframeHeight: "600px",
       mobile: "component",
     },
+  },
+  {
+    name: "signup-01",
+    description: "A simple signup form.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input", "label"],
+    files: [
+      {
+        path: "blocks/signup-01/page.tsx",
+        target: "app/signup/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/signup-01/components/signup-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "signup"],
+  },
+  {
+    name: "signup-02",
+    description: "A two column signup page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button", "input", "label", "field"],
+    files: [
+      {
+        path: "blocks/signup-02/page.tsx",
+        target: "app/signup/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/signup-02/components/signup-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "signup"],
+  },
+  {
+    name: "signup-03",
+    description: "A signup page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input", "label", "field"],
+    files: [
+      {
+        path: "blocks/signup-03/page.tsx",
+        target: "app/signup/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/signup-03/components/signup-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "signup"],
+  },
+  {
+    name: "signup-04",
+    description: "A signup page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input", "label", "field"],
+    files: [
+      {
+        path: "blocks/signup-04/page.tsx",
+        target: "app/signup/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/signup-04/components/signup-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "signup"],
+  },
+  {
+    name: "signup-05",
+    description: "A simple signup form with social providers.",
+    type: "registry:block",
+    registryDependencies: ["button", "input", "label"],
+    files: [
+      {
+        path: "blocks/signup-05/page.tsx",
+        target: "app/signup/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/signup-05/components/signup-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "signup"],
   },
   {
     name: "sidebar-controlled",
