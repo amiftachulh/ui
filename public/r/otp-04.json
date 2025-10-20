@@ -1,0 +1,29 @@
+{
+  "name": "otp-04",
+  "type": "registry:block",
+  "description": "An OTP page with form and image.",
+  "registryDependencies": [
+    "button",
+    "card",
+    "input-otp",
+    "label",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/otp-04/page.tsx",
+      "type": "registry:page",
+      "target": "app/otp/page.tsx",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { OTPForm } from \"@/registry/default/blocks/otp-04/components/otp-form\";\n\nexport default function OTPPage() {\n  return (\n    <styled.div\n      css={{\n        display: \"flex\",\n        minH: \"svh\",\n        w: \"full\",\n        alignItems: \"center\",\n        justifyContent: \"center\",\n        p: \"6\",\n        md: { p: \"10\" },\n      }}\n    >\n      <styled.div css={{ w: \"full\", maxW: \"sm\", md: { maxW: \"3xl\" } }}>\n        <OTPForm />\n      </styled.div>\n    </styled.div>\n  );\n}\n"
+    },
+    {
+      "path": "registry/default/blocks/otp-04/components/otp-form.tsx",
+      "type": "registry:component",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Card, CardContent } from \"@/registry/default/ui/card\";\nimport { Field, FieldDescription, FieldGroup, FieldLabel } from \"@/registry/default/ui/field\";\nimport {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSeparator,\n  InputOTPSlot,\n} from \"@/registry/default/ui/input-otp\";\n\nexport function OTPForm({ css, ...props }: React.ComponentProps<typeof styled.div>) {\n  return (\n    <styled.div\n      css={{ display: \"flex\", flexDirection: \"column\", gap: \"6\", md: { minH: \"450px\" }, ...css }}\n      {...props}\n    >\n      <Card css={{ flex: \"1\", overflow: \"hidden\", p: \"0\" }}>\n        <CardContent\n          css={{\n            display: \"grid\",\n            flex: \"1\",\n            p: \"0\",\n            md: { gridTemplateColumns: \"repeat(2, 1fr)\" },\n          }}\n        >\n          <styled.form\n            css={{\n              display: \"flex\",\n              flexDir: \"column\",\n              alignItems: \"center\",\n              justifyContent: \"center\",\n              p: \"6\",\n              md: { p: \"8\" },\n            }}\n          >\n            <FieldGroup>\n              <Field css={{ alignItems: \"center\", textAlign: \"center\" }}>\n                <styled.h1 css={{ textStyle: \"2xl\", fontWeight: \"bold\" }}>\n                  Enter verification code\n                </styled.h1>\n                <styled.p css={{ color: \"muted.fg\", textStyle: \"sm\", textWrap: \"balance\" }}>\n                  We sent a 6-digit code to your email\n                </styled.p>\n              </Field>\n              <Field>\n                <FieldLabel htmlFor=\"otp\" css={{ srOnly: true }}>\n                  Verification code\n                </FieldLabel>\n                <InputOTP maxLength={6} id=\"otp\" required containerCss={{ gap: \"4\" }}>\n                  <InputOTPGroup>\n                    <InputOTPSlot index={0} />\n                    <InputOTPSlot index={1} />\n                    <InputOTPSlot index={2} />\n                  </InputOTPGroup>\n                  <InputOTPSeparator />\n                  <InputOTPGroup>\n                    <InputOTPSlot index={3} />\n                    <InputOTPSlot index={4} />\n                    <InputOTPSlot index={5} />\n                  </InputOTPGroup>\n                </InputOTP>\n                <FieldDescription css={{ textAlign: \"center\" }}>\n                  Enter the 6-digit code sent to your email.\n                </FieldDescription>\n              </Field>\n              <Field>\n                <Button type=\"submit\">Verify</Button>\n                <FieldDescription css={{ textAlign: \"center\" }}>\n                  Didn&apos;t receive the code? <a href=\"#\">Resend</a>\n                </FieldDescription>\n              </Field>\n            </FieldGroup>\n          </styled.form>\n          <styled.div\n            css={{ bg: \"muted\", pos: \"relative\", display: \"none\", md: { display: \"block\" } }}\n          >\n            <styled.img\n              src=\"/placeholder.svg\"\n              alt=\"Image\"\n              css={{\n                pos: \"absolute\",\n                inset: \"0\",\n                w: \"full\",\n                h: \"full\",\n                objectFit: \"cover\",\n                _dark: {\n                  filter: \"brightness(0.2) grayscale(1)\",\n                },\n              }}\n            />\n          </styled.div>\n        </CardContent>\n      </Card>\n      <FieldDescription css={{ textAlign: \"center\" }}>\n        By clicking continue, you agree to our <a href=\"#\">Terms of Service</a> and{\" \"}\n        <a href=\"#\">Privacy Policy</a>.\n      </FieldDescription>\n    </styled.div>\n  );\n}\n"
+    }
+  ],
+  "categories": [
+    "authentication",
+    "otp"
+  ]
+}

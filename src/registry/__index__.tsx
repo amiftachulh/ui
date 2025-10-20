@@ -2543,6 +2543,116 @@ export const Index: Record<string, any> = {
     categories: ["authentication","signup"],
     meta: undefined,
   },
+  "otp-01": {
+    name: "otp-01",
+    description: "A simple OTP verification form.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input-otp","label","field"],
+    files: [{
+      path: "src/registry/default/blocks/otp-01/page.tsx",
+      type: "registry:page",
+      target: "app/otp/page.tsx"
+    },{
+      path: "src/registry/default/blocks/otp-01/components/otp-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/otp-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
+  "otp-02": {
+    name: "otp-02",
+    description: "A two column OTP page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button","input-otp","label","field"],
+    files: [{
+      path: "src/registry/default/blocks/otp-02/page.tsx",
+      type: "registry:page",
+      target: "app/otp/page.tsx"
+    },{
+      path: "src/registry/default/blocks/otp-02/components/otp-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/otp-02/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
+  "otp-03": {
+    name: "otp-03",
+    description: "An OTP page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input-otp","label","field"],
+    files: [{
+      path: "src/registry/default/blocks/otp-03/page.tsx",
+      type: "registry:page",
+      target: "app/otp/page.tsx"
+    },{
+      path: "src/registry/default/blocks/otp-03/components/otp-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/otp-03/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
+  "otp-04": {
+    name: "otp-04",
+    description: "An OTP page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input-otp","label","field"],
+    files: [{
+      path: "src/registry/default/blocks/otp-04/page.tsx",
+      type: "registry:page",
+      target: "app/otp/page.tsx"
+    },{
+      path: "src/registry/default/blocks/otp-04/components/otp-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/otp-04/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
+  "otp-05": {
+    name: "otp-05",
+    description: "A simple OTP form with social providers.",
+    type: "registry:block",
+    registryDependencies: ["button","input-otp","label","field"],
+    files: [{
+      path: "src/registry/default/blocks/otp-05/page.tsx",
+      type: "registry:page",
+      target: "app/otp/page.tsx"
+    },{
+      path: "src/registry/default/blocks/otp-05/components/otp-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/otp-05/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["authentication","otp"],
+    meta: undefined,
+  },
   "chart-area-axes": {
     name: "chart-area-axes",
     description: "",

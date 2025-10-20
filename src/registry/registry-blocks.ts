@@ -1317,4 +1317,94 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["authentication", "signup"],
   },
+  {
+    name: "otp-01",
+    description: "A simple OTP verification form.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input-otp", "label", "field"],
+    files: [
+      {
+        path: "blocks/otp-01/page.tsx",
+        target: "app/otp/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/otp-01/components/otp-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "otp"],
+  },
+  {
+    name: "otp-02",
+    description: "A two column OTP page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button", "input-otp", "label", "field"],
+    files: [
+      {
+        path: "blocks/otp-02/page.tsx",
+        target: "app/otp/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/otp-02/components/otp-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "otp"],
+  },
+  {
+    name: "otp-03",
+    description: "An OTP page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input-otp", "label", "field"],
+    files: [
+      {
+        path: "blocks/otp-03/page.tsx",
+        target: "app/otp/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/otp-03/components/otp-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "otp"],
+  },
+  {
+    name: "otp-04",
+    description: "An OTP page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input-otp", "label", "field"],
+    files: [
+      {
+        path: "blocks/otp-04/page.tsx",
+        target: "app/otp/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/otp-04/components/otp-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "otp"],
+  },
+  {
+    name: "otp-05",
+    description: "A simple OTP form with social providers.",
+    type: "registry:block",
+    registryDependencies: ["button", "input-otp", "label", "field"],
+    files: [
+      {
+        path: "blocks/otp-05/page.tsx",
+        target: "app/otp/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/otp-05/components/otp-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["authentication", "otp"],
+  },
 ];
