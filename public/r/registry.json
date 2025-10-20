@@ -2756,6 +2756,130 @@
       ]
     },
     {
+      "name": "forgot-password-01",
+      "type": "registry:block",
+      "description": "A simple forgot password form.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/forgot-password-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/forgot-password/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/forgot-password-01/components/forgot-password-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "forgot-password"
+      ]
+    },
+    {
+      "name": "forgot-password-02",
+      "type": "registry:block",
+      "description": "A two column forgot password page with a cover image.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/forgot-password-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/forgot-password/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/forgot-password-02/components/forgot-password-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "forgot-password"
+      ]
+    },
+    {
+      "name": "forgot-password-03",
+      "type": "registry:block",
+      "description": "A forgot password page with a muted background color.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/forgot-password-03/page.tsx",
+          "type": "registry:page",
+          "target": "app/forgot-password/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/forgot-password-03/components/forgot-password-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "forgot-password"
+      ]
+    },
+    {
+      "name": "forgot-password-04",
+      "type": "registry:block",
+      "description": "A forgot password page with form and image.",
+      "registryDependencies": [
+        "button",
+        "card",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/forgot-password-04/page.tsx",
+          "type": "registry:page",
+          "target": "app/forgot-password/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/forgot-password-04/components/forgot-password-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "forgot-password"
+      ]
+    },
+    {
+      "name": "forgot-password-05",
+      "type": "registry:block",
+      "description": "A plain forgot password page.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/forgot-password-05/page.tsx",
+          "type": "registry:page",
+          "target": "app/forgot-password/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/forgot-password-05/components/forgot-password-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "forgot-password"
+      ]
+    },
+    {
       "name": "chart-area-axes",
       "type": "registry:block",
       "registryDependencies": [

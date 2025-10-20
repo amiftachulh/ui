@@ -2653,6 +2653,116 @@ export const Index: Record<string, any> = {
     categories: ["authentication","otp"],
     meta: undefined,
   },
+  "forgot-password-01": {
+    name: "forgot-password-01",
+    description: "A simple forgot password form.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/forgot-password-01/page.tsx",
+      type: "registry:page",
+      target: "app/forgot-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/forgot-password-01/components/forgot-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/forgot-password-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["forgot-password"],
+    meta: undefined,
+  },
+  "forgot-password-02": {
+    name: "forgot-password-02",
+    description: "A two column forgot password page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/forgot-password-02/page.tsx",
+      type: "registry:page",
+      target: "app/forgot-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/forgot-password-02/components/forgot-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/forgot-password-02/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["forgot-password"],
+    meta: undefined,
+  },
+  "forgot-password-03": {
+    name: "forgot-password-03",
+    description: "A forgot password page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/forgot-password-03/page.tsx",
+      type: "registry:page",
+      target: "app/forgot-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/forgot-password-03/components/forgot-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/forgot-password-03/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["forgot-password"],
+    meta: undefined,
+  },
+  "forgot-password-04": {
+    name: "forgot-password-04",
+    description: "A forgot password page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/forgot-password-04/page.tsx",
+      type: "registry:page",
+      target: "app/forgot-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/forgot-password-04/components/forgot-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/forgot-password-04/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["forgot-password"],
+    meta: undefined,
+  },
+  "forgot-password-05": {
+    name: "forgot-password-05",
+    description: "A plain forgot password page.",
+    type: "registry:block",
+    registryDependencies: ["button","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/forgot-password-05/page.tsx",
+      type: "registry:page",
+      target: "app/forgot-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/forgot-password-05/components/forgot-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/forgot-password-05/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["forgot-password"],
+    meta: undefined,
+  },
   "chart-area-axes": {
     name: "chart-area-axes",
     description: "",

@@ -1407,4 +1407,94 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["authentication", "otp"],
   },
+  {
+    name: "forgot-password-01",
+    description: "A simple forgot password form.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input", "label"],
+    files: [
+      {
+        path: "blocks/forgot-password-01/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-01/components/forgot-password-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "forgot-password-02",
+    description: "A two column forgot password page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input", "label"],
+    files: [
+      {
+        path: "blocks/forgot-password-02/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-02/components/forgot-password-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "forgot-password-03",
+    description: "A forgot password page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input", "label"],
+    files: [
+      {
+        path: "blocks/forgot-password-03/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-03/components/forgot-password-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "forgot-password-04",
+    description: "A forgot password page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button", "card", "input", "label"],
+    files: [
+      {
+        path: "blocks/forgot-password-04/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-04/components/forgot-password-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
+  {
+    name: "forgot-password-05",
+    description: "A plain forgot password page.",
+    type: "registry:block",
+    registryDependencies: ["button", "input", "label"],
+    files: [
+      {
+        path: "blocks/forgot-password-05/page.tsx",
+        target: "app/forgot-password/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/forgot-password-05/components/forgot-password-form.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["forgot-password"],
+  },
 ];
