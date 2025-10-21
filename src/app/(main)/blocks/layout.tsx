@@ -17,7 +17,7 @@ export default function BlocksLayout({ children }: { children: React.ReactNode }
     <>
       <PageHeader title={title} description={description} />
       <BlocksNav />
-      <styled.div css={{ md: { py: "12" } }}>{children}</styled.div>
+      <styled.div css={{ pb: "8", md: { py: "12" } }}>{children}</styled.div>
     </>
   );
 }
