@@ -14,6 +14,7 @@ import {
   LuTablet,
 } from "react-icons/lu";
 import { ImperativePanelHandle } from "react-resizable-panels";
+import Image from "next/image";
 import Link from "next/link";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
@@ -399,29 +400,28 @@ function BlockViewerMobile({ children }: { children: React.ReactNode }) {
           {item.name}
         </styled.div>
       </styled.div>
-      {item.meta?.mobile === "component" && children}
-      {/* {item.meta?.mobile === "component" ? (
+      {item.meta?.mobile === "component" ? (
         children
       ) : (
-        <div className="overflow-hidden rounded-xl border">
+        <styled.div css={{ overflow: "hidden", rounded: "xl", borderWidth: "1px" }}>
           <Image
-            src={`/r/styles/default/${item.name}-light.png`}
+            src={`/r/${item.name}-light.png`}
             alt={item.name}
             data-block={item.name}
             width={1440}
             height={900}
-            className="object-cover dark:hidden"
+            className={css({ objectFit: "cover", _dark: { display: "none" } })}
           />
           <Image
-            src={`/r/styles/default/${item.name}-dark.png`}
+            src={`/r/${item.name}-dark.png`}
             alt={item.name}
             data-block={item.name}
             width={1440}
             height={900}
-            className="hidden object-cover dark:block"
+            className={css({ display: "none", objectFit: "cover", _dark: { display: "block" } })}
           />
-        </div>
-      )} */}
+        </styled.div>
+      )}
     </styled.div>
   );
 }
