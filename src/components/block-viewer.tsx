@@ -202,6 +202,7 @@ function BlockViewerToolbar() {
             css={{
               gap: "1",
               "& .toggle-group__item": {
+                minW: "auto!",
                 w: "6!",
                 h: "6!",
                 rounded: "sm!",
@@ -247,6 +248,15 @@ function BlockViewerToolbar() {
             </Button>
           </ToggleGroup>
         </styled.div>
+        <Separator orientation="vertical" css={{ mx: "1", h: "4!" }} />
+        <Button
+          variant="outline"
+          css={{ w: "fit", gap: "1", px: "2", shadow: "none", cursor: "default" }}
+          size="sm"
+          asChild
+        >
+          <div>{item.name}</div>
+        </Button>
       </styled.div>
     </styled.div>
   );
