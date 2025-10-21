@@ -343,5 +343,30 @@
     "name": "forgot-password-05",
     "description": "A plain forgot password page.",
     "categories": ["forgot-password"]
+  },
+  {
+    "name": "reset-password-01",
+    "description": "A simple reset password form.",
+    "categories": ["reset-password"]
+  },
+  {
+    "name": "reset-password-02",
+    "description": "A two column reset password page with a cover image.",
+    "categories": ["reset-password"]
+  },
+  {
+    "name": "reset-password-03",
+    "description": "A reset password page with a muted background color.",
+    "categories": ["reset-password"]
+  },
+  {
+    "name": "reset-password-04",
+    "description": "A reset password page with form and image.",
+    "categories": ["reset-password"]
+  },
+  {
+    "name": "reset-password-05",
+    "description": "A plain reset password page.",
+    "categories": ["reset-password"]
   }
 ]

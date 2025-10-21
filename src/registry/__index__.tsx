@@ -2763,6 +2763,116 @@ export const Index: Record<string, any> = {
     categories: ["forgot-password"],
     meta: undefined,
   },
+  "reset-password-01": {
+    name: "reset-password-01",
+    description: "A simple reset password form.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/reset-password-01/page.tsx",
+      type: "registry:page",
+      target: "app/reset-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/reset-password-01/components/reset-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/reset-password-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["reset-password"],
+    meta: undefined,
+  },
+  "reset-password-02": {
+    name: "reset-password-02",
+    description: "A two column reset password page with a cover image.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/reset-password-02/page.tsx",
+      type: "registry:page",
+      target: "app/reset-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/reset-password-02/components/reset-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/reset-password-02/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["reset-password"],
+    meta: undefined,
+  },
+  "reset-password-03": {
+    name: "reset-password-03",
+    description: "A reset password page with a muted background color.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/reset-password-03/page.tsx",
+      type: "registry:page",
+      target: "app/reset-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/reset-password-03/components/reset-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/reset-password-03/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["reset-password"],
+    meta: undefined,
+  },
+  "reset-password-04": {
+    name: "reset-password-04",
+    description: "A reset password page with form and image.",
+    type: "registry:block",
+    registryDependencies: ["button","card","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/reset-password-04/page.tsx",
+      type: "registry:page",
+      target: "app/reset-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/reset-password-04/components/reset-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/reset-password-04/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["reset-password"],
+    meta: undefined,
+  },
+  "reset-password-05": {
+    name: "reset-password-05",
+    description: "A plain reset password page.",
+    type: "registry:block",
+    registryDependencies: ["button","input","label"],
+    files: [{
+      path: "src/registry/default/blocks/reset-password-05/page.tsx",
+      type: "registry:page",
+      target: "app/reset-password/page.tsx"
+    },{
+      path: "src/registry/default/blocks/reset-password-05/components/reset-password-form.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/reset-password-05/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["reset-password"],
+    meta: undefined,
+  },
   "chart-area-axes": {
     name: "chart-area-axes",
     description: "",

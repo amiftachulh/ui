@@ -30,6 +30,11 @@ export const registryCategories = [
     hidden: false,
   },
   {
+    name: "Reset Password",
+    slug: "reset-password",
+    hidden: false,
+  },
+  {
     name: "OTP",
     slug: "otp",
     hidden: false,
