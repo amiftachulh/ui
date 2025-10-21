@@ -13,7 +13,15 @@ export function BlocksNav() {
   return (
     <styled.div css={{ pos: "relative", overflow: "hidden", py: "4", md: { py: "0" } }}>
       <ScrollArea css={{ maxW: "none" }}>
-        <styled.div css={{ display: "flex", alignItems: "center" }}>
+        <styled.div
+          css={{
+            display: "flex",
+            alignItems: "center",
+            "& > *": {
+              whiteSpace: "nowrap",
+            },
+          }}
+        >
           <BlocksNavLink
             category={{ name: "Featured", slug: "", hidden: false }}
             isActive={pathname === "/blocks"}
