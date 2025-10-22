@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ChartsNav } from "@/components/charts-nav";
-import PageHeader from "@/components/page-header";
+import { PageHeader, PageHeaderDescription, PageHeaderHeading } from "@/components/page-header";
 import { PageNav } from "@/components/page-nav";
 
 const title = "Beautiful Charts & Graphs";
@@ -15,7 +15,10 @@ export const metadata: Metadata = {
 export default function ChartsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <PageHeader title={title} description={description} />
+      <PageHeader>
+        <PageHeaderHeading>{title}</PageHeaderHeading>
+        <PageHeaderDescription>{description}</PageHeaderDescription>
+      </PageHeader>
       <PageNav id="charts">
         <ChartsNav />
       </PageNav>

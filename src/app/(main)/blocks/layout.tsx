@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { styled } from "styled-system/jsx";
 import { BlocksNav } from "@/components/blocks-nav";
-import PageHeader from "@/components/page-header";
+import { PageHeader, PageHeaderDescription, PageHeaderHeading } from "@/components/page-header";
 
 const title = "Building Blocks for the Web";
 const description =
@@ -15,7 +15,10 @@ export const metadata: Metadata = {
 export default function BlocksLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <PageHeader title={title} description={description} />
+      <PageHeader>
+        <PageHeaderHeading>{title}</PageHeaderHeading>
+        <PageHeaderDescription>{description}</PageHeaderDescription>
+      </PageHeader>
       <BlocksNav />
       <styled.div css={{ pb: "8", md: { py: "12" } }}>{children}</styled.div>
     </>
