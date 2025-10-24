@@ -88,8 +88,16 @@ async function buildRegistryJsonFile() {
 
   // Clean up and copy the registry.json to the `public/r/` directory
   const publicRPath = path.join(process.cwd(), "public/r");
-  await fs.rm(publicRPath, { recursive: true, force: true });
   await fs.mkdir(publicRPath, { recursive: true });
+
+  // Delete json files
+  const files = await fs.readdir(publicRPath);
+  for (const file of files) {
+    if (file.endsWith(".json")) {
+      await fs.rm(path.join(publicRPath, file), { force: true });
+    }
+  }
+
   await fs.cp(targetPath, path.join(publicRPath, "registry.json"), {
     recursive: true,
   });

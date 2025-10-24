@@ -25,7 +25,7 @@ export function PageHeaderHeading({ children }: { children?: React.ReactNode }) 
     <styled.h1
       css={{
         color: "primary",
-        lineHeight: "tight",
+        lineHeight: "none",
         maxW: "2xl",
         fontWeight: "semibold",
         letterSpacing: "tight",

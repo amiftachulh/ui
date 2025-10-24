@@ -5,14 +5,14 @@
   "scripts": {
     "prepare": "panda codegen",
     "prepare:clean": "panda codegen --clean",
-    "dev": "next dev",
+    "dev": "next dev -p 4000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4000",
     "lint": "next lint",
     "check": "tsc --noEmit",
+    "format": "prettier --write .",
     "registry:build": "tsx scripts/build-registry.ts",
-    "registry:capture": "tsx scripts/capture-registry.ts",
-    "format": "prettier --write ."
+    "registry:capture": "tsx scripts/capture-registry.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

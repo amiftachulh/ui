@@ -1,8 +1,8 @@
 import { styled } from "styled-system/jsx";
 
-export function PageNav({ children, ...props }: React.ComponentProps<"div">) {
+export function PageNav({ children, css, ...props }: React.ComponentProps<typeof styled.div>) {
   return (
-    <styled.div css={{ scrollMarginTop: "24" }} {...props}>
+    <styled.div css={{ scrollMarginTop: "24", ...css }} {...props}>
       <styled.div
         css={{
           display: "flex",
