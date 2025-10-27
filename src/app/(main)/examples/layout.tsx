@@ -63,9 +63,7 @@ export default function ExamplesLayout({ children }: { children: React.ReactNode
             xl: { rounded: "xl" },
           }}
         >
-          <styled.section css={{ display: "none", md: { display: "block" } }}>
-            {children}
-          </styled.section>
+          {children}
         </styled.div>
       </styled.div>
     </>
