@@ -17,12 +17,12 @@ export function ButtonGroupInputGroup() {
   return (
     <ButtonGroup>
       <ButtonGroup>
-        <Button variant="outline" size="icon" aria-label="Add">
+        <Button variant="outline" size="icon" aria-label="Add" css={{ rounded: "full" }}>
           <LuPlus />
         </Button>
       </ButtonGroup>
       <ButtonGroup css={{ flex: "1" }}>
-        <InputGroup>
+        <InputGroup css={{ rounded: "full" }}>
           <InputGroupInput
             placeholder={voiceEnabled ? "Record and send audio..." : "Send a message..."}
             disabled={voiceEnabled}
@@ -34,6 +34,7 @@ export function ButtonGroupInputGroup() {
                   onClick={() => setVoiceEnabled(!voiceEnabled)}
                   data-active={voiceEnabled}
                   css={{
+                    rounded: "full",
                     "&[data-active=true]": {
                       bg: "primary",
                       color: "primary.fg",
