@@ -14,7 +14,7 @@ export const badgeRecipe = defineRecipe({
     textStyle: "xs",
     fontWeight: "medium",
     borderWidth: "1px",
-    rounded: "md",
+    rounded: "full",
     whiteSpace: "nowrap",
     transition: "colors",
     outlineColor: "transparent",
