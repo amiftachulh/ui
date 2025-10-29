@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { SidebarInset, SidebarProvider } from "@/registry/default/ui/sidebar";
 import { AppSidebar } from "./components/app-sidebar";
@@ -10,8 +12,26 @@ import data from "./data.json";
 export default function Page() {
   return (
     <>
-      <styled.div css={{ md: { display: "none" } }}></styled.div>
+      <styled.div css={{ md: { display: "none" } }}>
+        <Image
+          src="/examples/dashboard-light.png"
+          width={1280}
+          height={843}
+          alt="Dashboard"
+          className={css({ display: "block", _dark: { display: "none" } })}
+          priority
+        />
+        <Image
+          src="/examples/dashboard-dark.png"
+          width={1280}
+          height={843}
+          alt="Dashboard"
+          className={css({ display: "none", _dark: { display: "block" } })}
+          priority
+        />
+      </styled.div>
       <SidebarProvider
+        css={{ display: "none", md: { display: "flex" } }}
         style={
           {
             "--header-height": "3rem",
