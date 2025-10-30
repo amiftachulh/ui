@@ -482,6 +482,20 @@
       ]
     },
     {
+      "name": "native-select",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/native-select.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/slot-recipes/native-select.ts",
+          "type": "registry:slot-recipe"
+        }
+      ]
+    },
+    {
       "name": "navigation-menu",
       "type": "registry:ui",
       "dependencies": [
@@ -6449,6 +6463,58 @@
       "files": [
         {
           "path": "registry/default/examples/menubar-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "native-select-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "native-select"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/native-select-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "native-select-groups",
+      "type": "registry:example",
+      "registryDependencies": [
+        "native-select"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/native-select-groups.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "native-select-disabled",
+      "type": "registry:example",
+      "registryDependencies": [
+        "native-select"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/native-select-disabled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "native-select-invalid",
+      "type": "registry:example",
+      "registryDependencies": [
+        "native-select"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/native-select-invalid.tsx",
           "type": "registry:example"
         }
       ]

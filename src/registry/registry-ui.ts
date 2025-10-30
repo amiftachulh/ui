@@ -420,6 +420,20 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "native-select",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/native-select.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "slot-recipes/native-select.ts",
+        type: "registry:slot-recipe",
+      },
+    ],
+  },
+  {
     name: "navigation-menu",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-navigation-menu"],

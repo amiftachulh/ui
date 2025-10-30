@@ -6,5 +6,6 @@ export const NEW_PAGES = [
   "/docs/components/input-otp",
   "/docs/components/item",
   "/docs/components/kbd",
+  "/docs/components/native-select",
   "/docs/components/spinner",
 ];

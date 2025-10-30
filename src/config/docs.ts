@@ -13,7 +13,6 @@ interface SidebarNavItem {
 export interface DocsConfig {
   mainNav: MainNavItem[];
   sidebarNav: SidebarNavItem[];
-  // chartsNav: SidebarNavItem[];
 }
 
 export const docsConfig: DocsConfig = {
@@ -190,11 +189,6 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/alert-dialog",
           items: [],
         },
-        // {
-        //   title: "Aspect Ratio",
-        //   href: "/docs/components/aspect-ratio",
-        //   items: [],
-        // },
         {
           title: "Avatar",
           href: "/docs/components/avatar",
@@ -338,6 +332,11 @@ export const docsConfig: DocsConfig = {
         {
           title: "Menubar",
           href: "/docs/components/menubar",
+          items: [],
+        },
+        {
+          title: "Native Select",
+          href: "/docs/components/native-select",
           items: [],
         },
         {
@@ -487,113 +486,5 @@ export const docsConfig: DocsConfig = {
         },
       ],
     },
-    // {
-    //   title: "Registry",
-    //   label: "New",
-    //   items: [
-    //     {
-    //       title: "Introduction",
-    //       href: "/docs/registry",
-    //       items: [],
-    //     },
-    //     {
-    //       title: "Getting Started",
-    //       href: "/docs/registry/getting-started",
-    //       items: [],
-    //     },
-    //     {
-    //       title: "Open in v0",
-    //       href: "/docs/registry/open-in-v0",
-    //       items: [],
-    //     },
-    //     {
-    //       title: "FAQ",
-    //       href: "/docs/registry/faq",
-    //       items: [],
-    //     },
-    //     {
-    //       title: "registry.json",
-    //       href: "/docs/registry/registry-json",
-    //       items: [],
-    //     },
-    //     {
-    //       title: "registry-item.json",
-    //       href: "/docs/registry/registry-item-json",
-    //       items: [],
-    //     },
-    //   ],
-    // },
   ],
-  // chartsNav: [
-  //   {
-  //     title: "Getting Started",
-  //     items: [
-  //       {
-  //         title: "Introduction",
-  //         href: "/docs/charts",
-  //         items: [],
-  //       },
-  //       {
-  //         title: "Installation",
-  //         href: "/docs/charts/installation",
-  //         items: [],
-  //       },
-  //       {
-  //         title: "Theming",
-  //         href: "/docs/charts/theming",
-  //         items: [],
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Charts",
-  //     items: [
-  //       {
-  //         title: "Area Chart",
-  //         href: "/docs/charts/area",
-  //         items: [],
-  //       },
-  //       {
-  //         title: "Bar Chart",
-  //         href: "/docs/charts/bar",
-  //         items: [],
-  //       },
-  //       {
-  //         title: "Line Chart",
-  //         href: "/docs/charts/line",
-  //         items: [],
-  //       },
-  //       {
-  //         title: "Pie Chart",
-  //         href: "/docs/charts/pie",
-  //         items: [],
-  //       },
-  //       {
-  //         title: "Radar Chart",
-  //         href: "/docs/charts/radar",
-  //         items: [],
-  //       },
-  //       {
-  //         title: "Radial Chart",
-  //         href: "/docs/charts/radial",
-  //         items: [],
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     title: "Components",
-  //     items: [
-  //       {
-  //         title: "Tooltip",
-  //         href: "/docs/charts/tooltip",
-  //         items: [],
-  //       },
-  //       {
-  //         title: "Legend",
-  //         href: "/docs/charts/legend",
-  //         items: [],
-  //       },
-  //     ],
-  //   },
-  // ],
 };

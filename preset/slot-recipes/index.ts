@@ -21,6 +21,7 @@ import { inputOtpSlotRecipe } from "@/registry/default/slot-recipes/input-otp";
 import { itemSlotRecipes } from "@/registry/default/slot-recipes/item";
 import { kbdSlotRecipe } from "@/registry/default/slot-recipes/kbd";
 import { menubarSlotRecipe } from "@/registry/default/slot-recipes/menubar";
+import { nativeSelectSlotRecipe } from "@/registry/default/slot-recipes/native-select";
 import { navigationMenuSlotRecipe } from "@/registry/default/slot-recipes/navigation-menu";
 import { paginationSlotRecipe } from "@/registry/default/slot-recipes/pagination";
 import { popoverSlotRecipe } from "@/registry/default/slot-recipes/popover";
@@ -64,6 +65,7 @@ export const slotRecipes = {
   item: itemSlotRecipes,
   kbd: kbdSlotRecipe,
   menubar: menubarSlotRecipe,
+  nativeSelect: nativeSelectSlotRecipe,
   navigationMenu: navigationMenuSlotRecipe,
   pagination: paginationSlotRecipe,
   popover: popoverSlotRecipe,
