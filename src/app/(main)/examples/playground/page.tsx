@@ -21,9 +21,31 @@ import { TopPSelector } from "./components/top-p-selector";
 import { models, types } from "./data/models";
 import { presets } from "./data/presets";
 
+const title = "Playground";
+const description = "The OpenAI Playground built using the components.";
+
 export const metadata: Metadata = {
-  title: "Playground",
-  description: "The OpenAI Playground built using the components.",
+  title,
+  description,
+  openGraph: {
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(
+          title
+        )}&description=${encodeURIComponent(description)}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(
+          title
+        )}&description=${encodeURIComponent(description)}`,
+      },
+    ],
+  },
 };
 
 export default function PlaygroundPage() {

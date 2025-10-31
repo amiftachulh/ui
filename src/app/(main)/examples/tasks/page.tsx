@@ -10,9 +10,31 @@ import { DataTable } from "./components/data-table";
 import { UserNav } from "./components/user-nav";
 import { taskSchema } from "./data/schema";
 
+const title = "Tasks";
+const description = "A task and issue tracker build using Tanstack Table.";
+
 export const metadata: Metadata = {
-  title: "Tasks",
-  description: "A task and issue tracker build using Tanstack Table.",
+  title,
+  description,
+  openGraph: {
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(
+          title
+        )}&description=${encodeURIComponent(description)}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(
+          title
+        )}&description=${encodeURIComponent(description)}`,
+      },
+    ],
+  },
 };
 
 // Simulate a database read for tasks.

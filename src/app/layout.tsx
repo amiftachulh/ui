@@ -14,12 +14,35 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Nore UI";
+const description = "A collection of UI components built with React and Panda CSS";
+
 export const metadata: Metadata = {
   title: {
-    template: "%s • Nore UI",
-    default: "Nore UI",
+    template: `%s • ${title}`,
+    default: title,
   },
-  description: "A collection of UI components built with React and Panda CSS",
+  description,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
+  openGraph: {
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(
+          title
+        )}&description=${encodeURIComponent(description)}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(
+          title
+        )}&description=${encodeURIComponent(description)}`,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

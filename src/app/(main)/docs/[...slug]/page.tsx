@@ -28,6 +28,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: doc.meta.title,
     description: doc.meta.description,
+    openGraph: {
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(
+            doc.meta.title
+          )}&description=${encodeURIComponent(doc.meta.description)}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(
+            doc.meta.title
+          )}&description=${encodeURIComponent(doc.meta.description)}`,
+        },
+      ],
+    },
   };
 }
 

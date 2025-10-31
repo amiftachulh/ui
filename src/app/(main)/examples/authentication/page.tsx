@@ -7,9 +7,31 @@ import { Button } from "@/registry/default/ui/button";
 import { FieldDescription } from "@/registry/default/ui/field";
 import { UserAuthForm } from "./components/user-auth-form";
 
+const title = "Authentication";
+const description = "Authentication forms built using the components.";
+
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title,
+  description,
+  openGraph: {
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(
+          title
+        )}&description=${encodeURIComponent(description)}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: `/og?title=${encodeURIComponent(
+          title
+        )}&description=${encodeURIComponent(description)}`,
+      },
+    ],
+  },
 };
 
 export default function AuthenticationPage() {
