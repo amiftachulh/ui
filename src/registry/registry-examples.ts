@@ -2296,6 +2296,39 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "tags-input-demo",
+    type: "registry:example",
+    registryDependencies: ["tags-input"],
+    files: [
+      {
+        path: "examples/tags-input-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tags-input-clear",
+    type: "registry:example",
+    registryDependencies: ["tags-input"],
+    files: [
+      {
+        path: "examples/tags-input-clear.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tags-input-form",
+    type: "registry:example",
+    registryDependencies: ["tags-input"],
+    files: [
+      {
+        path: "examples/tags-input-form.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "textarea-demo",
     type: "registry:example",
     registryDependencies: ["textarea"],

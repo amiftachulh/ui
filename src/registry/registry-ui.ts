@@ -722,6 +722,20 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "tags-input",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/tags-input.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "slot-recipes/tags-input.ts",
+        type: "registry:slot-recipe",
+      },
+    ],
+  },
+  {
     name: "textarea",
     type: "registry:ui",
     files: [

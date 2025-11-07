@@ -36,6 +36,7 @@ import { sliderSlotRecipe } from "@/registry/default/slot-recipes/slider";
 import { switchSlotRecipe } from "@/registry/default/slot-recipes/switch";
 import { tableSlotRecipe } from "@/registry/default/slot-recipes/table";
 import { tabsSlotRecipe } from "@/registry/default/slot-recipes/tabs";
+import { tagsInputSlotRecipe } from "@/registry/default/slot-recipes/tags-input";
 import { timelineSlotRecipe } from "@/registry/default/slot-recipes/timeline";
 import { toastSlotRecipe } from "@/registry/default/slot-recipes/toast";
 import { toggleGroupRecipe } from "@/registry/default/slot-recipes/toggle-group";
@@ -80,6 +81,7 @@ export const slotRecipes = {
   switchRecipe: switchSlotRecipe,
   table: tableSlotRecipe,
   tabs: tabsSlotRecipe,
+  tagsInput: tagsInputSlotRecipe,
   timeline: timelineSlotRecipe,
   toast: toastSlotRecipe,
   toggleGroup: toggleGroupRecipe,

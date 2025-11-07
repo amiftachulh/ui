@@ -1,0 +1,14 @@
+{
+  "name": "tags-input-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "tags-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/tags-input-demo.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { Field, FieldLabel } from \"@/registry/default/ui/field\";\nimport {\n  TagsInput,\n  TagsInputContainer,\n  TagsInputInput,\n  TagsInputItem,\n  TagsInputItemDeleteTrigger,\n  TagsInputItemText,\n  TagsInputList,\n} from \"@/registry/default/ui/tags-input\";\n\nexport default function TagsInputDemo() {\n  return (\n    <Field>\n      <FieldLabel>Tags</FieldLabel>\n      <TagsInput>\n        <TagsInputContainer>\n          <TagsInputList>\n            {(value) =>\n              value.map((tag, index) => (\n                <TagsInputItem key={index} index={index}>\n                  <TagsInputItemText>{tag}</TagsInputItemText>\n                  <TagsInputItemDeleteTrigger />\n                </TagsInputItem>\n              ))\n            }\n          </TagsInputList>\n          <TagsInputInput />\n        </TagsInputContainer>\n      </TagsInput>\n    </Field>\n  );\n}\n"
+    }
+  ]
+}

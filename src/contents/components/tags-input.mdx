@@ -1,0 +1,243 @@
+---
+title: Tags Input
+description: A tags input component for adding and managing multiple text values as removable badges.
+---
+
+<ComponentPreview name="tags-input-demo" />
+
+## Installation
+
+<InstallationTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<PackageRunner command="nore-ui-cli@latest add tags-input" />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-slot" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tags-input.ts" type="slot-recipe" />
+
+<ComponentSource name="tags-input.tsx" type="component" />
+
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { tagsInputSlotRecipe } from "./tags-input";
+
+export const slotRecipes = {
+  tagsInput: tagsInputSlotRecipe,
+};
+```
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</InstallationTabs>
+
+## Usage
+
+```tsx
+import {
+  TagsInput,
+  TagsInputClearTrigger,
+  TagsInputContainer,
+  TagsInputInput,
+  TagsInputItem,
+  TagsInputItemDeleteTrigger,
+  TagsInputItemText,
+  TagsInputList,
+} from "./tags-input";
+```
+
+```tsx
+<TagsInput>
+  <TagsInputContainer>
+    <TagsInputList>
+      {(value) =>
+        value.map((tag, index) => (
+          <TagsInputItem key={index} index={index}>
+            <TagsInputItemText>{tag}</TagsInputItemText>
+            <TagsInputItemDeleteTrigger />
+          </TagsInputItem>
+        ))
+      }
+    </TagsInputList>
+    <TagsInputInput />
+  </TagsInputContainer>
+</TagsInput>
+```
+
+## Examples
+
+### Clear Button
+
+<ComponentPreview name="tags-input-clear" />
+
+### Form
+
+<ComponentPreview name="tags-input-form" />
+
+## API Reference
+
+### TagsInput
+
+The main component that wraps all tags input parts and manages the state.
+
+| Prop            | Type                        | Default |
+| --------------- | --------------------------- | ------- |
+| `value`         | `string[]`                  |         |
+| `defaultValue`  | `string[]`                  | `[]`    |
+| `onValueChange` | `(value: string[]) => void` |         |
+| `disabled`      | `boolean`                   | `false` |
+| `css`           | `SystemStyleObject`         |         |
+
+```tsx
+<TagsInput defaultValue={["React", "TypeScript"]} onValueChange={(value) => console.log(value)}>
+  {/* children */}
+</TagsInput>
+```
+
+### TagsInputContainer
+
+The container that holds the tags list and input field. Clicking on it focuses the input.
+
+| Prop  | Type                | Default |
+| ----- | ------------------- | ------- |
+| `css` | `SystemStyleObject` |         |
+
+All other props are passed through to the underlying `<div>` element.
+
+```tsx
+<TagsInputContainer>
+  <TagsInputList>{/* ... */}</TagsInputList>
+  <TagsInputInput />
+</TagsInputContainer>
+```
+
+### TagsInputList
+
+Renders the list of tags. Uses a render prop pattern to map over the current values.
+
+| Prop       | Type                                   | Default |
+| ---------- | -------------------------------------- | ------- |
+| `children` | `(value: string[]) => React.ReactNode` |         |
+| `css`      | `SystemStyleObject`                    |         |
+
+```tsx
+<TagsInputList>
+  {(value) =>
+    value.map((tag, index) => (
+      <TagsInputItem key={index} index={index}>
+        <TagsInputItemText>{tag}</TagsInputItemText>
+        <TagsInputItemDeleteTrigger />
+      </TagsInputItem>
+    ))
+  }
+</TagsInputList>
+```
+
+### TagsInputItem
+
+Represents an individual tag in the list.
+
+| Prop       | Type                | Default |
+| ---------- | ------------------- | ------- |
+| `index`    | `number`            |         |
+| `disabled` | `boolean`           |         |
+| `css`      | `SystemStyleObject` |         |
+
+All other props are passed through to the underlying `<div>` element.
+
+```tsx
+<TagsInputItem index={0}>
+  <TagsInputItemText>React</TagsInputItemText>
+  <TagsInputItemDeleteTrigger />
+</TagsInputItem>
+```
+
+### TagsInputItemText
+
+Displays the text content of a tag.
+
+| Prop  | Type                | Default |
+| ----- | ------------------- | ------- |
+| `css` | `SystemStyleObject` |         |
+
+All other props are passed through to the underlying `<span>` element.
+
+```tsx
+<TagsInputItemText>{tag}</TagsInputItemText>
+```
+
+### TagsInputItemDeleteTrigger
+
+A button to remove a tag from the list. Displays an X icon by default.
+
+| Prop       | Type                | Default |
+| ---------- | ------------------- | ------- |
+| `asChild`  | `boolean`           | `false` |
+| `disabled` | `boolean`           |         |
+| `css`      | `SystemStyleObject` |         |
+
+All other props are passed through to the underlying `<button>` element.
+
+```tsx
+<TagsInputItemDeleteTrigger />
+```
+
+With custom content:
+
+```tsx
+<TagsInputItemDeleteTrigger>
+  <CustomIcon />
+</TagsInputItemDeleteTrigger>
+```
+
+### TagsInputInput
+
+The input field for adding new tags. Press Enter to add a tag, Backspace to remove the last tag when empty.
+
+| Prop          | Type                | Default         |
+| ------------- | ------------------- | --------------- |
+| `placeholder` | `string`            | `"Add tags..."` |
+| `disabled`    | `boolean`           |                 |
+| `css`         | `SystemStyleObject` |                 |
+
+All other props are passed through to the underlying `<input>` element.
+
+```tsx
+<TagsInputInput placeholder="Enter tag..." />
+```
+
+### TagsInputClearTrigger
+
+A button to clear all tags at once.
+
+| Prop      | Type                | Default |
+| --------- | ------------------- | ------- |
+| `asChild` | `boolean`           | `false` |
+| `css`     | `SystemStyleObject` |         |
+
+All other props are passed through to the underlying `<button>` element.
+
+```tsx
+<TagsInputClearTrigger>Clear all</TagsInputClearTrigger>
+```

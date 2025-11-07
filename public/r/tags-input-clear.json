@@ -1,0 +1,14 @@
+{
+  "name": "tags-input-clear",
+  "type": "registry:example",
+  "registryDependencies": [
+    "tags-input"
+  ],
+  "files": [
+    {
+      "path": "registry/default/examples/tags-input-clear.tsx",
+      "type": "registry:example",
+      "content": "\"use client\";\n\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Field, FieldGroup, FieldLabel } from \"@/registry/default/ui/field\";\nimport {\n  TagsInput,\n  TagsInputClearTrigger,\n  TagsInputContainer,\n  TagsInputInput,\n  TagsInputItem,\n  TagsInputItemDeleteTrigger,\n  TagsInputItemText,\n  TagsInputList,\n} from \"@/registry/default/ui/tags-input\";\n\nexport default function TagsInputClear() {\n  return (\n    <TagsInput defaultValue={[\"React\", \"Vue\", \"Svelte\"]}>\n      <FieldGroup css={{ gap: \"4\" }}>\n        <Field>\n          <FieldLabel>Tags</FieldLabel>\n          <TagsInputContainer>\n            <TagsInputList>\n              {(value) =>\n                value.map((tag, index) => (\n                  <TagsInputItem key={index} index={index}>\n                    <TagsInputItemText>{tag}</TagsInputItemText>\n                    <TagsInputItemDeleteTrigger />\n                  </TagsInputItem>\n                ))\n              }\n            </TagsInputList>\n            <TagsInputInput />\n          </TagsInputContainer>\n        </Field>\n        <Field>\n          <TagsInputClearTrigger asChild>\n            <Button variant=\"outline\">Clear Tags</Button>\n          </TagsInputClearTrigger>\n        </Field>\n      </FieldGroup>\n    </TagsInput>\n  );\n}\n"
+    }
+  ]
+}

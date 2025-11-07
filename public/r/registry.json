@@ -823,6 +823,20 @@
       ]
     },
     {
+      "name": "tags-input",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/default/ui/tags-input.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/slot-recipes/tags-input.ts",
+          "type": "registry:slot-recipe"
+        }
+      ]
+    },
+    {
       "name": "textarea",
       "type": "registry:ui",
       "files": [
@@ -7185,6 +7199,45 @@
       "files": [
         {
           "path": "registry/default/examples/tabs-vertical.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tags-input-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "tags-input"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/tags-input-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tags-input-clear",
+      "type": "registry:example",
+      "registryDependencies": [
+        "tags-input"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/tags-input-clear.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tags-input-form",
+      "type": "registry:example",
+      "registryDependencies": [
+        "tags-input"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/tags-input-form.tsx",
           "type": "registry:example"
         }
       ]

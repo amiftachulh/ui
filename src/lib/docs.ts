@@ -8,4 +8,5 @@ export const NEW_PAGES = [
   "/docs/components/kbd",
   "/docs/components/native-select",
   "/docs/components/spinner",
+  "/docs/components/tags-input",
 ];

@@ -1063,6 +1063,28 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "tags-input": {
+    name: "tags-input",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "src/registry/default/ui/tags-input.tsx",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "src/registry/default/slot-recipes/tags-input.ts",
+      type: "registry:slot-recipe",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/tags-input.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "textarea": {
     name: "textarea",
     description: "",
@@ -7875,6 +7897,60 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/examples/tabs-vertical.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "tags-input-demo": {
+    name: "tags-input-demo",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["tags-input"],
+    files: [{
+      path: "src/registry/default/examples/tags-input-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/tags-input-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "tags-input-clear": {
+    name: "tags-input-clear",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["tags-input"],
+    files: [{
+      path: "src/registry/default/examples/tags-input-clear.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/tags-input-clear.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "tags-input-form": {
+    name: "tags-input-form",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["tags-input"],
+    files: [{
+      path: "src/registry/default/examples/tags-input-form.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/tags-input-form.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),
