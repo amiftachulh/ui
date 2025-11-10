@@ -563,7 +563,7 @@ export function DataTable({ data: initialData }: { data: z.infer<typeof schema>[
                   </TableRow>
                 ))}
               </TableHeader>
-              <TableBody css={{ "& .table__cell:first": { w: "8" } }}>
+              <TableBody css={{ "& .table__cell:first-child": { w: "8" } }}>
                 {table.getRowModel().rows?.length ? (
                   <SortableContext items={dataIds} strategy={verticalListSortingStrategy}>
                     {table.getRowModel().rows.map((row) => (
