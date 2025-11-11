@@ -8,7 +8,7 @@
     {
       "path": "registry/default/ui/badge.tsx",
       "type": "registry:ui",
-      "content": "import { Slot } from \"@radix-ui/react-slot\";\nimport { styled } from \"styled-system/jsx\";\nimport { badge } from \"styled-system/recipes\";\n\ninterface BadgeProps extends React.ComponentProps<\"span\"> {\n  asChild?: boolean;\n}\n\nfunction Root({ asChild, ...props }: BadgeProps) {\n  const Comp = asChild ? Slot : \"span\";\n  return <Comp {...props} />;\n}\n\nconst Badge = styled(Root, badge);\nBadge.displayName = \"Badge\";\n\nexport { Badge };\n"
+      "content": "import { Slot } from \"@radix-ui/react-slot\";\nimport { styled } from \"styled-system/jsx\";\nimport { badge } from \"styled-system/recipes\";\n\nfunction Root({ asChild, ...props }: React.ComponentProps<\"span\"> & { asChild?: boolean }) {\n  const Comp = asChild ? Slot : \"span\";\n  return <Comp data-slot=\"badge\" {...props} />;\n}\n\nconst Badge = styled(Root, badge);\nBadge.displayName = \"Badge\";\n\nexport { Badge };\n"
     },
     {
       "path": "registry/default/recipes/badge.ts",

@@ -11,14 +11,14 @@ function Root({
   orientation = "horizontal",
   ...props
 }: React.ComponentProps<"div"> & { orientation?: "horizontal" | "vertical" }) {
-  return <div role="group" data-orientation={orientation} {...props} />;
+  return <div data-slot="button-group" role="group" data-orientation={orientation} {...props} />;
 }
 const ButtonGroup = withProvider(Root, "root");
 
 function Text({ asChild = false, ...props }: React.ComponentProps<"div"> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "div";
 
-  return <Comp {...props} />;
+  return <Comp data-slot="button-group-text" {...props} />;
 }
 const ButtonGroupText = withContext(Text, "text");
 
@@ -26,7 +26,7 @@ function SeparatorBase({
   orientation = "vertical",
   ...props
 }: React.ComponentProps<typeof Separator>) {
-  return <Separator orientation={orientation} {...props} />;
+  return <Separator data-slot="button-group-separator" orientation={orientation} {...props} />;
 }
 const ButtonGroupSeparator = withContext(SeparatorBase, "separator");
 

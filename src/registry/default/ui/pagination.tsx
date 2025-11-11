@@ -8,13 +8,25 @@ import { button, ButtonVariantProps, pagination } from "styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(pagination);
 
-function Root(props: React.ComponentProps<"nav">) {
-  return <nav role="navigation" aria-label="pagination" {...props} />;
-}
-const Pagination = withProvider(Root, "root");
+const Pagination = withProvider("nav", "root", {
+  defaultProps: {
+    role: "navigation",
+    "aria-label": "pagination",
+    "data-slot": "pagination",
+  },
+});
 
-const PaginationContent = withContext("ul", "content");
-const PaginationItem = withContext("li", "item");
+const PaginationContent = withContext("ul", "content", {
+  defaultProps: {
+    "data-slot": "pagination-content",
+  },
+});
+
+const PaginationItem = withContext("li", "item", {
+  defaultProps: {
+    "data-slot": "pagination-item",
+  },
+});
 
 type PaginationLinkProps = {
   isActive?: boolean;
@@ -25,6 +37,8 @@ function Link({ className, isActive, size = "icon", ...props }: PaginationLinkPr
   return (
     <a
       aria-current={isActive ? "page" : undefined}
+      data-slot="pagination-link"
+      data-active={isActive}
       className={cx(
         button({
           variant: isActive ? "outline" : "ghost",
@@ -60,7 +74,7 @@ const PaginationNext = withContext(Next, "next");
 
 function Ellipsis(props: React.ComponentProps<"span">) {
   return (
-    <span aria-hidden {...props}>
+    <span data-slot="pagination-ellipsis" aria-hidden {...props}>
       <LuEllipsis className={css({ w: "4", h: "4" })} />
       <span className={css({ srOnly: "true" })}>More pages</span>
     </span>

@@ -83,7 +83,7 @@
     "@eslint/eslintrc": "^3",
     "@faker-js/faker": "^10.1.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.5.1",
-    "@pandacss/dev": "^1.4.3",
+    "@pandacss/dev": "^1.5.0",
     "@types/mdast": "^4.0.4",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",

@@ -165,7 +165,7 @@ const TagsInputItem = withContext(Item, "item");
 const TagsInputItemText = withContext("span", "itemText", {
   defaultProps: {
     "data-slot": "tags-input-item-text",
-  } as React.ComponentProps<"span">,
+  },
 });
 
 /* -----------------------------------------------------------------------------

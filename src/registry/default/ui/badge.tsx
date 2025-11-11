@@ -2,13 +2,9 @@ import { Slot } from "@radix-ui/react-slot";
 import { styled } from "styled-system/jsx";
 import { badge } from "styled-system/recipes";
 
-interface BadgeProps extends React.ComponentProps<"span"> {
-  asChild?: boolean;
-}
-
-function Root({ asChild, ...props }: BadgeProps) {
+function Root({ asChild, ...props }: React.ComponentProps<"span"> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "span";
-  return <Comp {...props} />;
+  return <Comp data-slot="badge" {...props} />;
 }
 
 const Badge = styled(Root, badge);

@@ -4,16 +4,20 @@ import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { button } from "styled-system/recipes";
 
-interface ButtonProps extends React.ComponentProps<"button"> {
+function Root({
+  children,
+  asChild,
+  loading,
+  disabled,
+  ...props
+}: React.ComponentProps<"button"> & {
   loading?: boolean;
   asChild?: boolean;
-}
-
-function Root({ children, asChild, loading, disabled, ...props }: ButtonProps) {
+}) {
   const Component = asChild ? Slot : "button";
 
   return (
-    <Component disabled={loading || disabled} {...props}>
+    <Component data-slot="button" disabled={loading || disabled} {...props}>
       {loading ? (
         <>
           <span className={css({ display: "contents", visibility: "hidden" })} aria-hidden>

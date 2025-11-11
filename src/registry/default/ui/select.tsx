@@ -10,7 +10,12 @@ import { select } from "styled-system/recipes";
 const { withRootProvider, withContext } = createStyleContext(select);
 
 const Select = withRootProvider(SelectPrimitive.Root);
-const SelectGroup = withContext(SelectPrimitive.Group, "group");
+
+const SelectGroup = withContext(SelectPrimitive.Group, "group", {
+  defaultProps: {
+    "data-slot": "select-group",
+  },
+});
 
 function Trigger({
   children,
@@ -18,7 +23,7 @@ function Trigger({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & { size?: "default" | "sm" }) {
   return (
-    <SelectPrimitive.Trigger data-size={size} {...props}>
+    <SelectPrimitive.Trigger data-slot="select-trigger" data-size={size} {...props}>
       {children}
       <SelectPrimitive.Icon asChild>
         <LuChevronDown className={css({ w: "4", h: "4", opacity: "0.5" })} />
@@ -41,7 +46,7 @@ const SelectValue = withContext(Value, "value");
 
 function ScrollUpButton(props: React.ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
   return (
-    <SelectPrimitive.ScrollUpButton {...props}>
+    <SelectPrimitive.ScrollUpButton data-slot="select-scroll-up-button" {...props}>
       <LuChevronUp className={css({ w: "4", h: "4" })} />
     </SelectPrimitive.ScrollUpButton>
   );
@@ -50,7 +55,7 @@ const SelectScrollUpButton = withContext(ScrollUpButton, "scrollUpButton");
 
 function ScrollDownButton(props: React.ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
   return (
-    <SelectPrimitive.ScrollDownButton {...props}>
+    <SelectPrimitive.ScrollDownButton data-slot="select-scroll-down-button" {...props}>
       <LuChevronDown className={css({ w: "4", h: "4" })} />
     </SelectPrimitive.ScrollDownButton>
   );
@@ -64,7 +69,12 @@ function Content({
 }: React.ComponentProps<typeof SelectPrimitive.Content>) {
   return (
     <SelectPrimitive.Portal>
-      <SelectPrimitive.Content position={position} data-position={position} {...props}>
+      <SelectPrimitive.Content
+        data-slot="select-content"
+        position={position}
+        data-position={position}
+        {...props}
+      >
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           className={css({
@@ -87,11 +97,15 @@ function Content({
 }
 const SelectContent = withContext(Content, "content");
 
-const SelectLabel = withContext(SelectPrimitive.Label, "label");
+const SelectLabel = withContext(SelectPrimitive.Label, "label", {
+  defaultProps: {
+    "data-slot": "select-label",
+  },
+});
 
 function Item({ children, ...props }: React.ComponentProps<typeof SelectPrimitive.Item>) {
   return (
-    <SelectPrimitive.Item {...props}>
+    <SelectPrimitive.Item data-slot="select-item" {...props}>
       <span
         className={css({
           pos: "absolute",
@@ -113,7 +127,11 @@ function Item({ children, ...props }: React.ComponentProps<typeof SelectPrimitiv
 }
 const SelectItem = withContext(Item, "item");
 
-const SelectSeparator = withContext(SelectPrimitive.Separator, "separator");
+const SelectSeparator = withContext(SelectPrimitive.Separator, "separator", {
+  defaultProps: {
+    "data-slot": "select-separator",
+  },
+});
 
 export {
   Select,

@@ -1,36 +1,41 @@
 "use client";
 
 import * as React from "react";
+import { cx } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { field } from "styled-system/recipes";
 import { Label } from "@/registry/default/ui/label";
-import { Separator } from "./separator";
+import { Separator } from "@/registry/default/ui/separator";
 
 const classes = field();
 
-function FieldSet(props: React.ComponentProps<typeof styled.fieldset>) {
-  return <styled.fieldset data-slot="field-set" className={classes.set} {...props} />;
+function FieldSet({ className, ...props }: React.ComponentProps<typeof styled.fieldset>) {
+  return (
+    <styled.fieldset data-slot="field-set" className={cx(classes.set, className)} {...props} />
+  );
 }
 
 function FieldLegend({
+  className,
   variant = "legend",
   ...props
 }: React.ComponentProps<typeof styled.legend> & { variant?: "legend" | "label" }) {
   return (
     <styled.legend
-      data-slot="legend"
+      data-slot="field-legend"
       data-variant={variant}
-      className={classes.legend}
+      className={cx(classes.legend, className)}
       {...props}
     />
   );
 }
 
-function FieldGroup(props: React.ComponentProps<typeof styled.div>) {
-  return <styled.div data-slot="group" className={classes.group} {...props} />;
+function FieldGroup({ className, ...props }: React.ComponentProps<typeof styled.div>) {
+  return <styled.div data-slot="field-group" className={cx(classes.group, className)} {...props} />;
 }
 
 function Field({
+  className,
   orientation = "vertical",
   ...props
 }: React.ComponentProps<typeof styled.div> & {
@@ -41,14 +46,16 @@ function Field({
       role="group"
       data-slot="field"
       data-orientation={orientation}
-      className={classes.root}
+      className={cx(classes.root, className)}
       {...props}
     />
   );
 }
 
-function FieldContent(props: React.ComponentProps<typeof styled.div>) {
-  return <styled.div data-slot="field-content" className={classes.content} {...props} />;
+function FieldContent({ className, ...props }: React.ComponentProps<typeof styled.div>) {
+  return (
+    <styled.div data-slot="field-content" className={cx(classes.content, className)} {...props} />
+  );
 }
 
 function FieldLabel({ css, ...props }: React.ComponentProps<typeof Label>) {
@@ -86,20 +93,30 @@ function FieldLabel({ css, ...props }: React.ComponentProps<typeof Label>) {
   );
 }
 
-function FieldTitle(props: React.ComponentProps<typeof styled.div>) {
-  return <styled.div data-slot="field-label" className={classes.title} {...props} />;
+function FieldTitle({ className, ...props }: React.ComponentProps<typeof styled.div>) {
+  return <styled.div data-slot="field-label" className={cx(classes.title, className)} {...props} />;
 }
 
-function FieldDescription(props: React.ComponentProps<typeof styled.p>) {
-  return <styled.p data-slot="field-description" className={classes.description} {...props} />;
+function FieldDescription({ className, ...props }: React.ComponentProps<typeof styled.p>) {
+  return (
+    <styled.p
+      data-slot="field-description"
+      className={cx(classes.description, className)}
+      {...props}
+    />
+  );
 }
 
-function FieldSeparator({ children, ...props }: React.ComponentProps<typeof styled.div>) {
+function FieldSeparator({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof styled.div>) {
   return (
     <styled.div
       data-slot="field-separator"
       data-content={!!children}
-      className={classes.separator}
+      className={cx(classes.separator, className)}
       {...props}
     >
       <Separator css={{ pos: "absolute", inset: "0", top: "50%" }} />
@@ -124,6 +141,7 @@ function FieldSeparator({ children, ...props }: React.ComponentProps<typeof styl
 }
 
 function FieldError({
+  className,
   children,
   errors,
   ...props
@@ -139,15 +157,17 @@ function FieldError({
       return null;
     }
 
-    if (errors?.length === 1) {
-      return errors[0]?.message;
+    const uniqueErrors = [...new Map(errors.map((error) => [error?.message, error])).values()];
+
+    if (uniqueErrors.length === 1) {
+      return uniqueErrors[0]?.message;
     }
 
     return (
       <styled.ul
         css={{ ml: "4", display: "flex", listStyleType: "disc", flexDir: "column", gap: "1" }}
       >
-        {errors.map((error, index) => error?.message && <li key={index}>{error.message}</li>)}
+        {uniqueErrors.map((error, index) => error?.message && <li key={index}>{error.message}</li>)}
       </styled.ul>
     );
   }, [children, errors]);
@@ -157,7 +177,12 @@ function FieldError({
   }
 
   return (
-    <styled.div role="alert" data-slot="field-error" className={classes.error} {...props}>
+    <styled.div
+      role="alert"
+      data-slot="field-error"
+      className={cx(classes.error, className)}
+      {...props}
+    >
       {content}
     </styled.div>
   );

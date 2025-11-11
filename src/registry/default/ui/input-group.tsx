@@ -12,6 +12,7 @@ const { withProvider, withContext } = createStyleContext(inputGroup);
 const InputGroup = withProvider("div", "root", {
   defaultProps: {
     role: "group",
+    "data-slot": "input-group",
   },
 });
 
@@ -24,6 +25,7 @@ function Addon({
   return (
     <div
       role="group"
+      data-slot="input-group-addon"
       data-align={align}
       onClick={(e) => {
         if ((e.target as HTMLElement).closest("button")) {

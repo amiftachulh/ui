@@ -8,7 +8,7 @@
     {
       "path": "registry/default/ui/switch.tsx",
       "type": "registry:ui",
-      "content": "import * as React from \"react\";\nimport * as SwitchPrimitive from \"@radix-ui/react-switch\";\nimport { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { switchRecipe } from \"styled-system/recipes\";\n\nconst classes = switchRecipe();\n\nfunction Root({ className, ...props }: React.ComponentProps<typeof SwitchPrimitive.Root>) {\n  return (\n    <SwitchPrimitive.Root className={cx(\"peer\", classes.root, className)} {...props}>\n      <SwitchPrimitive.Thumb className={classes.thumb} />\n    </SwitchPrimitive.Root>\n  );\n}\nconst Switch = styled(Root);\nSwitch.displayName = SwitchPrimitive.Root.displayName;\n\nexport { Switch };\n"
+      "content": "import * as React from \"react\";\nimport * as SwitchPrimitive from \"@radix-ui/react-switch\";\nimport { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { switchRecipe } from \"styled-system/recipes\";\n\nconst classes = switchRecipe();\n\nfunction Root({ className, ...props }: React.ComponentProps<typeof SwitchPrimitive.Root>) {\n  return (\n    <SwitchPrimitive.Root\n      data-slot=\"switch\"\n      className={cx(\"peer\", classes.root, className)}\n      {...props}\n    >\n      <SwitchPrimitive.Thumb data-slot=\"switch-thumb\" className={classes.thumb} />\n    </SwitchPrimitive.Root>\n  );\n}\nconst Switch = styled(Root);\nSwitch.displayName = SwitchPrimitive.Root.displayName;\n\nexport { Switch };\n"
     },
     {
       "path": "registry/default/slot-recipes/switch.ts",

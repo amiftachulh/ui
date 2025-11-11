@@ -5,7 +5,7 @@
     {
       "path": "registry/default/ui/label.tsx",
       "type": "registry:ui",
-      "content": "import { styled } from \"styled-system/jsx\";\nimport { label } from \"styled-system/recipes\";\n\nconst Label = styled(\"label\", label);\nLabel.displayName = \"Label\";\n\nexport { Label };\n"
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { label } from \"styled-system/recipes\";\n\nconst Label = styled(\"label\", label, {\n  defaultProps: {\n    \"data-slot\": \"label\",\n  },\n});\nLabel.displayName = \"Label\";\n\nexport { Label };\n"
     },
     {
       "path": "registry/default/recipes/label.ts",

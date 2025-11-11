@@ -8,7 +8,7 @@
     {
       "path": "registry/default/ui/collapsible.tsx",
       "type": "registry:ui",
-      "content": "\"use client\";\n\nimport * as CollapsiblePrimitive from \"@radix-ui/react-collapsible\";\nimport { styled } from \"styled-system/jsx\";\n\nconst Collapsible = styled(CollapsiblePrimitive.Root);\nCollapsible.displayName = CollapsiblePrimitive.Root.displayName;\n\nconst CollapsibleTrigger = styled(CollapsiblePrimitive.CollapsibleTrigger);\nCollapsibleTrigger.displayName = CollapsiblePrimitive.CollapsibleTrigger.displayName;\n\nconst CollapsibleContent = styled(CollapsiblePrimitive.CollapsibleContent);\nCollapsibleContent.displayName = CollapsiblePrimitive.CollapsibleContent.displayName;\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent };\n"
+      "content": "\"use client\";\n\nimport * as CollapsiblePrimitive from \"@radix-ui/react-collapsible\";\nimport { styled } from \"styled-system/jsx\";\n\nconst Collapsible = styled(\n  CollapsiblePrimitive.Root,\n  {},\n  {\n    defaultProps: {\n      \"data-slot\": \"collapsible\",\n    },\n  }\n);\nCollapsible.displayName = CollapsiblePrimitive.Root.displayName;\n\nconst CollapsibleTrigger = styled(\n  CollapsiblePrimitive.CollapsibleTrigger,\n  {},\n  {\n    defaultProps: {\n      \"data-slot\": \"collapsible-trigger\",\n    },\n  }\n);\nCollapsibleTrigger.displayName = CollapsiblePrimitive.CollapsibleTrigger.displayName;\n\nconst CollapsibleContent = styled(\n  CollapsiblePrimitive.CollapsibleContent,\n  {},\n  {\n    defaultProps: {\n      \"data-slot\": \"collapsible-content\",\n    },\n  }\n);\nCollapsibleContent.displayName = CollapsiblePrimitive.CollapsibleContent.displayName;\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent };\n"
     }
   ]
 }

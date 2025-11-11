@@ -4,6 +4,7 @@ export const menubarSlotRecipe = defineSlotRecipe({
   className: "menubar",
   slots: [
     "root",
+    "menu",
     "group",
     "portal",
     "radioGroup",
@@ -32,6 +33,8 @@ export const menubarSlotRecipe = defineSlotRecipe({
       rounded: "md",
       shadow: "xs",
     },
+
+    menu: {},
 
     trigger: {
       display: "flex",

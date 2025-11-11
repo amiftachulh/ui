@@ -20,7 +20,7 @@ function Viewport(props: React.ComponentProps<typeof NavigationMenuPrimitive.Vie
         justifyContent: "center",
       })}
     >
-      <NavigationMenuPrimitive.Viewport {...props} />
+      <NavigationMenuPrimitive.Viewport data-slot="navigation-menu-viewport" {...props} />
     </div>
   );
 }
@@ -32,7 +32,7 @@ function Root({
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & { viewport?: boolean }) {
   return (
-    <NavigationMenuPrimitive.Root data-viewport={viewport} {...props}>
+    <NavigationMenuPrimitive.Root data-slot="navigation-menu" data-viewport={viewport} {...props}>
       {children}
       {viewport && <NavigationMenuViewport />}
     </NavigationMenuPrimitive.Root>
@@ -40,15 +40,24 @@ function Root({
 }
 const NavigationMenu = withProvider(Root, "root");
 
-const NavigationMenuList = withContext(NavigationMenuPrimitive.List, "list");
-const NavigationMenuItem = withContext(NavigationMenuPrimitive.Item, "item");
+const NavigationMenuList = withContext(NavigationMenuPrimitive.List, "list", {
+  defaultProps: {
+    "data-slot": "navigation-menu-list",
+  },
+});
+
+const NavigationMenuItem = withContext(NavigationMenuPrimitive.Item, "item", {
+  defaultProps: {
+    "data-slot": "navigation-menu-item",
+  },
+});
 
 function Trigger({
   children,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>) {
   return (
-    <NavigationMenuPrimitive.Trigger {...props}>
+    <NavigationMenuPrimitive.Trigger data-slot="navigation-menu-trigger" {...props}>
       {children}
       <LuChevronDown />
     </NavigationMenuPrimitive.Trigger>
@@ -56,12 +65,21 @@ function Trigger({
 }
 const NavigationMenuTrigger = withContext(Trigger, "trigger");
 
-const NavigationMenuContent = withContext(NavigationMenuPrimitive.Content, "content");
-const NavigationMenuLink = withContext(NavigationMenuPrimitive.Link, "link");
+const NavigationMenuContent = withContext(NavigationMenuPrimitive.Content, "content", {
+  defaultProps: {
+    "data-slot": "navigation-menu-content",
+  },
+});
+
+const NavigationMenuLink = withContext(NavigationMenuPrimitive.Link, "link", {
+  defaultProps: {
+    "data-slot": "navigation-menu-link",
+  },
+});
 
 function Indicator({ ...props }: React.ComponentProps<typeof NavigationMenuPrimitive.Indicator>) {
   return (
-    <NavigationMenuPrimitive.Indicator {...props}>
+    <NavigationMenuPrimitive.Indicator data-slot="navigation-menu-indicator" {...props}>
       <div
         className={css({
           position: "relative",

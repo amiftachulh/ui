@@ -11,15 +11,30 @@ const { withRootProvider, withContext } = createStyleContext(sheet);
 
 const Sheet = withRootProvider(SheetPrimitive.Root);
 const SheetPortal = SheetPrimitive.Portal;
-const SheetTrigger = withContext(SheetPrimitive.Trigger, "trigger");
-const SheetOverlay = withContext(SheetPrimitive.Overlay, "overlay");
-const SheetClose = withContext(SheetPrimitive.Close, "close");
+
+const SheetTrigger = withContext(SheetPrimitive.Trigger, "trigger", {
+  defaultProps: {
+    "data-slot": "sheet-trigger",
+  },
+});
+
+const SheetOverlay = withContext(SheetPrimitive.Overlay, "overlay", {
+  defaultProps: {
+    "data-slot": "sheet-overlay",
+  },
+});
+
+const SheetClose = withContext(SheetPrimitive.Close, "close", {
+  defaultProps: {
+    "data-slot": "sheet-close",
+  },
+});
 
 function Content({ children, ...props }: React.ComponentProps<typeof SheetPrimitive.Content>) {
   return (
     <SheetPortal>
       <SheetOverlay />
-      <SheetPrimitive.Content {...props}>
+      <SheetPrimitive.Content data-slot="sheet-content" {...props}>
         {children}
         <SheetClose
           css={{
@@ -44,12 +59,31 @@ function Content({ children, ...props }: React.ComponentProps<typeof SheetPrimit
     </SheetPortal>
   );
 }
-
 const SheetContent = withContext(Content, "content");
-const SheetHeader = withContext("div", "header");
-const SheetTitle = withContext(SheetPrimitive.Title, "title");
-const SheetDescription = withContext(SheetPrimitive.Description, "description");
-const SheetFooter = withContext("div", "footer");
+
+const SheetHeader = withContext("div", "header", {
+  defaultProps: {
+    "data-slot": "sheet-header",
+  },
+});
+
+const SheetTitle = withContext(SheetPrimitive.Title, "title", {
+  defaultProps: {
+    "data-slot": "sheet-title",
+  },
+});
+
+const SheetDescription = withContext(SheetPrimitive.Description, "description", {
+  defaultProps: {
+    "data-slot": "sheet-description",
+  },
+});
+
+const SheetFooter = withContext("div", "footer", {
+  defaultProps: {
+    "data-slot": "sheet-footer",
+  },
+});
 
 export {
   Sheet,

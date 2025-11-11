@@ -10,7 +10,13 @@ import { dropdownMenu } from "styled-system/recipes";
 const { withRootProvider, withContext } = createStyleContext(dropdownMenu);
 
 const DropdownMenu = withRootProvider(DropdownMenuPrimitive.Root);
-const DropdownMenuTrigger = withContext(DropdownMenuPrimitive.Trigger, "trigger");
+
+const DropdownMenuTrigger = withContext(DropdownMenuPrimitive.Trigger, "trigger", {
+  defaultProps: {
+    "data-slot": "dropdown-menu-trigger",
+  },
+});
+
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 
 function Content({
@@ -19,11 +25,21 @@ function Content({
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
   return (
     <DropdownMenuPortal>
-      <DropdownMenuPrimitive.Content sideOffset={sideOffset} {...props} />
+      <DropdownMenuPrimitive.Content
+        data-slot="dropdown-menu-content"
+        sideOffset={sideOffset}
+        {...props}
+      />
     </DropdownMenuPortal>
   );
 }
 const DropdownMenuContent = withContext(Content, "content");
+
+const DropdownMenuGroup = withContext(DropdownMenuPrimitive.Group, "group", {
+  defaultProps: {
+    "data-slot": "dropdown-menu-group",
+  },
+});
 
 function Item({
   inset,
@@ -33,24 +49,23 @@ function Item({
   inset?: boolean;
   variant?: "default" | "danger";
 }) {
-  return <DropdownMenuPrimitive.Item data-inset={inset} data-variant={variant} {...props} />;
+  return (
+    <DropdownMenuPrimitive.Item
+      data-slot="dropdown-menu-item"
+      data-inset={inset}
+      data-variant={variant}
+      {...props}
+    />
+  );
 }
 const DropdownMenuItem = withContext(Item, "item");
-
-function Label({
-  inset,
-  ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & { inset?: boolean }) {
-  return <DropdownMenuPrimitive.Label data-inset={inset} {...props} />;
-}
-const DropdownMenuLabel = withContext(Label, "label");
 
 function CheckboxItem({
   children,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.CheckboxItem>) {
   return (
-    <DropdownMenuPrimitive.CheckboxItem {...props}>
+    <DropdownMenuPrimitive.CheckboxItem data-slot="dropdown-menu-checkbox-item" {...props}>
       <span
         className={css({
           pos: "absolute",
@@ -73,12 +88,18 @@ function CheckboxItem({
 }
 const DropdownMenuCheckboxItem = withContext(CheckboxItem, "checkboxItem");
 
+const DropdownMenuRadioGroup = withContext(DropdownMenuPrimitive.RadioGroup, "radioGroup", {
+  defaultProps: {
+    "data-slot": "dropdown-menu-radio-group",
+  },
+});
+
 function RadioItem({
   children,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioItem>) {
   return (
-    <DropdownMenuPrimitive.RadioItem {...props}>
+    <DropdownMenuPrimitive.RadioItem data-slot="dropdown-menu-radio-item" {...props}>
       <span
         className={css({
           pos: "absolute",
@@ -101,8 +122,29 @@ function RadioItem({
 }
 const DropdownMenuRadioItem = withContext(RadioItem, "radioItem");
 
-const DropdownMenuSeparator = withContext(DropdownMenuPrimitive.Separator, "separator");
-const DropdownMenuShortcut = withContext("span", "shortcut");
+function Label({
+  inset,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Label> & { inset?: boolean }) {
+  return (
+    <DropdownMenuPrimitive.Label data-slot="dropdown-menu-label" data-inset={inset} {...props} />
+  );
+}
+const DropdownMenuLabel = withContext(Label, "label");
+
+const DropdownMenuSeparator = withContext(DropdownMenuPrimitive.Separator, "separator", {
+  defaultProps: {
+    "data-slot": "dropdown-menu-separator",
+  },
+});
+
+const DropdownMenuShortcut = withContext("span", "shortcut", {
+  defaultProps: {
+    "data-slot": "dropdown-menu-shortcut",
+  },
+});
+
+const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 
 function SubTrigger({
   inset,
@@ -110,7 +152,11 @@ function SubTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.SubTrigger> & { inset?: boolean }) {
   return (
-    <DropdownMenuPrimitive.SubTrigger data-inset={inset} {...props}>
+    <DropdownMenuPrimitive.SubTrigger
+      data-slot="dropdown-menu-sub-trigger"
+      data-inset={inset}
+      {...props}
+    >
       {children}
       <LuChevronRight className={css({ ml: "auto" })} />
     </DropdownMenuPrimitive.SubTrigger>
@@ -118,13 +164,11 @@ function SubTrigger({
 }
 const DropdownMenuSubTrigger = withContext(SubTrigger, "subTrigger");
 
-function SubContent(props: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) {
-  return <DropdownMenuPrimitive.SubContent {...props} />;
-}
-const DropdownMenuSubContent = withContext(SubContent, "subContent");
-const DropdownMenuGroup = withContext(DropdownMenuPrimitive.Group, "group");
-const DropdownMenuRadioGroup = withContext(DropdownMenuPrimitive.RadioGroup, "radioGroup");
-const DropdownMenuSub = withContext(DropdownMenuPrimitive.Sub, "sub");
+const DropdownMenuSubContent = withContext(DropdownMenuPrimitive.SubContent, "subContent", {
+  defaultProps: {
+    "data-slot": "dropdown-menu-sub-content",
+  },
+});
 
 export {
   DropdownMenu,

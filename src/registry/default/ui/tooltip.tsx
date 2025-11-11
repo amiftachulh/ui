@@ -23,7 +23,12 @@ function Root(props: React.ComponentProps<typeof TooltipPrimitive.Root>) {
   );
 }
 const Tooltip = withRootProvider(Root);
-const TooltipTrigger = withContext(TooltipPrimitive.Trigger, "trigger");
+
+const TooltipTrigger = withContext(TooltipPrimitive.Trigger, "trigger", {
+  defaultProps: {
+    "data-slot": "tooltip-trigger",
+  },
+});
 
 function Content({
   children,
@@ -32,7 +37,7 @@ function Content({
 }: React.ComponentProps<typeof TooltipPrimitive.Content>) {
   return (
     <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Content sideOffset={sideOffset} {...props}>
+      <TooltipPrimitive.Content data-slot="tooltip-content" sideOffset={sideOffset} {...props}>
         {children}
         <TooltipPrimitive.Arrow
           className={css({

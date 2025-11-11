@@ -5,7 +5,7 @@
     {
       "path": "registry/default/ui/skeleton.tsx",
       "type": "registry:ui",
-      "content": "import { styled } from \"styled-system/jsx\";\nimport { skeleton } from \"styled-system/recipes\";\n\nconst Skeleton = styled(\"div\", skeleton);\nSkeleton.displayName = \"Skeleton\";\n\nexport { Skeleton };\n"
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { skeleton } from \"styled-system/recipes\";\n\nconst Skeleton = styled(\"div\", skeleton, {\n  defaultProps: {\n    \"data-slot\": \"skeleton\",\n  },\n});\nSkeleton.displayName = \"Skeleton\";\n\nexport { Skeleton };\n"
     },
     {
       "path": "registry/default/recipes/skeleton.ts",

@@ -40,13 +40,13 @@ const NativeSelect = withProvider(NativeSelectBase, "root");
 const NativeSelectOption = withContext("option", "option", {
   defaultProps: {
     "data-slot": "native-select-option",
-  } as Partial<React.ComponentProps<"option">>,
+  },
 });
 
 const NativeSelectOptGroup = withContext("optgroup", "optGroup", {
   defaultProps: {
     "data-slot": "native-select-optgroup",
-  } as Partial<React.ComponentProps<"optgroup">>,
+  },
 });
 
 export { NativeSelect, NativeSelectOptGroup, NativeSelectOption };

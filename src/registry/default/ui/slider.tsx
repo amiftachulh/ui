@@ -21,6 +21,7 @@ function Root({
 
   return (
     <SliderPrimitive.Root
+      data-slot="slider"
       defaultValue={defaultValue}
       value={value}
       min={min}
@@ -28,11 +29,11 @@ function Root({
       className={cx(classes.root, className)}
       {...props}
     >
-      <SliderPrimitive.Track className={classes.track}>
-        <SliderPrimitive.Range className={classes.range} />
+      <SliderPrimitive.Track data-slot="slider-track" className={classes.track}>
+        <SliderPrimitive.Range data-slot="slider-range" className={classes.range} />
       </SliderPrimitive.Track>
       {Array.from({ length: _values.length }).map((_, i) => (
-        <SliderPrimitive.Thumb key={i} className={classes.thumb} />
+        <SliderPrimitive.Thumb key={i} data-slot="slider-thumb" className={classes.thumb} />
       ))}
     </SliderPrimitive.Root>
   );

@@ -30,7 +30,7 @@ function Root({
 }) {
   return (
     <TimelineContext value={{ orientation }}>
-      <ol role="list" data-orientation={orientation} {...props} />
+      <ol role="list" data-slot="timeline" data-orientation={orientation} {...props} />
     </TimelineContext>
   );
 }
@@ -45,7 +45,7 @@ function Item({
   const { orientation } = useTimeline();
   const Comp = asChild ? Slot : "li";
 
-  return <Comp data-orientation={orientation} {...props} />;
+  return <Comp data-slot="timeline-item" data-orientation={orientation} {...props} />;
 }
 const TimelineItem = withContext(Item, "item");
 
@@ -58,7 +58,7 @@ function Separator({
   const { orientation } = useTimeline();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp data-orientation={orientation} {...props} />;
+  return <Comp data-slot="timeline-separator" data-orientation={orientation} {...props} />;
 }
 const TimelineSeparator = withContext(Separator, "separator");
 
@@ -73,7 +73,14 @@ function Dot({
   const { orientation } = useTimeline();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp data-orientation={orientation} data-variant={variant} {...props} />;
+  return (
+    <Comp
+      data-slot="timeline-dot"
+      data-orientation={orientation}
+      data-variant={variant}
+      {...props}
+    />
+  );
 }
 const TimelineDot = withContext(Dot, "dot");
 
@@ -86,7 +93,7 @@ function Connector({
   const { orientation } = useTimeline();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp data-orientation={orientation} {...props} />;
+  return <Comp data-slot="timeline-connector" data-orientation={orientation} {...props} />;
 }
 const TimelineConnector = withContext(Connector, "connector");
 
@@ -94,13 +101,9 @@ function Content({ asChild, ...props }: React.ComponentProps<"div"> & { asChild?
   const { orientation } = useTimeline();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp data-orientation={orientation} {...props} />;
+  return <Comp data-slot="timeline-content" data-orientation={orientation} {...props} />;
 }
 const TimelineContent = withContext(Content, "content");
-
-export interface TimelineTitleProps extends React.ComponentPropsWithoutRef<"div"> {
-  asChild?: boolean;
-}
 
 function Title({
   asChild,
@@ -111,7 +114,7 @@ function Title({
   const { orientation } = useTimeline();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp data-orientation={orientation} {...props} />;
+  return <Comp data-slot="timeline-title" data-orientation={orientation} {...props} />;
 }
 const TimelineTitle = withContext(Title, "title");
 
@@ -124,7 +127,7 @@ function Description({
   const { orientation } = useTimeline();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp data-orientation={orientation} {...props} />;
+  return <Comp data-slot="timeline-description" data-orientation={orientation} {...props} />;
 }
 const TimelineDescription = withContext(Description, "description");
 

@@ -9,12 +9,21 @@ import { radioGroup } from "styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(radioGroup);
 
-const RadioGroup = withProvider(RadioGroupPrimitive.Root, "root");
-const RadioGroupIndicator = withContext(RadioGroupPrimitive.Indicator, "indicator");
+const RadioGroup = withProvider(RadioGroupPrimitive.Root, "root", {
+  defaultProps: {
+    "data-slot": "radio-group",
+  },
+});
+
+const RadioGroupIndicator = withContext(RadioGroupPrimitive.Indicator, "indicator", {
+  defaultProps: {
+    "data-slot": "radio-group-indicator",
+  },
+});
 
 function Item(props: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
   return (
-    <RadioGroupPrimitive.Item {...props}>
+    <RadioGroupPrimitive.Item data-slot="radio-group-item" {...props}>
       <RadioGroupIndicator>
         <LuCircle
           className={css({

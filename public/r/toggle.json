@@ -8,7 +8,7 @@
     {
       "path": "registry/default/ui/toggle.tsx",
       "type": "registry:ui",
-      "content": "import * as React from \"react\";\nimport * as TogglePrimitive from \"@radix-ui/react-toggle\";\nimport { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { toggle, ToggleVariantProps } from \"styled-system/recipes\";\n\nfunction Root({\n  className,\n  variant,\n  size,\n  ...props\n}: React.ComponentProps<typeof TogglePrimitive.Root> & ToggleVariantProps) {\n  return <TogglePrimitive.Root className={cx(toggle({ variant, size }), className)} {...props} />;\n}\nconst Toggle = styled(Root);\nToggle.displayName = TogglePrimitive.Root.displayName;\n\nexport { Toggle };\n"
+      "content": "import * as TogglePrimitive from \"@radix-ui/react-toggle\";\nimport { styled } from \"styled-system/jsx\";\nimport { toggle } from \"styled-system/recipes\";\n\nconst Toggle = styled(TogglePrimitive.Root, toggle, {\n  defaultProps: {\n    \"data-slot\": \"toggle\",\n  },\n});\n\nToggle.displayName = TogglePrimitive.Root.displayName;\n\nexport { Toggle };\n"
     },
     {
       "path": "registry/default/recipes/toggle.ts",

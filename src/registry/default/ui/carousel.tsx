@@ -119,6 +119,7 @@ function Root({
       }}
     >
       <div
+        data-slot="carousel"
         onKeyDownCapture={handleKeyDown}
         className={cx(classes.root, className)}
         role="region"
@@ -137,7 +138,7 @@ function Content({ className, ...props }: React.ComponentProps<"div">) {
   const { carouselRef, orientation } = useCarousel();
 
   return (
-    <div ref={carouselRef} className={css({ overflow: "hidden" })}>
+    <div ref={carouselRef} data-slot="carousel-content" className={css({ overflow: "hidden" })}>
       <div data-orientation={orientation} className={cx(classes.content, className)} {...props} />
     </div>
   );
@@ -150,6 +151,7 @@ function Item({ className, ...props }: React.ComponentProps<"div">) {
 
   return (
     <div
+      data-slot="carousel-item"
       role="group"
       aria-roledescription="slide"
       data-orientation={orientation}
@@ -171,6 +173,7 @@ function CarouselPrevious({
 
   return (
     <Button
+      data-slot="carousel-previous"
       data-orientation={orientation}
       variant={variant}
       size={size}
@@ -195,14 +198,11 @@ function CarouselNext({
 
   return (
     <Button
+      data-slot="carousel-next"
       data-orientation={orientation}
       variant={variant}
       size={size}
-      className={cx(
-        classes.next,
-
-        className
-      )}
+      className={cx(classes.next, className)}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}

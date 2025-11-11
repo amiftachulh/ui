@@ -12,7 +12,13 @@ const classes = toast();
 const ToastProvider = ToastPrimitive.Provider;
 
 function Viewport({ className, ...props }: React.ComponentProps<typeof ToastPrimitive.Viewport>) {
-  return <ToastPrimitive.Viewport className={cx(classes.viewport, className)} {...props} />;
+  return (
+    <ToastPrimitive.Viewport
+      data-slot="toast-viewport"
+      className={cx(classes.viewport, className)}
+      {...props}
+    />
+  );
 }
 const ToastViewport = styled(Viewport);
 ToastViewport.displayName = ToastPrimitive.Viewport.displayName;
@@ -23,21 +29,35 @@ function Root({
   ...props
 }: React.ComponentProps<typeof ToastPrimitive.Root> & ToastVariantProps) {
   return (
-    <ToastPrimitive.Root className={cx("group", toast({ variant }).root, className)} {...props} />
+    <ToastPrimitive.Root
+      data-slot="toast"
+      className={cx("group", toast({ variant }).root, className)}
+      {...props}
+    />
   );
 }
 const Toast = styled(Root);
 Toast.displayName = ToastPrimitive.Root.displayName;
 
 function Action({ className, ...props }: React.ComponentProps<typeof ToastPrimitive.Action>) {
-  return <ToastPrimitive.Action className={cx(classes.action, className)} {...props} />;
+  return (
+    <ToastPrimitive.Action
+      data-slot="toast-action"
+      className={cx(classes.action, className)}
+      {...props}
+    />
+  );
 }
 const ToastAction = styled(Action);
 ToastAction.displayName = ToastPrimitive.Action.displayName;
 
 function Close({ className, ...props }: React.ComponentProps<typeof ToastPrimitive.Close>) {
   return (
-    <ToastPrimitive.Close className={cx(classes.close, className)} toast-close="" {...props}>
+    <ToastPrimitive.Close
+      data-slot="toast-close"
+      className={cx(classes.close, className)}
+      {...props}
+    >
       <LuX className={css({ w: "4", h: "4" })} />
     </ToastPrimitive.Close>
   );
@@ -46,7 +66,13 @@ const ToastClose = styled(Close);
 ToastClose.displayName = ToastPrimitive.Close.displayName;
 
 function Title({ className, ...props }: React.ComponentProps<typeof ToastPrimitive.Title>) {
-  return <ToastPrimitive.Title className={cx(classes.title, className)} {...props} />;
+  return (
+    <ToastPrimitive.Title
+      data-slot="toast-title"
+      className={cx(classes.title, className)}
+      {...props}
+    />
+  );
 }
 const ToastTitle = styled(Title);
 ToastTitle.displayName = ToastPrimitive.Title.displayName;
@@ -55,7 +81,13 @@ function Description({
   className,
   ...props
 }: React.ComponentProps<typeof ToastPrimitive.Description>) {
-  return <ToastPrimitive.Description className={cx(classes.description, className)} {...props} />;
+  return (
+    <ToastPrimitive.Description
+      data-slot="toast-description"
+      className={cx(classes.description, className)}
+      {...props}
+    />
+  );
 }
 const ToastDescription = styled(Description);
 ToastDescription.displayName = ToastPrimitive.Description.displayName;

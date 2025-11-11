@@ -9,12 +9,37 @@ import { menubar } from "styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(menubar);
 
-const Menubar = withProvider(MenubarPrimitive.Root, "root");
-const MenubarMenu = MenubarPrimitive.Menu;
-const MenubarGroup = withContext(MenubarPrimitive.Group, "group");
+const Menubar = withProvider(MenubarPrimitive.Root, "root", {
+  defaultProps: {
+    "data-slot": "menubar",
+  },
+});
+
+const MenubarMenu = withContext(MenubarPrimitive.Menu, "menu", {
+  defaultProps: {
+    "data-slot": "menubar-menu",
+  },
+});
+
+const MenubarGroup = withContext(MenubarPrimitive.Group, "group", {
+  defaultProps: {
+    "data-slot": "menubar-group",
+  },
+});
+
 const MenubarPortal = MenubarPrimitive.Portal;
-const MenubarRadioGroup = withContext(MenubarPrimitive.RadioGroup, "radioGroup");
-const MenubarTrigger = withContext(MenubarPrimitive.Trigger, "trigger");
+
+const MenubarRadioGroup = withContext(MenubarPrimitive.RadioGroup, "radioGroup", {
+  defaultProps: {
+    "data-slot": "menubar-radio-group",
+  },
+});
+
+const MenubarTrigger = withContext(MenubarPrimitive.Trigger, "trigger", {
+  defaultProps: {
+    "data-slot": "menubar-trigger",
+  },
+});
 
 function Content({
   align = "start",
@@ -25,6 +50,7 @@ function Content({
   return (
     <MenubarPortal>
       <MenubarPrimitive.Content
+        data-slot="menubar-content"
         align={align}
         alignOffset={alignOffset}
         sideOffset={sideOffset}
@@ -39,7 +65,7 @@ function Item({
   inset,
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Item> & { inset?: boolean }) {
-  return <MenubarPrimitive.Item data-inset={inset} {...props} />;
+  return <MenubarPrimitive.Item data-slot="menubar-item" data-inset={inset} {...props} />;
 }
 const MenubarItem = withContext(Item, "item");
 
@@ -49,7 +75,7 @@ function CheckboxItem({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.CheckboxItem>) {
   return (
-    <MenubarPrimitive.CheckboxItem checked={checked} {...props}>
+    <MenubarPrimitive.CheckboxItem data-slot="menubar-checkbox-item" checked={checked} {...props}>
       <span
         className={css({
           pos: "absolute",
@@ -77,7 +103,7 @@ function RadioItem({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.RadioItem>) {
   return (
-    <MenubarPrimitive.RadioItem {...props}>
+    <MenubarPrimitive.RadioItem data-slot="menubar-radio-item" {...props}>
       <span
         className={css({
           pos: "absolute",
@@ -104,12 +130,22 @@ function Label({
   inset,
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Label> & { inset?: boolean }) {
-  return <MenubarPrimitive.Label data-inset={inset} {...props} />;
+  return <MenubarPrimitive.Label data-slot="menubar-label" data-inset={inset} {...props} />;
 }
 const MenubarLabel = withContext(Label, "label");
 
-const MenubarSeparator = withContext(MenubarPrimitive.Separator, "separator");
-const MenubarShortcut = withContext("span", "shortcut");
+const MenubarSeparator = withContext(MenubarPrimitive.Separator, "separator", {
+  defaultProps: {
+    "data-slot": "menubar-separator",
+  },
+});
+
+const MenubarShortcut = withContext("span", "shortcut", {
+  defaultProps: {
+    "data-slot": "menubar-shortcut",
+  },
+});
+
 const MenubarSub = MenubarPrimitive.Sub;
 
 function SubTrigger({
@@ -118,7 +154,7 @@ function SubTrigger({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.SubTrigger> & { inset?: boolean }) {
   return (
-    <MenubarPrimitive.SubTrigger data-inset={inset} {...props}>
+    <MenubarPrimitive.SubTrigger data-slot="menubar-sub-trigger" data-inset={inset} {...props}>
       {children}
       <LuChevronRight className={css({ ml: "auto", w: "4", h: "4" })} />
     </MenubarPrimitive.SubTrigger>
@@ -126,7 +162,11 @@ function SubTrigger({
 }
 const MenubarSubTrigger = withContext(SubTrigger, "subTrigger");
 
-const MenubarSubContent = withContext(MenubarPrimitive.SubContent, "subContent");
+const MenubarSubContent = withContext(MenubarPrimitive.SubContent, "subContent", {
+  defaultProps: {
+    "data-slot": "menubar-sub-content",
+  },
+});
 
 export {
   Menubar,

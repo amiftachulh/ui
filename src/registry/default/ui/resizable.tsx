@@ -9,15 +9,24 @@ import { resizable } from "styled-system/recipes";
 
 const { withProvider, withContext } = createStyleContext(resizable);
 
-const ResizablePanelGroup = withProvider(ResizablePrimitive.PanelGroup, "panelGroup");
-const ResizablePanel = withContext(ResizablePrimitive.Panel, "panel");
+const ResizablePanelGroup = withProvider(ResizablePrimitive.PanelGroup, "panelGroup", {
+  defaultProps: {
+    "data-slot": "resizable-panel-group",
+  },
+});
+
+const ResizablePanel = withContext(ResizablePrimitive.Panel, "panel", {
+  defaultProps: {
+    "data-slot": "resizable-panel",
+  },
+});
 
 function Handle({
   withHandle,
   ...props
 }: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & { withHandle?: boolean }) {
   return (
-    <ResizablePrimitive.PanelResizeHandle {...props}>
+    <ResizablePrimitive.PanelResizeHandle data-slot="resizable-handle" {...props}>
       {withHandle && (
         <div
           className={css({

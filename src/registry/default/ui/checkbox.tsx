@@ -11,8 +11,12 @@ function Root({ className, ...props }: React.ComponentProps<typeof CheckboxPrimi
   const classes = checkbox();
 
   return (
-    <CheckboxPrimitive.Root className={cx("peer", classes.root, className)} {...props}>
-      <CheckboxPrimitive.Indicator className={classes.indicator}>
+    <CheckboxPrimitive.Root
+      data-slot="checkbox"
+      className={cx("peer", classes.root, className)}
+      {...props}
+    >
+      <CheckboxPrimitive.Indicator data-slot="checkbox-indicator" className={classes.indicator}>
         <LuCheck className={css({ w: "3.5", h: "3.5" })} />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>

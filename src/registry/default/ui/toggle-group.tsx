@@ -22,6 +22,7 @@ function Root({
 }: React.ComponentProps<typeof ToggleGroupPrimitive.Root> & ToggleVariantProps) {
   return (
     <ToggleGroupPrimitive.Root
+      data-slot="toggle-group"
       data-variant={variant}
       data-size={size}
       className={cx(classes.root, className)}
@@ -47,6 +48,7 @@ function Item({
 
   return (
     <ToggleGroupPrimitive.Item
+      data-slot="toggle-group-item"
       data-variant={context.variant || variant}
       data-size={context.size || size}
       className={cx(

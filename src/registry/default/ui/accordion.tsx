@@ -14,7 +14,7 @@ const AccordionHeader = withContext(AccordionPrimitive.Header, "header");
 function Trigger({ children, ...props }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
   return (
     <AccordionHeader>
-      <AccordionPrimitive.Trigger {...props}>
+      <AccordionPrimitive.Trigger data-slot="accordion-trigger" {...props}>
         {children}
         <LuChevronDown
           className={css({
@@ -38,14 +38,24 @@ function Trigger({ children, ...props }: React.ComponentProps<typeof AccordionPr
 
 function Content({ children, ...props }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
   return (
-    <AccordionPrimitive.Content {...props}>
+    <AccordionPrimitive.Content data-slot="accordion-content" {...props}>
       <div className={css({ pt: "0", pb: "4" })}>{children}</div>
     </AccordionPrimitive.Content>
   );
 }
 
-const Accordion = withProvider(AccordionPrimitive.Root, "root");
-const AccordionItem = withContext(AccordionPrimitive.Item, "item");
+const Accordion = withProvider(AccordionPrimitive.Root, "root", {
+  defaultProps: {
+    "data-slot": "accordion",
+  },
+});
+
+const AccordionItem = withContext(AccordionPrimitive.Item, "item", {
+  defaultProps: {
+    "data-slot": "accordion-item",
+  },
+});
+
 const AccordionTrigger = withContext(Trigger, "trigger");
 const AccordionContent = withContext(Content, "content");
 

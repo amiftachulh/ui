@@ -21,11 +21,17 @@ export const paginationSlotRecipe = defineSlotRecipe({
     previous: {
       gap: "1",
       px: "2.5",
+      sm: {
+        pl: "2.5",
+      },
     },
 
     next: {
       gap: "1",
       px: "2.5",
+      sm: {
+        pr: "2.5",
+      },
     },
 
     ellipsis: {

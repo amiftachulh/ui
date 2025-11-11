@@ -9,16 +9,32 @@ import { Drawer as DrawerPrimitive } from "vaul";
 const { withRootProvider, withContext } = createStyleContext(drawer);
 
 const Drawer = withRootProvider(DrawerPrimitive.Root);
-const DrawerTrigger = withContext(DrawerPrimitive.Trigger, "trigger");
+
+const DrawerTrigger = withContext(DrawerPrimitive.Trigger, "trigger", {
+  defaultProps: {
+    "data-slot": "drawer-trigger",
+  },
+});
+
 const DrawerPortal = DrawerPrimitive.Portal;
-const DrawerClose = withContext(DrawerPrimitive.Close, "close");
-const DrawerOverlay = withContext(DrawerPrimitive.Overlay, "overlay");
+
+const DrawerClose = withContext(DrawerPrimitive.Close, "close", {
+  defaultProps: {
+    "data-slot": "drawer-close",
+  },
+});
+
+const DrawerOverlay = withContext(DrawerPrimitive.Overlay, "overlay", {
+  defaultProps: {
+    "data-slot": "drawer-overlay",
+  },
+});
 
 function Content({ children, ...props }: React.ComponentProps<typeof DrawerPrimitive.Content>) {
   return (
     <DrawerPortal>
       <DrawerOverlay />
-      <DrawerPrimitive.Content {...props}>
+      <DrawerPrimitive.Content data-slot="drawer-content" {...props}>
         <div
           className={css({
             bg: "muted",
@@ -41,10 +57,29 @@ function Content({ children, ...props }: React.ComponentProps<typeof DrawerPrimi
 }
 const DrawerContent = withContext(Content, "content");
 
-const DrawerHeader = withContext("div", "header");
-const DrawerTitle = withContext(DrawerPrimitive.Title, "title");
-const DrawerDescription = withContext(DrawerPrimitive.Description, "description");
-const DrawerFooter = withContext("div", "footer");
+const DrawerHeader = withContext("div", "header", {
+  defaultProps: {
+    "data-slot": "drawer-header",
+  },
+});
+
+const DrawerTitle = withContext(DrawerPrimitive.Title, "title", {
+  defaultProps: {
+    "data-slot": "drawer-title",
+  },
+});
+
+const DrawerDescription = withContext(DrawerPrimitive.Description, "description", {
+  defaultProps: {
+    "data-slot": "drawer-description",
+  },
+});
+
+const DrawerFooter = withContext("div", "footer", {
+  defaultProps: {
+    "data-slot": "drawer-footer",
+  },
+});
 
 export {
   Drawer,

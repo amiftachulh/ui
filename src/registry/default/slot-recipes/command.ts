@@ -27,7 +27,7 @@ export const commandSlotRecipe = defineSlotRecipe({
       "& [cmdk-group]": {
         px: "2",
       },
-      "& [cmdk-input-wrapper]": {
+      "& [data-slot=command-input-wrapper]": {
         h: "12",
       },
       "& [cmdk-input-wrapper] svg": {

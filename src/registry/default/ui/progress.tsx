@@ -10,8 +10,9 @@ const classes = progress();
 
 function Root({ className, value, ...props }: React.ComponentProps<typeof ProgressPrimitive.Root>) {
   return (
-    <ProgressPrimitive.Root className={cx(classes.root, className)} {...props}>
+    <ProgressPrimitive.Root data-slot="progress" className={cx(classes.root, className)} {...props}>
       <ProgressPrimitive.Indicator
+        data-slot="progress-indicator"
         className={classes.indicator}
         style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
       />

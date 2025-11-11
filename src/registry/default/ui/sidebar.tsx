@@ -129,6 +129,7 @@ function Provider({
     <SidebarContext.Provider value={contextValue}>
       <TooltipProvider delayDuration={0}>
         <div
+          data-slot="sidebar-wrapper"
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH,
@@ -164,7 +165,7 @@ function Root({
 
   if (collapsible === "none") {
     return (
-      <div className={cx(classes.nonCollapsibleRoot, className)} {...props}>
+      <div data-slot="sidebar" className={cx(classes.nonCollapsibleRoot, className)} {...props}>
         {children}
       </div>
     );
@@ -174,6 +175,7 @@ function Root({
     return (
       <Sheet open={openMobile} onOpenChange={setOpenMobile} side={side} {...props}>
         <SheetContent
+          data-slot="sidebar"
           data-sidebar="sidebar"
           data-mobile="true"
           css={{
@@ -207,6 +209,7 @@ function Root({
         "group peer",
         css({ color: "sidebar.fg", display: "none", md: { display: "block" } })
       )}
+      data-slot="sidebar"
       data-state={state}
       data-collapsible={state === "collapsed" ? collapsible : ""}
       data-variant={variant}
@@ -214,6 +217,7 @@ function Root({
     >
       {/* This is what handles the sidebar gap on desktop */}
       <div
+        data-slot="sidebar-gap"
         className={cx(
           css({
             pos: "relative",
@@ -230,8 +234,9 @@ function Root({
           })
         )}
       />
-      <div className={cx(classes.root, className)} {...props}>
+      <div data-slot="sidebar-container" className={cx(classes.root, className)} {...props}>
         <div
+          data-slot="sidebar-inner"
           data-sidebar="sidebar"
           className={css({
             bg: "sidebar",
@@ -261,6 +266,7 @@ function Trigger({ className, onClick, ...props }: React.ComponentProps<typeof B
 
   return (
     <Button
+      data-slot="sidebar-trigger"
       data-sidebar="trigger"
       variant="ghost"
       size="icon"
@@ -284,6 +290,7 @@ function Rail({ className, ...props }: React.ComponentProps<"button">) {
 
   return (
     <button
+      data-slot="sidebar-rail"
       data-sidebar="rail"
       aria-label="Toggle Sidebar"
       tabIndex={-1}
@@ -298,45 +305,85 @@ const SidebarRail = styled(Rail);
 SidebarRail.displayName = "SidebarRail";
 
 function Inset({ className, ...props }: React.ComponentProps<"main">) {
-  return <main className={cx(classes.inset, className)} {...props} />;
+  return <main data-slot="sidebar-inset" className={cx(classes.inset, className)} {...props} />;
 }
 const SidebarInset = styled(Inset);
 SidebarInset.displayName = "SidebarInset";
 
 function SidebarInputBase({ className, ...props }: React.ComponentProps<typeof Input>) {
-  return <Input data-sidebar="input" className={cx(classes.input, className)} {...props} />;
+  return (
+    <Input
+      data-slot="sidebar-input"
+      data-sidebar="input"
+      className={cx(classes.input, className)}
+      {...props}
+    />
+  );
 }
 const SidebarInput = styled(SidebarInputBase);
 SidebarInput.displayName = "SidebarInput";
 
 function Header({ className, ...props }: React.ComponentProps<"div">) {
-  return <div data-sidebar="header" className={cx(classes.header, className)} {...props} />;
+  return (
+    <div
+      data-slot="sidebar-header"
+      data-sidebar="header"
+      className={cx(classes.header, className)}
+      {...props}
+    />
+  );
 }
 const SidebarHeader = styled(Header);
 SidebarHeader.displayName = "SidebarHeader";
 
 function Footer({ className, ...props }: React.ComponentProps<"div">) {
-  return <div data-sidebar="footer" className={cx(classes.footer, className)} {...props} />;
+  return (
+    <div
+      data-slot="sidebar-footer"
+      data-sidebar="footer"
+      className={cx(classes.footer, className)}
+      {...props}
+    />
+  );
 }
 const SidebarFooter = styled(Footer);
 SidebarFooter.displayName = "SidebarFooter";
 
 function SidebarSeparatorBase({ className, ...props }: React.ComponentProps<typeof Separator>) {
   return (
-    <Separator data-sidebar="separator" className={cx(classes.separator, className)} {...props} />
+    <Separator
+      data-slot="sidebar-separator"
+      data-sidebar="separator"
+      className={cx(classes.separator, className)}
+      {...props}
+    />
   );
 }
 const SidebarSeparator = styled(SidebarSeparatorBase);
 SidebarSeparator.displayName = "SidebarSeparator";
 
 function Content({ className, ...props }: React.ComponentProps<"div">) {
-  return <div data-sidebar="content" className={cx(classes.content, className)} {...props} />;
+  return (
+    <div
+      data-slot="sidebar-content"
+      data-sidebar="content"
+      className={cx(classes.content, className)}
+      {...props}
+    />
+  );
 }
 const SidebarContent = styled(Content);
 SidebarContent.displayName = "SidebarContent";
 
 function Group({ className, ...props }: React.ComponentProps<"div">) {
-  return <div data-sidebar="group" className={cx(classes.group, className)} {...props} />;
+  return (
+    <div
+      data-slot="sidebar-group"
+      data-sidebar="group"
+      className={cx(classes.group, className)}
+      {...props}
+    />
+  );
 }
 const SidebarGroup = styled(Group);
 SidebarGroup.displayName = "SidebarGroup";
@@ -349,7 +396,12 @@ function GroupLabel({
   const Comp = asChild ? Slot : "div";
 
   return (
-    <Comp data-sidebar="group-label" className={cx(classes.groupLabel, className)} {...props} />
+    <Comp
+      data-slot="sidebar-group-label"
+      data-sidebar="group-label"
+      className={cx(classes.groupLabel, className)}
+      {...props}
+    />
   );
 }
 const SidebarGroupLabel = styled(GroupLabel);
@@ -363,7 +415,12 @@ function GroupAction({
   const Comp = asChild ? Slot : "button";
 
   return (
-    <Comp data-sidebar="group-action" className={cx(classes.groupAction, className)} {...props} />
+    <Comp
+      data-slot="sidebar-group-action"
+      data-sidebar="group-action"
+      className={cx(classes.groupAction, className)}
+      {...props}
+    />
   );
 }
 const SidebarGroupAction = styled(GroupAction);
@@ -371,14 +428,26 @@ SidebarGroupAction.displayName = "SidebarGroupAction";
 
 function GroupContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div data-sidebar="group-content" className={cx(classes.groupContent, className)} {...props} />
+    <div
+      data-slot="sidebar-group-content"
+      data-sidebar="group-content"
+      className={cx(classes.groupContent, className)}
+      {...props}
+    />
   );
 }
 const SidebarGroupContent = styled(GroupContent);
 SidebarGroupContent.displayName = "SidebarGroupContent";
 
 function Menu({ className, ...props }: React.ComponentProps<"ul">) {
-  return <ul data-sidebar="menu" className={cx(classes.menu, className)} {...props} />;
+  return (
+    <ul
+      data-slot="sidebar-menu"
+      data-sidebar="menu"
+      className={cx(classes.menu, className)}
+      {...props}
+    />
+  );
 }
 const SidebarMenu = styled(Menu);
 SidebarMenu.displayName = "SidebarMenu";
@@ -386,6 +455,7 @@ SidebarMenu.displayName = "SidebarMenu";
 function MenuItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
+      data-slot="sidebar-menu-item"
       data-sidebar="menu-item"
       className={cx("group-menu-item", classes.menuItem, className)}
       {...props}
@@ -415,6 +485,7 @@ function MenuButton({
 
   const button = (
     <Comp
+      data-slot="sidebar-menu-button"
       data-sidebar="menu-button"
       data-active={isActive}
       data-variant={variant}
@@ -462,6 +533,7 @@ function MenuAction({
 
   return (
     <Comp
+      data-slot="sidebar-menu-action"
       data-sidebar="menu-action"
       data-show-on-hover={showOnHover}
       className={cx(classes.menuAction, className)}
@@ -473,7 +545,14 @@ const SidebarMenuAction = styled(MenuAction);
 SidebarMenuAction.displayName = "SidebarMenuAction";
 
 function MenuBadge({ className, ...props }: React.ComponentProps<"div">) {
-  return <div data-sidebar="menu-badge" className={cx(classes.menuBadge, className)} {...props} />;
+  return (
+    <div
+      data-slot="sidebar-menu-badge"
+      data-sidebar="menu-badge"
+      className={cx(classes.menuBadge, className)}
+      {...props}
+    />
+  );
 }
 const SidebarMenuBadge = styled(MenuBadge);
 SidebarMenuBadge.displayName = "SidebarMenuBadge";
@@ -491,7 +570,12 @@ function MenuSkeleton({
   }, []);
 
   return (
-    <div data-sidebar="menu-skeleton" className={cx(classes.menuSkeleton, className)} {...props}>
+    <div
+      data-slot="sidebar-menu-skeleton"
+      data-sidebar="menu-skeleton"
+      className={cx(classes.menuSkeleton, className)}
+      {...props}
+    >
       {showIcon && (
         <Skeleton css={{ w: "4", h: "4", rounded: "md" }} data-sidebar="menu-skeleton-icon" />
       )}
@@ -511,7 +595,14 @@ const SidebarMenuSkeleton = styled(MenuSkeleton);
 SidebarMenuSkeleton.displayName = "SidebarMenuSkeleton";
 
 function MenuSub({ className, ...props }: React.ComponentProps<"ul">) {
-  return <ul data-sidebar="menu-sub" className={cx(classes.menuSub, className)} {...props} />;
+  return (
+    <ul
+      data-slot="sidebar-menu-sub"
+      data-sidebar="menu-sub"
+      className={cx(classes.menuSub, className)}
+      {...props}
+    />
+  );
 }
 const SidebarMenuSub = styled(MenuSub);
 SidebarMenuSub.displayName = "SidebarMenuSub";
@@ -519,6 +610,7 @@ SidebarMenuSub.displayName = "SidebarMenuSub";
 function MenuSubItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
+      data-slot="sidebar-menu-sub-item"
       data-sidebar="menu-sub-item"
       className={cx("group-menu-sub-item", classes.menuSubItem, className)}
       {...props}
@@ -543,6 +635,7 @@ function MenuSubButton({
 
   return (
     <Comp
+      data-slot="sidebar-menu-sub-button"
       data-sidebar="menu-sub-button"
       data-size={size}
       data-active={isActive}

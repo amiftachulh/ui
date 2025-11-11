@@ -14,8 +14,12 @@ function Root({
   ...props
 }: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {
   return (
-    <ScrollAreaPrimitive.Root className={cx(classes.root, className)} {...props}>
-      <ScrollAreaPrimitive.Viewport className={classes.viewport}>
+    <ScrollAreaPrimitive.Root
+      data-slot="scroll-area"
+      className={cx(classes.root, className)}
+      {...props}
+    >
+      <ScrollAreaPrimitive.Viewport data-slot="scroll-area-viewport" className={classes.viewport}>
         {children}
       </ScrollAreaPrimitive.Viewport>
       <Scrollbar />
@@ -36,9 +40,13 @@ function ScrollbarBase({
       className={cx(classes.scrollAreaScrollbar, className)}
       orientation={orientation}
       data-orientation={orientation}
+      data-slot="scroll-area-scrollbar"
       {...props}
     >
-      <ScrollAreaPrimitive.Thumb className={classes.scrollAreaThumb} />
+      <ScrollAreaPrimitive.Thumb
+        data-slot="scroll-area-thumb"
+        className={classes.scrollAreaThumb}
+      />
     </ScrollAreaPrimitive.Scrollbar>
   );
 }

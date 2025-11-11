@@ -10,10 +10,26 @@ import { dialog } from "styled-system/recipes";
 const { withRootProvider, withContext } = createStyleContext(dialog);
 
 const Dialog = withRootProvider(DialogPrimitive.Root);
-const DialogTrigger = withContext(DialogPrimitive.Trigger, "trigger");
+
+const DialogTrigger = withContext(DialogPrimitive.Trigger, "trigger", {
+  defaultProps: {
+    "data-slot": "dialog-trigger",
+  },
+});
+
 const DialogPortal = DialogPrimitive.Portal;
-const DialogOverlay = withContext(DialogPrimitive.Overlay, "overlay");
-const DialogClose = withContext(DialogPrimitive.Close, "close");
+
+const DialogOverlay = withContext(DialogPrimitive.Overlay, "overlay", {
+  defaultProps: {
+    "data-slot": "dialog-overlay",
+  },
+});
+
+const DialogClose = withContext(DialogPrimitive.Close, "close", {
+  defaultProps: {
+    "data-slot": "dialog-close",
+  },
+});
 
 function Content({
   children,
@@ -23,7 +39,7 @@ function Content({
   return (
     <DialogPortal>
       <DialogOverlay />
-      <DialogPrimitive.Content {...props}>
+      <DialogPrimitive.Content data-slot="dialog-content" {...props}>
         {children}
         {showCloseButton && (
           <DialogClose
@@ -67,10 +83,29 @@ function Content({
 }
 const DialogContent = withContext(Content, "content");
 
-const DialogHeader = withContext("div", "header");
-const DialogTitle = withContext(DialogPrimitive.Title, "title");
-const DialogDescription = withContext(DialogPrimitive.Description, "description");
-const DialogFooter = withContext("div", "footer");
+const DialogHeader = withContext("div", "header", {
+  defaultProps: {
+    "data-slot": "dialog-header",
+  },
+});
+
+const DialogTitle = withContext(DialogPrimitive.Title, "title", {
+  defaultProps: {
+    "data-slot": "dialog-title",
+  },
+});
+
+const DialogDescription = withContext(DialogPrimitive.Description, "description", {
+  defaultProps: {
+    "data-slot": "dialog-description",
+  },
+});
+
+const DialogFooter = withContext("div", "footer", {
+  defaultProps: {
+    "data-slot": "dialog-footer",
+  },
+});
 
 export {
   Dialog,

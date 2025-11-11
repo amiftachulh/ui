@@ -8,8 +8,12 @@ const classes = switchRecipe();
 
 function Root({ className, ...props }: React.ComponentProps<typeof SwitchPrimitive.Root>) {
   return (
-    <SwitchPrimitive.Root className={cx("peer", classes.root, className)} {...props}>
-      <SwitchPrimitive.Thumb className={classes.thumb} />
+    <SwitchPrimitive.Root
+      data-slot="switch"
+      className={cx("peer", classes.root, className)}
+      {...props}
+    >
+      <SwitchPrimitive.Thumb data-slot="switch-thumb" className={classes.thumb} />
     </SwitchPrimitive.Root>
   );
 }

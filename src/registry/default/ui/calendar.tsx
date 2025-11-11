@@ -237,6 +237,9 @@ function CalendarBase({
         ...classNames,
       }}
       components={{
+        Root: ({ rootRef, ...props }) => {
+          return <div ref={rootRef} data-slot="calendar" {...props} />;
+        },
         Chevron: ({ className, orientation, ...props }) => {
           if (orientation === "left") {
             return <LuChevronLeft className={cx(css({ w: "4", h: "4" }), className)} {...props} />;

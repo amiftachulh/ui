@@ -52,7 +52,12 @@ function Container({
 
   return (
     <ChartContext value={{ config }}>
-      <div data-chart={chartId} className={cx(classes.container, className)} {...props}>
+      <div
+        data-slot="chart"
+        data-chart={chartId}
+        className={cx(classes.container, className)}
+        {...props}
+      >
         <ChartStyle id={chartId} config={config} />
         <RechartsPrimitive.ResponsiveContainer>{children}</RechartsPrimitive.ResponsiveContainer>
       </div>

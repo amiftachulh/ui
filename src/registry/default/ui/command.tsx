@@ -4,7 +4,7 @@ import * as React from "react";
 import { LuSearch } from "react-icons/lu";
 import { Command as CommandPrimitive } from "cmdk";
 import { css } from "styled-system/css";
-import { createStyleContext, styled } from "styled-system/jsx";
+import { createStyleContext } from "styled-system/jsx";
 import { command } from "styled-system/recipes";
 import {
   Dialog,
@@ -20,7 +20,7 @@ const { withProvider, withContext } = createStyleContext(command);
 
 const Command = withProvider(CommandPrimitive, "root");
 
-function CommandDialogBase({
+function CommandDialog({
   title = "Command Palette",
   description = "Search for a command...",
   children,
@@ -41,14 +41,12 @@ function CommandDialogBase({
     </Dialog>
   );
 }
-const CommandDialog = styled(CommandDialogBase);
-CommandDialog.displayName = "CommandDialog";
 
 function Input(props: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
     <div
+      data-slot="command-input-wrappper"
       className={css({ display: "flex", alignItems: "center", borderBottomWidth: "1px", px: "3" })}
-      cmdk-input-wrapper=""
     >
       <LuSearch className={css({ mr: "2", w: "4", h: "4", flexShrink: "0", opacity: "0.5" })} />
       <CommandPrimitive.Input {...props} />
@@ -56,12 +54,42 @@ function Input(props: React.ComponentProps<typeof CommandPrimitive.Input>) {
   );
 }
 const CommandInput = withContext(Input, "input");
-const CommandList = withContext(CommandPrimitive.List, "list");
-const CommandEmpty = withContext(CommandPrimitive.Empty, "empty");
-const CommandGroup = withContext(CommandPrimitive.Group, "group");
-const CommandSeparator = withContext(CommandPrimitive.Separator, "separator");
-const CommandItem = withContext(CommandPrimitive.Item, "item");
-const CommandShortcut = withContext("span", "shortcut");
+
+const CommandList = withContext(CommandPrimitive.List, "list", {
+  defaultProps: {
+    "data-slot": "command-list",
+  },
+});
+
+const CommandEmpty = withContext(CommandPrimitive.Empty, "empty", {
+  defaultProps: {
+    "data-slot": "command-empty",
+  },
+});
+
+const CommandGroup = withContext(CommandPrimitive.Group, "group", {
+  defaultProps: {
+    "data-slot": "command-group",
+  },
+});
+
+const CommandSeparator = withContext(CommandPrimitive.Separator, "separator", {
+  defaultProps: {
+    "data-slot": "command-separator",
+  },
+});
+
+const CommandItem = withContext(CommandPrimitive.Item, "item", {
+  defaultProps: {
+    "data-slot": "command-item",
+  },
+});
+
+const CommandShortcut = withContext("span", "shortcut", {
+  defaultProps: {
+    "data-slot": "command-shortcut",
+  },
+});
 
 export {
   Command,

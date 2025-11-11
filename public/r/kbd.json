@@ -5,7 +5,7 @@
     {
       "path": "registry/default/ui/kbd.tsx",
       "type": "registry:ui",
-      "content": "import { styled } from \"styled-system/jsx\";\nimport { kbd } from \"styled-system/recipes\";\n\nconst classes = kbd();\n\nfunction Kbd(props: React.ComponentProps<typeof styled.kbd>) {\n  return <styled.kbd data-slot=\"kbd\" className={classes.root} {...props} />;\n}\n\nfunction KbdGroup(props: React.ComponentProps<typeof styled.kbd>) {\n  return <styled.kbd data-slot=\"kbd-group\" className={classes.group} {...props} />;\n}\n\nexport { Kbd, KbdGroup };\n"
+      "content": "import { cx } from \"styled-system/css\";\nimport { styled } from \"styled-system/jsx\";\nimport { kbd } from \"styled-system/recipes\";\n\nconst classes = kbd();\n\nfunction Kbd({ className, ...props }: React.ComponentProps<typeof styled.kbd>) {\n  return <styled.kbd data-slot=\"kbd\" className={cx(classes.root, className)} {...props} />;\n}\n\nfunction KbdGroup({ className, ...props }: React.ComponentProps<typeof styled.kbd>) {\n  return <styled.kbd data-slot=\"kbd-group\" className={cx(classes.group, className)} {...props} />;\n}\n\nexport { Kbd, KbdGroup };\n"
     },
     {
       "path": "registry/default/slot-recipes/kbd.ts",
