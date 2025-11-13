@@ -169,7 +169,18 @@ const components: MDXComponents = {
   tbody: TableBody,
   tr: TableRow,
   th: (props) => <TableHead css={{ color: "fg" }} {...props} />,
-  td: TableCell,
+  td: (props) => (
+    <TableCell
+      css={{
+        maxWidth: "300px",
+        overflowX: "auto",
+        _scrollbar: {
+          display: "none",
+        },
+      }}
+      {...props}
+    />
+  ),
   Image: ({ className: _, ...props }: React.ComponentProps<typeof Image>) => (
     // eslint-disable-next-line jsx-a11y/alt-text
     <Image

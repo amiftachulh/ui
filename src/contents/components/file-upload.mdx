@@ -1,0 +1,227 @@
+---
+title: File Upload
+description: A file upload component with drag and drop, previewing, and progress tracking.
+---
+
+<ComponentPreview name="file-upload-demo" />
+
+## Installation
+
+<InstallationTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+<PackageRunner command="nore-ui-cli@latest add file-upload" />
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<PackageInstaller name="@radix-ui/react-slot" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="file-upload.ts" type="slot-recipe" />
+
+<ComponentSource name="file-upload.tsx" type="component" />
+
+<Step>Import the recipe into the respective `index.ts` file.</Step>
+
+```tsx
+import { fileUploadSlotRecipe } from "./file-upload";
+
+export const slotRecipes = {
+  fileUpload: fileUploadSlotRecipe,
+};
+```
+
+<Step>Run `panda codegen` and update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</InstallationTabs>
+
+## Usage
+
+```tsx
+import {
+  FileUpload,
+  FileUploadDropzone,
+  FileUploadItem,
+  FileUploadItemDelete,
+  FileUploadItemMetadata,
+  FileUploadItemPreview,
+  FileUploadTrigger,
+} from "@/components/ui/file-upload";
+```
+
+```tsx
+<FileUpload>
+  <FileUploadDropzone />
+  <FileUploadTrigger />
+  <FileUploadList>
+    <FileUploadItem>
+      <FileUploadItemPreview />
+      <FileUploadItemMetadata />
+      <FileUploadItemProgress />
+      <FileUploadItemDelete />
+    </FileUploadItem>
+  </FileUploadList>
+</FileUpload>
+```
+
+## Examples
+
+### With Validation
+
+Validate files with the `onFileValidate` prop on the root component based on type, size, and custom rules. This will override the default file rejection message.
+
+<ComponentPreview name="file-upload-validation" />
+
+### Direct Upload
+
+Upload files directly with the `onUpload` prop on the root component.
+
+<ComponentPreview name="file-upload-direct-upload" />
+
+### Circular Progress
+
+Render a circular progress indicator instead of a linear one by enabling the `circular` prop on the `FileUploadItemProgress` component.
+
+<ComponentPreview name="file-upload-circular-progress" />
+
+### Fill Progress
+
+Render a fill progress indicator instead of a linear one by enabling the `fill` prop on the `FileUploadItemProgress` component.
+
+<ComponentPreview name="file-upload-fill-progress" />
+
+## API Reference
+
+### FileUpload
+
+The main container component for the file upload functionality.
+
+| Prop              | Type                                                                                                                                                                                      | Default |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `css`             | `SystemStyleObject`                                                                                                                                                                       |         |
+| `value?`          | `File[]`                                                                                                                                                                                  |         |
+| `defaultValue?`   | `File[]`                                                                                                                                                                                  |         |
+| `onValueChange?`  | `(files: File[]) => void`                                                                                                                                                                 |         |
+| `onAccept?`       | `(files: File[]) => void`                                                                                                                                                                 |         |
+| `onFileAccept?`   | `(file: File) => void`                                                                                                                                                                    |         |
+| `onFileReject?`   | `(file: File, message: string) => void`                                                                                                                                                   |         |
+| `onFileValidate?` | `(file: File) => string \| null \| undefined`                                                                                                                                             |         |
+| `onUpload?`       | `(files: File[], options: { onProgress: (file: File, progress: number) => void; onSuccess: (file: File) => void; onError: (file: File, error: Error) => void }) => Promise<void> \| void` |         |
+| `accept?`         | `string`                                                                                                                                                                                  |         |
+| `maxFiles?`       | `number`                                                                                                                                                                                  |         |
+| `maxSize?`        | `number`                                                                                                                                                                                  |         |
+| `dir?`            | `"ltr" \| "rtl"`                                                                                                                                                                          |         |
+| `label?`          | `string`                                                                                                                                                                                  |         |
+| `name?`           | `string`                                                                                                                                                                                  |         |
+| `asChild?`        | `boolean`                                                                                                                                                                                 |         |
+| `disabled?`       | `boolean`                                                                                                                                                                                 |         |
+| `invalid?`        | `boolean`                                                                                                                                                                                 |         |
+| `multiple?`       | `boolean`                                                                                                                                                                                 |         |
+| `required?`       | `boolean`                                                                                                                                                                                 |         |
+
+### FileUploadDropzone
+
+A container for drag and drop functionality.
+
+| Prop       | Type                | Default |
+| ---------- | ------------------- | ------- |
+| `css`      | `SystemStyleObject` |         |
+| `asChild?` | `boolean`           |         |
+
+### FileUploadTrigger
+
+A button that opens the file selection dialog.
+
+| Prop       | Type                | Default |
+| ---------- | ------------------- | ------- |
+| `css`      | `SystemStyleObject` |         |
+| `asChild?` | `boolean`           |         |
+
+### FileUploadList
+
+A container for displaying uploaded files.
+
+| Prop           | Type                         | Default      |
+| -------------- | ---------------------------- | ------------ |
+| `css`          | `SystemStyleObject`          |              |
+| `orientation?` | `"horizontal" \| "vertical"` | `"vertical"` |
+| `forceMount?`  | `boolean`                    |              |
+| `asChild?`     | `boolean`                    |              |
+
+### FileUploadItem
+
+Individual file item component.
+
+| Prop       | Type                | Default |
+| ---------- | ------------------- | ------- |
+| `css`      | `SystemStyleObject` |         |
+| `value`    | `File`              |         |
+| `asChild?` | `boolean`           |         |
+
+### FileUploadItemPreview
+
+Displays a preview of the file, showing an image for image files or an appropriate icon for other file types.
+
+| Prop       | Type                                                   | Default |
+| ---------- | ------------------------------------------------------ | ------- |
+| `css`      | `SystemStyleObject`                                    |         |
+| `render?`  | `(file: File, fallback: () => ReactNode) => ReactNode` |         |
+| `asChild?` | `boolean`                                              |         |
+
+### FileUploadItemMetadata
+
+Displays file information such as name, size, and error messages.
+
+| Prop       | Type                | Default     |
+| ---------- | ------------------- | ----------- |
+| `css`      | `SystemStyleObject` |             |
+| `size?`    | `"default" \| "sm"` | `"default"` |
+| `asChild?` | `boolean`           |             |
+
+### FileUploadItemProgress
+
+Shows the upload progress for a file.
+
+| Prop          | Type                               | Default    |
+| ------------- | ---------------------------------- | ---------- |
+| `css`         | `SystemStyleObject`                |            |
+| `variant?`    | `"fill" \| "circular" \| "linear"` | `"linear"` |
+| `size?`       | `number`                           | 40         |
+| `forceMount?` | `boolean`                          |            |
+| `asChild?`    | `boolean`                          |            |
+
+### FileUploadItemDelete
+
+A button to remove a file from the list.
+
+| Prop       | Type                | Default |
+| ---------- | ------------------- | ------- |
+| `css`      | `SystemStyleObject` |         |
+| `asChild?` | `boolean`           |         |
+
+### FileUploadClear
+
+A button to clear all files from the list.
+
+| Prop          | Type                | Default |
+| ------------- | ------------------- | ------- |
+| `css`         | `SystemStyleObject` |         |
+| `forceMount?` | `boolean`           |         |
+| `asChild?`    | `boolean`           |         |

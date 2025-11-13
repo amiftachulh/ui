@@ -451,6 +451,28 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "file-upload": {
+    name: "file-upload",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: undefined,
+    files: [{
+      path: "src/registry/default/ui/file-upload.tsx",
+      type: "registry:ui",
+      target: ""
+    },{
+      path: "src/registry/default/slot-recipes/file-upload.ts",
+      type: "registry:slot-recipe",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/file-upload.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "hover-card": {
     name: "hover-card",
     description: "",
@@ -5917,6 +5939,96 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/examples/field-responsive.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "file-upload-demo": {
+    name: "file-upload-demo",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [{
+      path: "src/registry/default/examples/file-upload-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/file-upload-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "file-upload-validation": {
+    name: "file-upload-validation",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [{
+      path: "src/registry/default/examples/file-upload-validation.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/file-upload-validation.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "file-upload-direct-upload": {
+    name: "file-upload-direct-upload",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [{
+      path: "src/registry/default/examples/file-upload-direct-upload.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/file-upload-direct-upload.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "file-upload-circular-progress": {
+    name: "file-upload-circular-progress",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [{
+      path: "src/registry/default/examples/file-upload-circular-progress.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/file-upload-circular-progress.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "file-upload-fill-progress": {
+    name: "file-upload-fill-progress",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [{
+      path: "src/registry/default/examples/file-upload-fill-progress.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/file-upload-fill-progress.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

@@ -1051,6 +1051,61 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "file-upload-demo",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [
+      {
+        path: "examples/file-upload-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-upload-validation",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [
+      {
+        path: "examples/file-upload-validation.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-upload-direct-upload",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [
+      {
+        path: "examples/file-upload-direct-upload.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-upload-circular-progress",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [
+      {
+        path: "examples/file-upload-circular-progress.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-upload-fill-progress",
+    type: "registry:example",
+    registryDependencies: ["file-upload"],
+    files: [
+      {
+        path: "examples/file-upload-fill-progress.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "form-rhf-demo",
     type: "registry:example",
     registryDependencies: ["field", "input", "input-group", "button", "card"],

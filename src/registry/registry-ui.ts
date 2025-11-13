@@ -302,6 +302,20 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "file-upload",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/file-upload.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "slot-recipes/file-upload.ts",
+        type: "registry:slot-recipe",
+      },
+    ],
+  },
+  {
     name: "hover-card",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-hover-card"],

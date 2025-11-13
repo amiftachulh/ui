@@ -295,6 +295,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "File Upload",
+          href: "/docs/components/file-upload",
+          items: [],
+        },
+        {
           title: "Hover Card",
           href: "/docs/components/hover-card",
           items: [],

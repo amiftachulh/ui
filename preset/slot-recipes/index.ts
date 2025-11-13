@@ -15,6 +15,7 @@ import { drawerSlotRecipe } from "@/registry/default/slot-recipes/drawer";
 import { dropdownMenuSlotRecipe } from "@/registry/default/slot-recipes/dropdown-menu";
 import { emptySlotRecipe } from "@/registry/default/slot-recipes/empty";
 import { fieldSlotRecipe } from "@/registry/default/slot-recipes/field";
+import { fileUploadSlotRecipe } from "@/registry/default/slot-recipes/file-upload";
 import { hoverCardSlotRecipe } from "@/registry/default/slot-recipes/hover-card";
 import { inputGroupSlotRecipes } from "@/registry/default/slot-recipes/input-group";
 import { inputOtpSlotRecipe } from "@/registry/default/slot-recipes/input-otp";
@@ -60,6 +61,7 @@ export const slotRecipes = {
   dialog: dialogSlotRecipe,
   empty: emptySlotRecipe,
   field: fieldSlotRecipe,
+  fileUpload: fileUploadSlotRecipe,
   hoverCard: hoverCardSlotRecipe,
   inputGroup: inputGroupSlotRecipes,
   inputOtp: inputOtpSlotRecipe,
