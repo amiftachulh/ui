@@ -51,26 +51,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function DocPage({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug } = await params;
+
   let doc;
-  const fullSlug = (await params).slug.join("/");
+  const fullSlug = slug.join("/");
 
   try {
     doc = await getDocBySlug(fullSlug);
-  } catch (_error) {
+  } catch (error) {
+    console.log(error);
     notFound();
   }
 
   return (
     <styled.main css={{ display: "flex", flex: "1", minW: "0" }}>
       <styled.div
+        data-toc={doc.headings.length > 0}
         css={{
           minW: "0",
           w: "full",
-          maxW: "70ch",
           mx: "auto",
           px: "4",
           py: "10",
           md: { pl: "0" },
+          "&[data-toc='true']": {
+            maxW: "70ch",
+          },
         }}
       >
         <styled.article

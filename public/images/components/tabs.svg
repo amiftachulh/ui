@@ -1,0 +1,38 @@
+<svg width="222" height="43" viewBox="0 0 222 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_432_9452)">
+<g clip-path="url(#clip0_432_9452)">
+<path d="M3 10C3 5.58172 6.58172 2 11 2H211C215.418 2 219 5.58172 219 10V39H3V10Z" fill="#FCFCFC"/>
+<g clip-path="url(#clip1_432_9452)">
+<rect width="72" height="37" transform="translate(3 2)" fill="#FCFCFC"/>
+<mask id="path-3-inside-1_432_9452" fill="white">
+<path d="M3 2H75V39H3V2Z"/>
+</mask>
+<path d="M75 39V37H3V39V41H75V39Z" fill="#747474" mask="url(#path-3-inside-1_432_9452)"/>
+<path d="M23 20.5C23 19.1193 24.1193 18 25.5 18H52.5C53.8807 18 55 19.1193 55 20.5C55 21.8807 53.8807 23 52.5 23H25.5C24.1193 23 23 21.8807 23 20.5Z" fill="#747474"/>
+</g>
+<rect width="72" height="37" transform="translate(76 2)" fill="#FCFCFC"/>
+<path d="M96 20.5C96 19.1193 97.1193 18 98.5 18H125.5C126.881 18 128 19.1193 128 20.5C128 21.8807 126.881 23 125.5 23H98.5C97.1193 23 96 21.8807 96 20.5Z" fill="#D4D4D4"/>
+<path d="M149 2H213C217.418 2 221 5.58172 221 10V39H149V2Z" fill="#FCFCFC"/>
+<path d="M169 20.5C169 19.1193 170.119 18 171.5 18H198.5C199.881 18 201 19.1193 201 20.5C201 21.8807 199.881 23 198.5 23H171.5C170.119 23 169 21.8807 169 20.5Z" fill="#D4D4D4"/>
+</g>
+<path d="M11 2.25H211C215.28 2.25 218.75 5.71979 218.75 10V38.75H3.25V10L3.25977 9.60156C3.46714 5.50651 6.85342 2.25 11 2.25Z" stroke="#E4E4E4" stroke-width="0.5"/>
+</g>
+<defs>
+<filter id="filter0_d_432_9452" x="0" y="0" width="222" height="43" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_432_9452"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_432_9452" result="shape"/>
+</filter>
+<clipPath id="clip0_432_9452">
+<path d="M3 10C3 5.58172 6.58172 2 11 2H211C215.418 2 219 5.58172 219 10V39H3V10Z" fill="white"/>
+</clipPath>
+<clipPath id="clip1_432_9452">
+<rect width="72" height="37" fill="white" transform="translate(3 2)"/>
+</clipPath>
+</defs>
+</svg>

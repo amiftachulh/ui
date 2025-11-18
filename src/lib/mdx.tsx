@@ -19,12 +19,13 @@ export type Doc = {
 };
 
 export async function getDocBySlug(slug: string): Promise<Doc> {
-  const realSlug = slug.replace(/\.mdx$/, "");
-  const normalizedSlug = realSlug.replace(/\\/g, "/");
-  const [group, fileSlug] = normalizedSlug.split("/");
+  const normalizedSlug = slug.replace(/\\/g, "/");
+  const parts = normalizedSlug.split("/").filter((part) => part !== "");
 
-  const groupDir = path.join(contentDir, group);
-  const filePath = path.join(groupDir, `${fileSlug}.mdx`);
+  const filePath = path.join(
+    contentDir,
+    parts.length === 0 ? "index.mdx" : `${parts.join("/")}${parts.length === 1 ? "/index" : ""}.mdx`
+  );
 
   if (!fs.existsSync(filePath)) {
     throw new Error(`File not found: ${filePath}`);
@@ -47,7 +48,7 @@ export async function getDocBySlug(slug: string): Promise<Doc> {
   return {
     meta: {
       ...frontmatter,
-      slug: `/docs/${realSlug}`,
+      slug: `/docs/${normalizedSlug}`,
     },
     content: <MDXContent components={components} />,
     headings,
@@ -62,12 +63,11 @@ export async function getAllDocs() {
     const groupDir = path.join(contentDir, group);
 
     if (fs.statSync(groupDir).isDirectory()) {
-      const slugs = fs.readdirSync(groupDir).filter((file) => file.endsWith(".mdx"));
+      const files = fs.readdirSync(groupDir).filter((file) => file.endsWith(".mdx"));
 
-      for (const slug of slugs) {
-        const fullSlug = path.join(group, slug.replace(".mdx", "")); // Format as group/file
-
-        const doc = await getDocBySlug(fullSlug);
+      for (const file of files) {
+        const slug = file === "index.mdx" ? group : `${group}/${file.replace(".mdx", "")}`;
+        const doc = await getDocBySlug(slug);
         allDocs.push(doc);
       }
     }

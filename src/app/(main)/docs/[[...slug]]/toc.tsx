@@ -43,6 +43,10 @@ export default function TableOfContents({ headings }: { headings: HeadingData[] 
     };
   }, [headings]);
 
+  if (headings.length === 0) {
+    return null;
+  }
+
   return (
     <styled.nav
       className={scroll()}

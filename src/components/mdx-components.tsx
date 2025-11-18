@@ -20,6 +20,7 @@ import CodeBlock from "./code-block";
 import { InstallationTabs } from "./code-tabs";
 import ComponentPreview from "./component-preview";
 import ComponentSource from "./component-source";
+import ComponentsList from "./components-list";
 import { FileTree } from "./file-tree";
 import PackageInstaller from "./package-installer";
 import PackageRunner from "./package-runner";
@@ -280,6 +281,7 @@ const components: MDXComponents = {
   TabsContent,
   InstallationTabs,
   Kbd,
+  ComponentsList,
 };
 
 export default components;
