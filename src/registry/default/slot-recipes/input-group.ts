@@ -1,6 +1,6 @@
 import { defineSlotRecipe } from "@pandacss/dev";
 
-export const inputGroupSlotRecipes = defineSlotRecipe({
+export const inputGroupSlotRecipe = defineSlotRecipe({
   className: "input-group",
   slots: ["root", "addon", "text"],
   base: {

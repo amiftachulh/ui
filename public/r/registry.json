@@ -186,6 +186,10 @@
         {
           "path": "registry/default/ui/carousel.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/default/slot-recipes/carousel.ts",
+          "type": "registry:slot-recipe"
         }
       ]
     },

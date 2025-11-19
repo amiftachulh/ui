@@ -230,6 +230,10 @@ export const Index: Record<string, any> = {
       path: "src/registry/default/ui/carousel.tsx",
       type: "registry:ui",
       target: ""
+    },{
+      path: "src/registry/default/slot-recipes/carousel.ts",
+      type: "registry:slot-recipe",
+      target: ""
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/ui/carousel.tsx")

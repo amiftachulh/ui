@@ -17,7 +17,7 @@ import { emptySlotRecipe } from "@/registry/default/slot-recipes/empty";
 import { fieldSlotRecipe } from "@/registry/default/slot-recipes/field";
 import { fileUploadSlotRecipe } from "@/registry/default/slot-recipes/file-upload";
 import { hoverCardSlotRecipe } from "@/registry/default/slot-recipes/hover-card";
-import { inputGroupSlotRecipes } from "@/registry/default/slot-recipes/input-group";
+import { inputGroupSlotRecipe } from "@/registry/default/slot-recipes/input-group";
 import { inputOtpSlotRecipe } from "@/registry/default/slot-recipes/input-otp";
 import { itemSlotRecipes } from "@/registry/default/slot-recipes/item";
 import { kbdSlotRecipe } from "@/registry/default/slot-recipes/kbd";
@@ -63,7 +63,7 @@ export const slotRecipes = {
   field: fieldSlotRecipe,
   fileUpload: fileUploadSlotRecipe,
   hoverCard: hoverCardSlotRecipe,
-  inputGroup: inputGroupSlotRecipes,
+  inputGroup: inputGroupSlotRecipe,
   inputOtp: inputOtpSlotRecipe,
   item: itemSlotRecipes,
   kbd: kbdSlotRecipe,

@@ -158,6 +158,10 @@ export const ui: Registry["items"] = [
         path: "ui/carousel.tsx",
         type: "registry:ui",
       },
+      {
+        path: "slot-recipes/carousel.ts",
+        type: "registry:slot-recipe",
+      }
     ],
   },
   {
