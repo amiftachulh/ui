@@ -31,39 +31,5 @@ export const carouselSlotRecipe = defineSlotRecipe({
         pt: "4",
       },
     },
-
-    previous: {
-      pos: "absolute",
-      w: "8!",
-      h: "8!",
-      rounded: "full",
-      _horizontal: {
-        top: "50%",
-        left: "-12",
-        transform: "translateY(-50%)",
-      },
-      _vertical: {
-        top: "-12",
-        left: "50%",
-        transform: "translateX(-50%) rotate(90deg)",
-      },
-    },
-
-    next: {
-      pos: "absolute",
-      w: "8!",
-      h: "8!",
-      rounded: "full",
-      _horizontal: {
-        top: "50%",
-        right: "-12",
-        transform: "translateY(-50%)",
-      },
-      _vertical: {
-        bottom: "-12",
-        left: "50%",
-        transform: "translateX(-50%) rotate(90deg)",
-      },
-    },
   },
 });

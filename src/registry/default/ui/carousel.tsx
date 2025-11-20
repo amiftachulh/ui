@@ -164,7 +164,7 @@ const CarouselItem = styled(Item);
 CarouselItem.displayName = "CarouselItem";
 
 function CarouselPrevious({
-  className,
+  css: cssProp,
   variant = "outline",
   size = "icon",
   ...props
@@ -177,9 +177,25 @@ function CarouselPrevious({
       data-orientation={orientation}
       variant={variant}
       size={size}
-      className={cx(classes.previous, className)}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
+      css={{
+        pos: "absolute",
+        w: "8",
+        h: "8",
+        rounded: "full",
+        _horizontal: {
+          top: "50%",
+          left: "-12",
+          transform: "translateY(-50%)",
+        },
+        _vertical: {
+          top: "-12",
+          left: "50%",
+          transform: "translateX(-50%) rotate(90deg)",
+        },
+        ...cssProp,
+      }}
       {...props}
     >
       <LuArrowLeft />
@@ -189,7 +205,7 @@ function CarouselPrevious({
 }
 
 function CarouselNext({
-  className,
+  css: cssProp,
   variant = "outline",
   size = "icon",
   ...props
@@ -202,9 +218,25 @@ function CarouselNext({
       data-orientation={orientation}
       variant={variant}
       size={size}
-      className={cx(classes.next, className)}
       disabled={!canScrollNext}
       onClick={scrollNext}
+      css={{
+        pos: "absolute",
+        w: "8",
+        h: "8",
+        rounded: "full",
+        _horizontal: {
+          top: "50%",
+          right: "-12",
+          transform: "translateY(-50%)",
+        },
+        _vertical: {
+          bottom: "-12",
+          left: "50%",
+          transform: "translateX(-50%) rotate(90deg)",
+        },
+        ...cssProp,
+      }}
       {...props}
     >
       <LuArrowRight />
