@@ -14,6 +14,31 @@ Before you begin, ensure you have the following dependencies installed:
 - React Icons - Read the [installation guide](https://react-icons.github.io/react-icons).
   This is optional, but it is used in this documentation.
 
+### tsconfig.json
+
+Add `baseUrl` to the `compilerOptions` to simplify file imports. If `styled-system` does not appear in autocomplete, try adding it to the `include` array.
+
+```json add="4,6,11"
+{
+  "compilerOptions": {
+    // other options
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    // other includes
+    "styled-system"
+  ]
+}
+```
+
+<Alert
+  variant="warning"
+  description="For Vite projects, add both the baseUrl and paths compilerOptions to tsconfig.json and tsconfig.app.json."
+/>
+
 ## Installation
 
 <InstallationTabs>
@@ -549,27 +574,6 @@ export default defineConfig({
   --sidebar-accent-fg: #fafafa;
   --sidebar-border: rgba(255, 255, 255, 0.1);
   --sidebar-ring: #737373;
-}
-```
-
-<Step>Edit `tsconfig.json`</Step>
-
-Add `baseUrl` to the `compilerOptions` to simplify file imports. If `styled-system` does not appear in autocomplete, try adding it to the `include` array.
-
-```json add="4,11"
-{
-  "compilerOptions": {
-    // other options
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": [
-    // other includes
-    "styled-system"
-  ],
-  "exclude": ["node_modules"]
 }
 ```
 
