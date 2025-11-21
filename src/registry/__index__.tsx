@@ -437,7 +437,7 @@ export const Index: Record<string, any> = {
     name: "field",
     description: "",
     type: "registry:ui",
-    registryDependencies: undefined,
+    registryDependencies: ["label","separator"],
     files: [{
       path: "src/registry/default/ui/field.tsx",
       type: "registry:ui",

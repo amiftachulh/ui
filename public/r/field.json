@@ -1,6 +1,10 @@
 {
   "name": "field",
   "type": "registry:ui",
+  "registryDependencies": [
+    "label",
+    "separator"
+  ],
   "files": [
     {
       "path": "registry/default/ui/field.tsx",

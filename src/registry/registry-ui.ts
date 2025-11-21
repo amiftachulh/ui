@@ -294,6 +294,7 @@ export const ui: Registry["items"] = [
   {
     name: "field",
     type: "registry:ui",
+    registryDependencies: ["label", "separator"],
     files: [
       {
         path: "ui/field.tsx",
