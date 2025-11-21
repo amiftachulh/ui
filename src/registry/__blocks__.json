@@ -579,5 +579,19 @@
     "categories": [
       "reset-password"
     ]
+  },
+  {
+    "name": "carousel-01",
+    "description": "A simple image carousel.",
+    "categories": [
+      "carousel"
+    ]
+  },
+  {
+    "name": "carousel-02",
+    "description": "A carousel with fade effect.",
+    "categories": [
+      "carousel"
+    ]
   }
 ]

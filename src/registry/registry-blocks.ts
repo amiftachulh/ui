@@ -1587,4 +1587,40 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["reset-password"],
   },
+  {
+    name: "carousel-01",
+    description: "A simple image carousel.",
+    type: "registry:block",
+    registryDependencies: ["carousel"],
+    files: [
+      {
+        path: "blocks/carousel-01/page.tsx",
+        target: "app/carousel/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/carousel-01/components/carousel-demo.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["carousel"],
+  },
+  {
+    name: "carousel-02",
+    description: "A carousel with fade effect.",
+    type: "registry:block",
+    registryDependencies: ["carousel"],
+    files: [
+      {
+        path: "blocks/carousel-02/page.tsx",
+        target: "app/carousel/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/carousel-02/components/carousel-demo.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["carousel"],
+  },
 ];

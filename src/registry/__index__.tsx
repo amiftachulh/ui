@@ -2943,6 +2943,50 @@ export const Index: Record<string, any> = {
     categories: ["reset-password"],
     meta: undefined,
   },
+  "carousel-01": {
+    name: "carousel-01",
+    description: "A simple image carousel.",
+    type: "registry:block",
+    registryDependencies: ["carousel"],
+    files: [{
+      path: "src/registry/default/blocks/carousel-01/page.tsx",
+      type: "registry:page",
+      target: "app/carousel/page.tsx"
+    },{
+      path: "src/registry/default/blocks/carousel-01/components/carousel-demo.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/carousel-01/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["carousel"],
+    meta: undefined,
+  },
+  "carousel-02": {
+    name: "carousel-02",
+    description: "A carousel with fade effect.",
+    type: "registry:block",
+    registryDependencies: ["carousel"],
+    files: [{
+      path: "src/registry/default/blocks/carousel-02/page.tsx",
+      type: "registry:page",
+      target: "app/carousel/page.tsx"
+    },{
+      path: "src/registry/default/blocks/carousel-02/components/carousel-demo.tsx",
+      type: "registry:component",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/blocks/carousel-02/page.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["carousel"],
+    meta: undefined,
+  },
   "chart-area-axes": {
     name: "chart-area-axes",
     description: "",

@@ -53,6 +53,7 @@
     "cmdk": "^1.0.4",
     "dayjs": "^1.11.13",
     "embla-carousel-autoplay": "^8.5.2",
+    "embla-carousel-fade": "^8.6.0",
     "embla-carousel-react": "^8.5.2",
     "gray-matter": "^4.0.3",
     "hast-util-to-jsx-runtime": "^2.3.2",

@@ -3050,6 +3050,50 @@
       ]
     },
     {
+      "name": "carousel-01",
+      "type": "registry:block",
+      "description": "A simple image carousel.",
+      "registryDependencies": [
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/carousel-01/page.tsx",
+          "type": "registry:page",
+          "target": "app/carousel/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/carousel-01/components/carousel-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "carousel"
+      ]
+    },
+    {
+      "name": "carousel-02",
+      "type": "registry:block",
+      "description": "A carousel with fade effect.",
+      "registryDependencies": [
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/carousel-02/page.tsx",
+          "type": "registry:page",
+          "target": "app/carousel/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/carousel-02/components/carousel-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "carousel"
+      ]
+    },
+    {
       "name": "chart-area-axes",
       "type": "registry:block",
       "registryDependencies": [

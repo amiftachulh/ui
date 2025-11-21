@@ -44,4 +44,9 @@ export const registryCategories = [
     slug: "calendar",
     hidden: false,
   },
+  {
+    name: "Carousel",
+    slug: "carousel",
+    hidden: false,
+  },
 ];
