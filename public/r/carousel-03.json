@@ -1,0 +1,24 @@
+{
+  "name": "carousel-03",
+  "type": "registry:block",
+  "description": "A carousel with scale effect.",
+  "registryDependencies": [
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/default/blocks/carousel-03/page.tsx",
+      "type": "registry:page",
+      "target": "app/carousel/page.tsx",
+      "content": "import { styled } from \"styled-system/jsx\";\nimport { CarouselDemo } from \"@/registry/default/blocks/carousel-03/components/carousel-demo\";\n\nexport default function Page() {\n  return (\n    <styled.div css={{ maxW: \"2xl\", h: \"svh\", mx: \"auto\", display: \"grid\", placeItems: \"center\" }}>\n      <CarouselDemo />\n    </styled.div>\n  );\n}\n"
+    },
+    {
+      "path": "registry/default/blocks/carousel-03/components/carousel-demo.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { useEffect, useState } from \"react\";\nimport { styled } from \"styled-system/jsx\";\nimport {\n  Carousel,\n  CarouselContent,\n  CarouselItem,\n  CarouselNext,\n  CarouselPrevious,\n  type CarouselApi,\n} from \"@/registry/default/ui/carousel\";\n\nconst images = [\n  {\n    id: 1,\n    url: \"https://images.unsplash.com/photo-1506905925346-21bda4d32df4\",\n    title: \"Misty Mountain Range\",\n  },\n  {\n    id: 2,\n    url: \"https://images.unsplash.com/photo-1469474968028-56623f02e42e\",\n    title: \"Forest Trail\",\n  },\n  {\n    id: 3,\n    url: \"https://images.unsplash.com/photo-1441974231531-c6227db76b6e\",\n    title: \"Autumn Forest\",\n  },\n  {\n    id: 4,\n    url: \"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05\",\n    title: \"Lake at Sunset\",\n  },\n  {\n    id: 5,\n    url: \"https://images.unsplash.com/photo-1501785888041-af3ef285b470\",\n    title: \"Wide Coastal Horizon\",\n  },\n];\n\nexport function CarouselDemo() {\n  const [api, setApi] = useState<CarouselApi>();\n  const [current, setCurrent] = useState(0);\n\n  useEffect(() => {\n    if (!api) return;\n\n    setCurrent(api.selectedScrollSnap() + 1);\n\n    api.on(\"select\", () => {\n      setCurrent(api.selectedScrollSnap() + 1);\n    });\n  }, [api]);\n\n  return (\n    <Carousel setApi={setApi} opts={{ loop: true }}>\n      <CarouselContent>\n        {images.map((image, index) => (\n          <CarouselItem key={image.id} css={{ h: \"80\", flexBasis: \"60%\" }}>\n            <styled.img\n              data-selected={current === index + 1}\n              src={image.url}\n              alt={image.title}\n              css={{\n                w: \"full\",\n                h: \"full\",\n                objectFit: \"cover\",\n                rounded: \"md\",\n                transform: \"scale(0.6)\",\n                transition: \"transform 500ms ease-out\",\n                \"&[data-selected=true]\": {\n                  transform: \"scale(1)\",\n                },\n              }}\n            />\n          </CarouselItem>\n        ))}\n      </CarouselContent>\n      <styled.div css={{ display: \"flex\", justifyContent: \"center\", gap: \"3\", mt: \"4\" }}>\n        {images.map((_, index) => (\n          <styled.button\n            key={index}\n            aria-label={`Go to slide ${index + 1}`}\n            data-selected={current === index + 1}\n            css={{\n              w: \"2\",\n              h: \"2\",\n              rounded: \"full\",\n              borderWidth: \"1px\",\n              \"&[data-selected=true]\": {\n                bg: \"primary\",\n              },\n            }}\n            onClick={() => api?.scrollTo(index)}\n          />\n        ))}\n      </styled.div>\n      <CarouselPrevious css={{ display: \"none\", sm: { display: \"flex\" } }} />\n      <CarouselNext css={{ display: \"none\", sm: { display: \"flex\" } }} />\n    </Carousel>\n  );\n}\n"
+    }
+  ],
+  "categories": [
+    "carousel"
+  ]
+}

@@ -593,5 +593,26 @@
     "categories": [
       "carousel"
     ]
+  },
+  {
+    "name": "carousel-03",
+    "description": "A carousel with scale effect.",
+    "categories": [
+      "carousel"
+    ]
+  },
+  {
+    "name": "carousel-04",
+    "description": "A carousel with opacity effect.",
+    "categories": [
+      "carousel"
+    ]
+  },
+  {
+    "name": "carousel-05",
+    "description": "A carousel with thumbnails.",
+    "categories": [
+      "carousel"
+    ]
   }
 ]

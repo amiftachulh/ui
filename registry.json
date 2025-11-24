@@ -3098,6 +3098,72 @@
       ]
     },
     {
+      "name": "carousel-03",
+      "type": "registry:block",
+      "description": "A carousel with scale effect.",
+      "registryDependencies": [
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/carousel-03/page.tsx",
+          "type": "registry:page",
+          "target": "app/carousel/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/carousel-03/components/carousel-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "carousel"
+      ]
+    },
+    {
+      "name": "carousel-04",
+      "type": "registry:block",
+      "description": "A carousel with opacity effect.",
+      "registryDependencies": [
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/carousel-04/page.tsx",
+          "type": "registry:page",
+          "target": "app/carousel/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/carousel-04/components/carousel-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "carousel"
+      ]
+    },
+    {
+      "name": "carousel-05",
+      "type": "registry:block",
+      "description": "A carousel with thumbnails.",
+      "registryDependencies": [
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/default/blocks/carousel-05/page.tsx",
+          "type": "registry:page",
+          "target": "app/carousel/page.tsx"
+        },
+        {
+          "path": "registry/default/blocks/carousel-05/components/carousel-demo.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": [
+        "carousel"
+      ]
+    },
+    {
       "name": "chart-area-axes",
       "type": "registry:block",
       "registryDependencies": [

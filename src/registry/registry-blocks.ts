@@ -1623,4 +1623,58 @@ export const blocks: Registry["items"] = [
     ],
     categories: ["carousel"],
   },
+  {
+    name: "carousel-03",
+    description: "A carousel with scale effect.",
+    type: "registry:block",
+    registryDependencies: ["carousel"],
+    files: [
+      {
+        path: "blocks/carousel-03/page.tsx",
+        target: "app/carousel/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/carousel-03/components/carousel-demo.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["carousel"],
+  },
+  {
+    name: "carousel-04",
+    description: "A carousel with opacity effect.",
+    type: "registry:block",
+    registryDependencies: ["carousel"],
+    files: [
+      {
+        path: "blocks/carousel-04/page.tsx",
+        target: "app/carousel/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/carousel-04/components/carousel-demo.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["carousel"],
+  },
+  {
+    name: "carousel-05",
+    description: "A carousel with thumbnails.",
+    type: "registry:block",
+    registryDependencies: ["carousel"],
+    files: [
+      {
+        path: "blocks/carousel-05/page.tsx",
+        target: "app/carousel/page.tsx",
+        type: "registry:page",
+      },
+      {
+        path: "blocks/carousel-05/components/carousel-demo.tsx",
+        type: "registry:component",
+      },
+    ],
+    categories: ["carousel"],
+  },
 ];

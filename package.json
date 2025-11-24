@@ -52,7 +52,7 @@
     "chrono-node": "^2.9.0",
     "cmdk": "^1.0.4",
     "dayjs": "^1.11.13",
-    "embla-carousel-autoplay": "^8.5.2",
+    "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-fade": "^8.6.0",
     "embla-carousel-react": "^8.5.2",
     "gray-matter": "^4.0.3",
