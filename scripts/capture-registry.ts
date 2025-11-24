@@ -35,7 +35,7 @@ async function captureScreenshots() {
   });
 
   for (const block of blocks) {
-    const pageUrl = `http://localhost:3000/view/${block}`;
+    const pageUrl = `http://localhost:4000/view/${block}`;
 
     const page = await browser.newPage();
     await page.goto(pageUrl, {
